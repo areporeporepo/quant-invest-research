@@ -14,10 +14,14 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.responses import JSONResponse
 
+from dataclasses import asdict
+
 from .analysis import snapshot_dict
+from .change_detection import ChangeError, change_composite_jpeg, detect_change
 from .config import settings
 from .data_providers import ProviderError, get_price_series
 from .satellite import SITES, fetch_stac_crop, fetch_stac_scene, fetch_true_color
+from .signals import derive_signals, group_comparison, outlook_text
 
 DISCLAIMER = (
     "Educational/research use only. Not investment advice, not a recommendation "
@@ -40,8 +44,9 @@ def root():
         "service": "quant-invest-research",
         "price_provider": settings.price_provider,
         "default_ticker": settings.default_ticker,
-        "endpoints": ["/health", "/snapshot", "/satellite/sites",
-                      "/satellite/image", "/docs"],
+        "endpoints": ["/health", "/snapshot", "/signals", "/group",
+                      "/satellite/sites", "/satellite/image",
+                      "/satellite/change", "/satellite/change/image", "/docs"],
         "disclaimer": DISCLAIMER,
     }
 
@@ -60,6 +65,78 @@ def snapshot(ticker: str | None = None):
         raise HTTPException(status_code=502, detail=f"data provider error: {e}")
     data = snapshot_dict(series, risk_free=settings.risk_free_rate)
     return JSONResponse({"snapshot": data, "disclaimer": DISCLAIMER})
+
+
+@app.get("/signals")
+def signals(ticker: str | None = None):
+    """Descriptive signal set + plain-language outlook for one ticker.
+
+    Labels (trend, momentum, RSI zone, volatility regime, drawdown state)
+    describe the historical window only — not a forecast, not advice.
+    """
+    try:
+        series = get_price_series(ticker)
+    except ProviderError as e:
+        raise HTTPException(status_code=502, detail=f"data provider error: {e}")
+    sigs = derive_signals(series)
+    return JSONResponse({
+        "ticker": series.ticker,
+        "source": series.source,
+        "is_real_data": series.is_real,
+        "signals": [asdict(s) for s in sigs],
+        "outlook": outlook_text(sigs),
+        "disclaimer": DISCLAIMER,
+    })
+
+
+@app.get("/group")
+def group(tickers: str | None = None):
+    """Side-by-side quant comparison of the Vingroup family (VIC, VHM, VRE,
+    VPL, VEF) or a custom comma-separated `tickers` list, with pairwise
+    return correlations."""
+    names = [t.strip().upper() for t in tickers.split(",")] if tickers else None
+    result = group_comparison(names, risk_free=settings.risk_free_rate)
+    result["disclaimer"] = DISCLAIMER
+    return JSONResponse(result)
+
+
+@app.get("/satellite/change")
+def satellite_change(site: str = "vinhomes_vu_yen",
+                     from_a: str = "2025-01-01", to_a: str = "2025-04-01",
+                     from_b: str = "2026-04-01", to_b: str = "2026-07-01",
+                     max_cloud: float = 20.0):
+    """NDVI-based land-clearing/construction change between two date windows.
+
+    Compares the least-cloudy Sentinel-2 scene in window A vs window B and
+    reports vegetated/cleared areas in hectares, with both scene IDs for
+    reproducibility and explicit caveats.
+    """
+    try:
+        rep = detect_change(site, from_a, to_a, from_b, to_b, max_cloud)
+    except ChangeError as e:
+        return JSONResponse({"ok": False, "reason": str(e)})
+    d = asdict(rep)
+    d["site"] = vars(rep.site)
+    return JSONResponse({"ok": True, "report": d, "disclaimer": DISCLAIMER})
+
+
+@app.get("/satellite/change/image")
+def satellite_change_image(site: str = "vinhomes_vu_yen",
+                           from_a: str = "2025-01-01", to_a: str = "2025-04-01",
+                           from_b: str = "2026-04-01", to_b: str = "2026-07-01",
+                           max_cloud: float = 20.0):
+    """Side-by-side true-colour crops (before | after) with newly cleared
+    land tinted red on the 'after' panel. JPEG."""
+    try:
+        jpeg, rep = change_composite_jpeg(site, from_a, to_a, from_b, to_b,
+                                          max_cloud)
+    except ChangeError as e:
+        return JSONResponse({"ok": False, "reason": str(e)})
+    return Response(content=jpeg, media_type="image/jpeg", headers={
+        "X-Scene-A": rep.scene_a.scene_id,
+        "X-Scene-B": rep.scene_b.scene_id,
+        "X-Cleared-Ha": str(rep.cleared_ha),
+    })
 
 
 @app.get("/satellite/sites")
