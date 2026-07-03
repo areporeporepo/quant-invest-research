@@ -1,0 +1,16 @@
+# Secrets — never commit real keys
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Fetched artifacts
+*.png
+!docs/*.png
