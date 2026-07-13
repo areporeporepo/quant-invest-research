@@ -27,6 +27,8 @@ class Settings:
     finnhub_key: str = os.getenv("FINNHUB_API_KEY", "")
 
     # Satellite / alternative-data provider (Sentinel Hub has a free tier).
+    # Planet.com (PlanetScope, 3 m) — optional, needs PL_API_KEY.
+    planet_api_key: str = os.getenv("PL_API_KEY", "")
     sentinelhub_client_id: str = os.getenv("SENTINELHUB_CLIENT_ID", "")
     sentinelhub_client_secret: str = os.getenv("SENTINELHUB_CLIENT_SECRET", "")
 

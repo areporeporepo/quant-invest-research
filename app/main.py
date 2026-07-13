@@ -26,7 +26,8 @@ from .config import settings
 from .data_providers import ProviderError, get_dnse_ohlc, get_price_series
 from .outlook import scenario_cone
 from .psm import load_psm
-from .satellite import SITES, fetch_stac_crop, fetch_stac_scene, fetch_true_color
+from .satellite import (SITES, fetch_planet_crop, fetch_stac_crop,
+                        fetch_stac_scene, fetch_true_color)
 from .signals import derive_signals, group_comparison, outlook_text
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -247,12 +248,16 @@ def satellite_image(site: str = "vinhomes_vu_yen",
     read of the scene's true-colour COG centred on the site; with crop=false
     it returns the whole-tile preview. Scene ID / timestamp / cloud cover are
     in response headers so anyone can re-derive the exact scene.
+    provider="planet": ~3 m PlanetScope crop, needs PL_API_KEY (env only).
     provider="sentinelhub": custom-rendered crop, needs Sentinel Hub creds.
 
     On failure returns 200 JSON explaining why, so the pipeline never
     hard-fails on a missing key or a cloudy month.
     """
-    if provider == "sentinelhub":
+    if provider == "planet":
+        result = fetch_planet_crop(site, date_from, date_to)
+        media_type = "image/jpeg"
+    elif provider == "sentinelhub":
         result = fetch_true_color(site, date_from, date_to)
         media_type = "image/png"
     elif crop:

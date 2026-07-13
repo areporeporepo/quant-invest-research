@@ -283,3 +283,111 @@ def fetch_true_color(site_key: str, date_from: str, date_to: str,
     except Exception as e:
         return SatelliteResult(site=site, fetched=False,
                                reason=f"fetch failed: {e}")
+
+
+# ---------------------------------------------------------------------------
+# Planet.com (PlanetScope, ~3 m) — optional, needs PL_API_KEY.
+# ---------------------------------------------------------------------------
+PLANET_SEARCH_URL = "https://api.planet.com/data/v1/quick-search"
+PLANET_TILE_URL = ("https://tiles.planet.com/data/v1/PSScene/{item}"
+                   "/{z}/{x}/{y}.png")
+
+
+def _lonlat_to_tile(lon: float, lat: float, zoom: int) -> tuple[int, int]:
+    import math
+
+    n = 2 ** zoom
+    x = int((lon + 180.0) / 360.0 * n)
+    lat_r = math.radians(lat)
+    y = int((1.0 - math.log(math.tan(lat_r) + 1 / math.cos(lat_r))
+             / math.pi) / 2.0 * n)
+    return x, y
+
+
+def fetch_planet_crop(site_key: str, date_from: str, date_to: str,
+                      max_cloud: float = 0.3, zoom: int = 15,
+                      grid: int = 3) -> SatelliteResult:
+    """Real PlanetScope (~3 m) imagery for a site via the Planet API.
+
+    Needs PL_API_KEY (HTTP Basic auth, key as username). Quick-searches
+    PSScene items over the site, picks the least-cloudy scene in range, and
+    stitches a grid of XYZ tiles from Planet's tile service — lightweight
+    compared to downloading full scene GeoTIFFs. Returns scene ID, capture
+    time and cloud cover for verifiability, like the Sentinel-2 paths.
+    """
+    from .config import settings
+
+    site = SITES.get(site_key)
+    if site is None:
+        return SatelliteResult(site=None, fetched=False,
+                               reason=f"unknown site '{site_key}'")
+    if not settings.planet_api_key:
+        return SatelliteResult(
+            site=site, fetched=False, source="planet",
+            reason="PL_API_KEY is not set. Add it to the environment (from "
+            "your password manager) to enable 3 m PlanetScope imagery; the "
+            "keyless Sentinel-2 paths keep working without it.")
+    try:
+        import io
+
+        import requests
+        from PIL import Image
+    except ImportError as e:
+        return SatelliteResult(site=site, fetched=False, source="planet",
+                               reason=f"missing dependency: {e.name}")
+    auth = (settings.planet_api_key, "")
+    half = 0.02
+    geometry = {"type": "Polygon", "coordinates": [[
+        [site.lon - half, site.lat - half], [site.lon + half, site.lat - half],
+        [site.lon + half, site.lat + half], [site.lon - half, site.lat + half],
+        [site.lon - half, site.lat - half]]]}
+    try:
+        resp = requests.post(
+            PLANET_SEARCH_URL, auth=auth, timeout=30,
+            json={"item_types": ["PSScene"], "filter": {"type": "AndFilter", "config": [
+                {"type": "GeometryFilter", "field_name": "geometry",
+                 "config": geometry},
+                {"type": "DateRangeFilter", "field_name": "acquired",
+                 "config": {"gte": f"{date_from}T00:00:00Z",
+                            "lte": f"{date_to}T23:59:59Z"}},
+                {"type": "RangeFilter", "field_name": "cloud_cover",
+                 "config": {"lte": max_cloud}},
+                {"type": "PermissionFilter", "config": ["assets:download"]},
+            ]}})
+        resp.raise_for_status()
+        features = resp.json().get("features", [])
+        if not features:
+            return SatelliteResult(
+                site=site, fetched=False, source="planet",
+                reason=f"no PSScene < {max_cloud:.0%} cloud in "
+                f"[{date_from}, {date_to}] with download permission — widen "
+                "the range, raise max_cloud, or check your plan's AOI quota.")
+        best = min(features,
+                   key=lambda f: f["properties"].get("cloud_cover", 1.0))
+        item = best["id"]
+        props = best["properties"]
+
+        cx, cy = _lonlat_to_tile(site.lon, site.lat, zoom)
+        offset = grid // 2
+        tile_px = 256
+        canvas = Image.new("RGB", (grid * tile_px, grid * tile_px))
+        for dy in range(grid):
+            for dx in range(grid):
+                url = PLANET_TILE_URL.format(item=item, z=zoom,
+                                             x=cx - offset + dx,
+                                             y=cy - offset + dy)
+                tr = requests.get(url, auth=auth, timeout=30)
+                tr.raise_for_status()
+                canvas.paste(Image.open(io.BytesIO(tr.content)),
+                             (dx * tile_px, dy * tile_px))
+        buf = io.BytesIO()
+        canvas.save(buf, format="JPEG", quality=90)
+        return SatelliteResult(
+            site=site, fetched=True, image_bytes=buf.getvalue(),
+            source="planet", scene_id=item,
+            scene_datetime=props.get("acquired", ""),
+            cloud_cover=(props.get("cloud_cover") or 0) * 100.0,
+        )
+    except Exception as e:
+        return SatelliteResult(site=site, fetched=False, source="planet",
+                               reason=f"Planet fetch failed: {e}")
