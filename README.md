@@ -96,6 +96,34 @@ rising buildings — a real-world check on whether delivery is on pace with what
 management reports. Coordinates in `app/satellite.py` are approximate centroids
 and are meant to be **verified against public maps** before you rely on them.
 
+## AI-native access (MCP)
+
+As of 2026 the way AI assistants interact with an app is the **Model Context
+Protocol**. This repo ships an MCP server over the same data the web app
+renders — so Claude can *read* the research (snapshots, signals, group
+comparison, USD/m² points, events, outlooks) and *edit* the curated datasets
+(add sourced price points, add events, tune scenario assumptions). Edits land
+in `data/*.json` and appear in the app on refresh: one source of truth, two
+front-ends — humans get charts, AIs get tools.
+
+```bash
+# Claude Code
+claude mcp add vuyen -- python -m app.mcp_server
+# Claude Desktop: add the same command to claude_desktop_config.json
+```
+
+Following Anthropic's **MCP Apps** pattern (Jan 2026), the server also
+exposes the chart as a `ui://vuyen/chart.html` resource that MCP Apps-capable
+hosts can render inline. A machine-readable guide lives at `/llms.txt`.
+
+## Interactive chart app (mobile-first, tiếng Việt)
+
+`uvicorn app.main:app` then open `/` — a Vietnamese-first (EN toggle),
+dark-theme, TradingView-powered PWA designed for iPhone: real HOSE candles
+with event markers, USD/m² per project with source citations on tap, and
+2026–2029 bear/base/bull scenario cones. Add to Home Screen on iOS for the
+native-app feel.
+
 ## Testing
 
 ```bash

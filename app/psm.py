@@ -16,6 +16,11 @@ from pathlib import Path
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 FALLBACK_VND_PER_USD = 26000.0  # rough mid-2026 level; used only if FX API fails
 
+# Approximate yearly-average VND/USD for converting HISTORICAL price points.
+# Using today's rate on a 2023 price would overstate its USD value by ~10%.
+# Points dated in the current year (or beyond the table) use the live rate.
+FX_BY_YEAR = {2023: 23800.0, 2024: 25200.0, 2025: 25900.0}
+
 _fx_cache: dict = {"rate": None, "ts": 0.0, "source": ""}
 
 
@@ -36,11 +41,13 @@ def vnd_per_usd() -> tuple[float, str]:
     return _fx_cache["rate"], _fx_cache["source"]
 
 
-def _to_usd_per_m2(point: dict, rate: float) -> float | None:
+def _to_usd_per_m2(point: dict, live_rate: float) -> float | None:
     cur = point.get("currency", "")
     price = float(point["price"])
     if cur == "USD_per_m2":
         return round(price, 0)
+    year = int(point["date"][:4])
+    rate = FX_BY_YEAR.get(year, live_rate)
     if cur == "VND_million_per_m2":
         return round(price * 1_000_000 / rate, 0)
     if cur == "VND_per_m2":

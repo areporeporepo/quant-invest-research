@@ -1,17 +1,44 @@
 {
   "default": {
-    "bear": {"annual_rate": -0.10, "label": "Bear: correction / tightening"},
-    "base": {"annual_rate": 0.08, "label": "Base: trend growth"},
-    "bull": {"annual_rate": 0.20, "label": "Bull: continued re-rating"}
+    "bear": {
+      "annual_rate": -0.1,
+      "label": "Bear: correction / tightening"
+    },
+    "base": {
+      "annual_rate": 0.08,
+      "label": "Base: trend growth"
+    },
+    "bull": {
+      "annual_rate": 0.2,
+      "label": "Bull: continued re-rating"
+    }
   },
   "vhm": {
-    "bear": {"annual_rate": -0.15, "label": "Bear: property downturn, high vol cuts both ways"},
-    "base": {"annual_rate": 0.10, "label": "Base: delivery on pace"},
-    "bull": {"annual_rate": 0.25, "label": "Bull: re-rating continues"}
+    "bear": {
+      "annual_rate": -0.15,
+      "label": "Bear: property downturn, high vol cuts both ways"
+    },
+    "base": {
+      "annual_rate": 0.1,
+      "label": "Base: delivery on pace"
+    },
+    "bull": {
+      "annual_rate": 0.25,
+      "label": "Bull: re-rating continues"
+    }
   },
   "psm:vu_yen_royal_island": {
-    "bear": {"annual_rate": -0.05, "label": "Bear: oversupply / demand cools"},
-    "base": {"annual_rate": 0.07, "label": "Base: infrastructure premium accrues"},
-    "bull": {"annual_rate": 0.15, "label": "Bull: Hai Phong re-rates to tier-1"}
+    "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: oversupply / demand cools"
+    },
+    "base": {
+      "annual_rate": 0.07,
+      "label": "Base: infrastructure premium accrues"
+    },
+    "bull": {
+      "annual_rate": 0.15,
+      "label": "Bull: Hai Phong re-rates to tier-1"
+    }
   }
 }

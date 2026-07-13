@@ -7,6 +7,61 @@
 const $ = (id) => document.getElementById(id);
 const chartEl = $('chart');
 
+/* ---------------- i18n: Vietnamese-first, EN toggle ---------------- */
+
+const I18N = {
+  vi: {
+    tab_market: 'Thị trường', tab_psm: 'USD / m²',
+    loading: 'đang tải…', error: 'lỗi',
+    tap_hint: 'Chạm vào điểm đánh dấu hoặc sự kiện để xem chi tiết và nguồn.',
+    events: 'Sự kiện', sessions: 'phiên', last: 'giá cuối',
+    legend_daily: (t) => `${t} theo ngày (nghìn VND, dữ liệu thật/DNSE)`,
+    legend_events: 'sự kiện',
+    bear: 'Kịch bản xấu', base: 'Cơ sở', bull: 'Tích cực',
+    to2029: '→ 2029 (kịch bản giả định, không phải dự báo)',
+    no_psm: 'chưa có dữ liệu USD/m²',
+    seed_psm: 'data/psm.json đang trống — thêm dữ liệu để hiển thị biểu đồ này.',
+    psm_status: (n) => `USD trên m² · ${n} điểm có nguồn dẫn`,
+    cone_psm: 'vùng kịch bản → 2029 (giả định, không phải dự báo)',
+    source: 'Nguồn', per_year: '%/năm',
+    disclaimer: 'Chỉ phục vụ nghiên cứu và học tập — không phải lời khuyên đầu tư. ' +
+      'Vùng kịch bản là giả định minh hoạ, không phải dự báo. Dữ liệu cổ phiếu: ' +
+      'DNSE (nghìn VND). Điểm USD/m² được tuyển chọn từ nguồn công khai; chạm vào ' +
+      'từng điểm để xem trích dẫn.',
+    failed: 'Không tải được',
+  },
+  en: {
+    tab_market: 'Markets', tab_psm: 'USD / m²',
+    loading: 'loading…', error: 'error',
+    tap_hint: 'Tap a marker or an event to see details and its source.',
+    events: 'Events', sessions: 'sessions', last: 'last',
+    legend_daily: (t) => `${t} daily (thousand VND, real/DNSE)`,
+    legend_events: 'events',
+    bear: 'Bear', base: 'Base', bull: 'Bull',
+    to2029: '→ 2029 (scenarios, not forecasts)',
+    no_psm: 'no USD/m² data yet',
+    seed_psm: 'data/psm.json is empty — seed it to light up this chart.',
+    psm_status: (n) => `USD per m² · ${n} sourced points`,
+    cone_psm: 'scenario cone → 2029 (assumptions, not forecasts)',
+    source: 'Source', per_year: '%/yr',
+    disclaimer: 'Research & education only — not investment advice. Scenario ' +
+      'cones are illustrative assumptions, not forecasts. Stock data: DNSE ' +
+      'public feed (thousand VND). USD/m² points are curated from public ' +
+      'sources; tap any point for its citation.',
+    failed: 'Failed to load',
+  },
+};
+
+let lang = localStorage.getItem('lang') || 'vi';
+const t = (key, ...args) => {
+  const v = (I18N[lang] || I18N.vi)[key];
+  return typeof v === 'function' ? v(...args) : (v ?? key);
+};
+
+function evTitle(e) { return (lang === 'vi' && e.title_vi) ? e.title_vi : e.title; }
+function evDetail(e) { return (lang === 'vi' && e.detail_vi) ? e.detail_vi : (e.detail || ''); }
+function evShort(e) { return (lang === 'vi' && e.short_vi) ? e.short_vi : (e.short || evTitle(e).slice(0, 18)); }
+
 const chart = LightweightCharts.createChart(chartEl, {
   layout: { background: { color: '#0d1117' }, textColor: '#8b949e' },
   grid: { vertLines: { color: '#161b22' }, horzLines: { color: '#161b22' } },
@@ -58,13 +113,13 @@ async function loadEvents() {
 function renderEventList(events) {
   $('evlist').innerHTML = events.map((e, i) =>
     `<div class="ev" data-i="${i}"><span class="d">${e.date}</span>
-     <span class="t">${e.title}<small>${e.detail || ''}</small></span></div>`
+     <span class="t">${evTitle(e)}<small>${evDetail(e)}</small></span></div>`
   ).join('');
   [...document.querySelectorAll('.ev')].forEach((el) => {
     el.onclick = () => {
       const e = events[+el.dataset.i];
-      setDetail(`<b>${e.date} — ${e.title}</b><br>${e.detail || ''}` +
-        (e.source ? `<br>Source: ${e.source}` : '') +
+      setDetail(`<b>${e.date} — ${evTitle(e)}</b><br>${evDetail(e)}` +
+        (e.source ? `<br>${t('source')}: ${e.source}` : '') +
         (e.url ? `<br><a href="${e.url}" target="_blank" rel="noopener">${e.url}</a>` : ''));
       try {
         chart.timeScale().setVisibleRange({
@@ -81,12 +136,14 @@ function shiftDate(iso, days) {
   return d.toISOString().slice(0, 10);
 }
 
-function markersFromEvents(events, minTime) {
+function markersFromEvents(events, minTime, withText = true) {
   return events
     .filter((e) => !minTime || e.date >= minTime)
     .map((e) => ({
       time: e.date, position: 'aboveBar', color: '#e3b341',
-      shape: 'arrowDown', text: e.short || e.title.slice(0, 18),
+      shape: withText ? 'arrowDown' : 'circle',
+      text: withText ? evShort(e) : undefined,
+      size: withText ? 1 : 0.6,
     }));
 }
 
@@ -110,7 +167,7 @@ function drawCone(cone, priceScaleId) {
 
 async function showMarket() {
   clearSeries();
-  setStatus('loading ' + ticker + '…');
+  setStatus(t('loading'));
   const [data, events, cone] = await Promise.all([
     getJSON(`/api/candles?ticker=${ticker}`),
     loadEvents(),
@@ -132,33 +189,33 @@ async function showMarket() {
 
   chart.timeScale().fitContent();
   legend([
-    { color: '#26a69a', label: `${ticker} daily (thousand VND, real/DNSE)` },
-    { color: '#e3b341', label: 'events' },
-    { color: '#ef5350', label: `bear ${pct(cone, 'bear')}` },
-    { color: '#8b949e', label: `base ${pct(cone, 'base')}` },
-    { color: '#26a69a', label: `bull ${pct(cone, 'bull')} → 2029 (scenarios, not forecasts)` },
+    { color: '#26a69a', label: t('legend_daily', ticker) },
+    { color: '#e3b341', label: t('legend_events') },
+    { color: '#ef5350', label: `${t('bear')} ${pct(cone, 'bear')}` },
+    { color: '#8b949e', label: `${t('base')} ${pct(cone, 'base')}` },
+    { color: '#26a69a', label: `${t('bull')} ${pct(cone, 'bull')} ${t('to2029')}` },
   ]);
   renderEventList(relevant);
-  setStatus(`${ticker} · last ${data.candles.at(-1).close} · ${data.candles.length} sessions`);
+  setStatus(`${ticker} · ${t('last')} ${data.candles.at(-1).close} · ${data.candles.length} ${t('sessions')}`);
 
   candles.setData && chart.subscribeClick((param) => {
     if (!param.time) return;
     const hit = relevant.find((e) => e.date === param.time);
-    if (hit) setDetail(`<b>${hit.date} — ${hit.title}</b><br>${hit.detail || ''}` +
-      (hit.url ? `<br><a href="${hit.url}" target="_blank" rel="noopener">source</a>` : ''));
+    if (hit) setDetail(`<b>${hit.date} — ${evTitle(hit)}</b><br>${evDetail(hit)}` +
+      (hit.url ? `<br><a href="${hit.url}" target="_blank" rel="noopener">${t('source').toLowerCase()}</a>` : ''));
   });
 }
 
 function pct(cone, name) {
   const r = cone.scenarios[name]?.annual_rate;
-  return r === undefined ? '' : `${(r * 100).toFixed(0)}%/yr`;
+  return r === undefined ? '' : `${(r * 100).toFixed(0)}${t('per_year')}`;
 }
 
 /* ---------------- USD/m² view ---------------- */
 
 async function showPsm() {
   clearSeries();
-  setStatus('loading USD/m²…');
+  setStatus(t('loading'));
   const [psm, events] = await Promise.all([
     psmCache ? Promise.resolve(psmCache) : getJSON('/api/psm'),
     loadEvents(),
@@ -166,8 +223,8 @@ async function showPsm() {
   psmCache = psm;
   const keys = Object.keys(psm.projects);
   if (!keys.length) {
-    setStatus('no USD/m² data yet');
-    setDetail('data/psm.json is empty — seed it to light up this chart.');
+    setStatus(t('no_psm'));
+    setDetail(t('seed_psm'));
     legend([]);
     $('evlist').innerHTML = '';
     return;
@@ -193,17 +250,18 @@ async function showPsm() {
   if (vuYenKey) {
     try {
       drawCone(await getJSON(`/api/outlook?series=psm:${vuYenKey}`), 'right');
-      legendItems.push({ color: '#8b949e', label: 'scenario cone → 2029 (assumptions, not forecasts)' });
+      legendItems.push({ color: '#8b949e', label: t('cone_psm') });
     } catch (_) { /* no cone without data */ }
   }
 
   const vuYenEvents = events.filter((e) => e.relevance === 'vu_yen' || e.relevance === 'macro');
-  if (series[0]) series[0].setMarkers(markersFromEvents(vuYenEvents));
+  // Quiet dots on the sparse USD/m² chart — labels live in the list below.
+  if (series[0]) series[0].setMarkers(markersFromEvents(vuYenEvents, null, false));
   chart.timeScale().fitContent();
   legend(legendItems);
   renderEventList(vuYenEvents);
-  const fx = psm.fx ? ` · FX ${Math.round(psm.fx.vnd_per_usd)} VND/USD (${psm.fx.source})` : '';
-  setStatus(`USD per m² · ${allPoints.length} sourced points${fx}`);
+  const fx = psm.fx ? ` · ${Math.round(psm.fx.vnd_per_usd)} VND/USD` : '';
+  setStatus(t('psm_status', allPoints.length) + fx);
 
   chart.subscribeClick((param) => {
     if (!param.time || view !== 'psm') return;
@@ -211,7 +269,7 @@ async function showPsm() {
     if (hits.length) {
       setDetail(hits.map((h) =>
         `<b>${h.project}</b> — ${h.time}: $${h.value}/m² (${h.segment}, ${h.kind})` +
-        (h.source ? `<br>Source: ${h.source}` : '') +
+        (h.source ? `<br>${t('source')}: ${h.source}` : '') +
         (h.url ? ` — <a href="${h.url}" target="_blank" rel="noopener">link</a>` : '')
       ).join('<hr style="border-color:#21262d">'));
     }
@@ -243,13 +301,30 @@ function setView(v) {
 }
 
 function fail(e) {
-  setStatus('error');
-  setDetail(`Failed to load: ${e.message}`);
+  setStatus(t('error'));
+  setDetail(`${t('failed')}: ${e.message}`);
+}
+
+function applyStaticText() {
+  $('tab-market').textContent = t('tab_market');
+  $('tab-psm').textContent = t('tab_psm');
+  $('detail').textContent = t('tap_hint');
+  document.querySelector('#events h2').textContent = t('events');
+  $('disclaimer').textContent = t('disclaimer');
+  $('lang').textContent = lang === 'vi' ? 'EN' : 'VI';
+  document.documentElement.lang = lang;
 }
 
 $('tab-market').onclick = () => setView('market');
 $('tab-psm').onclick = () => setView('psm');
+$('lang').onclick = () => {
+  lang = lang === 'vi' ? 'en' : 'vi';
+  localStorage.setItem('lang', lang);
+  applyStaticText();
+  setView(view);
+};
 
+applyStaticText();
 setView('market');
 /* Auto-refresh market data every 5 minutes while the app is open. */
 setInterval(() => { if (view === 'market') showMarket().catch(() => {}); }, 300000);
