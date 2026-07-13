@@ -23,7 +23,8 @@ from fastapi.staticfiles import StaticFiles
 from .analysis import snapshot_dict
 from .change_detection import ChangeError, change_composite_jpeg, detect_change
 from .config import settings
-from .data_providers import ProviderError, get_dnse_ohlc, get_price_series
+from .data_providers import (ProviderError, get_dnse_ohlc,
+                             get_ohlc_any, get_price_series)
 from .outlook import scenario_cone
 from .psm import load_psm
 from .satellite import (SITES, fetch_planet_crop, fetch_stac_crop,
@@ -154,11 +155,11 @@ def satellite_change_image(site: str = "vinhomes_vu_yen",
 def api_candles(ticker: str = "VHM", days: int = 800):
     """Real daily OHLCV candles, chart-ready for Lightweight Charts."""
     try:
-        candles = get_dnse_ohlc(ticker, days)
+        candles, unit, source = get_ohlc_any(ticker, days)
     except ProviderError as e:
         raise HTTPException(status_code=502, detail=str(e))
     return JSONResponse({"ticker": ticker.upper(), "candles": candles,
-                         "unit": "thousand VND", "source": "dnse"})
+                         "unit": unit, "source": source})
 
 
 @app.get("/api/events")
@@ -198,7 +199,7 @@ def api_outlook(series: str = "vhm", last_date: str | None = None,
             last_date, last_value = last["time"], last["value"]
         else:
             try:
-                candles = get_dnse_ohlc(series, days=30)
+                candles, _, _ = get_ohlc_any(series, days=60)
             except ProviderError as e:
                 raise HTTPException(status_code=502, detail=str(e))
             last_date, last_value = candles[-1]["time"], candles[-1]["close"]
@@ -222,6 +223,19 @@ def api_psm_outlooks(horizon_end: str = "2029-12-31"):
                                    horizon_end=horizon_end)
         cones[key]["label"] = proj["label"]
     return JSONResponse({"cones": cones, "disclaimer": DISCLAIMER})
+
+
+@app.get("/satellite/portfolio")
+def satellite_portfolio():
+    """Cached construction-activity findings for ALL tracked sites
+    (cleared/revegetated hectares between two windows, with scene IDs).
+    Regenerate with: python scripts/satellite_portfolio.py"""
+    path = DATA_DIR / "satellite_findings.json"
+    if not path.exists():
+        return JSONResponse({"ok": False,
+                             "reason": "no cached findings — run "
+                             "scripts/satellite_portfolio.py"})
+    return JSONResponse(json.loads(path.read_text()))
 
 
 @app.get("/satellite/sites")

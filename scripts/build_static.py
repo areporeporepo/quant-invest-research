@@ -31,14 +31,21 @@ def get(path: str):
 
 def snapshot() -> dict:
     data = {"candles": {}, "outlook": {}, "psm": None, "events": None}
-    for tk in ["VHM", "VIC", "VRE", "VPL", "VEF"]:
-        data["candles"][tk] = get(f"/api/candles?ticker={tk}")["candles"][-420:]
+    data["units"] = {}
+    for tk in ["VHM", "VIC", "VRE", "VPL", "VEF", "VNINDEX", "NVDA", "SPY"]:
+        resp = get(f"/api/candles?ticker={tk}")
+        data["candles"][tk] = resp["candles"][-420:]
+        data["units"][tk] = resp.get("unit", "thousand VND")
         data["outlook"][tk] = get(f"/api/outlook?series={tk}")
     data["psm"] = get("/api/psm")
     data["psm_outlooks"] = get("/api/psm_outlooks")
     data["outlook"]["psm:vu_yen_royal_island"] = get(
         "/api/outlook?series=psm:vu_yen_royal_island")
     data["events"] = get("/api/events")["events"]
+    try:
+        data["satellite"] = get("/satellite/portfolio")
+    except Exception:
+        data["satellite"] = None
     data["asof"] = data["candles"]["VHM"][-1]["time"]
     return data
 
@@ -47,22 +54,27 @@ LIVE_GETJSON = """async function getJSON(url) {
   // Static build: try LIVE data first, fall back to the embedded snapshot.
   if (url.startsWith('/api/candles')) {
     const tk = new URLSearchParams(url.split('?')[1]).get('ticker') || 'VHM';
+    const emb = { ticker: tk, unit: (DATA.units || {})[tk] || 'thousand VND',
+                  candles: DATA.candles[tk] || [] };
+    // Yahoo blocks browser CORS: US tickers always use the embedded snapshot.
+    if (emb.unit === 'USD') return emb;
+    const kind = tk === 'VNINDEX' ? 'index' : 'stock';
     try {
       const now = Math.floor(Date.now() / 1000);
-      const r = await fetch('https://services.entrade.com.vn/chart-api/v2/ohlcs/stock' +
+      const r = await fetch(`https://services.entrade.com.vn/chart-api/v2/ohlcs/${kind}` +
         `?symbol=${tk}&resolution=1D&from=${now - 86400 * 800}&to=${now}`,
         { signal: AbortSignal.timeout(6000) });
       if (!r.ok) throw new Error(r.status);
       const d = await r.json();
       if (!d.c || !d.c.length) throw new Error('empty');
       window.__live = true;
-      return { ticker: tk, candles: d.t.map((tt, i) => ({
+      return { ticker: tk, unit: emb.unit, candles: d.t.map((tt, i) => ({
         time: new Date(tt * 1000).toISOString().slice(0, 10),
         open: d.o[i], high: d.h[i], low: d.l[i], close: d.c[i], volume: d.v[i],
       })) };
     } catch (_) {
       window.__live = false;
-      return { ticker: tk, candles: DATA.candles[tk] || [] };
+      return emb;
     }
   }
   if (url.startsWith('/api/outlook')) {
@@ -228,7 +240,8 @@ def machine_summary(data: dict) -> str:
         f"(source: {e.get('source', '')})</li>"
         for e in sorted(data["events"], key=lambda e: e["date"], reverse=True))
     closes = " · ".join(
-        f"{tk} {c[-1]['close']}" for tk, c in data["candles"].items())
+        f"{tk} {c[-1]['close']} ({data.get('units', {}).get(tk, '')})"
+        for tk, c in data["candles"].items())
     return f"""<section id="machine-summary" hidden aria-hidden="true">
 <h1>Vũ Yên Research — machine-readable summary (as of {data['asof']})</h1>
 <p>Educational research on Vinhomes Royal Island (Vũ Yên island, Hải Phòng,
@@ -245,9 +258,33 @@ historical points converted at yearly-average FX.</p>
 {''.join(proj_outlooks)}
 <p>Caveat: low-rise headline prices bundle vouchers, discounts and 0%-interest
 support — effective prices sit below headline.</p>
+<h2>Satellite land-cover change per site (Sentinel-2 NDVI, season-matched windows; scene IDs included for reproducibility)</h2>
+<p>IMPORTANT: figures are GROSS vegetation-loss/gain over a ~4,100 ha window centred
+on each site — they include farmland rotation and water-level change around the
+project, not just construction. Treat as an activity screen, not measured
+build-out.</p>
+{satellite_html(data)}
 <h2>Events (newest first)</h2>
 <ul>{events}</ul>
 </section>"""
+
+
+def satellite_html(data: dict) -> str:
+    sat = data.get("satellite") or {}
+    sites = sat.get("sites") or {}
+    if not sites:
+        return "<p>No cached satellite findings.</p>"
+    w = sat.get("windows", {})
+    rows = []
+    for k, v in sites.items():
+        if v.get("ok"):
+            rows.append(f"<li>{v['name']}: NDVI loss {v['cleared_ha']} ha, "
+                        f"NDVI gain {v['revegetated_ha']} ha "
+                        f"(scenes {v['scene_a']['id']} → {v['scene_b']['id']})</li>")
+        else:
+            rows.append(f"<li>{v['name']}: no result — {v.get('reason','')[:120]}</li>")
+    return (f"<p>Windows: {w.get('a')} vs {w.get('b')}.</p><ul>"
+            + "".join(rows) + "</ul>")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,208 @@
+{
+  "windows": {
+    "a": [
+      "2025-04-01",
+      "2025-06-30"
+    ],
+    "b": [
+      "2026-04-01",
+      "2026-06-30"
+    ]
+  },
+  "sites": {
+    "vinhomes_vu_yen": {
+      "name": "Vinhomes Royal Island (Vu Yen Island), Hai Phong, Vietnam",
+      "ok": true,
+      "cleared_ha": 61.5,
+      "revegetated_ha": 222.1,
+      "veg_area_a_ha": 838.5,
+      "veg_area_b_ha": 1167.5,
+      "area_total_ha": 4140.1,
+      "scene_a": {
+        "id": "S2B_48QXJ_20250104_0_L2A",
+        "datetime": "2025-01-04",
+        "cloud": 1.77
+      },
+      "scene_b": {
+        "id": "S2A_48QXJ_20260526_0_L2A",
+        "datetime": "2026-05-26",
+        "cloud": 6.1
+      },
+      "caveats": [
+        "CROSS-SEASON fallback (Jan 2025 vs May 2026): no cloud-free Apr-Jun 2025 scene exists; seasonal vegetation change inflates both figures."
+      ]
+    },
+    "vinhomes_imperia": {
+      "name": "Vinhomes Imperia (Hồng Bàng, Hải Phòng)",
+      "ok": true,
+      "cleared_ha": 0.8,
+      "revegetated_ha": 103.5,
+      "veg_area_a_ha": 21.4,
+      "veg_area_b_ha": 124.1,
+      "area_total_ha": 4140.1,
+      "scene_a": {
+        "id": "S2C_48QXJ_20250502_0_L2A",
+        "datetime": "2025-05-02T03:42:34.423000Z",
+        "cloud": 31.843019
+      },
+      "scene_b": {
+        "id": "S2B_48QXJ_20260412_0_L2A",
+        "datetime": "2026-04-12T03:42:10.928000Z",
+        "cloud": 5.266451
+      },
+      "caveats": [
+        "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
+        "scene A has 31.8% cloud — treat changed-area figures with extra caution"
+      ]
+    },
+    "the_minato": {
+      "name": "The Minato Residence (Lê Chân, Hải Phòng)",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 40.0% cloud in [2025-04-01, 2025-06-30]"
+    },
+    "vlasta_thuy_nguyen": {
+      "name": "Vlasta Thủy Nguyên (Hải Phòng)",
+      "ok": true,
+      "cleared_ha": 75.1,
+      "revegetated_ha": 1.0,
+      "veg_area_a_ha": 168.8,
+      "veg_area_b_ha": 70.4,
+      "area_total_ha": 4140.1,
+      "scene_a": {
+        "id": "S2C_48QXJ_20250512_0_L2A",
+        "datetime": "2025-05-12T03:42:30.848000Z",
+        "cloud": 35.352814
+      },
+      "scene_b": {
+        "id": "S2B_48QXJ_20260412_0_L2A",
+        "datetime": "2026-04-12T03:42:10.928000Z",
+        "cloud": 5.266451
+      },
+      "caveats": [
+        "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
+        "scene A has 35.4% cloud — treat changed-area figures with extra caution"
+      ]
+    },
+    "ocean_park_1": {
+      "name": "Vinhomes Ocean Park 1 (Gia Lâm, Hà Nội)",
+      "ok": true,
+      "cleared_ha": 687.2,
+      "revegetated_ha": 0.2,
+      "veg_area_a_ha": 920.1,
+      "veg_area_b_ha": 0.5,
+      "area_total_ha": 4141.6,
+      "scene_a": {
+        "id": "S2C_48QWJ_20250502_0_L2A",
+        "datetime": "2025-05-02T03:42:38.103000Z",
+        "cloud": 12.772515
+      },
+      "scene_b": {
+        "id": "S2B_48QWJ_20260412_0_L2A",
+        "datetime": "2026-04-12T03:42:14.613000Z",
+        "cloud": 3.535111
+      },
+      "caveats": [
+        "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
+        "scene A has 12.8% cloud — treat changed-area figures with extra caution"
+      ]
+    },
+    "ocean_park_2": {
+      "name": "Vinhomes Ocean Park 2 (Văn Giang, Hưng Yên)",
+      "ok": true,
+      "cleared_ha": 726.6,
+      "revegetated_ha": 0.0,
+      "veg_area_a_ha": 842.3,
+      "veg_area_b_ha": 1.0,
+      "area_total_ha": 4141.6,
+      "scene_a": {
+        "id": "S2C_48QWJ_20250502_0_L2A",
+        "datetime": "2025-05-02T03:42:38.103000Z",
+        "cloud": 12.772515
+      },
+      "scene_b": {
+        "id": "S2B_48QWJ_20260412_0_L2A",
+        "datetime": "2026-04-12T03:42:14.613000Z",
+        "cloud": 3.535111
+      },
+      "caveats": [
+        "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
+        "scene A has 12.8% cloud — treat changed-area figures with extra caution"
+      ]
+    },
+    "grand_park": {
+      "name": "Vinhomes Grand Park (Thủ Đức, TP.HCM)",
+      "ok": true,
+      "cleared_ha": 300.7,
+      "revegetated_ha": 180.1,
+      "veg_area_a_ha": 821.3,
+      "veg_area_b_ha": 675.6,
+      "area_total_ha": 1410.5,
+      "scene_a": {
+        "id": "S2B_48PXS_20250630_0_L2A",
+        "datetime": "2025-06-30T03:25:19.305000Z",
+        "cloud": 5.039868
+      },
+      "scene_b": {
+        "id": "S2C_48PYS_20260501_0_L2A",
+        "datetime": "2026-05-01T03:25:14.730000Z",
+        "cloud": 1.85502
+      },
+      "caveats": [
+        "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison."
+      ]
+    },
+    "golden_avenue": {
+      "name": "Vinhomes Golden Avenue (Móng Cái, Quảng Ninh)",
+      "ok": true,
+      "cleared_ha": 66.8,
+      "revegetated_ha": 548.2,
+      "veg_area_a_ha": 712.1,
+      "veg_area_b_ha": 1596.4,
+      "area_total_ha": 4122.9,
+      "scene_a": {
+        "id": "S2B_48QZJ_20250424_0_L2A",
+        "datetime": "2025-04-24T03:32:12.236000Z",
+        "cloud": 29.645997
+      },
+      "scene_b": {
+        "id": "S2B_48QZJ_20260409_0_L2A",
+        "datetime": "2026-04-09T03:32:10.098000Z",
+        "cloud": 2.164638
+      },
+      "caveats": [
+        "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
+        "scene A has 29.6% cloud — treat changed-area figures with extra caution"
+      ]
+    },
+    "green_paradise": {
+      "name": "Vinhomes Green Paradise (Cần Giờ, TP.HCM)",
+      "ok": true,
+      "cleared_ha": 28.5,
+      "revegetated_ha": 1.3,
+      "veg_area_a_ha": 3114.9,
+      "veg_area_b_ha": 3021.9,
+      "area_total_ha": 4121.6,
+      "scene_a": {
+        "id": "S2B_48PXS_20250630_0_L2A",
+        "datetime": "2025-06-30T03:25:19.305000Z",
+        "cloud": 5.039868
+      },
+      "scene_b": {
+        "id": "S2C_48PYS_20260501_0_L2A",
+        "datetime": "2026-05-01T03:25:14.730000Z",
+        "cloud": 1.85502
+      },
+      "caveats": [
+        "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison."
+      ]
+    }
+  },
+  "note": "Season-matched windows (Apr-Jun 2025 vs Apr-Jun 2026) except where flagged. Figures are GROSS NDVI loss/gain over a ~4,100 ha window around each site — includes farmland rotation and water-level changes, NOT just construction. Screen, don't conclude."
+}

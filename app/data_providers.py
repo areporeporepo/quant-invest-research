@@ -67,13 +67,13 @@ def _stub_series(ticker: str, n: int = 180) -> PriceSeries:
 # ---------------------------------------------------------------------------
 # Real providers (network). Imported lazily so the app runs without requests.
 # ---------------------------------------------------------------------------
-def _http_get_json(url: str, params: dict) -> dict:
+def _http_get_json(url: str, params: dict, headers: dict | None = None) -> dict:
     try:
         import requests
     except ImportError as e:  # pragma: no cover
         raise ProviderError("`requests` not installed; run `pip install requests`") from e
     try:
-        resp = requests.get(url, params=params, timeout=20)
+        resp = requests.get(url, params=params, headers=headers, timeout=20)
         resp.raise_for_status()
         return resp.json()
     except Exception as e:
@@ -136,6 +136,83 @@ def _dnse_series(ticker: str, days: int = 400) -> PriceSeries:
         "Prices are in thousands of VND as quoted by the exchange feed.",
         dates=dates,
     )
+
+
+VN_INDICES = {"VNINDEX", "VN30", "HNXINDEX", "UPCOMINDEX"}
+
+
+def get_yahoo_ohlc(ticker: str, days: int = 800) -> list[dict]:
+    """Real daily OHLCV for US tickers (NVDA, SPY, ...) via Yahoo's public
+    chart API. Keyless; prices in USD."""
+    import datetime as dt
+
+    rng = "2y" if days > 400 else "1y"
+    data = _http_get_json(
+        f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker.upper()}",
+        {"range": rng, "interval": "1d"},
+        headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"},
+    )
+    try:
+        res = data["chart"]["result"][0]
+        stamps = res["timestamp"]
+        q = res["indicators"]["quote"][0]
+    except (KeyError, IndexError, TypeError) as e:
+        raise ProviderError(f"Yahoo returned no chart for '{ticker}'") from e
+    out = []
+    for i, ts in enumerate(stamps):
+        if q["close"][i] is None:
+            continue
+        out.append({
+            "time": dt.datetime.fromtimestamp(ts, dt.timezone.utc).strftime("%Y-%m-%d"),
+            "open": round(float(q["open"][i]), 2),
+            "high": round(float(q["high"][i]), 2),
+            "low": round(float(q["low"][i]), 2),
+            "close": round(float(q["close"][i]), 2),
+            "volume": float(q["volume"][i] or 0),
+        })
+    if not out:
+        raise ProviderError(f"Yahoo returned empty candles for '{ticker}'")
+    return out
+
+
+def get_ohlc_any(ticker: str, days: int = 800) -> tuple[list[dict], str, str]:
+    """Route a symbol to the right real feed.
+
+    Returns (candles, unit, source). HOSE/HNX tickers and VN indices go to
+    DNSE (thousand VND / index points); anything DNSE doesn't know falls
+    through to Yahoo (USD) — so NVDA or SPY just work.
+    """
+    symbol = ticker.upper().removesuffix(".VN")
+    if symbol in VN_INDICES:
+        return (_dnse_ohlc_request(symbol, days, kind="index"),
+                "points", "dnse")
+    try:
+        return get_dnse_ohlc(symbol, days), "thousand VND", "dnse"
+    except ProviderError:
+        return get_yahoo_ohlc(symbol, days), "USD", "yahoo"
+
+
+def _dnse_ohlc_request(symbol: str, days: int, kind: str = "stock") -> list[dict]:
+    import datetime as dt
+    import time
+
+    now = int(time.time())
+    data = _http_get_json(
+        f"https://services.entrade.com.vn/chart-api/v2/ohlcs/{kind}",
+        {"symbol": symbol, "resolution": "1D",
+         "from": now - 60 * 60 * 24 * days, "to": now},
+    )
+    if not data.get("c"):
+        raise ProviderError(f"DNSE returned no candles for '{symbol}' ({kind})")
+    return [
+        {
+            "time": dt.datetime.fromtimestamp(t, dt.timezone.utc).strftime("%Y-%m-%d"),
+            "open": float(o), "high": float(h), "low": float(l),
+            "close": float(c), "volume": float(v),
+        }
+        for t, o, h, l, c, v in zip(data["t"], data["o"], data["h"],
+                                    data["l"], data["c"], data["v"])
+    ]
 
 
 def get_dnse_ohlc(ticker: str, days: int = 800) -> list[dict]:

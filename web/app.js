@@ -15,7 +15,8 @@ const I18N = {
     loading: 'đang tải…', error: 'lỗi',
     tap_hint: 'Chạm vào điểm đánh dấu hoặc sự kiện để xem chi tiết và nguồn.',
     events: 'Sự kiện', sessions: 'phiên', last: 'giá cuối',
-    legend_daily: (t) => `${t} theo ngày (nghìn VND, dữ liệu thật/DNSE)`,
+    legend_daily: (t, u) => `${t} theo ngày (${u}, dữ liệu thật)`,
+    unit_thousand_vnd: 'nghìn VND', unit_points: 'điểm', unit_usd: 'USD',
     legend_events: 'sự kiện',
     bear: 'Kịch bản xấu', base: 'Cơ sở', bull: 'Tích cực',
     to2029: '→ 2029 (kịch bản giả định, không phải dự báo)',
@@ -43,7 +44,8 @@ const I18N = {
     loading: 'loading…', error: 'error',
     tap_hint: 'Tap a marker or an event to see details and its source.',
     events: 'Events', sessions: 'sessions', last: 'last',
-    legend_daily: (t) => `${t} daily (thousand VND, real/DNSE)`,
+    legend_daily: (t, u) => `${t} daily (${u}, real data)`,
+    unit_thousand_vnd: 'thousand VND', unit_points: 'points', unit_usd: 'USD',
     legend_events: 'events',
     bear: 'Bear', base: 'Base', bull: 'Bull',
     to2029: '→ 2029 (scenarios, not forecasts)',
@@ -225,8 +227,10 @@ async function showMarket() {
   drawCone(cone, 'right');
 
   chart.timeScale().fitContent();
+  const unitKey = { 'thousand VND': 'unit_thousand_vnd', 'points': 'unit_points',
+                    'USD': 'unit_usd' }[data.unit] || 'unit_thousand_vnd';
   legend([
-    { color: '#26a69a', label: t('legend_daily', ticker) },
+    { color: '#26a69a', label: t('legend_daily', ticker, t(unitKey)) },
     { color: '#e3b341', label: t('legend_events') },
     { color: '#ef5350', label: `${t('bear')} ${pct(cone, 'bear')}` },
     { color: '#8b949e', label: `${t('base')} ${pct(cone, 'base')}` },
@@ -385,7 +389,7 @@ function renderOutlookCard(cone) {
 
 /* ---------------- Tabs & ticker chips ---------------- */
 
-const TICKERS = ['VHM', 'VIC', 'VRE', 'VPL', 'VEF'];
+const TICKERS = ['VHM', 'VIC', 'VRE', 'VPL', 'VEF', 'VNINDEX', 'NVDA', 'SPY'];
 
 function renderChips() {
   if (view === 'market') {

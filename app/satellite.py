@@ -43,6 +43,7 @@ class Site:
 # centroids and are meant to be checked against public maps, not treated as
 # survey-grade. Cross-check before relying on any of them.
 SITES: dict[str, Site] = {
+    # All coordinates are approximate centroids — verify against public maps.
     "vinhomes_vu_yen": Site(
         key="vinhomes_vu_yen",
         name="Vinhomes Royal Island (Vu Yen Island), Hai Phong, Vietnam",
@@ -53,6 +54,47 @@ SITES: dict[str, Site] = {
         "finished units — is a proxy for delivery progress and revenue "
         "recognition. VERIFY the centroid against public maps before use.",
     ),
+    "vinhomes_imperia": Site(
+        key="vinhomes_imperia",
+        name="Vinhomes Imperia (Hồng Bàng, Hải Phòng)",
+        lat=20.8646, lon=106.6605,
+        note="Mature 2016-era Vingroup landed project by the Cấm river."),
+    "the_minato": Site(
+        key="the_minato",
+        name="The Minato Residence (Lê Chân, Hải Phòng)",
+        lat=20.8283, lon=106.6683,
+        note="Japanese-built apartment project (approx. centroid)."),
+    "vlasta_thuy_nguyen": Site(
+        key="vlasta_thuy_nguyen",
+        name="Vlasta Thủy Nguyên (Hải Phòng)",
+        lat=20.9190, lon=106.6780,
+        note="Văn Phú-Invest low-rise project in Thủy Nguyên (approx.)."),
+    "ocean_park_1": Site(
+        key="ocean_park_1",
+        name="Vinhomes Ocean Park 1 (Gia Lâm, Hà Nội)",
+        lat=20.9930, lon=105.9530,
+        note="Completed mega-township east of Hanoi."),
+    "ocean_park_2": Site(
+        key="ocean_park_2",
+        name="Vinhomes Ocean Park 2 (Văn Giang, Hưng Yên)",
+        lat=20.9430, lon=105.9850,
+        note="The Empire township south of OP1 (approx. centroid)."),
+    "grand_park": Site(
+        key="grand_park",
+        name="Vinhomes Grand Park (Thủ Đức, TP.HCM)",
+        lat=10.8410, lon=106.8290,
+        note="271 ha township in eastern HCMC."),
+    "golden_avenue": Site(
+        key="golden_avenue",
+        name="Vinhomes Golden Avenue (Móng Cái, Quảng Ninh)",
+        lat=21.5260, lon=107.9640,
+        note="Border-city project near the China crossing (approx.)."),
+    "green_paradise": Site(
+        key="green_paradise",
+        name="Vinhomes Green Paradise (Cần Giờ, TP.HCM)",
+        lat=10.4300, lon=106.8900,
+        note="2,870 ha coastal mega-project, groundbreaking Apr 2025 — "
+        "construction should be visible from orbit (approx. centroid)."),
 }
 
 
