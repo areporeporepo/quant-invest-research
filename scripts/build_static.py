@@ -283,7 +283,9 @@ def satellite_html(data: dict) -> str:
     rows = []
     for k, v in sites.items():
         if v.get("ok"):
-            rows.append(f"<li>{v['name']}: NDVI loss {v['cleared_ha']} ha, "
+            rec = (f"RECLAIMED {v['reclaimed_ha']} ha water→land, "
+                   if v.get("reclaimed_ha") else "")
+            rows.append(f"<li>{v['name']}: {rec}NDVI loss {v['cleared_ha']} ha, "
                         f"NDVI gain {v['revegetated_ha']} ha "
                         f"(scenes {v['scene_a']['id']} → {v['scene_b']['id']})</li>")
         else:

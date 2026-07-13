@@ -1,6 +1,30 @@
 {
   "events": [
     {
+      "date": "2017-09-02",
+      "title": "Tân Vũ–Lạch Huyện bridge opens (VN's longest sea bridge, 5.44 km)",
+      "title_vi": "Thông xe cầu Tân Vũ–Lạch Huyện (cầu vượt biển dài nhất VN, 5,44 km)",
+      "detail": "ODA-funded 11,849 bn VND bridge links Hải Phòng mainland to Cát Hải, cutting access to the Cát Bà gateway under 30 minutes — precondition for Sun Group's build-out and the VinFast plant.",
+      "detail_vi": "Cầu vốn ODA 11.849 tỷ nối đất liền Hải Phòng với đảo Cát Hải, rút thời gian tới cửa ngõ Cát Bà xuống dưới 30 phút — tiền đề cho du lịch Sun Group và nhà máy VinFast.",
+      "short": "Tân Vũ bridge",
+      "short_vi": "Cầu Tân Vũ",
+      "relevance": "cat_ba",
+      "source": "Thanh Niên / VietnamNet",
+      "url": "https://thanhnien.vn/cau-vuot-bien-dai-nhat-viet-nam-chinh-thuc-thong-xe-sang-quoc-khanh-29-185691753.htm"
+    },
+    {
+      "date": "2020-06-06",
+      "title": "Sun Group opens Cát Hải–Phù Long cable car",
+      "title_vi": "Sun Group khai trương cáp treo Cát Hải–Phù Long",
+      "detail": "3,955 m sea-crossing line (2,207 bn VND), world's tallest cable-car pylon (214.8 m); first piece of the Cát Bà tourism ecosystem, positioned as the green alternative to ferries. Regular service resumed from 17/4/2024.",
+      "detail_vi": "Tuyến vượt biển 3.955 m (2.207 tỷ), trụ cáp cao nhất thế giới (214,8 m); mảnh ghép đầu của hệ sinh thái du lịch Cát Bà, định vị là lựa chọn xanh thay phà. Chạy đều đặn lại từ 17/4/2024.",
+      "short": "Cable car",
+      "short_vi": "Cáp treo Cát Bà",
+      "relevance": "cat_ba",
+      "source": "Hải Phòng portal; SGGP",
+      "url": "https://haiphong.gov.vn/Chuyen-de/Huong-toi-ky-niem-65-nam-Ngay-giai-phong-Hai-Phong/Khai-truong-tuyen-cap-treo-Cat-Hai--Phu-Long-Diem-nhan-du-lich-cua-dao-ngoc-Cat-Ba-47171.html"
+    },
+    {
       "date": "2023-06-19",
       "title": "SBV's 4th policy-rate cut of 2023 takes effect",
       "short": "SBV rate cut",
@@ -37,6 +61,18 @@
       "url": ""
     },
     {
+      "date": "2023-09-16",
+      "title": "UNESCO inscribes Hạ Long Bay–Cát Bà as World Natural Heritage",
+      "title_vi": "UNESCO công nhận Vịnh Hạ Long – Quần đảo Cát Bà là Di sản Thiên nhiên Thế giới",
+      "detail": "45th WHC session approved extending Hạ Long WHS to Cát Bà — Vietnam's first inter-provincial world heritage site. IUCN had advised AGAINST it, citing port/tourism pressure and weak buffer zoning. Biosphere reserve since 2004.",
+      "detail_vi": "Kỳ họp 45 phê duyệt mở rộng di sản Hạ Long sang Cát Bà — di sản liên tỉnh đầu tiên của VN. IUCN từng khuyến nghị KHÔNG mở rộng vì áp lực cảng/du lịch và vùng đệm yếu. Là Khu dự trữ sinh quyển từ 2004.",
+      "short": "UNESCO listing",
+      "short_vi": "UNESCO Cát Bà",
+      "relevance": "cat_ba",
+      "source": "Bộ VHTTDL; Nhân Dân",
+      "url": "https://bvhttdl.gov.vn/vinh-ha-long-va-quan-dao-cat-ba-duoc-unesco-cong-nhan-la-di-san-the-gioi-20230916222854897.htm"
+    },
+    {
       "date": "2024-03-15",
       "title": "Vinhomes launches Royal Island on Vũ Yên Island",
       "short": "Royal Island",
@@ -49,6 +85,18 @@
       "url": "https://vingroup.net/tin-tuc-su-kien/bai-viet/3032/vinhomes-ra-mat-vinhomes-royal-island-thanh-pho-dao-hoang-gia-dang-cap-bac-nhat-chau-luc"
     },
     {
+      "date": "2024-07-31",
+      "title": "World Heritage Committee requests reactive monitoring mission",
+      "title_vi": "Ủy ban Di sản Thế giới yêu cầu đoàn giám sát phản ứng nhanh",
+      "detail": "46th session (New Delhi) expressed concern over coastal tourism/urban expansion without a carrying-capacity study and SEA; requested a joint WHC/IUCN mission in 2025.",
+      "detail_vi": "Kỳ họp 46 (New Delhi) lo ngại mở rộng du lịch/đô thị ven bờ khi chưa có nghiên cứu sức tải và ĐMC; yêu cầu đoàn WHC/IUCN năm 2025.",
+      "short": "WHC monitoring",
+      "short_vi": "UNESCO giám sát",
+      "relevance": "cat_ba",
+      "source": "UNESCO WHC SOC 4500",
+      "url": "https://whc.unesco.org/en/soc/4500"
+    },
+    {
       "date": "2024-08-01",
       "title": "2024 Land Law, Housing Law and RE Business Law take effect",
       "short": "Land Law",
@@ -59,6 +107,18 @@
       "relevance": "macro",
       "source": "Vietnam Briefing",
       "url": "https://www.vietnam-briefing.com/news/regulation-of-vietnams-real-estate-market-new-laws-in-effect-from-august-1-2024.html/"
+    },
+    {
+      "date": "2024-08-16",
+      "title": "Sun Group breaks ground on Xanh Island (Cát Bà central bay)",
+      "title_vi": "Sun Group khởi công Vịnh trung tâm Cát Bà (Xanh Island)",
+      "detail": "~46-50 ha at the town's central bay, ~12,495 bn VND; 2,742 units (877 low-rise + 3 towers), 2 marinas, 6 five-star hotels. Bay reclamation proceeded late 2024 - early 2025.",
+      "detail_vi": "~46-50 ha tại vịnh trung tâm thị trấn, ~12.495 tỷ; 2.742 sản phẩm (877 thấp tầng + 3 tháp), 2 bến du thuyền, 6 khách sạn 5 sao. San lấp vịnh cuối 2024 – đầu 2025.",
+      "short": "Xanh Island start",
+      "short_vi": "Khởi công Xanh Island",
+      "relevance": "cat_ba",
+      "source": "Giáo dục VN; Dân Việt",
+      "url": "https://giaoduc.net.vn/sun-group-khoi-cong-du-an-khu-du-lich-dich-vu-thuong-mai-gan-12500-ty-dong-post244876.gd"
     },
     {
       "date": "2024-09-25",
@@ -97,6 +157,18 @@
       "url": "https://theinvestor.vn/vietnams-vinhomes-fulfils-67-of-record-buyback-plan-d13442.html"
     },
     {
+      "date": "2024-12-07",
+      "title": "Public controversy over Cát Bà bay reclamation",
+      "title_vi": "Tranh cãi công khai về san lấp vịnh trung tâm Cát Bà",
+      "detail": "VOA/RFA report social-media shock at images of the bay being filled one year after UNESCO listing; experts warned of reduced tidal prism, turbidity, habitat fragmentation.",
+      "detail_vi": "VOA/RFA đưa tin dư luận sốc trước hình ảnh vịnh bị san lấp chỉ một năm sau khi được UNESCO vinh danh; chuyên gia cảnh báo giảm lăng kính triều, nước đục, chia cắt sinh cảnh.",
+      "short": "Reclamation row",
+      "short_vi": "Tranh cãi san lấp",
+      "relevance": "cat_ba",
+      "source": "VOA Tiếng Việt 7/12/2024",
+      "url": "https://www.voatiengviet.com/a/7890227.html"
+    },
+    {
       "date": "2025-01-01",
       "title": "Thủy Nguyên officially becomes a city",
       "short": "Thủy Nguyên city",
@@ -109,6 +181,18 @@
       "url": "https://mekongasean.vn/cot-moc-an-tuong-cua-dao-ty-phu-vu-yen-trong-nam-2025-39120.html"
     },
     {
+      "date": "2025-02-21",
+      "title": "Sun Group sales kick-off for Xanh Island",
+      "title_vi": "Sun Group ra quân Thành phố Vịnh trung tâm Xanh Island",
+      "detail": "~2,000 sales agents; marketed as Vietnam's first Net-Zero island destination — 60% green/public space, EV buses/buggies, charging network; park and beach to open summer 2025.",
+      "detail_vi": "~2.000 nhân viên kinh doanh; định vị điểm đến đảo Net Zero đầu tiên của Việt Nam — 60% không gian xanh, xe buýt/buggy điện, trạm sạc; công viên và bãi biển mở hè 2025.",
+      "short": "Sales kick-off",
+      "short_vi": "Ra quân Xanh Island",
+      "relevance": "cat_ba",
+      "source": "VnExpress 26/2/2025",
+      "url": "https://vnexpress.net/sun-group-ra-mat-du-an-du-lich-xanh-50-ha-tai-cat-ba-4854124.html"
+    },
+    {
       "date": "2025-03-15",
       "title": "Hoàng Gia bridge span closure",
       "short": "Bridge closure",
@@ -119,6 +203,30 @@
       "relevance": "vu_yen",
       "source": "Báo Đầu Tư",
       "url": "https://baodautu.vn/hop-long-cau-hoang-gia-2300-ty-dong-noi-trung-tam-tp-hai-phong-voi-dao-vu-yen-d254366.html"
+    },
+    {
+      "date": "2025-04-06",
+      "title": "Xanh Sky launch: 95% of phase 1 sold on day one",
+      "title_vi": "Mở bán Xanh Sky: 95% giỏ hàng đợt 1 hết trong ngày",
+      "detail": "The Xanh 1 tower launch; handover targeted 2026. Financing 0% interest on up to 70% for 30 months; studios from 2.15 bn VND per agent sheets.",
+      "detail_vi": "Mở bán tòa The Xanh 1; bàn giao dự kiến 2026. Hỗ trợ 0% lãi tới 70% trong 30 tháng; studio từ 2,15 tỷ theo bảng giá đại lý.",
+      "short": "Xanh Sky launch",
+      "short_vi": "Xanh Sky 95%",
+      "relevance": "cat_ba",
+      "source": "VnExpress 8/4/2025",
+      "url": "https://vnexpress.net/du-an-sun-group-o-cat-ba-ban-het-95-quy-hang-dot-mot-4871032.html"
+    },
+    {
+      "date": "2025-04-18",
+      "title": "Free EV public transport starts on Cát Bà",
+      "title_vi": "Xe buýt/buggy điện miễn phí trên Cát Bà",
+      "detail": "Trial from 18/4, expanded to 20 vehicles per type and 150 trips/day from 16/5/2025 — flagship of the zero-emission-island positioning.",
+      "detail_vi": "Chạy thử từ 18/4, mở rộng 20 xe/loại và 150 chuyến/ngày từ 16/5/2025 — lá cờ đầu của định vị 'đảo không phát thải'.",
+      "short": "EV transit",
+      "short_vi": "Xe điện Cát Bà",
+      "relevance": "cat_ba",
+      "source": "Cổng TP Hải Phòng",
+      "url": "https://thanhphohaiphong.gov.vn/mien-phi-tuyen-xe-dien-moi-cho-du-khach-tai-dao-cat-ba-tu-18-4.html"
     },
     {
       "date": "2025-04-19",
@@ -169,6 +277,18 @@
       "url": "https://vietnamnews.vn/politics-laws/1720532/launch-of-two-tier-administration-model-marks-hai-phong-s-new-journey-pm.html"
     },
     {
+      "date": "2025-07-07",
+      "title": "Mekong Eye: project threatens Cát Bà langurs",
+      "title_vi": "Điều tra Mekong Eye: dự án đe dọa voọc Cát Bà",
+      "detail": "Reclamation proceeding despite heritage fears; Cát Bà langur population under 100; recalls IUCN's original objection to the inscription-with-development path.",
+      "detail_vi": "San lấp tiếp diễn bất chấp lo ngại di sản; quần thể voọc Cát Bà dưới 100 cá thể; nhắc lại việc IUCN từng phản đối.",
+      "short": "Langur report",
+      "short_vi": "Voọc Cát Bà",
+      "relevance": "cat_ba",
+      "source": "Mekong Eye 7/7/2025",
+      "url": "https://www.mekongeye.com/2025/07/07/cat-ba-land-reclamation"
+    },
+    {
       "date": "2025-07-15",
       "title": "Hoàng Gia bridge opens to traffic",
       "short": "Bridge opens",
@@ -179,6 +299,18 @@
       "relevance": "vu_yen",
       "source": "Tuổi Trẻ; Vingroup; CafeF (3/6/2026)",
       "url": "https://tuoitre.vn/thong-xe-cau-hoang-gia-do-tap-doan-vingroup-dau-tu-o-hai-phong-20250715154520403.htm"
+    },
+    {
+      "date": "2025-07-16",
+      "title": "47th WHC session keeps Hạ Long–Cát Bà under scrutiny",
+      "title_vi": "Kỳ họp 47 UNESCO tiếp tục giám sát Hạ Long–Cát Bà",
+      "detail": "Decision 47 COM 7B.16: monitoring mission completed, waste progress noted, concern maintained over coastal development pressure on the site's Outstanding Universal Value.",
+      "detail_vi": "Quyết định 47 COM 7B.16: đoàn giám sát đã làm việc, ghi nhận tiến bộ về rác thải, duy trì lo ngại về áp lực phát triển ven bờ lên Giá trị nổi bật toàn cầu.",
+      "short": "WHC 47",
+      "short_vi": "UNESCO 47COM",
+      "relevance": "cat_ba",
+      "source": "UNESCO 47COM",
+      "url": "https://whc.unesco.org/en/sessions/47COM"
     },
     {
       "date": "2026-01-01",
@@ -193,6 +325,18 @@
       "url": "https://anninhthudo.vn/tu-trung-tam-cu-den-trung-tam-moi-dich-chuyen-loi-do-thi-mo-ra-chu-ky-tang-gia-tiep-theo-cho-bds-hai-phong-post634620.antd"
     },
     {
+      "date": "2026-03-15",
+      "title": "Cát Hải resolution: comprehensive green transition for Cát Bà",
+      "title_vi": "Nghị quyết đặc khu Cát Hải: chuyển đổi xanh toàn diện đảo Cát Bà",
+      "detail": "Resolution 03/NQ-DU (mid-March 2026, day approximate): green transition across 6 areas with green tourism as pillar; ~5M visitors targeted for 2026.",
+      "detail_vi": "Nghị quyết 03/NQ-ĐU (giữa tháng 3/2026, ngày ước lệ): chuyển đổi xanh 6 lĩnh vực, du lịch xanh là trụ cột; mục tiêu ~5 triệu khách năm 2026.",
+      "short": "Green resolution",
+      "short_vi": "Nghị quyết xanh",
+      "relevance": "cat_ba",
+      "source": "doanhnghiepkinhtexanh.vn",
+      "url": "https://doanhnghiepkinhtexanh.vn/tap-trung-phat-trien-du-lich-cat-ba-xanh-ben-vung-a46767.html"
+    },
+    {
       "date": "2026-05-26",
       "title": "Satellite: 61.5 ha newly cleared on Vũ Yên since Jan 2025",
       "short": "61.5 ha cleared",
@@ -202,6 +346,18 @@
       "detail_vi": "Phân tích riêng: so sánh NDVI giữa hai ảnh Sentinel-2 (S2B_48QXJ_20250104 và S2A_48QXJ_20260526) cho thấy 61,5 ha bị san lấp dọc các trục đường mới; khu kênh đào đã hoàn thiện và phủ xanh.",
       "relevance": "vu_yen",
       "source": "this repo, /satellite/change endpoint (reproducible)",
+      "url": ""
+    },
+    {
+      "date": "2026-05-26",
+      "title": "Satellite: 66.9 ha of water became land at Cát Bà central bay since 2023",
+      "title_vi": "Vệ tinh: 66,9 ha mặt nước thành đất tại vịnh trung tâm Cát Bà từ 2023",
+      "detail": "Own analysis (NDWI water masks, scenes S2A_48QYH_20230130 vs S2A_48QYH_20260526, both cloud-free): 66.9 ha gross water-to-land, 42.4 ha the other way (tidal noise), net ~24.5 ha — consistent with the reported ~50 ha reclamation footprint. Reproducible via /satellite/change.",
+      "detail_vi": "Phân tích riêng (mặt nạ nước NDWI, cảnh S2A_48QYH_20230130 và S2A_48QYH_20260526, đều không mây): 66,9 ha mặt nước thành đất, chiều ngược lại 42,4 ha (nhiễu triều), ròng ~24,5 ha — nhất quán với diện tích san lấp ~50 ha được công bố. Tái lập được qua /satellite/change.",
+      "short": "Sea fill 66.9 ha",
+      "short_vi": "66,9 ha san lấp biển",
+      "relevance": "cat_ba",
+      "source": "this repo, /satellite/change (reproducible)",
       "url": ""
     }
   ]

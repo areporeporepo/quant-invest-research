@@ -308,5 +308,51 @@
       "rationale": "A strong China-trade cycle plus casino/tourism catalysts would re-rate the border strip.",
       "rationale_vi": "Chu kỳ thương mại Trung Quốc mạnh cộng chất xúc tác du lịch/casino sẽ tái định giá dải biên giới."
     }
+  },
+  "psm:sun_cat_ba": {
+    "bear": {
+      "annual_rate": -0.12,
+      "label": "Bear: heritage backlash bites",
+      "label_vi": "Xấu: phản ứng di sản gây thiệt hại",
+      "rationale": "UNESCO has an active concern track (reactive monitoring 2025; 'In Danger' listing is the tail risk) — restrictions, redesigns or reputational damage would hit a resort market with zero proven resale (handover only from 2026); 0%-interest sales policies mask true clearing prices.",
+      "rationale_vi": "UNESCO đang duy trì lo ngại (đoàn giám sát 2025; nguy cơ đuôi là đưa vào danh sách 'Bị đe dọa') — hạn chế xây dựng, điều chỉnh quy hoạch hay tổn hại uy tín sẽ đánh vào thị trường nghỉ dưỡng chưa có giao dịch thứ cấp (bàn giao từ 2026); chính sách 0% lãi che mờ giá thực."
+    },
+    "base": {
+      "annual_rate": 0.06,
+      "label": "Base: tourism growth carries it",
+      "label_vi": "Cơ sở: tăng trưởng du lịch dẫn dắt",
+      "rationale": "4-5M visitors/year targets, cable car + EV transit operating, special-zone green resolution — resort pricing grows with tourism revenue minus FX drag; UNESCO status stays tense but unresolved.",
+      "rationale_vi": "Mục tiêu 4-5 triệu khách/năm, cáp treo + xe điện vận hành, nghị quyết chuyển đổi xanh đặc khu — giá nghỉ dưỡng tăng theo doanh thu du lịch trừ tác động tỷ giá; câu chuyện UNESCO căng nhưng chưa ngã ngũ."
+    },
+    "bull": {
+      "annual_rate": 0.15,
+      "label": "Bull: Net-Zero scarcity premium",
+      "label_vi": "Tích cực: khan hiếm + thương hiệu Net Zero",
+      "rationale": "Only ~2,742 units will ever front this bay (heritage setting caps future supply better than any zoning); if the Net-Zero positioning holds and visitors hit 5M+, scarce sea-front stock in a UNESCO landscape re-rates like Hạ Long's best.",
+      "rationale_vi": "Chỉ ~2.742 sản phẩm hướng vịnh này (bối cảnh di sản chặn nguồn cung tương lai tốt hơn mọi quy hoạch); nếu định vị Net Zero đứng vững và khách vượt 5 triệu, quỹ hàng mặt vịnh khan hiếm trong lòng di sản UNESCO sẽ tái định giá như hàng đẹp nhất Hạ Long."
+    }
+  },
+  "psm:sun_cat_ba_lowrise": {
+    "bear": {
+      "annual_rate": -0.12,
+      "label": "Bear: heritage backlash bites",
+      "label_vi": "Xấu: phản ứng di sản gây thiệt hại",
+      "rationale": "UNESCO has an active concern track (reactive monitoring 2025; 'In Danger' listing is the tail risk) — restrictions, redesigns or reputational damage would hit a resort market with zero proven resale (handover only from 2026); 0%-interest sales policies mask true clearing prices.",
+      "rationale_vi": "UNESCO đang duy trì lo ngại (đoàn giám sát 2025; nguy cơ đuôi là đưa vào danh sách 'Bị đe dọa') — hạn chế xây dựng, điều chỉnh quy hoạch hay tổn hại uy tín sẽ đánh vào thị trường nghỉ dưỡng chưa có giao dịch thứ cấp (bàn giao từ 2026); chính sách 0% lãi che mờ giá thực."
+    },
+    "base": {
+      "annual_rate": 0.06,
+      "label": "Base: tourism growth carries it",
+      "label_vi": "Cơ sở: tăng trưởng du lịch dẫn dắt",
+      "rationale": "4-5M visitors/year targets, cable car + EV transit operating, special-zone green resolution — resort pricing grows with tourism revenue minus FX drag; UNESCO status stays tense but unresolved.",
+      "rationale_vi": "Mục tiêu 4-5 triệu khách/năm, cáp treo + xe điện vận hành, nghị quyết chuyển đổi xanh đặc khu — giá nghỉ dưỡng tăng theo doanh thu du lịch trừ tác động tỷ giá; câu chuyện UNESCO căng nhưng chưa ngã ngũ."
+    },
+    "bull": {
+      "annual_rate": 0.15,
+      "label": "Bull: Net-Zero scarcity premium",
+      "label_vi": "Tích cực: khan hiếm + thương hiệu Net Zero",
+      "rationale": "Only ~2,742 units will ever front this bay (heritage setting caps future supply better than any zoning); if the Net-Zero positioning holds and visitors hit 5M+, scarce sea-front stock in a UNESCO landscape re-rates like Hạ Long's best.",
+      "rationale_vi": "Chỉ ~2.742 sản phẩm hướng vịnh này (bối cảnh di sản chặn nguồn cung tương lai tốt hơn mọi quy hoạch); nếu định vị Net Zero đứng vững và khách vượt 5 triệu, quỹ hàng mặt vịnh khan hiếm trong lòng di sản UNESCO sẽ tái định giá như hàng đẹp nhất Hạ Long."
+    }
   }
 }

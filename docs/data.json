@@ -28060,6 +28060,32 @@
       "url": "https://batdongsan.com.vn/ban-nha-biet-thu-lien-ke-vinhomes-imperia-hai-phong"
      }
     ]
+   },
+   "sun_cat_ba": {
+    "label": "Sun Xanh Island (Cát Bà) — căn hộ",
+    "points": [
+     {
+      "time": "2025-04-01",
+      "value": 2440.0,
+      "segment": "apartment",
+      "kind": "primary",
+      "source": "Sun Group agent price sheets (suncatba.com); launch confirmed by VnExpress 8/4/2025 (95% sold day one, press did not publish prices)",
+      "url": "https://suncatba.com/bang-gia-sun-group-cat-ba"
+     }
+    ]
+   },
+   "sun_cat_ba_lowrise": {
+    "label": "Sun Xanh Island (Cát Bà) — shophouse/thấp tầng",
+    "points": [
+     {
+      "time": "2025-05-01",
+      "value": 5521.0,
+      "segment": "shophouse",
+      "kind": "primary",
+      "source": "Sun Group agent price sheet sungroupcatba.vn (first low-rise tranche, 105 units, 7.5x18 m plots)",
+      "url": "https://sungroupcatba.vn/gia-ban-biet-thu-shophouse-can-ho-du-an-sun-group-cat-ba-hien-nay-la-bao-nhieu.html"
+     }
+    ]
    }
   },
   "fx": {
@@ -28073,11 +28099,37 @@
    "Hải Phòng city series is asking-price data (Batdongsan via Tiền Phong), a trend line rather than a primary-price index.",
    "Landed benchmarks (Hanoi 187M, HCMC 224M VND/m2, CBRE Q4 2025) omitted from chart to avoid segment mixing; see repo history.",
    "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices.",
-   "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series."
+   "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series.",
+   "Sun Cát Bà (Xanh Island): all price figures are sales-agent price sheets (marketing asking levels); press coverage of the sold-out 2025 launches published no prices. Resale exists only as a coarse 7-10 tỷ/unit listing bracket (T7/2026, areas unavailable) — no secondary per-m2 series yet.",
+   "'Vin Cát Bà' does not exist: Vingroup/Vinpearl has NO priced real-estate project on Cát Bà island. Nearest Vingroup assets: VinFast factory (Cát Hải) and Vinhomes mainland Hải Phòng projects."
   ],
   "disclaimer": "Curated, source-attributed price points — coverage is sparse and segments (apartment vs low-rise) are not directly comparable. Verify each point via its source before relying on it."
  },
  "events": [
+  {
+   "date": "2017-09-02",
+   "title": "Tân Vũ–Lạch Huyện bridge opens (VN's longest sea bridge, 5.44 km)",
+   "title_vi": "Thông xe cầu Tân Vũ–Lạch Huyện (cầu vượt biển dài nhất VN, 5,44 km)",
+   "detail": "ODA-funded 11,849 bn VND bridge links Hải Phòng mainland to Cát Hải, cutting access to the Cát Bà gateway under 30 minutes — precondition for Sun Group's build-out and the VinFast plant.",
+   "detail_vi": "Cầu vốn ODA 11.849 tỷ nối đất liền Hải Phòng với đảo Cát Hải, rút thời gian tới cửa ngõ Cát Bà xuống dưới 30 phút — tiền đề cho du lịch Sun Group và nhà máy VinFast.",
+   "short": "Tân Vũ bridge",
+   "short_vi": "Cầu Tân Vũ",
+   "relevance": "cat_ba",
+   "source": "Thanh Niên / VietnamNet",
+   "url": "https://thanhnien.vn/cau-vuot-bien-dai-nhat-viet-nam-chinh-thuc-thong-xe-sang-quoc-khanh-29-185691753.htm"
+  },
+  {
+   "date": "2020-06-06",
+   "title": "Sun Group opens Cát Hải–Phù Long cable car",
+   "title_vi": "Sun Group khai trương cáp treo Cát Hải–Phù Long",
+   "detail": "3,955 m sea-crossing line (2,207 bn VND), world's tallest cable-car pylon (214.8 m); first piece of the Cát Bà tourism ecosystem, positioned as the green alternative to ferries. Regular service resumed from 17/4/2024.",
+   "detail_vi": "Tuyến vượt biển 3.955 m (2.207 tỷ), trụ cáp cao nhất thế giới (214,8 m); mảnh ghép đầu của hệ sinh thái du lịch Cát Bà, định vị là lựa chọn xanh thay phà. Chạy đều đặn lại từ 17/4/2024.",
+   "short": "Cable car",
+   "short_vi": "Cáp treo Cát Bà",
+   "relevance": "cat_ba",
+   "source": "Hải Phòng portal; SGGP",
+   "url": "https://haiphong.gov.vn/Chuyen-de/Huong-toi-ky-niem-65-nam-Ngay-giai-phong-Hai-Phong/Khai-truong-tuyen-cap-treo-Cat-Hai--Phu-Long-Diem-nhan-du-lich-cua-dao-ngoc-Cat-Ba-47171.html"
+  },
   {
    "date": "2023-06-19",
    "title": "SBV's 4th policy-rate cut of 2023 takes effect",
@@ -28115,6 +28167,18 @@
    "url": ""
   },
   {
+   "date": "2023-09-16",
+   "title": "UNESCO inscribes Hạ Long Bay–Cát Bà as World Natural Heritage",
+   "title_vi": "UNESCO công nhận Vịnh Hạ Long – Quần đảo Cát Bà là Di sản Thiên nhiên Thế giới",
+   "detail": "45th WHC session approved extending Hạ Long WHS to Cát Bà — Vietnam's first inter-provincial world heritage site. IUCN had advised AGAINST it, citing port/tourism pressure and weak buffer zoning. Biosphere reserve since 2004.",
+   "detail_vi": "Kỳ họp 45 phê duyệt mở rộng di sản Hạ Long sang Cát Bà — di sản liên tỉnh đầu tiên của VN. IUCN từng khuyến nghị KHÔNG mở rộng vì áp lực cảng/du lịch và vùng đệm yếu. Là Khu dự trữ sinh quyển từ 2004.",
+   "short": "UNESCO listing",
+   "short_vi": "UNESCO Cát Bà",
+   "relevance": "cat_ba",
+   "source": "Bộ VHTTDL; Nhân Dân",
+   "url": "https://bvhttdl.gov.vn/vinh-ha-long-va-quan-dao-cat-ba-duoc-unesco-cong-nhan-la-di-san-the-gioi-20230916222854897.htm"
+  },
+  {
    "date": "2024-03-15",
    "title": "Vinhomes launches Royal Island on Vũ Yên Island",
    "short": "Royal Island",
@@ -28127,6 +28191,18 @@
    "url": "https://vingroup.net/tin-tuc-su-kien/bai-viet/3032/vinhomes-ra-mat-vinhomes-royal-island-thanh-pho-dao-hoang-gia-dang-cap-bac-nhat-chau-luc"
   },
   {
+   "date": "2024-07-31",
+   "title": "World Heritage Committee requests reactive monitoring mission",
+   "title_vi": "Ủy ban Di sản Thế giới yêu cầu đoàn giám sát phản ứng nhanh",
+   "detail": "46th session (New Delhi) expressed concern over coastal tourism/urban expansion without a carrying-capacity study and SEA; requested a joint WHC/IUCN mission in 2025.",
+   "detail_vi": "Kỳ họp 46 (New Delhi) lo ngại mở rộng du lịch/đô thị ven bờ khi chưa có nghiên cứu sức tải và ĐMC; yêu cầu đoàn WHC/IUCN năm 2025.",
+   "short": "WHC monitoring",
+   "short_vi": "UNESCO giám sát",
+   "relevance": "cat_ba",
+   "source": "UNESCO WHC SOC 4500",
+   "url": "https://whc.unesco.org/en/soc/4500"
+  },
+  {
    "date": "2024-08-01",
    "title": "2024 Land Law, Housing Law and RE Business Law take effect",
    "short": "Land Law",
@@ -28137,6 +28213,18 @@
    "relevance": "macro",
    "source": "Vietnam Briefing",
    "url": "https://www.vietnam-briefing.com/news/regulation-of-vietnams-real-estate-market-new-laws-in-effect-from-august-1-2024.html/"
+  },
+  {
+   "date": "2024-08-16",
+   "title": "Sun Group breaks ground on Xanh Island (Cát Bà central bay)",
+   "title_vi": "Sun Group khởi công Vịnh trung tâm Cát Bà (Xanh Island)",
+   "detail": "~46-50 ha at the town's central bay, ~12,495 bn VND; 2,742 units (877 low-rise + 3 towers), 2 marinas, 6 five-star hotels. Bay reclamation proceeded late 2024 - early 2025.",
+   "detail_vi": "~46-50 ha tại vịnh trung tâm thị trấn, ~12.495 tỷ; 2.742 sản phẩm (877 thấp tầng + 3 tháp), 2 bến du thuyền, 6 khách sạn 5 sao. San lấp vịnh cuối 2024 – đầu 2025.",
+   "short": "Xanh Island start",
+   "short_vi": "Khởi công Xanh Island",
+   "relevance": "cat_ba",
+   "source": "Giáo dục VN; Dân Việt",
+   "url": "https://giaoduc.net.vn/sun-group-khoi-cong-du-an-khu-du-lich-dich-vu-thuong-mai-gan-12500-ty-dong-post244876.gd"
   },
   {
    "date": "2024-09-25",
@@ -28175,6 +28263,18 @@
    "url": "https://theinvestor.vn/vietnams-vinhomes-fulfils-67-of-record-buyback-plan-d13442.html"
   },
   {
+   "date": "2024-12-07",
+   "title": "Public controversy over Cát Bà bay reclamation",
+   "title_vi": "Tranh cãi công khai về san lấp vịnh trung tâm Cát Bà",
+   "detail": "VOA/RFA report social-media shock at images of the bay being filled one year after UNESCO listing; experts warned of reduced tidal prism, turbidity, habitat fragmentation.",
+   "detail_vi": "VOA/RFA đưa tin dư luận sốc trước hình ảnh vịnh bị san lấp chỉ một năm sau khi được UNESCO vinh danh; chuyên gia cảnh báo giảm lăng kính triều, nước đục, chia cắt sinh cảnh.",
+   "short": "Reclamation row",
+   "short_vi": "Tranh cãi san lấp",
+   "relevance": "cat_ba",
+   "source": "VOA Tiếng Việt 7/12/2024",
+   "url": "https://www.voatiengviet.com/a/7890227.html"
+  },
+  {
    "date": "2025-01-01",
    "title": "Thủy Nguyên officially becomes a city",
    "short": "Thủy Nguyên city",
@@ -28187,6 +28287,18 @@
    "url": "https://mekongasean.vn/cot-moc-an-tuong-cua-dao-ty-phu-vu-yen-trong-nam-2025-39120.html"
   },
   {
+   "date": "2025-02-21",
+   "title": "Sun Group sales kick-off for Xanh Island",
+   "title_vi": "Sun Group ra quân Thành phố Vịnh trung tâm Xanh Island",
+   "detail": "~2,000 sales agents; marketed as Vietnam's first Net-Zero island destination — 60% green/public space, EV buses/buggies, charging network; park and beach to open summer 2025.",
+   "detail_vi": "~2.000 nhân viên kinh doanh; định vị điểm đến đảo Net Zero đầu tiên của Việt Nam — 60% không gian xanh, xe buýt/buggy điện, trạm sạc; công viên và bãi biển mở hè 2025.",
+   "short": "Sales kick-off",
+   "short_vi": "Ra quân Xanh Island",
+   "relevance": "cat_ba",
+   "source": "VnExpress 26/2/2025",
+   "url": "https://vnexpress.net/sun-group-ra-mat-du-an-du-lich-xanh-50-ha-tai-cat-ba-4854124.html"
+  },
+  {
    "date": "2025-03-15",
    "title": "Hoàng Gia bridge span closure",
    "short": "Bridge closure",
@@ -28197,6 +28309,30 @@
    "relevance": "vu_yen",
    "source": "Báo Đầu Tư",
    "url": "https://baodautu.vn/hop-long-cau-hoang-gia-2300-ty-dong-noi-trung-tam-tp-hai-phong-voi-dao-vu-yen-d254366.html"
+  },
+  {
+   "date": "2025-04-06",
+   "title": "Xanh Sky launch: 95% of phase 1 sold on day one",
+   "title_vi": "Mở bán Xanh Sky: 95% giỏ hàng đợt 1 hết trong ngày",
+   "detail": "The Xanh 1 tower launch; handover targeted 2026. Financing 0% interest on up to 70% for 30 months; studios from 2.15 bn VND per agent sheets.",
+   "detail_vi": "Mở bán tòa The Xanh 1; bàn giao dự kiến 2026. Hỗ trợ 0% lãi tới 70% trong 30 tháng; studio từ 2,15 tỷ theo bảng giá đại lý.",
+   "short": "Xanh Sky launch",
+   "short_vi": "Xanh Sky 95%",
+   "relevance": "cat_ba",
+   "source": "VnExpress 8/4/2025",
+   "url": "https://vnexpress.net/du-an-sun-group-o-cat-ba-ban-het-95-quy-hang-dot-mot-4871032.html"
+  },
+  {
+   "date": "2025-04-18",
+   "title": "Free EV public transport starts on Cát Bà",
+   "title_vi": "Xe buýt/buggy điện miễn phí trên Cát Bà",
+   "detail": "Trial from 18/4, expanded to 20 vehicles per type and 150 trips/day from 16/5/2025 — flagship of the zero-emission-island positioning.",
+   "detail_vi": "Chạy thử từ 18/4, mở rộng 20 xe/loại và 150 chuyến/ngày từ 16/5/2025 — lá cờ đầu của định vị 'đảo không phát thải'.",
+   "short": "EV transit",
+   "short_vi": "Xe điện Cát Bà",
+   "relevance": "cat_ba",
+   "source": "Cổng TP Hải Phòng",
+   "url": "https://thanhphohaiphong.gov.vn/mien-phi-tuyen-xe-dien-moi-cho-du-khach-tai-dao-cat-ba-tu-18-4.html"
   },
   {
    "date": "2025-04-19",
@@ -28247,6 +28383,18 @@
    "url": "https://vietnamnews.vn/politics-laws/1720532/launch-of-two-tier-administration-model-marks-hai-phong-s-new-journey-pm.html"
   },
   {
+   "date": "2025-07-07",
+   "title": "Mekong Eye: project threatens Cát Bà langurs",
+   "title_vi": "Điều tra Mekong Eye: dự án đe dọa voọc Cát Bà",
+   "detail": "Reclamation proceeding despite heritage fears; Cát Bà langur population under 100; recalls IUCN's original objection to the inscription-with-development path.",
+   "detail_vi": "San lấp tiếp diễn bất chấp lo ngại di sản; quần thể voọc Cát Bà dưới 100 cá thể; nhắc lại việc IUCN từng phản đối.",
+   "short": "Langur report",
+   "short_vi": "Voọc Cát Bà",
+   "relevance": "cat_ba",
+   "source": "Mekong Eye 7/7/2025",
+   "url": "https://www.mekongeye.com/2025/07/07/cat-ba-land-reclamation"
+  },
+  {
    "date": "2025-07-15",
    "title": "Hoàng Gia bridge opens to traffic",
    "short": "Bridge opens",
@@ -28257,6 +28405,18 @@
    "relevance": "vu_yen",
    "source": "Tuổi Trẻ; Vingroup; CafeF (3/6/2026)",
    "url": "https://tuoitre.vn/thong-xe-cau-hoang-gia-do-tap-doan-vingroup-dau-tu-o-hai-phong-20250715154520403.htm"
+  },
+  {
+   "date": "2025-07-16",
+   "title": "47th WHC session keeps Hạ Long–Cát Bà under scrutiny",
+   "title_vi": "Kỳ họp 47 UNESCO tiếp tục giám sát Hạ Long–Cát Bà",
+   "detail": "Decision 47 COM 7B.16: monitoring mission completed, waste progress noted, concern maintained over coastal development pressure on the site's Outstanding Universal Value.",
+   "detail_vi": "Quyết định 47 COM 7B.16: đoàn giám sát đã làm việc, ghi nhận tiến bộ về rác thải, duy trì lo ngại về áp lực phát triển ven bờ lên Giá trị nổi bật toàn cầu.",
+   "short": "WHC 47",
+   "short_vi": "UNESCO 47COM",
+   "relevance": "cat_ba",
+   "source": "UNESCO 47COM",
+   "url": "https://whc.unesco.org/en/sessions/47COM"
   },
   {
    "date": "2026-01-01",
@@ -28271,6 +28431,18 @@
    "url": "https://anninhthudo.vn/tu-trung-tam-cu-den-trung-tam-moi-dich-chuyen-loi-do-thi-mo-ra-chu-ky-tang-gia-tiep-theo-cho-bds-hai-phong-post634620.antd"
   },
   {
+   "date": "2026-03-15",
+   "title": "Cát Hải resolution: comprehensive green transition for Cát Bà",
+   "title_vi": "Nghị quyết đặc khu Cát Hải: chuyển đổi xanh toàn diện đảo Cát Bà",
+   "detail": "Resolution 03/NQ-DU (mid-March 2026, day approximate): green transition across 6 areas with green tourism as pillar; ~5M visitors targeted for 2026.",
+   "detail_vi": "Nghị quyết 03/NQ-ĐU (giữa tháng 3/2026, ngày ước lệ): chuyển đổi xanh 6 lĩnh vực, du lịch xanh là trụ cột; mục tiêu ~5 triệu khách năm 2026.",
+   "short": "Green resolution",
+   "short_vi": "Nghị quyết xanh",
+   "relevance": "cat_ba",
+   "source": "doanhnghiepkinhtexanh.vn",
+   "url": "https://doanhnghiepkinhtexanh.vn/tap-trung-phat-trien-du-lich-cat-ba-xanh-ben-vung-a46767.html"
+  },
+  {
    "date": "2026-05-26",
    "title": "Satellite: 61.5 ha newly cleared on Vũ Yên since Jan 2025",
    "short": "61.5 ha cleared",
@@ -28280,6 +28452,18 @@
    "detail_vi": "Phân tích riêng: so sánh NDVI giữa hai ảnh Sentinel-2 (S2B_48QXJ_20250104 và S2A_48QXJ_20260526) cho thấy 61,5 ha bị san lấp dọc các trục đường mới; khu kênh đào đã hoàn thiện và phủ xanh.",
    "relevance": "vu_yen",
    "source": "this repo, /satellite/change endpoint (reproducible)",
+   "url": ""
+  },
+  {
+   "date": "2026-05-26",
+   "title": "Satellite: 66.9 ha of water became land at Cát Bà central bay since 2023",
+   "title_vi": "Vệ tinh: 66,9 ha mặt nước thành đất tại vịnh trung tâm Cát Bà từ 2023",
+   "detail": "Own analysis (NDWI water masks, scenes S2A_48QYH_20230130 vs S2A_48QYH_20260526, both cloud-free): 66.9 ha gross water-to-land, 42.4 ha the other way (tidal noise), net ~24.5 ha — consistent with the reported ~50 ha reclamation footprint. Reproducible via /satellite/change.",
+   "detail_vi": "Phân tích riêng (mặt nạ nước NDWI, cảnh S2A_48QYH_20230130 và S2A_48QYH_20260526, đều không mây): 66,9 ha mặt nước thành đất, chiều ngược lại 42,4 ha (nhiễu triều), ròng ~24,5 ha — nhất quán với diện tích san lấp ~50 ha được công bố. Tái lập được qua /satellite/change.",
+   "short": "Sea fill 66.9 ha",
+   "short_vi": "66,9 ha san lấp biển",
+   "relevance": "cat_ba",
+   "source": "this repo, /satellite/change (reproducible)",
    "url": ""
   }
  ],
@@ -31486,6 +31670,572 @@
     },
     "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
     "label": "Vinhomes Imperia (Hồng Bàng, Hải Phòng)"
+   },
+   "sun_cat_ba": {
+    "anchor": {
+     "date": "2025-04-01",
+     "value": 2440.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.12,
+      "label": "Bear: heritage backlash bites",
+      "path": [
+       {
+        "time": "2025-04-01",
+        "value": 2440.0
+       },
+       {
+        "time": "2025-07-01",
+        "value": 2363.51
+       },
+       {
+        "time": "2025-09-30",
+        "value": 2289.42
+       },
+       {
+        "time": "2025-12-30",
+        "value": 2217.66
+       },
+       {
+        "time": "2026-03-31",
+        "value": 2148.14
+       },
+       {
+        "time": "2026-06-30",
+        "value": 2080.8
+       },
+       {
+        "time": "2026-09-29",
+        "value": 2015.57
+       },
+       {
+        "time": "2026-12-29",
+        "value": 1952.39
+       },
+       {
+        "time": "2027-03-30",
+        "value": 1891.19
+       },
+       {
+        "time": "2027-06-29",
+        "value": 1831.91
+       },
+       {
+        "time": "2027-09-28",
+        "value": 1774.48
+       },
+       {
+        "time": "2027-12-28",
+        "value": 1718.86
+       },
+       {
+        "time": "2028-03-28",
+        "value": 1664.98
+       },
+       {
+        "time": "2028-06-27",
+        "value": 1612.78
+       },
+       {
+        "time": "2028-09-26",
+        "value": 1562.23
+       },
+       {
+        "time": "2028-12-26",
+        "value": 1513.26
+       },
+       {
+        "time": "2029-03-27",
+        "value": 1465.82
+       },
+       {
+        "time": "2029-06-26",
+        "value": 1419.87
+       },
+       {
+        "time": "2029-09-25",
+        "value": 1375.36
+       },
+       {
+        "time": "2029-12-25",
+        "value": 1332.25
+       },
+       {
+        "time": "2029-12-31",
+        "value": 1329.45
+       }
+      ],
+      "label_vi": "Xấu: phản ứng di sản gây thiệt hại",
+      "rationale": "UNESCO has an active concern track (reactive monitoring 2025; 'In Danger' listing is the tail risk) — restrictions, redesigns or reputational damage would hit a resort market with zero proven resale (handover only from 2026); 0%-interest sales policies mask true clearing prices.",
+      "rationale_vi": "UNESCO đang duy trì lo ngại (đoàn giám sát 2025; nguy cơ đuôi là đưa vào danh sách 'Bị đe dọa') — hạn chế xây dựng, điều chỉnh quy hoạch hay tổn hại uy tín sẽ đánh vào thị trường nghỉ dưỡng chưa có giao dịch thứ cấp (bàn giao từ 2026); chính sách 0% lãi che mờ giá thực."
+     },
+     "base": {
+      "annual_rate": 0.06,
+      "label": "Base: tourism growth carries it",
+      "path": [
+       {
+        "time": "2025-04-01",
+        "value": 2440.0
+       },
+       {
+        "time": "2025-07-01",
+        "value": 2475.68
+       },
+       {
+        "time": "2025-09-30",
+        "value": 2511.88
+       },
+       {
+        "time": "2025-12-30",
+        "value": 2548.62
+       },
+       {
+        "time": "2026-03-31",
+        "value": 2585.88
+       },
+       {
+        "time": "2026-06-30",
+        "value": 2623.7
+       },
+       {
+        "time": "2026-09-29",
+        "value": 2662.07
+       },
+       {
+        "time": "2026-12-29",
+        "value": 2700.99
+       },
+       {
+        "time": "2027-03-30",
+        "value": 2740.49
+       },
+       {
+        "time": "2027-06-29",
+        "value": 2780.57
+       },
+       {
+        "time": "2027-09-28",
+        "value": 2821.23
+       },
+       {
+        "time": "2027-12-28",
+        "value": 2862.48
+       },
+       {
+        "time": "2028-03-28",
+        "value": 2904.34
+       },
+       {
+        "time": "2028-06-27",
+        "value": 2946.81
+       },
+       {
+        "time": "2028-09-26",
+        "value": 2989.9
+       },
+       {
+        "time": "2028-12-26",
+        "value": 3033.63
+       },
+       {
+        "time": "2029-03-27",
+        "value": 3077.99
+       },
+       {
+        "time": "2029-06-26",
+        "value": 3123.0
+       },
+       {
+        "time": "2029-09-25",
+        "value": 3168.67
+       },
+       {
+        "time": "2029-12-25",
+        "value": 3215.0
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3218.08
+       }
+      ],
+      "label_vi": "Cơ sở: tăng trưởng du lịch dẫn dắt",
+      "rationale": "4-5M visitors/year targets, cable car + EV transit operating, special-zone green resolution — resort pricing grows with tourism revenue minus FX drag; UNESCO status stays tense but unresolved.",
+      "rationale_vi": "Mục tiêu 4-5 triệu khách/năm, cáp treo + xe điện vận hành, nghị quyết chuyển đổi xanh đặc khu — giá nghỉ dưỡng tăng theo doanh thu du lịch trừ tác động tỷ giá; câu chuyện UNESCO căng nhưng chưa ngã ngũ."
+     },
+     "bull": {
+      "annual_rate": 0.15,
+      "label": "Bull: Net-Zero scarcity premium",
+      "path": [
+       {
+        "time": "2025-04-01",
+        "value": 2440.0
+       },
+       {
+        "time": "2025-07-01",
+        "value": 2526.46
+       },
+       {
+        "time": "2025-09-30",
+        "value": 2615.98
+       },
+       {
+        "time": "2025-12-30",
+        "value": 2708.68
+       },
+       {
+        "time": "2026-03-31",
+        "value": 2804.66
+       },
+       {
+        "time": "2026-06-30",
+        "value": 2904.04
+       },
+       {
+        "time": "2026-09-29",
+        "value": 3006.94
+       },
+       {
+        "time": "2026-12-29",
+        "value": 3113.49
+       },
+       {
+        "time": "2027-03-30",
+        "value": 3223.81
+       },
+       {
+        "time": "2027-06-29",
+        "value": 3338.05
+       },
+       {
+        "time": "2027-09-28",
+        "value": 3456.33
+       },
+       {
+        "time": "2027-12-28",
+        "value": 3578.8
+       },
+       {
+        "time": "2028-03-28",
+        "value": 3705.61
+       },
+       {
+        "time": "2028-06-27",
+        "value": 3836.92
+       },
+       {
+        "time": "2028-09-26",
+        "value": 3972.88
+       },
+       {
+        "time": "2028-12-26",
+        "value": 4113.65
+       },
+       {
+        "time": "2029-03-27",
+        "value": 4259.42
+       },
+       {
+        "time": "2029-06-26",
+        "value": 4410.35
+       },
+       {
+        "time": "2029-09-25",
+        "value": 4566.62
+       },
+       {
+        "time": "2029-12-25",
+        "value": 4728.44
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4739.31
+       }
+      ],
+      "label_vi": "Tích cực: khan hiếm + thương hiệu Net Zero",
+      "rationale": "Only ~2,742 units will ever front this bay (heritage setting caps future supply better than any zoning); if the Net-Zero positioning holds and visitors hit 5M+, scarce sea-front stock in a UNESCO landscape re-rates like Hạ Long's best.",
+      "rationale_vi": "Chỉ ~2.742 sản phẩm hướng vịnh này (bối cảnh di sản chặn nguồn cung tương lai tốt hơn mọi quy hoạch); nếu định vị Net Zero đứng vững và khách vượt 5 triệu, quỹ hàng mặt vịnh khan hiếm trong lòng di sản UNESCO sẽ tái định giá như hàng đẹp nhất Hạ Long."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Sun Xanh Island (Cát Bà) — căn hộ"
+   },
+   "sun_cat_ba_lowrise": {
+    "anchor": {
+     "date": "2025-05-01",
+     "value": 5521.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.12,
+      "label": "Bear: heritage backlash bites",
+      "path": [
+       {
+        "time": "2025-05-01",
+        "value": 5521.0
+       },
+       {
+        "time": "2025-07-31",
+        "value": 5347.93
+       },
+       {
+        "time": "2025-10-30",
+        "value": 5180.29
+       },
+       {
+        "time": "2026-01-29",
+        "value": 5017.9
+       },
+       {
+        "time": "2026-04-30",
+        "value": 4860.61
+       },
+       {
+        "time": "2026-07-30",
+        "value": 4708.24
+       },
+       {
+        "time": "2026-10-29",
+        "value": 4560.65
+       },
+       {
+        "time": "2027-01-28",
+        "value": 4417.69
+       },
+       {
+        "time": "2027-04-29",
+        "value": 4279.2
+       },
+       {
+        "time": "2027-07-29",
+        "value": 4145.06
+       },
+       {
+        "time": "2027-10-28",
+        "value": 4015.13
+       },
+       {
+        "time": "2028-01-27",
+        "value": 3889.27
+       },
+       {
+        "time": "2028-04-27",
+        "value": 3767.35
+       },
+       {
+        "time": "2028-07-27",
+        "value": 3649.25
+       },
+       {
+        "time": "2028-10-26",
+        "value": 3534.86
+       },
+       {
+        "time": "2029-01-25",
+        "value": 3424.05
+       },
+       {
+        "time": "2029-04-26",
+        "value": 3316.72
+       },
+       {
+        "time": "2029-07-26",
+        "value": 3212.75
+       },
+       {
+        "time": "2029-10-25",
+        "value": 3112.04
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3039.91
+       }
+      ],
+      "label_vi": "Xấu: phản ứng di sản gây thiệt hại",
+      "rationale": "UNESCO has an active concern track (reactive monitoring 2025; 'In Danger' listing is the tail risk) — restrictions, redesigns or reputational damage would hit a resort market with zero proven resale (handover only from 2026); 0%-interest sales policies mask true clearing prices.",
+      "rationale_vi": "UNESCO đang duy trì lo ngại (đoàn giám sát 2025; nguy cơ đuôi là đưa vào danh sách 'Bị đe dọa') — hạn chế xây dựng, điều chỉnh quy hoạch hay tổn hại uy tín sẽ đánh vào thị trường nghỉ dưỡng chưa có giao dịch thứ cấp (bàn giao từ 2026); chính sách 0% lãi che mờ giá thực."
+     },
+     "base": {
+      "annual_rate": 0.06,
+      "label": "Base: tourism growth carries it",
+      "path": [
+       {
+        "time": "2025-05-01",
+        "value": 5521.0
+       },
+       {
+        "time": "2025-07-31",
+        "value": 5601.74
+       },
+       {
+        "time": "2025-10-30",
+        "value": 5683.65
+       },
+       {
+        "time": "2026-01-29",
+        "value": 5766.76
+       },
+       {
+        "time": "2026-04-30",
+        "value": 5851.09
+       },
+       {
+        "time": "2026-07-30",
+        "value": 5936.66
+       },
+       {
+        "time": "2026-10-29",
+        "value": 6023.47
+       },
+       {
+        "time": "2027-01-28",
+        "value": 6111.55
+       },
+       {
+        "time": "2027-04-29",
+        "value": 6200.92
+       },
+       {
+        "time": "2027-07-29",
+        "value": 6291.6
+       },
+       {
+        "time": "2027-10-28",
+        "value": 6383.6
+       },
+       {
+        "time": "2028-01-27",
+        "value": 6476.95
+       },
+       {
+        "time": "2028-04-27",
+        "value": 6571.67
+       },
+       {
+        "time": "2028-07-27",
+        "value": 6667.77
+       },
+       {
+        "time": "2028-10-26",
+        "value": 6765.27
+       },
+       {
+        "time": "2029-01-25",
+        "value": 6864.2
+       },
+       {
+        "time": "2029-04-26",
+        "value": 6964.58
+       },
+       {
+        "time": "2029-07-26",
+        "value": 7066.42
+       },
+       {
+        "time": "2029-10-25",
+        "value": 7169.76
+       },
+       {
+        "time": "2029-12-31",
+        "value": 7246.8
+       }
+      ],
+      "label_vi": "Cơ sở: tăng trưởng du lịch dẫn dắt",
+      "rationale": "4-5M visitors/year targets, cable car + EV transit operating, special-zone green resolution — resort pricing grows with tourism revenue minus FX drag; UNESCO status stays tense but unresolved.",
+      "rationale_vi": "Mục tiêu 4-5 triệu khách/năm, cáp treo + xe điện vận hành, nghị quyết chuyển đổi xanh đặc khu — giá nghỉ dưỡng tăng theo doanh thu du lịch trừ tác động tỷ giá; câu chuyện UNESCO căng nhưng chưa ngã ngũ."
+     },
+     "bull": {
+      "annual_rate": 0.15,
+      "label": "Bull: Net-Zero scarcity premium",
+      "path": [
+       {
+        "time": "2025-05-01",
+        "value": 5521.0
+       },
+       {
+        "time": "2025-07-31",
+        "value": 5716.63
+       },
+       {
+        "time": "2025-10-30",
+        "value": 5919.2
+       },
+       {
+        "time": "2026-01-29",
+        "value": 6128.94
+       },
+       {
+        "time": "2026-04-30",
+        "value": 6346.11
+       },
+       {
+        "time": "2026-07-30",
+        "value": 6570.98
+       },
+       {
+        "time": "2026-10-29",
+        "value": 6803.82
+       },
+       {
+        "time": "2027-01-28",
+        "value": 7044.91
+       },
+       {
+        "time": "2027-04-29",
+        "value": 7294.54
+       },
+       {
+        "time": "2027-07-29",
+        "value": 7553.02
+       },
+       {
+        "time": "2027-10-28",
+        "value": 7820.65
+       },
+       {
+        "time": "2028-01-27",
+        "value": 8097.77
+       },
+       {
+        "time": "2028-04-27",
+        "value": 8384.71
+       },
+       {
+        "time": "2028-07-27",
+        "value": 8681.82
+       },
+       {
+        "time": "2028-10-26",
+        "value": 8989.45
+       },
+       {
+        "time": "2029-01-25",
+        "value": 9307.98
+       },
+       {
+        "time": "2029-04-26",
+        "value": 9637.81
+       },
+       {
+        "time": "2029-07-26",
+        "value": 9979.31
+       },
+       {
+        "time": "2029-10-25",
+        "value": 10332.92
+       },
+       {
+        "time": "2029-12-31",
+        "value": 10601.26
+       }
+      ],
+      "label_vi": "Tích cực: khan hiếm + thương hiệu Net Zero",
+      "rationale": "Only ~2,742 units will ever front this bay (heritage setting caps future supply better than any zoning); if the Net-Zero positioning holds and visitors hit 5M+, scarce sea-front stock in a UNESCO landscape re-rates like Hạ Long's best.",
+      "rationale_vi": "Chỉ ~2.742 sản phẩm hướng vịnh này (bối cảnh di sản chặn nguồn cung tương lai tốt hơn mọi quy hoạch); nếu định vị Net Zero đứng vững và khách vượt 5 triệu, quỹ hàng mặt vịnh khan hiếm trong lòng di sản UNESCO sẽ tái định giá như hàng đẹp nhất Hạ Long."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Sun Xanh Island (Cát Bà) — shophouse/thấp tầng"
    }
   },
   "disclaimer": "Educational/research use only. Not investment advice, not a recommendation to buy or sell any security, and not a statement about whether now is a good or bad time to invest. Data may be synthetic or delayed. Verify independently and consult a licensed professional before making decisions."
@@ -31507,6 +32257,8 @@
     "ok": true,
     "cleared_ha": 61.5,
     "revegetated_ha": 222.1,
+    "reclaimed_ha": 0.0,
+    "flooded_ha": 0.0,
     "veg_area_a_ha": 838.5,
     "veg_area_b_ha": 1167.5,
     "area_total_ha": 4140.1,
@@ -31521,7 +32273,7 @@
      "cloud": 6.1
     },
     "caveats": [
-     "CROSS-SEASON fallback (Jan 2025 vs May 2026): no cloud-free Apr-Jun 2025 scene exists; seasonal vegetation change inflates both figures."
+     "CROSS-SEASON fallback (Jan 2025 vs May 2026): no cloud-free Apr-Jun 2025 scene; seasonal change inflates both figures. Reclamation not computed for this fallback."
     ]
    },
    "vinhomes_imperia": {
@@ -31529,6 +32281,8 @@
     "ok": true,
     "cleared_ha": 0.8,
     "revegetated_ha": 103.5,
+    "reclaimed_ha": 0.5,
+    "flooded_ha": 31.0,
     "veg_area_a_ha": 21.4,
     "veg_area_b_ha": 124.1,
     "area_total_ha": 4140.1,
@@ -31544,6 +32298,7 @@
     },
     "caveats": [
      "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
      "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
      "scene A has 31.8% cloud — treat changed-area figures with extra caution"
     ]
@@ -31558,6 +32313,8 @@
     "ok": true,
     "cleared_ha": 75.1,
     "revegetated_ha": 1.0,
+    "reclaimed_ha": 18.9,
+    "flooded_ha": 2.3,
     "veg_area_a_ha": 168.8,
     "veg_area_b_ha": 70.4,
     "area_total_ha": 4140.1,
@@ -31573,6 +32330,7 @@
     },
     "caveats": [
      "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
      "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
      "scene A has 35.4% cloud — treat changed-area figures with extra caution"
     ]
@@ -31582,6 +32340,8 @@
     "ok": true,
     "cleared_ha": 687.2,
     "revegetated_ha": 0.2,
+    "reclaimed_ha": 597.3,
+    "flooded_ha": 22.2,
     "veg_area_a_ha": 920.1,
     "veg_area_b_ha": 0.5,
     "area_total_ha": 4141.6,
@@ -31597,6 +32357,7 @@
     },
     "caveats": [
      "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
      "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
      "scene A has 12.8% cloud — treat changed-area figures with extra caution"
     ]
@@ -31606,6 +32367,8 @@
     "ok": true,
     "cleared_ha": 726.6,
     "revegetated_ha": 0.0,
+    "reclaimed_ha": 684.7,
+    "flooded_ha": 16.8,
     "veg_area_a_ha": 842.3,
     "veg_area_b_ha": 1.0,
     "area_total_ha": 4141.6,
@@ -31621,6 +32384,7 @@
     },
     "caveats": [
      "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
      "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
      "scene A has 12.8% cloud — treat changed-area figures with extra caution"
     ]
@@ -31630,6 +32394,8 @@
     "ok": true,
     "cleared_ha": 300.7,
     "revegetated_ha": 180.1,
+    "reclaimed_ha": 58.0,
+    "flooded_ha": 211.5,
     "veg_area_a_ha": 821.3,
     "veg_area_b_ha": 675.6,
     "area_total_ha": 1410.5,
@@ -31645,6 +32411,7 @@
     },
     "caveats": [
      "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
      "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison."
     ]
    },
@@ -31653,6 +32420,8 @@
     "ok": true,
     "cleared_ha": 66.8,
     "revegetated_ha": 548.2,
+    "reclaimed_ha": 115.4,
+    "flooded_ha": 38.6,
     "veg_area_a_ha": 712.1,
     "veg_area_b_ha": 1596.4,
     "area_total_ha": 4122.9,
@@ -31668,6 +32437,7 @@
     },
     "caveats": [
      "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
      "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
      "scene A has 29.6% cloud — treat changed-area figures with extra caution"
     ]
@@ -31677,6 +32447,8 @@
     "ok": true,
     "cleared_ha": 28.5,
     "revegetated_ha": 1.3,
+    "reclaimed_ha": 22.1,
+    "flooded_ha": 30.2,
     "veg_area_a_ha": 3114.9,
     "veg_area_b_ha": 3021.9,
     "area_total_ha": 4121.6,
@@ -31692,11 +32464,62 @@
     },
     "caveats": [
      "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
      "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison."
     ]
+   },
+   "sun_cat_ba": {
+    "name": "Sun Group Xanh Island (Vịnh trung tâm, Cát Bà)",
+    "ok": true,
+    "cleared_ha": 19.2,
+    "revegetated_ha": 16.7,
+    "reclaimed_ha": 66.9,
+    "flooded_ha": 42.4,
+    "veg_area_a_ha": null,
+    "veg_area_b_ha": null,
+    "area_total_ha": 4139.5,
+    "scene_a": {
+     "id": "S2A_48QYH_20230130_0_L2A",
+     "datetime": "2023-01-30",
+     "cloud": 0.0
+    },
+    "scene_b": {
+     "id": "S2A_48QYH_20260526_0_L2A",
+     "datetime": "2026-05-26",
+     "cloud": 0.0
+    },
+    "caveats": [
+     "FULL-ARC window (Jan 2023, pre-project, vs May 2026) — the meaningful comparison for a reclamation that began late 2024. Gross 66.9 ha water→land vs 42.4 ha reverse (tidal noise); net ~24.5 ha, consistent with the reported ~50 ha fill footprint partially revegetated/landscaped. The season-matched 2025-2026 window was discarded: sun glint corrupted the June 2025 water mask."
+    ]
+   },
+   "cat_ba_town": {
+    "name": "Cát Bà town & harbour",
+    "ok": true,
+    "cleared_ha": 0.1,
+    "revegetated_ha": 1002.0,
+    "reclaimed_ha": 16.6,
+    "flooded_ha": 1213.3,
+    "veg_area_a_ha": 214.2,
+    "veg_area_b_ha": 1425.5,
+    "area_total_ha": 4146.2,
+    "scene_a": {
+     "id": "S2C_48QYH_20250608_0_L2A",
+     "datetime": "2025-06-08T03:32:49.535000Z",
+     "cloud": 17.350128
+    },
+    "scene_b": {
+     "id": "S2A_48QYH_20260526_0_L2A",
+     "datetime": "2026-05-26T03:32:45.550000Z",
+     "cloud": 0.003461
+    },
+    "caveats": [
+     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
+     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
+     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
+     "scene A has 17.4% cloud — treat changed-area figures with extra caution"
+    ]
    }
-  },
-  "note": "Season-matched windows (Apr-Jun 2025 vs Apr-Jun 2026) except where flagged. Figures are GROSS NDVI loss/gain over a ~4,100 ha window around each site — includes farmland rotation and water-level changes, NOT just construction. Screen, don't conclude."
+  }
  },
  "construction": {
   "site": "vinhomes_vu_yen",

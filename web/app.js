@@ -36,7 +36,7 @@ const I18N = {
     outlook_all: 'Triển vọng 2029 — tất cả dự án (USD/m², giả định)',
     outlook_hint: 'Chạm một dự án để xem lập luận và vẽ vùng kịch bản lên biểu đồ.',
     col_project: 'Dự án', col_bear: 'Xấu', col_base: 'Cơ sở', col_bull: 'Tích cực',
-    ev_all: 'Tất cả', ev_vu_yen: 'Vũ Yên', ev_vhm: 'VHM/Vingroup', ev_macro: 'Vĩ mô',
+    ev_all: 'Tất cả', ev_vu_yen: 'Vũ Yên', ev_cat_ba: 'Cát Bà', ev_vhm: 'VHM/Vingroup', ev_macro: 'Vĩ mô',
     voucher_note: 'Lưu ý: giá niêm yết thấp tầng thường kèm voucher, chiết khấu và hỗ trợ ' +
       'lãi suất 0% — giá thực trả thấp hơn niêm yết, nên đà tăng có thể bị phóng đại.',
     assumption: 'giả định',
@@ -72,7 +72,7 @@ const I18N = {
     outlook_all: '2029 outlook — all projects (USD/m², assumptions)',
     outlook_hint: 'Tap a project to see its reasoning and draw its cone on the chart.',
     col_project: 'Project', col_bear: 'Bear', col_base: 'Base', col_bull: 'Bull',
-    ev_all: 'All', ev_vu_yen: 'Vũ Yên', ev_vhm: 'VHM/Vingroup', ev_macro: 'Macro',
+    ev_all: 'All', ev_vu_yen: 'Vũ Yên', ev_cat_ba: 'Cát Bà', ev_vhm: 'VHM/Vingroup', ev_macro: 'Macro',
     voucher_note: 'Note: low-rise headline prices usually bundle vouchers, discounts and ' +
       '0%-interest support — effective prices are below headline, so gains may be overstated.',
     assumption: 'assumption',
@@ -157,7 +157,7 @@ let evFilter = 'all';
 function renderEventFilter(events, rerender) {
   const counts = { all: events.length };
   events.forEach((e) => { counts[e.relevance] = (counts[e.relevance] || 0) + 1; });
-  const opts = ['all', 'vu_yen', 'vhm', 'macro'].filter((k) => counts[k]);
+  const opts = ['all', 'vu_yen', 'cat_ba', 'vhm', 'macro'].filter((k) => counts[k]);
   $('evfilter').innerHTML = opts.map((k) =>
     `<option value="${k}" ${k === evFilter ? 'selected' : ''}>${t('ev_' + k)} (${counts[k]})</option>`
   ).join('');
@@ -242,7 +242,7 @@ async function showMarket() {
   series.push(candles);
 
   const relevant = events.filter((e) =>
-    e.relevance === 'macro' || e.relevance === 'vu_yen' ||
+    e.relevance === 'macro' || e.relevance === 'vu_yen' || e.relevance === 'cat_ba' ||
     e.relevance === ticker.toLowerCase() ||
     (ticker === 'VHM' && e.relevance === 'vhm'));
   applyMarkers(candles, markersFromEvents(relevant, data.candles[0]?.time));
@@ -322,11 +322,11 @@ async function showPsm() {
     }
   } catch (_) { $('outlook').innerHTML = ''; }
 
-  const vuYenEvents = events.filter((e) => e.relevance === 'vu_yen' || e.relevance === 'macro');
+  const vuYenEvents = events.filter((e) => ['vu_yen', 'cat_ba', 'macro'].includes(e.relevance));
   // Price-affecting events get labels on the chart; macro context stays as
   // quiet dots so the sparse USD/m² series remains readable.
   if (series[0]) {
-    const labelled = markersFromEvents(vuYenEvents.filter((e) => e.relevance === 'vu_yen'), null, true);
+    const labelled = markersFromEvents(vuYenEvents.filter((e) => e.relevance === 'vu_yen' || e.relevance === 'cat_ba'), null, true);
     const dots = markersFromEvents(vuYenEvents.filter((e) => e.relevance !== 'vu_yen'), null, false);
     applyMarkers(series[0],
       [...labelled, ...dots].sort((a, b) => a.time.localeCompare(b.time)));

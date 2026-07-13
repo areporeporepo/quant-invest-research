@@ -266,6 +266,30 @@
       "kind": "report_average",
       "source": "Batdongsan.com.vn project page price statistic (asking, landed, T2/2026); mature 2016-era Vingroup project in Hồng Bàng",
       "url": "https://batdongsan.com.vn/ban-nha-biet-thu-lien-ke-vinhomes-imperia-hai-phong"
+    },
+    {
+      "project": "sun_cat_ba",
+      "label": "Sun Xanh Island (Cát Bà) — căn hộ",
+      "date": "2025-04",
+      "price": 63.2,
+      "range": "63-118 (studio 2,15-4 tỷ / 34 m2)",
+      "currency": "VND_million_per_m2",
+      "segment": "apartment",
+      "kind": "primary",
+      "source": "Sun Group agent price sheets (suncatba.com); launch confirmed by VnExpress 8/4/2025 (95% sold day one, press did not publish prices)",
+      "url": "https://suncatba.com/bang-gia-sun-group-cat-ba"
+    },
+    {
+      "project": "sun_cat_ba_lowrise",
+      "label": "Sun Xanh Island (Cát Bà) — shophouse/thấp tầng",
+      "date": "2025-05",
+      "price": 143.0,
+      "range": "143-255 by storeys; per-unit 10-20+ tỷ",
+      "currency": "VND_million_per_m2",
+      "segment": "shophouse",
+      "kind": "primary",
+      "source": "Sun Group agent price sheet sungroupcatba.vn (first low-rise tranche, 105 units, 7.5x18 m plots)",
+      "url": "https://sungroupcatba.vn/gia-ban-biet-thu-shophouse-can-ho-du-an-sun-group-cat-ba-hien-nay-la-bao-nhieu.html"
     }
   ],
   "notes": [
@@ -275,6 +299,8 @@
     "Hải Phòng city series is asking-price data (Batdongsan via Tiền Phong), a trend line rather than a primary-price index.",
     "Landed benchmarks (Hanoi 187M, HCMC 224M VND/m2, CBRE Q4 2025) omitted from chart to avoid segment mixing; see repo history.",
     "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices.",
-    "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series."
+    "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series.",
+    "Sun Cát Bà (Xanh Island): all price figures are sales-agent price sheets (marketing asking levels); press coverage of the sold-out 2025 launches published no prices. Resale exists only as a coarse 7-10 tỷ/unit listing bracket (T7/2026, areas unavailable) — no secondary per-m2 series yet.",
+    "'Vin Cát Bà' does not exist: Vingroup/Vinpearl has NO priced real-estate project on Cát Bà island. Nearest Vingroup assets: VinFast factory (Cát Hải) and Vinhomes mainland Hải Phòng projects."
   ]
 }
