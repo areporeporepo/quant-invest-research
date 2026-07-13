@@ -138,6 +138,35 @@ def _dnse_series(ticker: str, days: int = 400) -> PriceSeries:
     )
 
 
+def get_dnse_ohlc(ticker: str, days: int = 800) -> list[dict]:
+    """Real daily OHLCV candles for HOSE/HNX tickers, keyless, chart-ready.
+
+    Returns [{time: 'YYYY-MM-DD', open, high, low, close, volume}, ...] in the
+    format TradingView Lightweight Charts consumes directly.
+    """
+    import datetime as dt
+    import time
+
+    symbol = ticker.upper().removesuffix(".VN")
+    now = int(time.time())
+    data = _http_get_json(
+        "https://services.entrade.com.vn/chart-api/v2/ohlcs/stock",
+        {"symbol": symbol, "resolution": "1D",
+         "from": now - 60 * 60 * 24 * days, "to": now},
+    )
+    if not data.get("c"):
+        raise ProviderError(f"DNSE returned no candles for '{symbol}'")
+    return [
+        {
+            "time": dt.datetime.fromtimestamp(t, dt.timezone.utc).strftime("%Y-%m-%d"),
+            "open": float(o), "high": float(h), "low": float(l),
+            "close": float(c), "volume": float(v),
+        }
+        for t, o, h, l, c, v in zip(data["t"], data["o"], data["h"],
+                                    data["l"], data["c"], data["v"])
+    ]
+
+
 def _finnhub_series(ticker: str) -> PriceSeries:
     if not settings.finnhub_key:
         raise ProviderError("FINNHUB_API_KEY is not set")

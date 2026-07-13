@@ -1,0 +1,19 @@
+{
+  "events": [
+    {"date": "2023-08-15", "title": "VinFast lists on NASDAQ", "short": "VFS IPO",
+     "detail": "VinFast (Vingroup's EV arm) debuts on NASDAQ via SPAC merger.",
+     "relevance": "macro", "source": "widely reported", "url": ""},
+    {"date": "2024-03-15", "title": "Vinhomes Royal Island (Vũ Yên) launched", "short": "Royal Island",
+     "detail": "Vinhomes launches the 877 ha Royal Island project on Vũ Yên Island, Hải Phòng.",
+     "relevance": "vu_yen", "source": "Vinhomes announcement (verify)", "url": ""},
+    {"date": "2024-08-01", "title": "2024 Land Law takes effect", "short": "Land Law",
+     "detail": "Vietnam's revised Land Law (plus Housing and Real Estate Business laws) takes effect early, reshaping land pricing and supply.",
+     "relevance": "macro", "source": "Vietnam government", "url": ""},
+    {"date": "2025-05-13", "title": "Vinpearl (VPL) lists on HOSE", "short": "VPL listing",
+     "detail": "Vingroup's hospitality arm returns to the stock exchange.",
+     "relevance": "macro", "source": "HOSE (verify)", "url": ""},
+    {"date": "2026-05-26", "title": "Satellite: 61.5 ha newly cleared on Vũ Yên since Jan 2025", "short": "61.5 ha cleared",
+     "detail": "Own analysis: NDVI change between Sentinel-2 scenes S2B_48QXJ_20250104 and S2A_48QXJ_20260526 shows 61.5 ha cleared along new road corridors; finished canal district greening up.",
+     "relevance": "vu_yen", "source": "this repo, /satellite/change endpoint (reproducible)", "url": ""}
+  ]
+}

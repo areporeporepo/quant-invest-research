@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0d1117">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="icon" type="image/png" href="icon.png">
+<title>Vũ Yên Research</title>
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #21262d;
+    --text: #e6edf3; --muted: #8b949e; --accent: #2f81f7;
+    --up: #26a69a; --down: #ef5350;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    background: var(--bg); color: var(--text);
+    font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  header {
+    padding: calc(10px + env(safe-area-inset-top)) 14px 8px;
+    display: flex; align-items: baseline; gap: 10px;
+  }
+  header h1 { font-size: 17px; font-weight: 700; }
+  header .sub { color: var(--muted); font-size: 12px; }
+  nav {
+    display: flex; gap: 6px; padding: 0 12px 10px; overflow-x: auto;
+  }
+  nav button {
+    background: var(--panel); color: var(--muted); border: 1px solid var(--border);
+    border-radius: 18px; padding: 7px 14px; font-size: 13.5px; font-weight: 600;
+    white-space: nowrap; cursor: pointer;
+  }
+  nav button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  #chart { position: relative; height: 46vh; min-height: 300px; margin: 0 6px; }
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px 14px; padding: 8px 14px; font-size: 12px;
+    color: var(--muted); align-items: center;
+  }
+  .legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 4px; margin-right: 5px; }
+  .chips { display: flex; gap: 6px; padding: 2px 12px 8px; overflow-x: auto; }
+  .chips button {
+    background: transparent; color: var(--muted); border: 1px solid var(--border);
+    border-radius: 14px; padding: 4px 11px; font-size: 12.5px; cursor: pointer; white-space: nowrap;
+  }
+  .chips button.on { color: var(--text); border-color: var(--accent); }
+  #detail {
+    margin: 6px 12px; padding: 10px 12px; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 10px; font-size: 13px;
+    color: var(--muted); min-height: 20px;
+  }
+  #detail b { color: var(--text); }
+  #detail a { color: var(--accent); text-decoration: none; word-break: break-all; }
+  #events { margin: 10px 12px 18px; }
+  #events h2 { font-size: 13px; color: var(--muted); text-transform: uppercase;
+               letter-spacing: .06em; margin-bottom: 6px; }
+  .ev {
+    display: flex; gap: 10px; padding: 9px 10px; border-bottom: 1px solid var(--border);
+    cursor: pointer; border-radius: 8px;
+  }
+  .ev:active { background: var(--panel); }
+  .ev .d { color: var(--accent); font-size: 12px; min-width: 78px; font-variant-numeric: tabular-nums; }
+  .ev .t { font-size: 13.5px; }
+  .ev .t small { display: block; color: var(--muted); margin-top: 2px; }
+  footer { padding: 12px 14px 26px; color: var(--muted); font-size: 11px; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Vũ Yên Research</h1>
+    <span class="sub" id="status">loading…</span>
+  </header>
+  <nav>
+    <button id="tab-market" class="active">Markets</button>
+    <button id="tab-psm">USD / m²</button>
+  </nav>
+  <div class="chips" id="chips"></div>
+  <div id="chart"></div>
+  <div class="legend" id="legend"></div>
+  <div id="detail">Tap a marker or an event to see details and its source.</div>
+  <div id="events"><h2>Events</h2><div id="evlist"></div></div>
+  <footer id="disclaimer">
+    Research &amp; education only — not investment advice. Scenario cones are
+    illustrative assumptions, not forecasts. Stock data: DNSE public feed
+    (thousand VND). USD/m² points are curated from public sources; tap any
+    point for its citation.
+  </footer>
+<script src="lightweight-charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

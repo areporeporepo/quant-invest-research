@@ -14,14 +14,24 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.responses import JSONResponse
 
+import json
 from dataclasses import asdict
+from pathlib import Path
+
+from fastapi.staticfiles import StaticFiles
 
 from .analysis import snapshot_dict
 from .change_detection import ChangeError, change_composite_jpeg, detect_change
 from .config import settings
-from .data_providers import ProviderError, get_price_series
+from .data_providers import ProviderError, get_dnse_ohlc, get_price_series
+from .outlook import scenario_cone
+from .psm import load_psm
 from .satellite import SITES, fetch_stac_crop, fetch_stac_scene, fetch_true_color
 from .signals import derive_signals, group_comparison, outlook_text
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+WEB_DIR = BASE_DIR / "web"
 
 DISCLAIMER = (
     "Educational/research use only. Not investment advice, not a recommendation "
@@ -38,8 +48,8 @@ app = FastAPI(
 )
 
 
-@app.get("/")
-def root():
+@app.get("/api")
+def api_root():
     return {
         "service": "quant-invest-research",
         "price_provider": settings.price_provider,
@@ -139,6 +149,63 @@ def satellite_change_image(site: str = "vinhomes_vu_yen",
     })
 
 
+@app.get("/api/candles")
+def api_candles(ticker: str = "VHM", days: int = 800):
+    """Real daily OHLCV candles, chart-ready for Lightweight Charts."""
+    try:
+        candles = get_dnse_ohlc(ticker, days)
+    except ProviderError as e:
+        raise HTTPException(status_code=502, detail=str(e))
+    return JSONResponse({"ticker": ticker.upper(), "candles": candles,
+                         "unit": "thousand VND", "source": "dnse"})
+
+
+@app.get("/api/events")
+def api_events(relevance: str | None = None):
+    """Curated, dated, source-attributed events for chart markers."""
+    path = DATA_DIR / "events.json"
+    events = json.loads(path.read_text()).get("events", []) if path.exists() else []
+    if relevance:
+        wanted = {r.strip() for r in relevance.split(",")}
+        events = [e for e in events if e.get("relevance") in wanted]
+    return JSONResponse({"events": sorted(events, key=lambda e: e["date"])})
+
+
+@app.get("/api/psm")
+def api_psm():
+    """USD/m² series per project from the curated dataset (+ live FX)."""
+    return JSONResponse(load_psm())
+
+
+@app.get("/api/outlook")
+def api_outlook(series: str = "vhm", last_date: str | None = None,
+                last_value: float | None = None,
+                horizon_end: str = "2029-12-31"):
+    """Scenario cone (bear/base/bull) from the last real point to 2029.
+
+    With no explicit anchor: series="vhm" (or any ticker) anchors to its
+    latest real close; series="psm:<project>" anchors to that project's
+    latest curated USD/m² point.
+    """
+    if last_date is None or last_value is None:
+        if series.startswith("psm:"):
+            proj = load_psm()["projects"].get(series[4:])
+            if not proj or not proj["points"]:
+                raise HTTPException(status_code=404,
+                                    detail=f"no psm data for '{series[4:]}'")
+            last = proj["points"][-1]
+            last_date, last_value = last["time"], last["value"]
+        else:
+            try:
+                candles = get_dnse_ohlc(series, days=30)
+            except ProviderError as e:
+                raise HTTPException(status_code=502, detail=str(e))
+            last_date, last_value = candles[-1]["time"], candles[-1]["close"]
+    key = series.lower()
+    return JSONResponse(scenario_cone(last_date, float(last_value),
+                                      series_key=key, horizon_end=horizon_end))
+
+
 @app.get("/satellite/sites")
 def satellite_sites():
     """Verifiable, auditable coordinates for the physical sites we track."""
@@ -196,3 +263,9 @@ def satellite_image(site: str = "vinhomes_vu_yen",
         "max_cloud. provider=sentinelhub needs SENTINELHUB_CLIENT_ID/SECRET "
         "(free tier at https://www.sentinel-hub.com/).",
     })
+
+
+# Interactive chart web app (TradingView Lightweight Charts PWA).
+# Mounted last so all API routes above take precedence.
+if WEB_DIR.exists():
+    app.mount("/", StaticFiles(directory=WEB_DIR, html=True), name="web")
