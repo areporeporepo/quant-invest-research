@@ -57,6 +57,10 @@ def scenario_cone(last_date: str, last_value: float, series_key: str = "default"
             "annual_rate": rate,
             "label": spec.get("label", name),
             "path": path,
+            # Optional bilingual labels and reasoning, passed through verbatim
+            # so the UI can show WHY each assumption is what it is.
+            **{k: spec[k] for k in ("label_vi", "rationale", "rationale_vi")
+               if k in spec},
         }
     out["disclaimer"] = ("Scenario cones are illustrative compounding paths "
                          "from stated assumptions — not forecasts, not advice. "

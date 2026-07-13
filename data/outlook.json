@@ -2,43 +2,58 @@
   "default": {
     "bear": {
       "annual_rate": -0.1,
-      "label": "Bear: correction / tightening"
+      "label": "Bear: correction / tightening",
+      "label_vi": "Xấu: điều chỉnh / thắt chặt"
     },
     "base": {
       "annual_rate": 0.08,
-      "label": "Base: trend growth"
+      "label": "Base: trend growth",
+      "label_vi": "Cơ sở: tăng theo xu hướng"
     },
     "bull": {
       "annual_rate": 0.2,
-      "label": "Bull: continued re-rating"
+      "label": "Bull: continued re-rating",
+      "label_vi": "Tích cực: tiếp tục tái định giá"
     }
   },
   "vhm": {
     "bear": {
       "annual_rate": -0.15,
-      "label": "Bear: property downturn, high vol cuts both ways"
+      "label": "Bear: property downturn; 54% vol cuts both ways",
+      "label_vi": "Xấu: BĐS suy giảm; biến động 54% hai chiều"
     },
     "base": {
       "annual_rate": 0.1,
-      "label": "Base: delivery on pace"
+      "label": "Base: delivery on pace",
+      "label_vi": "Cơ sở: bàn giao đúng tiến độ"
     },
     "bull": {
       "annual_rate": 0.25,
-      "label": "Bull: re-rating continues"
+      "label": "Bull: re-rating continues",
+      "label_vi": "Tích cực: tái định giá tiếp diễn"
     }
   },
   "psm:vu_yen_royal_island": {
     "bear": {
-      "annual_rate": -0.05,
-      "label": "Bear: oversupply / demand cools"
+      "annual_rate": -0.08,
+      "label": "Bear: landed correction + heavy supply",
+      "label_vi": "Xấu: thấp tầng điều chỉnh + nguồn cung lớn",
+      "rationale": "National landed segment is already cooling (CBRE Q4 2025: Hanoi landed -15% y/y, HCMC landed -28% y/y on fringe supply). Vũ Yên headline prices sit ~2x the Hải Phòng city average while sales vouchers and 0%-interest programs mean effective prices are below headline — if policies unwind into price cuts, headline follows. 877 ha of island supply plus Green Paradise competing for the same investor capital; VND slide (~1-2%/yr) further drags USD returns.",
+      "rationale_vi": "Phân khúc thấp tầng cả nước đang hạ nhiệt (CBRE Q4/2025: thấp tầng Hà Nội -15%, TP.HCM -28% so cùng kỳ do nguồn cung vùng ven). Giá niêm yết Vũ Yên đã gấp ~2 lần trung bình căn hộ Hải Phòng, trong khi voucher và hỗ trợ lãi suất 0% khiến giá thực trả thấp hơn niêm yết — nếu chính sách bán hàng chuyển thành giảm giá trực tiếp, giá niêm yết sẽ giảm theo. Nguồn cung 877 ha trên đảo cộng Green Paradise cạnh tranh cùng dòng vốn đầu tư; VND mất giá ~1-2%/năm bào mòn lợi nhuận tính bằng USD."
     },
     "base": {
-      "annual_rate": 0.07,
-      "label": "Base: infrastructure premium accrues"
+      "annual_rate": 0.06,
+      "label": "Base: infrastructure premium accrues, FX drags",
+      "label_vi": "Cơ sở: hưởng lợi hạ tầng, tỷ giá cản",
+      "rationale": "The catalysts are real and delivered: Hoàng Gia bridge (30→5 min), Thủy Nguyên city status, the Hải Dương merger, VinWonders open, and satellite-confirmed build-out (61.5 ha cleared since Jan 2025). Headline VND prices grind ~+8%/yr as the area matures — roughly Hanoi-condo-2025 pace — minus ~2%/yr VND depreciation gives ~+6%/yr in USD. That path takes ~$3,900/m² today to ~$4,900/m² by end-2029.",
+      "rationale_vi": "Chất xúc tác đã thành hiện thực: cầu Hoàng Gia (30→5 phút), Thủy Nguyên lên thành phố, sáp nhập Hải Dương, VinWonders mở cửa, và vệ tinh xác nhận tiến độ (61,5 ha san lấp từ 1/2025). Giá VND niêm yết tăng ~8%/năm khi khu vực hoàn thiện — tương đương nhịp căn hộ Hà Nội 2025 — trừ ~2%/năm VND mất giá còn ~+6%/năm tính bằng USD: từ ~3.900 USD/m² hiện tại lên ~4.900 USD/m² cuối 2029."
     },
     "bull": {
-      "annual_rate": 0.15,
-      "label": "Bull: Hai Phong re-rates to tier-1"
+      "annual_rate": 0.14,
+      "label": "Bull: converges toward Hanoi landed benchmark",
+      "label_vi": "Tích cực: tiệm cận mặt bằng thấp tầng Hà Nội",
+      "rationale": "If Thủy Nguyên truly becomes the administrative center of expanded Hải Phòng, Vũ Yên converges toward the Hanoi landed benchmark (~$7,100/m², CBRE Q4 2025). The new 2026 land-price table (~160 triệu/m² on central streets) resets the official floor beneath market prices; Lê Thánh Tông frontage across the river already asks 180-200 triệu/m². +14%/yr reaches ~$6,300/m² by end-2029 — still below today's Hanoi landed level.",
+      "rationale_vi": "Nếu Thủy Nguyên thực sự trở thành trung tâm hành chính của Hải Phòng mở rộng, Vũ Yên sẽ tiệm cận mặt bằng thấp tầng Hà Nội (~7.100 USD/m², CBRE Q4/2025). Bảng giá đất 2026 (~160 triệu/m² phố trung tâm) nâng mặt sàn chính thức; mặt đường Lê Thánh Tông bên kia sông đã rao 180-200 triệu/m². +14%/năm đạt ~6.300 USD/m² cuối 2029 — vẫn thấp hơn thấp tầng Hà Nội hiện nay."
     }
   }
 }

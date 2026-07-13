@@ -57,8 +57,20 @@
   #detail b { color: var(--text); }
   #detail a { color: var(--accent); text-decoration: none; word-break: break-all; }
   #events { margin: 10px 12px 18px; }
+  .evhead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
   #events h2 { font-size: 13px; color: var(--muted); text-transform: uppercase;
-               letter-spacing: .06em; margin-bottom: 6px; }
+               letter-spacing: .06em; margin: 0; }
+  #evfilter { background: var(--panel); color: var(--text); border: 1px solid var(--border);
+              border-radius: 10px; padding: 4px 8px; font-size: 12.5px; }
+  #outlook { margin: 6px 12px; }
+  #outlook .card { background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; font-size: 13px; }
+  #outlook .card b { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
+  #outlook .card .vals { color: var(--text); font-variant-numeric: tabular-nums;
+    font-size: 12.5px; margin: 4px 0; }
+  #outlook .card p { color: var(--muted); margin: 4px 0 0; line-height: 1.5; }
+  #outlook h2 { font-size: 13px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: .06em; margin: 8px 2px 6px; }
   .ev {
     display: flex; gap: 10px; padding: 9px 10px; border-bottom: 1px solid var(--border);
     cursor: pointer; border-radius: 8px;
@@ -79,14 +91,18 @@
       font-weight:700;cursor:pointer">EN</button>
   </header>
   <nav>
-    <button id="tab-market" class="active">Markets</button>
-    <button id="tab-psm">USD / m²</button>
+    <button id="tab-psm" class="active">USD / m²</button>
+    <button id="tab-market">Markets</button>
   </nav>
   <div class="chips" id="chips"></div>
   <div id="chart"></div>
   <div class="legend" id="legend"></div>
+  <div id="outlook"></div>
   <div id="detail">Tap a marker or an event to see details and its source.</div>
-  <div id="events"><h2>Events</h2><div id="evlist"></div></div>
+  <div id="events">
+    <div class="evhead"><h2>Events</h2><select id="evfilter"></select></div>
+    <div id="evlist"></div>
+  </div>
   <footer id="disclaimer">
     Research &amp; education only — not investment advice. Scenario cones are
     illustrative assumptions, not forecasts. Stock data: DNSE public feed

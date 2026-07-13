@@ -24,6 +24,11 @@ const I18N = {
     psm_status: (n) => `USD trên m² · ${n} điểm có nguồn dẫn`,
     cone_psm: 'vùng kịch bản → 2029 (giả định, không phải dự báo)',
     source: 'Nguồn', per_year: '%/năm',
+    outlook_title: 'Triển vọng USD/m² Vũ Yên → 2029 (kịch bản có lập luận)',
+    ev_all: 'Tất cả', ev_vu_yen: 'Vũ Yên', ev_vhm: 'VHM/Vingroup', ev_macro: 'Vĩ mô',
+    voucher_note: 'Lưu ý: giá niêm yết thấp tầng thường kèm voucher, chiết khấu và hỗ trợ ' +
+      'lãi suất 0% — giá thực trả thấp hơn niêm yết, nên đà tăng có thể bị phóng đại.',
+    assumption: 'giả định',
     disclaimer: 'Chỉ phục vụ nghiên cứu và học tập — không phải lời khuyên đầu tư. ' +
       'Vùng kịch bản là giả định minh hoạ, không phải dự báo. Dữ liệu cổ phiếu: ' +
       'DNSE (nghìn VND). Điểm USD/m² được tuyển chọn từ nguồn công khai; chạm vào ' +
@@ -44,6 +49,11 @@ const I18N = {
     psm_status: (n) => `USD per m² · ${n} sourced points`,
     cone_psm: 'scenario cone → 2029 (assumptions, not forecasts)',
     source: 'Source', per_year: '%/yr',
+    outlook_title: 'Vũ Yên USD/m² outlook → 2029 (reasoned scenarios)',
+    ev_all: 'All', ev_vu_yen: 'Vũ Yên', ev_vhm: 'VHM/Vingroup', ev_macro: 'Macro',
+    voucher_note: 'Note: low-rise headline prices usually bundle vouchers, discounts and ' +
+      '0%-interest support — effective prices are below headline, so gains may be overstated.',
+    assumption: 'assumption',
     disclaimer: 'Research & education only — not investment advice. Scenario ' +
       'cones are illustrative assumptions, not forecasts. Stock data: DNSE ' +
       'public feed (thousand VND). USD/m² points are curated from public ' +
@@ -79,7 +89,7 @@ const CONE_STYLE = {
 const PROJECT_COLORS = ['#2f81f7', '#e3b341', '#26a69a', '#ef5350', '#b083f0',
                         '#f78166', '#79c0ff'];
 
-let view = 'market';
+let view = 'psm';
 let ticker = 'VHM';
 let series = [];            // active chart series handles
 let eventsCache = null;
@@ -110,7 +120,25 @@ async function loadEvents() {
   return eventsCache;
 }
 
-function renderEventList(events) {
+let evFilter = 'all';
+
+function renderEventFilter(events, rerender) {
+  const counts = { all: events.length };
+  events.forEach((e) => { counts[e.relevance] = (counts[e.relevance] || 0) + 1; });
+  const opts = ['all', 'vu_yen', 'vhm', 'macro'].filter((k) => counts[k]);
+  $('evfilter').innerHTML = opts.map((k) =>
+    `<option value="${k}" ${k === evFilter ? 'selected' : ''}>${t('ev_' + k)} (${counts[k]})</option>`
+  ).join('');
+  $('evfilter').onchange = () => { evFilter = $('evfilter').value; rerender(); };
+}
+
+function renderEventList(allEvents) {
+  renderEventFilter(allEvents, () => renderEventList(allEvents));
+  // Newest first — the most recent catalysts matter most.
+  const events = allEvents
+    .filter((e) => evFilter === 'all' || e.relevance === evFilter)
+    .slice()
+    .sort((a, b) => b.date.localeCompare(a.date));
   $('evlist').innerHTML = events.map((e, i) =>
     `<div class="ev" data-i="${i}"><span class="d">${e.date}</span>
      <span class="t">${evTitle(e)}<small>${evDetail(e)}</small></span></div>`
@@ -167,6 +195,7 @@ function drawCone(cone, priceScaleId) {
 
 async function showMarket() {
   clearSeries();
+  $('outlook').innerHTML = '';
   setStatus(t('loading'));
   const [data, events, cone] = await Promise.all([
     getJSON(`/api/candles?ticker=${ticker}`),
@@ -246,12 +275,15 @@ async function showPsm() {
   });
 
   // Scenario cone anchored on Vũ Yên's latest curated point, if present.
-  const vuYenKey = keys.find((k) => k.includes('vu_yen'));
+  const vuYenKey = keys.find((k) => k.includes('vu_yen_royal_island')) ||
+                   keys.find((k) => k.includes('vu_yen'));
   if (vuYenKey) {
     try {
-      drawCone(await getJSON(`/api/outlook?series=psm:${vuYenKey}`), 'right');
+      const cone = await getJSON(`/api/outlook?series=psm:${vuYenKey}`);
+      drawCone(cone, 'right');
       legendItems.push({ color: '#8b949e', label: t('cone_psm') });
-    } catch (_) { /* no cone without data */ }
+      renderOutlookCard(cone);
+    } catch (_) { $('outlook').innerHTML = ''; }
   }
 
   const vuYenEvents = events.filter((e) => e.relevance === 'vu_yen' || e.relevance === 'macro');
@@ -274,6 +306,34 @@ async function showPsm() {
       ).join('<hr style="border-color:#21262d">'));
     }
   });
+}
+
+/* ---------------- Outlook reasoning card ---------------- */
+
+function yearsBetween(a, b) { return (new Date(b) - new Date(a)) / 31557600000; }
+
+function renderOutlookCard(cone) {
+  if (!cone || !cone.scenarios) { $('outlook').innerHTML = ''; return; }
+  const order = ['bull', 'base', 'bear'];
+  const anchor = cone.anchor;
+  const yearEnds = ['2027-12-31', '2028-12-31', '2029-12-31'];
+  const cards = order.filter((k) => cone.scenarios[k]).map((k) => {
+    const sc = cone.scenarios[k];
+    const label = (lang === 'vi' && sc.label_vi) ? sc.label_vi : sc.label;
+    const why = (lang === 'vi' && sc.rationale_vi) ? sc.rationale_vi : (sc.rationale || '');
+    const vals = yearEnds.map((d) => {
+      const v = anchor.value * Math.pow(1 + sc.annual_rate, yearsBetween(anchor.date, d));
+      return `${d.slice(0, 4)}: $${Math.round(v).toLocaleString('en-US')}`;
+    }).join(' · ');
+    const pctTxt = `${sc.annual_rate > 0 ? '+' : ''}${(sc.annual_rate * 100).toFixed(0)}${t('per_year')}`;
+    return `<div class="card">
+      <b><span class="dot" style="background:${CONE_STYLE[k]?.color}"></span>${label} (${pctTxt} ${t('assumption')})</b>
+      <div class="vals">${vals} /m²</div>
+      ${why ? `<p>${why}</p>` : ''}
+    </div>`;
+  });
+  $('outlook').innerHTML = `<h2>${t('outlook_title')}</h2>` + cards.join('') +
+    `<div class="card"><p>${t('voucher_note')}</p></div>`;
 }
 
 /* ---------------- Tabs & ticker chips ---------------- */
@@ -325,6 +385,6 @@ $('lang').onclick = () => {
 };
 
 applyStaticText();
-setView('market');
+setView('psm');
 /* Auto-refresh market data every 5 minutes while the app is open. */
 setInterval(() => { if (view === 'market') showMarket().catch(() => {}); }, 300000);
