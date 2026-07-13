@@ -287,8 +287,13 @@ async function showPsm() {
   }
 
   const vuYenEvents = events.filter((e) => e.relevance === 'vu_yen' || e.relevance === 'macro');
-  // Quiet dots on the sparse USD/m² chart — labels live in the list below.
-  if (series[0]) series[0].setMarkers(markersFromEvents(vuYenEvents, null, false));
+  // Price-affecting events get labels on the chart; macro context stays as
+  // quiet dots so the sparse USD/m² series remains readable.
+  if (series[0]) {
+    const labelled = markersFromEvents(vuYenEvents.filter((e) => e.relevance === 'vu_yen'), null, true);
+    const dots = markersFromEvents(vuYenEvents.filter((e) => e.relevance !== 'vu_yen'), null, false);
+    series[0].setMarkers([...labelled, ...dots].sort((a, b) => a.time.localeCompare(b.time)));
+  }
   chart.timeScale().fitContent();
   legend(legendItems);
   renderEventList(vuYenEvents);

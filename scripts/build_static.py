@@ -150,11 +150,99 @@ def build() -> None:
     html = html.replace("</header>",
                         '</header>\n  <div class="banner" id="banner"></div>')
 
+    # --- AI/machine-readable layer -------------------------------------
+    # AI browsers (ChatGPT, Claude, etc.) fetch raw HTML without running
+    # JavaScript, so the numbers must exist as static markup too.
+    html = html.replace(
+        "<title>",
+        '<meta name="description" content="Vũ Yên Research: USD/m² for '
+        'Vinhomes Royal Island (Vũ Yên, Hải Phòng) vs comparables, VHM/Vingroup '
+        'HOSE prices, dated events and reasoned 2027-2029 outlook scenarios. '
+        'Machine-readable summary inside; full dataset at data.json.">\n<title>')
+    html = html.replace("</footer>",
+                        "</footer>\n" + machine_summary(data))
+
     DOCS.mkdir(exist_ok=True)
     (DOCS / "index.html").write_text(html)
+    (DOCS / "data.json").write_text(
+        json.dumps(data, ensure_ascii=False, indent=1))
+    (DOCS / "llms.txt").write_text(LLMS_TXT.format(asof=data["asof"]))
     for asset in ("manifest.json", "icon.png"):
         shutil.copy(WEB / asset, DOCS / asset)
     print(f"docs/index.html built ({len(html) // 1024} KB), as of {data['asof']}")
+
+
+LLMS_TXT = """# Vũ Yên Research — AI access guide (static site)
+
+Interactive charts for Vinhomes Royal Island (Vũ Yên island, Hải Phòng,
+Việt Nam): USD per m² vs comparable projects, VHM/Vingroup HOSE stock
+prices, dated events, and reasoned 2027-2029 outlook scenarios.
+
+- ./data.json — full structured dataset (candles, USD/m² points with
+  sources, events, outlook scenarios with rationale). Snapshot: {asof}.
+- ./index.html — the chart app; contains a <section id="machine-summary">
+  with the same key numbers as static HTML.
+- Source repo (live API + satellite change detection + MCP server):
+  https://github.com/areporeporepo/quant-invest-research
+
+Prices: HOSE quotes in thousands of VND; USD/m² converted at yearly-average
+FX. Scenario outlooks are stated assumptions, not forecasts. Research and
+education only — not investment advice.
+"""
+
+
+def machine_summary(data: dict) -> str:
+    """Static HTML digest of the key numbers for non-JS readers."""
+    rows = []
+    for key, proj in data["psm"]["projects"].items():
+        first, last = proj["points"][0], proj["points"][-1]
+        rows.append(
+            f"<tr><td>{proj['label']}</td>"
+            f"<td>{first['time'][:7]}: ${first['value']:.0f}</td>"
+            f"<td>{last['time'][:7]}: ${last['value']:.0f}</td>"
+            f"<td>{last.get('source', '')[:90]}</td></tr>")
+    cone = data["outlook"]["psm:vu_yen_royal_island"]
+    anchor = cone["anchor"]
+    scen = []
+    for name in ("bull", "base", "bear"):
+        sc = cone["scenarios"].get(name)
+        if not sc:
+            continue
+        import datetime as dt
+        vals = []
+        a = dt.date.fromisoformat(anchor["date"][:10])
+        for y in (2027, 2028, 2029):
+            yrs = (dt.date(y, 12, 31) - a).days / 365.25
+            vals.append(f"{y}: ${anchor['value'] * (1 + sc['annual_rate']) ** yrs:,.0f}")
+        scen.append(
+            f"<li><b>{name} ({sc['annual_rate']:+.0%}/yr assumption)</b> — "
+            f"{' · '.join(vals)} per m². {sc.get('rationale', sc.get('label', ''))}</li>")
+    events = "".join(
+        f"<li>{e['date']} — {e['title']}: {e.get('detail', '')} "
+        f"(source: {e.get('source', '')})</li>"
+        for e in sorted(data["events"], key=lambda e: e["date"], reverse=True))
+    closes = " · ".join(
+        f"{tk} {c[-1]['close']}" for tk, c in data["candles"].items())
+    return f"""<section id="machine-summary" hidden aria-hidden="true">
+<h1>Vũ Yên Research — machine-readable summary (as of {data['asof']})</h1>
+<p>Educational research on Vinhomes Royal Island (Vũ Yên island, Hải Phòng,
+Vietnam) and Vingroup-family HOSE stocks. Not investment advice. Full
+structured data: <a href="data.json">data.json</a>.</p>
+<h2>Latest HOSE closes (thousand VND, {data['asof']})</h2>
+<p>{closes}</p>
+<h2>USD per m² by project (first → latest sourced point)</h2>
+<table><tr><th>Project</th><th>First</th><th>Latest</th><th>Latest source</th></tr>
+{''.join(rows)}</table>
+<p>FX: {data['psm']['fx']['vnd_per_usd']:.0f} VND/USD ({data['psm']['fx']['source']});
+historical points converted at yearly-average FX.</p>
+<h2>Vũ Yên USD/m² outlook scenarios to 2029 (assumptions with reasoning, not forecasts)</h2>
+<p>Anchor: {anchor['date']} at ${anchor['value']:,.0f}/m².</p>
+<ul>{''.join(scen)}</ul>
+<p>Caveat: low-rise headline prices bundle vouchers, discounts and 0%-interest
+support — effective prices sit below headline.</p>
+<h2>Events (newest first)</h2>
+<ul>{events}</ul>
+</section>"""
 
 
 if __name__ == "__main__":

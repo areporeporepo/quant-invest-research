@@ -1,0 +1,16 @@
+# Vũ Yên Research — AI access guide (static site)
+
+Interactive charts for Vinhomes Royal Island (Vũ Yên island, Hải Phòng,
+Việt Nam): USD per m² vs comparable projects, VHM/Vingroup HOSE stock
+prices, dated events, and reasoned 2027-2029 outlook scenarios.
+
+- ./data.json — full structured dataset (candles, USD/m² points with
+  sources, events, outlook scenarios with rationale). Snapshot: 2026-07-13.
+- ./index.html — the chart app; contains a <section id="machine-summary">
+  with the same key numbers as static HTML.
+- Source repo (live API + satellite change detection + MCP server):
+  https://github.com/areporeporepo/quant-invest-research
+
+Prices: HOSE quotes in thousands of VND; USD/m² converted at yearly-average
+FX. Scenario outlooks are stated assumptions, not forecasts. Research and
+education only — not investment advice.
