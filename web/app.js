@@ -80,14 +80,22 @@ function evTitle(e) { return (lang === 'vi' && e.title_vi) ? e.title_vi : e.titl
 function evDetail(e) { return (lang === 'vi' && e.detail_vi) ? e.detail_vi : (e.detail || ''); }
 function evShort(e) { return (lang === 'vi' && e.short_vi) ? e.short_vi : (e.short || evTitle(e).slice(0, 18)); }
 
+/* Lightweight Charts v5 (2026 architecture): unified addSeries API,
+   markers as a plugin, and an always-logarithmic price scale so long
+   trends read as slope, not compounding illusion. */
 const chart = LightweightCharts.createChart(chartEl, {
   layout: { background: { color: '#0d1117' }, textColor: '#8b949e' },
   grid: { vertLines: { color: '#161b22' }, horzLines: { color: '#161b22' } },
   crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
   timeScale: { borderColor: '#21262d', timeVisible: false },
-  rightPriceScale: { borderColor: '#21262d' },
+  rightPriceScale: { borderColor: '#21262d',
+                     mode: LightweightCharts.PriceScaleMode.Logarithmic },
   handleScroll: true, handleScale: true,
 });
+
+function applyMarkers(s, markers) {
+  LightweightCharts.createSeriesMarkers(s, markers);
+}
 new ResizeObserver(() => chart.resize(chartEl.clientWidth, chartEl.clientHeight))
   .observe(chartEl);
 
@@ -187,7 +195,7 @@ function markersFromEvents(events, minTime, withText = true) {
 
 function drawCone(cone, priceScaleId) {
   for (const [name, sc] of Object.entries(cone.scenarios)) {
-    const line = chart.addLineSeries({
+    const line = chart.addSeries(LightweightCharts.LineSeries, {
       color: CONE_STYLE[name]?.color || '#8b949e',
       lineWidth: name === 'base' ? 2 : 1,
       lineStyle: LightweightCharts.LineStyle.Dashed,
@@ -212,7 +220,7 @@ async function showMarket() {
     loadEvents(),
     getJSON(`/api/outlook?series=${ticker}`),
   ]);
-  const candles = chart.addCandlestickSeries({
+  const candles = chart.addSeries(LightweightCharts.CandlestickSeries, {
     upColor: '#26a69a', downColor: '#ef5350', borderVisible: false,
     wickUpColor: '#26a69a', wickDownColor: '#ef5350',
   });
@@ -223,7 +231,7 @@ async function showMarket() {
     e.relevance === 'macro' || e.relevance === 'vu_yen' ||
     e.relevance === ticker.toLowerCase() ||
     (ticker === 'VHM' && e.relevance === 'vhm'));
-  candles.setMarkers(markersFromEvents(relevant, data.candles[0]?.time));
+  applyMarkers(candles, markersFromEvents(relevant, data.candles[0]?.time));
   drawCone(cone, 'right');
 
   chart.timeScale().fitContent();
@@ -275,7 +283,7 @@ async function showPsm() {
   keys.forEach((k, i) => {
     const proj = psm.projects[k];
     const color = PROJECT_COLORS[i % PROJECT_COLORS.length];
-    const line = chart.addLineSeries({
+    const line = chart.addSeries(LightweightCharts.LineSeries, {
       color, lineWidth: 2, priceScaleId: 'right',
       title: '', lastValueVisible: false, priceLineVisible: false,
       pointMarkersVisible: true,
@@ -306,7 +314,8 @@ async function showPsm() {
   if (series[0]) {
     const labelled = markersFromEvents(vuYenEvents.filter((e) => e.relevance === 'vu_yen'), null, true);
     const dots = markersFromEvents(vuYenEvents.filter((e) => e.relevance !== 'vu_yen'), null, false);
-    series[0].setMarkers([...labelled, ...dots].sort((a, b) => a.time.localeCompare(b.time)));
+    applyMarkers(series[0],
+      [...labelled, ...dots].sort((a, b) => a.time.localeCompare(b.time)));
   }
   chart.timeScale().fitContent();
   legend(legendItems);
