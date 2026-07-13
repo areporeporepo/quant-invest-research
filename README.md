@@ -1,13 +1,20 @@
-# Quant Investment Research API
+# Việt Nam Sustainable Development Research
 
-A small, honest **backend service** for researching an asset the way a quant
-would: pull **verifiable market data**, compute **quant indicators**, and layer
-in **satellite / alternative data** to cross-check the story on the ground.
+Nghiên cứu phát triển bền vững Việt Nam — an honest, verifiable research
+stack for the tension at the heart of Vietnam's coastal boom: **mega-projects
+vs. heritage landscapes**. It pulls real market data, curates sourced USD/m²
+price series, computes quant indicators and scenario outlooks, and — the
+differentiated part — **watches the ground itself from orbit**: construction
+progress, land clearing, and development pressure on UNESCO/biosphere areas.
 
-The worked example is **Vinhomes** (Vingroup's real-estate arm, ticker **`VHM`**
-on the Ho Chi Minh Stock Exchange), with the physical anchor site being
-**Vinhomes Royal Island on Vũ Yên Island, Hải Phòng** — but every ticker and
-site is configurable.
+Anchor cases:
+- **Vũ Yên Island (Vinhomes Royal Island, Hải Phòng)** — delivery of a
+  877 ha island mega-project, tracked quarterly from Sentinel-2
+- **Cát Bà (Sun Group Xanh Island & the archipelago)** — development inside
+  the Hạ Long–Cát Bà UNESCO World Heritage setting, where the sustainability
+  question is literal and visible from space
+- The **Vingroup family on HOSE** (VIC, VHM, VRE, VPL, VEF) plus VN-Index,
+  and global context (NVDA, SPY)
 
 > ⚠️ **Not financial advice.** This is an educational/research tool. It reports
 > what the numbers *are* — it does **not** tell you whether to buy, sell, or

@@ -38,6 +38,7 @@ class SceneRef:
     cloud_cover: Optional[float]
     red_href: str = ""
     nir_href: str = ""
+    green_href: str = ""
     visual_href: str = ""
 
 
@@ -55,6 +56,8 @@ class ChangeReport:
     cleared_pct_of_site: float
     mean_ndvi_a: float
     mean_ndvi_b: float
+    reclaimed_ha: float = 0.0  # water in A -> land in B (reclamation)
+    flooded_ha: float = 0.0    # land in A -> water in B
     caveats: list[str] = field(default_factory=list)
 
 
@@ -86,6 +89,7 @@ def _best_scene(site: Site, date_from: str, date_to: str,
         cloud_cover=best["properties"].get("eo:cloud_cover"),
         red_href=(assets.get("red", {}) or {}).get("href", ""),
         nir_href=(assets.get("nir", {}) or {}).get("href", ""),
+        green_href=(assets.get("green", {}) or {}).get("href", ""),
         visual_href=(assets.get("visual", {}) or {}).get("href", ""),
     )
 
@@ -134,10 +138,23 @@ def detect_change(site_key: str, from_a: str, to_a: str, from_b: str,
             and scene_b.red_href and scene_b.nir_href):
         raise ChangeError("scene is missing red/nir band assets")
 
-    ndvi_a = _ndvi(_read_crop(scene_a.red_href, site, half_deg)[0],
-                   _read_crop(scene_a.nir_href, site, half_deg)[0])
-    ndvi_b = _ndvi(_read_crop(scene_b.red_href, site, half_deg)[0],
-                   _read_crop(scene_b.nir_href, site, half_deg)[0])
+    nir_a = _read_crop(scene_a.nir_href, site, half_deg)[0]
+    nir_b = _read_crop(scene_b.nir_href, site, half_deg)[0]
+    ndvi_a = _ndvi(_read_crop(scene_a.red_href, site, half_deg)[0], nir_a)
+    ndvi_b = _ndvi(_read_crop(scene_b.red_href, site, half_deg)[0], nir_b)
+
+    def _water_mask(green_href, nir):
+        if not green_href:
+            return None
+        import numpy as np
+        g = _read_crop(green_href, site, half_deg)[0].astype("float64")
+        n = nir.astype("float64")
+        with np.errstate(divide="ignore", invalid="ignore"):
+            ndwi = np.where((g + n) > 0, (g - n) / (g + n), 0.0)
+        return ndwi > 0.05
+
+    water_a = _water_mask(scene_a.green_href, nir_a)
+    water_b = _water_mask(scene_b.green_href, nir_b)
     # Same tile grid -> same shape, but guard against off-by-one windows.
     h = min(ndvi_a.shape[0], ndvi_b.shape[0])
     w = min(ndvi_a.shape[1], ndvi_b.shape[1])
@@ -148,11 +165,20 @@ def detect_change(site_key: str, from_a: str, to_a: str, from_b: str,
     cleared = veg_a & (ndvi_b < BARE_NDVI)
     reveg = (ndvi_a < BARE_NDVI) & veg_b
     px_ha = 0.01  # 10 m x 10 m = 100 m^2 = 0.01 ha
+    reclaimed_ha = flooded_ha = 0.0
+    if water_a is not None and water_b is not None:
+        wa, wb = water_a[:h, :w], water_b[:h, :w]
+        # Reclamation: was water, now land. Tide levels add noise — the
+        # caveats say so — but large engineered fills dwarf tidal flats.
+        reclaimed_ha = round(float((wa & ~wb).sum()) * px_ha, 1)
+        flooded_ha = round(float((~wa & wb).sum()) * px_ha, 1)
 
     total = int(h * w)
     caveats = [
         "NDVI change conflates construction with seasonal vegetation change, "
         "water-level shifts and residual cloud/haze — screen, don't conclude.",
+        "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large "
+        "engineered fills stand out, small values may be tide.",
         "Scenes are the least-cloudy in each window, not fixed anniversary "
         "dates; growing-season mismatch can bias the comparison.",
     ]
@@ -167,6 +193,8 @@ def detect_change(site_key: str, from_a: str, to_a: str, from_b: str,
         veg_area_b_ha=round(float(veg_b.sum()) * px_ha, 1),
         cleared_ha=round(float(cleared.sum()) * px_ha, 1),
         revegetated_ha=round(float(reveg.sum()) * px_ha, 1),
+        reclaimed_ha=reclaimed_ha,
+        flooded_ha=flooded_ha,
         cleared_pct_of_site=round(float(cleared.sum()) / total * 100.0, 2),
         mean_ndvi_a=round(float(ndvi_a.mean()), 4),
         mean_ndvi_b=round(float(ndvi_b.mean()), 4),

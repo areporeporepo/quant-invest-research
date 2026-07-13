@@ -1,4 +1,9 @@
-# Vũ Yên Research — Nghiên cứu định lượng (bản tiếng Việt)
+# Việt Nam Xanh Research — Phát triển bền vững (bản tiếng Việt)
+
+Trọng tâm: mâu thuẫn giữa **siêu dự án ven biển** và **di sản thiên nhiên** —
+Vũ Yên (Vinhomes Royal Island) và Cát Bà (Sun Group Xanh Island, trong vùng
+Di sản Thế giới Hạ Long–Cát Bà) — theo dõi bằng dữ liệu thật: giá thị trường,
+USD/m² có nguồn dẫn, và ảnh vệ tinh.
 
 Dịch vụ backend + ứng dụng web di động để nghiên cứu **Vinhomes (VHM, HOSE)**
 theo cách của một nhà phân tích định lượng, với điểm neo thực địa là

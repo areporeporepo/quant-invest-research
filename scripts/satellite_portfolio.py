@@ -39,6 +39,8 @@ def main() -> None:
                 "name": site.name, "ok": True,
                 "cleared_ha": rep.cleared_ha,
                 "revegetated_ha": rep.revegetated_ha,
+                "reclaimed_ha": rep.reclaimed_ha,
+                "flooded_ha": rep.flooded_ha,
                 "veg_area_a_ha": rep.veg_area_a_ha,
                 "veg_area_b_ha": rep.veg_area_b_ha,
                 "area_total_ha": rep.area_total_ha,

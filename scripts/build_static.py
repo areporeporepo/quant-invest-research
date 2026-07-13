@@ -174,8 +174,8 @@ def build() -> None:
     # JavaScript, so the numbers must exist as static markup too.
     html = html.replace(
         "<title>",
-        '<meta name="description" content="Vũ Yên Research: USD/m² for '
-        'Vinhomes Royal Island (Vũ Yên, Hải Phòng) vs comparables, VHM/Vingroup '
+        '<meta name="description" content="Việt Nam sustainable development research: USD/m² for '
+        'Vũ Yên, Sun Group Cát Bà (UNESCO area) and comparables, VHM/Vingroup '
         'HOSE prices, dated events and reasoned 2027-2029 outlook scenarios. '
         'Machine-readable summary inside; full dataset at data.json.">\n<title>')
     html = html.replace("</footer>",
