@@ -225,6 +225,18 @@ def api_psm_outlooks(horizon_end: str = "2029-12-31"):
     return JSONResponse({"cones": cones, "disclaimer": DISCLAIMER})
 
 
+@app.get("/api/construction")
+def api_construction():
+    """Quarterly construction-progress series (bare/built hectares from
+    Sentinel-2) for the flagship site, cached by
+    scripts/construction_series.py."""
+    path = DATA_DIR / "construction_series.json"
+    if not path.exists():
+        return JSONResponse({"ok": False, "reason": "no cached series — run "
+                             "scripts/construction_series.py"})
+    return JSONResponse(json.loads(path.read_text()))
+
+
 @app.get("/satellite/portfolio")
 def satellite_portfolio():
     """Cached construction-activity findings for ALL tracked sites

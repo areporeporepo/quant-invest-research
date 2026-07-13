@@ -31698,5 +31698,153 @@
   },
   "note": "Season-matched windows (Apr-Jun 2025 vs Apr-Jun 2026) except where flagged. Figures are GROSS NDVI loss/gain over a ~4,100 ha window around each site — includes farmland rotation and water-level changes, NOT just construction. Screen, don't conclude."
  },
+ "construction": {
+  "site": "vinhomes_vu_yen",
+  "site_name": "Vinhomes Royal Island (Vu Yen Island), Hai Phong, Vietnam",
+  "method": "Per-quarter least-cloudy Sentinel-2 scene; NDVI/NDWI land-cover shares over a ~4,100 ha window. bare_built_ha rising = clearing + construction. Cloud contamination and tide levels add noise — read the trend, not single points.",
+  "points": [
+   {
+    "quarter": "2023-01",
+    "ok": true,
+    "date": "2023-01-25",
+    "scene_id": "S2B_48QXJ_20230125_0_L2A",
+    "cloud": 0.0,
+    "veg_ha": 1224.1,
+    "bare_built_ha": 1001.6,
+    "water_ha": 1618.7,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2023-04",
+    "ok": true,
+    "date": "2023-05-30",
+    "scene_id": "S2A_48QXJ_20230530_0_L2A",
+    "cloud": 7.5,
+    "veg_ha": 1128.7,
+    "bare_built_ha": 1257.4,
+    "water_ha": 1458.9,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2023-07",
+    "ok": true,
+    "date": "2023-09-07",
+    "scene_id": "S2A_48QXJ_20230907_0_L2A",
+    "cloud": 15.6,
+    "veg_ha": 1089.7,
+    "bare_built_ha": 1247.3,
+    "water_ha": 1560.8,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2023-10",
+    "ok": true,
+    "date": "2023-11-21",
+    "scene_id": "S2B_48QXJ_20231121_0_L2A",
+    "cloud": 5.0,
+    "veg_ha": 1292.9,
+    "bare_built_ha": 1148.2,
+    "water_ha": 1428.0,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2024-01",
+    "ok": true,
+    "date": "2024-03-05",
+    "scene_id": "S2A_48QXJ_20240305_0_L2A",
+    "cloud": 10.9,
+    "veg_ha": 1080.9,
+    "bare_built_ha": 1425.5,
+    "water_ha": 1284.3,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2024-04",
+    "ok": false,
+    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2024-04-01, 2024-06-30]"
+   },
+   {
+    "quarter": "2024-07",
+    "ok": false,
+    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2024-07-01, 2024-09-30]"
+   },
+   {
+    "quarter": "2024-10",
+    "ok": true,
+    "date": "2024-10-31",
+    "scene_id": "S2A_48QXJ_20241031_0_L2A",
+    "cloud": 0.0,
+    "veg_ha": 1257.0,
+    "bare_built_ha": 1205.6,
+    "water_ha": 1399.0,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2025-01",
+    "ok": true,
+    "date": "2025-01-04",
+    "scene_id": "S2B_48QXJ_20250104_0_L2A",
+    "cloud": 1.8,
+    "veg_ha": 838.5,
+    "bare_built_ha": 1414.8,
+    "water_ha": 1595.6,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2025-04",
+    "ok": false,
+    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2025-04-01, 2025-06-30]"
+   },
+   {
+    "quarter": "2025-07",
+    "ok": true,
+    "date": "2025-09-16",
+    "scene_id": "S2C_48QXJ_20250916_0_L2A",
+    "cloud": 16.8,
+    "veg_ha": 1292.6,
+    "bare_built_ha": 1050.5,
+    "water_ha": 1587.3,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2025-10",
+    "ok": true,
+    "date": "2025-11-15",
+    "scene_id": "S2C_48QXJ_20251115_0_L2A",
+    "cloud": 1.8,
+    "veg_ha": 1233.6,
+    "bare_built_ha": 1195.5,
+    "water_ha": 1444.2,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2026-01",
+    "ok": true,
+    "date": "2026-01-09",
+    "scene_id": "S2B_48QXJ_20260109_0_L2A",
+    "cloud": 0.4,
+    "veg_ha": 1160.6,
+    "bare_built_ha": 1271.7,
+    "water_ha": 1416.9,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2026-04",
+    "ok": true,
+    "date": "2026-05-26",
+    "scene_id": "S2A_48QXJ_20260526_0_L2A",
+    "cloud": 6.1,
+    "veg_ha": 1167.5,
+    "bare_built_ha": 1226.4,
+    "water_ha": 1475.4,
+    "window_ha": 4140.1
+   },
+   {
+    "quarter": "2026-07",
+    "ok": false,
+    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2026-07-01, 2026-07-13]"
+   }
+  ]
+ },
  "asof": "2026-07-13"
 }

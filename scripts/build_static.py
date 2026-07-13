@@ -46,6 +46,10 @@ def snapshot() -> dict:
         data["satellite"] = get("/satellite/portfolio")
     except Exception:
         data["satellite"] = None
+    try:
+        data["construction"] = get("/api/construction")
+    except Exception:
+        data["construction"] = None
     data["asof"] = data["candles"]["VHM"][-1]["time"]
     return data
 
@@ -95,6 +99,7 @@ LIVE_GETJSON = """async function getJSON(url) {
     }
     return out;
   }
+  if (url.startsWith('/api/construction')) return DATA.construction || { points: [] };
   if (url.startsWith('/api/psm_outlooks')) return DATA.psm_outlooks;
   if (url.startsWith('/api/psm')) return DATA.psm;
   if (url.startsWith('/api/events')) return { events: DATA.events };

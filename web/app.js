@@ -26,6 +26,13 @@ const I18N = {
     cone_psm: 'vùng kịch bản → 2029 (giả định, không phải dự báo)',
     source: 'Nguồn', per_year: '%/năm',
     outlook_title: (l) => `Triển vọng ${l} → 2029 (kịch bản có lập luận)`,
+    tab_sat: 'Vệ tinh',
+    sat_legend_built: 'Đất trống/đã xây trên Vũ Yên (ha, trục trái)',
+    sat_legend_vhm: 'Giá VHM (nghìn VND, trục phải, log)',
+    sat_status: (n) => `Tiến độ xây dựng từ vệ tinh · ${n} quý`,
+    sat_note: 'Mỗi điểm = ảnh Sentinel-2 ít mây nhất trong quý (chạm để xem mã cảnh). ' +
+      'Diện tích đất trống/đã xây tăng = san lấp và xây dựng. Nhiễu do mây và ' +
+      'thủy triều — đọc xu hướng, đừng đọc từng điểm.',
     outlook_all: 'Triển vọng 2029 — tất cả dự án (USD/m², giả định)',
     outlook_hint: 'Chạm một dự án để xem lập luận và vẽ vùng kịch bản lên biểu đồ.',
     col_project: 'Dự án', col_bear: 'Xấu', col_base: 'Cơ sở', col_bull: 'Tích cực',
@@ -55,6 +62,13 @@ const I18N = {
     cone_psm: 'scenario cone → 2029 (assumptions, not forecasts)',
     source: 'Source', per_year: '%/yr',
     outlook_title: (l) => `${l} outlook → 2029 (reasoned scenarios)`,
+    tab_sat: 'Satellite',
+    sat_legend_built: 'Bare/built land on Vũ Yên (ha, left axis)',
+    sat_legend_vhm: 'VHM price (thousand VND, right axis, log)',
+    sat_status: (n) => `Construction progress from orbit · ${n} quarters`,
+    sat_note: 'Each point = the least-cloudy Sentinel-2 scene that quarter (tap for ' +
+      'scene ID). Rising bare/built area = clearing and construction. Cloud and ' +
+      'tide noise — read the trend, not single points.',
     outlook_all: '2029 outlook — all projects (USD/m², assumptions)',
     outlook_hint: 'Tap a project to see its reasoning and draw its cone on the chart.',
     col_project: 'Project', col_bear: 'Bear', col_base: 'Base', col_bull: 'Bull',
@@ -396,6 +410,55 @@ function renderOutlookCard(cone) {
   }
 }
 
+/* ---------------- Satellite view ---------------- */
+
+async function showSat() {
+  clearSeries();
+  $('outlook').innerHTML = '';
+  setStatus(t('loading'));
+  const [con, data, events] = await Promise.all([
+    getJSON('/api/construction'),
+    getJSON('/api/candles?ticker=VHM'),
+    loadEvents(),
+  ]);
+  const pts = (con.points || []).filter((p) => p.ok);
+  if (!pts.length) { setStatus(t('error')); setDetail(con.reason || ''); return; }
+
+  const built = chart.addSeries(LightweightCharts.LineSeries, {
+    color: '#e3b341', lineWidth: 3, priceScaleId: 'left',
+    lastValueVisible: true, priceLineVisible: false, pointMarkersVisible: true,
+  });
+  chart.applyOptions({ leftPriceScale: { visible: true, borderColor: '#21262d',
+    mode: LightweightCharts.PriceScaleMode.Normal } });
+  built.setData(pts.map((p) => ({ time: p.date, value: p.bare_built_ha })));
+  series.push(built);
+
+  const vhm = chart.addSeries(LightweightCharts.LineSeries, {
+    color: '#2f81f7', lineWidth: 2, priceScaleId: 'right',
+    lastValueVisible: true, priceLineVisible: false,
+  });
+  vhm.setData(data.candles.map((c) => ({ time: c.time, value: c.close })));
+  series.push(vhm);
+
+  const vuYenEvents = events.filter((e) => e.relevance === 'vu_yen');
+  applyMarkers(built, markersFromEvents(vuYenEvents, pts[0].date));
+  chart.timeScale().fitContent();
+  legend([
+    { color: '#e3b341', label: t('sat_legend_built') },
+    { color: '#2f81f7', label: t('sat_legend_vhm') },
+  ]);
+  renderEventList(vuYenEvents);
+  setStatus(t('sat_status', pts.length));
+  setDetail(t('sat_note'));
+
+  chart.subscribeClick((param) => {
+    if (!param.time || view !== 'sat') return;
+    const hit = pts.find((p) => p.date === param.time);
+    if (hit) setDetail(`<b>${hit.date}</b> — ${hit.bare_built_ha} ha bare/built, ` +
+      `${hit.veg_ha} ha veg (cloud ${hit.cloud}%)<br>Scene: ${hit.scene_id}`);
+  });
+}
+
 /* ---------------- Tabs & ticker chips ---------------- */
 
 const TICKERS = ['VHM', 'VIC', 'VRE', 'VPL', 'VEF', 'VNINDEX', 'NVDA', 'SPY'];
@@ -416,8 +479,10 @@ function setView(v) {
   view = v;
   $('tab-market').classList.toggle('active', v === 'market');
   $('tab-psm').classList.toggle('active', v === 'psm');
+  $('tab-sat').classList.toggle('active', v === 'sat');
+  if (v !== 'sat') chart.applyOptions({ leftPriceScale: { visible: false } });
   renderChips();
-  (v === 'market' ? showMarket() : showPsm()).catch(fail);
+  (v === 'market' ? showMarket() : v === 'sat' ? showSat() : showPsm()).catch(fail);
 }
 
 function fail(e) {
@@ -428,6 +493,7 @@ function fail(e) {
 function applyStaticText() {
   $('tab-market').textContent = t('tab_market');
   $('tab-psm').textContent = t('tab_psm');
+  $('tab-sat').textContent = t('tab_sat');
   $('detail').textContent = t('tap_hint');
   document.querySelector('#events h2').textContent = t('events');
   $('disclaimer').textContent = t('disclaimer');
@@ -437,6 +503,7 @@ function applyStaticText() {
 
 $('tab-market').onclick = () => setView('market');
 $('tab-psm').onclick = () => setView('psm');
+$('tab-sat').onclick = () => setView('sat');
 $('lang').onclick = () => {
   lang = lang === 'vi' ? 'en' : 'vi';
   localStorage.setItem('lang', lang);
