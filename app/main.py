@@ -206,6 +206,23 @@ def api_outlook(series: str = "vhm", last_date: str | None = None,
                                       series_key=key, horizon_end=horizon_end))
 
 
+@app.get("/api/psm_outlooks")
+def api_psm_outlooks(horizon_end: str = "2029-12-31"):
+    """Scenario cones for EVERY project in the curated USD/m² dataset,
+    each anchored on that project's latest sourced point."""
+    projects = load_psm()["projects"]
+    cones = {}
+    for key, proj in projects.items():
+        if not proj["points"]:
+            continue
+        last = proj["points"][-1]
+        cones[key] = scenario_cone(last["time"], float(last["value"]),
+                                   series_key=f"psm:{key}",
+                                   horizon_end=horizon_end)
+        cones[key]["label"] = proj["label"]
+    return JSONResponse({"cones": cones, "disclaimer": DISCLAIMER})
+
+
 @app.get("/satellite/sites")
 def satellite_sites():
     """Verifiable, auditable coordinates for the physical sites we track."""

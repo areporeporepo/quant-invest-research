@@ -254,6 +254,18 @@
       "kind": "report_average",
       "source": "CBRE HCMC Figures Q4 2025 / Saigon Times (15/1/2026): VND 92M/m2 NSA, +21% y/y",
       "url": "https://mktgdocs.cbre.com/2299/6dec4e5a-7b34-4336-8ccd-de2c7e089a1f-426946792/CBRE_Vietnam_HCMC_Figures_Q4_2.pdf"
+    },
+    {
+      "project": "imperia",
+      "label": "Vinhomes Imperia (Hồng Bàng, Hải Phòng)",
+      "date": "2026-02",
+      "price": 186.5,
+      "range": "122.4-250.7",
+      "currency": "VND_million_per_m2",
+      "segment": "low-rise",
+      "kind": "report_average",
+      "source": "Batdongsan.com.vn project page price statistic (asking, landed, T2/2026); mature 2016-era Vingroup project in Hồng Bàng",
+      "url": "https://batdongsan.com.vn/ban-nha-biet-thu-lien-ke-vinhomes-imperia-hai-phong"
     }
   ],
   "notes": [
@@ -262,6 +274,7 @@
     "Hanoi CBRE Q4 2025 fell 14% q/q on suburban supply MIX, not like-for-like price declines.",
     "Hải Phòng city series is asking-price data (Batdongsan via Tiền Phong), a trend line rather than a primary-price index.",
     "Landed benchmarks (Hanoi 187M, HCMC 224M VND/m2, CBRE Q4 2025) omitted from chart to avoid segment mixing; see repo history.",
-    "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices."
+    "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices.",
+    "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series."
   ]
 }

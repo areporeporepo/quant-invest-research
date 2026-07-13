@@ -35,6 +35,7 @@ def snapshot() -> dict:
         data["candles"][tk] = get(f"/api/candles?ticker={tk}")["candles"][-420:]
         data["outlook"][tk] = get(f"/api/outlook?series={tk}")
     data["psm"] = get("/api/psm")
+    data["psm_outlooks"] = get("/api/psm_outlooks")
     data["outlook"]["psm:vu_yen_royal_island"] = get(
         "/api/outlook?series=psm:vu_yen_royal_island")
     data["events"] = get("/api/events")["events"]
@@ -82,6 +83,7 @@ LIVE_GETJSON = """async function getJSON(url) {
     }
     return out;
   }
+  if (url.startsWith('/api/psm_outlooks')) return DATA.psm_outlooks;
   if (url.startsWith('/api/psm')) return DATA.psm;
   if (url.startsWith('/api/events')) return { events: DATA.events };
   throw new Error('no data for ' + url);
@@ -201,22 +203,26 @@ def machine_summary(data: dict) -> str:
             f"<td>{first['time'][:7]}: ${first['value']:.0f}</td>"
             f"<td>{last['time'][:7]}: ${last['value']:.0f}</td>"
             f"<td>{last.get('source', '')[:90]}</td></tr>")
-    cone = data["outlook"]["psm:vu_yen_royal_island"]
-    anchor = cone["anchor"]
-    scen = []
-    for name in ("bull", "base", "bear"):
-        sc = cone["scenarios"].get(name)
-        if not sc:
-            continue
-        import datetime as dt
-        vals = []
+    import datetime as dt
+    proj_outlooks = []
+    for key, cone in data.get("psm_outlooks", {}).get("cones", {}).items():
+        anchor = cone["anchor"]
         a = dt.date.fromisoformat(anchor["date"][:10])
-        for y in (2027, 2028, 2029):
-            yrs = (dt.date(y, 12, 31) - a).days / 365.25
-            vals.append(f"{y}: ${anchor['value'] * (1 + sc['annual_rate']) ** yrs:,.0f}")
-        scen.append(
-            f"<li><b>{name} ({sc['annual_rate']:+.0%}/yr assumption)</b> — "
-            f"{' · '.join(vals)} per m². {sc.get('rationale', sc.get('label', ''))}</li>")
+        scen = []
+        for name in ("bull", "base", "bear"):
+            sc = cone["scenarios"].get(name)
+            if not sc:
+                continue
+            vals = []
+            for y in (2027, 2028, 2029):
+                yrs = (dt.date(y, 12, 31) - a).days / 365.25
+                vals.append(f"{y}: ${anchor['value'] * (1 + sc['annual_rate']) ** yrs:,.0f}")
+            scen.append(
+                f"<li><b>{name} ({sc['annual_rate']:+.0%}/yr assumption)</b> — "
+                f"{' · '.join(vals)} per m². {sc.get('rationale', sc.get('label', ''))}</li>")
+        proj_outlooks.append(
+            f"<h3>{cone.get('label', key)} (anchor {anchor['date'][:10]} at "
+            f"${anchor['value']:,.0f}/m²)</h3><ul>{''.join(scen)}</ul>")
     events = "".join(
         f"<li>{e['date']} — {e['title']}: {e.get('detail', '')} "
         f"(source: {e.get('source', '')})</li>"
@@ -235,9 +241,8 @@ structured data: <a href="data.json">data.json</a>.</p>
 {''.join(rows)}</table>
 <p>FX: {data['psm']['fx']['vnd_per_usd']:.0f} VND/USD ({data['psm']['fx']['source']});
 historical points converted at yearly-average FX.</p>
-<h2>Vũ Yên USD/m² outlook scenarios to 2029 (assumptions with reasoning, not forecasts)</h2>
-<p>Anchor: {anchor['date']} at ${anchor['value']:,.0f}/m².</p>
-<ul>{''.join(scen)}</ul>
+<h2>USD/m² outlook scenarios to 2029 — ALL projects (assumptions with reasoning, not forecasts)</h2>
+{''.join(proj_outlooks)}
 <p>Caveat: low-rise headline prices bundle vouchers, discounts and 0%-interest
 support — effective prices sit below headline.</p>
 <h2>Events (newest first)</h2>

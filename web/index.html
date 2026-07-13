@@ -69,6 +69,16 @@
   #outlook .card .vals { color: var(--text); font-variant-numeric: tabular-nums;
     font-size: 12.5px; margin: 4px 0; }
   #outlook .card p { color: var(--muted); margin: 4px 0 0; line-height: 1.5; }
+  #oltable { width: 100%; border-collapse: collapse; font-size: 12.5px;
+    font-variant-numeric: tabular-nums; }
+  #oltable th { text-align: left; color: var(--muted); font-weight: 600;
+    padding: 5px 6px; border-bottom: 1px solid var(--border); }
+  #oltable td { padding: 5px 6px; border-bottom: 1px solid var(--border); }
+  #oltable tr[data-k] { cursor: pointer; }
+  #oltable tr.sel td { color: var(--accent); font-weight: 600; }
+  #oltable td:nth-child(2) { color: var(--down); }
+  #oltable td:nth-child(4) { color: var(--up); }
+  #oltable tr.sel td:first-child { border-left: 2px solid var(--accent); }
   #outlook h2 { font-size: 13px; color: var(--muted); text-transform: uppercase;
     letter-spacing: .06em; margin: 8px 2px 6px; }
   .ev {

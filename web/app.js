@@ -24,7 +24,10 @@ const I18N = {
     psm_status: (n) => `USD trên m² · ${n} điểm có nguồn dẫn`,
     cone_psm: 'vùng kịch bản → 2029 (giả định, không phải dự báo)',
     source: 'Nguồn', per_year: '%/năm',
-    outlook_title: 'Triển vọng USD/m² Vũ Yên → 2029 (kịch bản có lập luận)',
+    outlook_title: (l) => `Triển vọng ${l} → 2029 (kịch bản có lập luận)`,
+    outlook_all: 'Triển vọng 2029 — tất cả dự án (USD/m², giả định)',
+    outlook_hint: 'Chạm một dự án để xem lập luận và vẽ vùng kịch bản lên biểu đồ.',
+    col_project: 'Dự án', col_bear: 'Xấu', col_base: 'Cơ sở', col_bull: 'Tích cực',
     ev_all: 'Tất cả', ev_vu_yen: 'Vũ Yên', ev_vhm: 'VHM/Vingroup', ev_macro: 'Vĩ mô',
     voucher_note: 'Lưu ý: giá niêm yết thấp tầng thường kèm voucher, chiết khấu và hỗ trợ ' +
       'lãi suất 0% — giá thực trả thấp hơn niêm yết, nên đà tăng có thể bị phóng đại.',
@@ -49,7 +52,10 @@ const I18N = {
     psm_status: (n) => `USD per m² · ${n} sourced points`,
     cone_psm: 'scenario cone → 2029 (assumptions, not forecasts)',
     source: 'Source', per_year: '%/yr',
-    outlook_title: 'Vũ Yên USD/m² outlook → 2029 (reasoned scenarios)',
+    outlook_title: (l) => `${l} outlook → 2029 (reasoned scenarios)`,
+    outlook_all: '2029 outlook — all projects (USD/m², assumptions)',
+    outlook_hint: 'Tap a project to see its reasoning and draw its cone on the chart.',
+    col_project: 'Project', col_bear: 'Bear', col_base: 'Base', col_bull: 'Bull',
     ev_all: 'All', ev_vu_yen: 'Vũ Yên', ev_vhm: 'VHM/Vingroup', ev_macro: 'Macro',
     voucher_note: 'Note: low-rise headline prices usually bundle vouchers, discounts and ' +
       '0%-interest support — effective prices are below headline, so gains may be overstated.',
@@ -94,6 +100,8 @@ let ticker = 'VHM';
 let series = [];            // active chart series handles
 let eventsCache = null;
 let psmCache = null;
+let outlooksCache = null;
+let outlookKey = 'vu_yen_royal_island';
 
 function clearSeries() {
   series.forEach((s) => chart.removeSeries(s));
@@ -275,16 +283,18 @@ async function showPsm() {
   });
 
   // Scenario cone anchored on Vũ Yên's latest curated point, if present.
-  const vuYenKey = keys.find((k) => k.includes('vu_yen_royal_island')) ||
-                   keys.find((k) => k.includes('vu_yen'));
-  if (vuYenKey) {
-    try {
-      const cone = await getJSON(`/api/outlook?series=psm:${vuYenKey}`);
+  try {
+    if (!outlooksCache) outlooksCache = await getJSON('/api/psm_outlooks');
+    const cones = outlooksCache.cones || {};
+    if (!cones[outlookKey]) outlookKey = keys.find((k) => cones[k]) || outlookKey;
+    const cone = cones[outlookKey];
+    if (cone) {
       drawCone(cone, 'right');
-      legendItems.push({ color: '#8b949e', label: t('cone_psm') });
+      legendItems.push({ color: '#8b949e',
+        label: `${t('cone_psm')} — ${cone.label || outlookKey}` });
       renderOutlookCard(cone);
-    } catch (_) { $('outlook').innerHTML = ''; }
-  }
+    }
+  } catch (_) { $('outlook').innerHTML = ''; }
 
   const vuYenEvents = events.filter((e) => e.relevance === 'vu_yen' || e.relevance === 'macro');
   // Price-affecting events get labels on the chart; macro context stays as
@@ -317,6 +327,31 @@ async function showPsm() {
 
 function yearsBetween(a, b) { return (new Date(b) - new Date(a)) / 31557600000; }
 
+function fmtUsd(v) { return '$' + Math.round(v).toLocaleString('en-US'); }
+
+function val2029(cone, k) {
+  const sc = cone.scenarios[k];
+  if (!sc) return '';
+  const yrs = yearsBetween(cone.anchor.date, '2029-12-31');
+  return fmtUsd(cone.anchor.value * Math.pow(1 + sc.annual_rate, yrs));
+}
+
+function renderOutlookAll(cones) {
+  const keys = Object.keys(cones);
+  const rows = keys.map((k) => {
+    const c = cones[k];
+    const sel = k === outlookKey ? ' class="sel"' : '';
+    return `<tr data-k="${k}"${sel}><td>${c.label || k}</td>` +
+      `<td>${val2029(c, 'bear')}</td><td>${val2029(c, 'base')}</td>` +
+      `<td>${val2029(c, 'bull')}</td></tr>`;
+  }).join('');
+  return `<h2>${t('outlook_all')}</h2>
+  <div class="card" style="padding:6px 8px"><div style="overflow-x:auto">
+  <table id="oltable"><tr><th>${t('col_project')}</th><th>${t('col_bear')}</th>
+  <th>${t('col_base')}</th><th>${t('col_bull')}</th></tr>${rows}</table></div>
+  <p style="padding:4px 4px 2px">${t('outlook_hint')}</p></div>`;
+}
+
 function renderOutlookCard(cone) {
   if (!cone || !cone.scenarios) { $('outlook').innerHTML = ''; return; }
   const order = ['bull', 'base', 'bear'];
@@ -337,8 +372,15 @@ function renderOutlookCard(cone) {
       ${why ? `<p>${why}</p>` : ''}
     </div>`;
   });
-  $('outlook').innerHTML = `<h2>${t('outlook_title')}</h2>` + cards.join('') +
+  $('outlook').innerHTML =
+    (outlooksCache ? renderOutlookAll(outlooksCache.cones) : '') +
+    `<h2>${t('outlook_title', cone.label || '')}</h2>` + cards.join('') +
     `<div class="card"><p>${t('voucher_note')}</p></div>`;
+  if (outlooksCache) {
+    [...document.querySelectorAll('#oltable tr[data-k]')].forEach((tr) => {
+      tr.onclick = () => { outlookKey = tr.dataset.k; showPsm().catch(fail); };
+    });
+  }
 }
 
 /* ---------------- Tabs & ticker chips ---------------- */

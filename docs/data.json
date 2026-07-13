@@ -17331,6 +17331,19 @@
       "url": "https://mktgdocs.cbre.com/2299/6dec4e5a-7b34-4336-8ccd-de2c7e089a1f-426946792/CBRE_Vietnam_HCMC_Figures_Q4_2.pdf"
      }
     ]
+   },
+   "imperia": {
+    "label": "Vinhomes Imperia (Hồng Bàng, Hải Phòng)",
+    "points": [
+     {
+      "time": "2026-02-01",
+      "value": 7121.0,
+      "segment": "low-rise",
+      "kind": "report_average",
+      "source": "Batdongsan.com.vn project page price statistic (asking, landed, T2/2026); mature 2016-era Vingroup project in Hồng Bàng",
+      "url": "https://batdongsan.com.vn/ban-nha-biet-thu-lien-ke-vinhomes-imperia-hai-phong"
+     }
+    ]
    }
   },
   "fx": {
@@ -17343,7 +17356,8 @@
    "Hanoi CBRE Q4 2025 fell 14% q/q on suburban supply MIX, not like-for-like price declines.",
    "Hải Phòng city series is asking-price data (Batdongsan via Tiền Phong), a trend line rather than a primary-price index.",
    "Landed benchmarks (Hanoi 187M, HCMC 224M VND/m2, CBRE Q4 2025) omitted from chart to avoid segment mixing; see repo history.",
-   "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices."
+   "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices.",
+   "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series."
   ],
   "disclaimer": "Curated, source-attributed price points — coverage is sparse and segments (apartment vs low-rise) are not directly comparable. Verify each point via its source before relying on it."
  },
@@ -17553,5 +17567,3202 @@
    "url": ""
   }
  ],
+ "psm_outlooks": {
+  "cones": {
+   "vu_yen_royal_island": {
+    "anchor": {
+     "date": "2026-01-01",
+     "value": 3875.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.08,
+      "label": "Bear: landed correction + heavy supply",
+      "path": [
+       {
+        "time": "2026-01-01",
+        "value": 3875.0
+       },
+       {
+        "time": "2026-04-02",
+        "value": 3795.33
+       },
+       {
+        "time": "2026-07-02",
+        "value": 3717.3
+       },
+       {
+        "time": "2026-10-01",
+        "value": 3640.87
+       },
+       {
+        "time": "2026-12-31",
+        "value": 3566.02
+       },
+       {
+        "time": "2027-04-01",
+        "value": 3492.7
+       },
+       {
+        "time": "2027-07-01",
+        "value": 3420.89
+       },
+       {
+        "time": "2027-09-30",
+        "value": 3350.56
+       },
+       {
+        "time": "2027-12-30",
+        "value": 3281.67
+       },
+       {
+        "time": "2028-03-30",
+        "value": 3214.2
+       },
+       {
+        "time": "2028-06-29",
+        "value": 3148.12
+       },
+       {
+        "time": "2028-09-28",
+        "value": 3083.39
+       },
+       {
+        "time": "2028-12-28",
+        "value": 3020.0
+       },
+       {
+        "time": "2029-03-29",
+        "value": 2957.91
+       },
+       {
+        "time": "2029-06-28",
+        "value": 2897.1
+       },
+       {
+        "time": "2029-09-27",
+        "value": 2837.53
+       },
+       {
+        "time": "2029-12-27",
+        "value": 2779.19
+       },
+       {
+        "time": "2029-12-31",
+        "value": 2776.66
+       }
+      ],
+      "label_vi": "Xấu: thấp tầng điều chỉnh + nguồn cung lớn",
+      "rationale": "National landed segment is already cooling (CBRE Q4 2025: Hanoi landed -15% y/y, HCMC landed -28% y/y on fringe supply). Vũ Yên headline prices sit ~2x the Hải Phòng city average while sales vouchers and 0%-interest programs mean effective prices are below headline — if policies unwind into price cuts, headline follows. 877 ha of island supply plus Green Paradise competing for the same investor capital; VND slide (~1-2%/yr) further drags USD returns.",
+      "rationale_vi": "Phân khúc thấp tầng cả nước đang hạ nhiệt (CBRE Q4/2025: thấp tầng Hà Nội -15%, TP.HCM -28% so cùng kỳ do nguồn cung vùng ven). Giá niêm yết Vũ Yên đã gấp ~2 lần trung bình căn hộ Hải Phòng, trong khi voucher và hỗ trợ lãi suất 0% khiến giá thực trả thấp hơn niêm yết — nếu chính sách bán hàng chuyển thành giảm giá trực tiếp, giá niêm yết sẽ giảm theo. Nguồn cung 877 ha trên đảo cộng Green Paradise cạnh tranh cùng dòng vốn đầu tư; VND mất giá ~1-2%/năm bào mòn lợi nhuận tính bằng USD."
+     },
+     "base": {
+      "annual_rate": 0.06,
+      "label": "Base: infrastructure premium accrues, FX drags",
+      "path": [
+       {
+        "time": "2026-01-01",
+        "value": 3875.0
+       },
+       {
+        "time": "2026-04-02",
+        "value": 3931.67
+       },
+       {
+        "time": "2026-07-02",
+        "value": 3989.16
+       },
+       {
+        "time": "2026-10-01",
+        "value": 4047.49
+       },
+       {
+        "time": "2026-12-31",
+        "value": 4106.68
+       },
+       {
+        "time": "2027-04-01",
+        "value": 4166.73
+       },
+       {
+        "time": "2027-07-01",
+        "value": 4227.67
+       },
+       {
+        "time": "2027-09-30",
+        "value": 4289.49
+       },
+       {
+        "time": "2027-12-30",
+        "value": 4352.21
+       },
+       {
+        "time": "2028-03-30",
+        "value": 4415.86
+       },
+       {
+        "time": "2028-06-29",
+        "value": 4480.43
+       },
+       {
+        "time": "2028-09-28",
+        "value": 4545.95
+       },
+       {
+        "time": "2028-12-28",
+        "value": 4612.43
+       },
+       {
+        "time": "2029-03-29",
+        "value": 4679.88
+       },
+       {
+        "time": "2029-06-28",
+        "value": 4748.31
+       },
+       {
+        "time": "2029-09-27",
+        "value": 4817.75
+       },
+       {
+        "time": "2029-12-27",
+        "value": 4888.2
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4891.32
+       }
+      ],
+      "label_vi": "Cơ sở: hưởng lợi hạ tầng, tỷ giá cản",
+      "rationale": "The catalysts are real and delivered: Hoàng Gia bridge (30→5 min), Thủy Nguyên city status, the Hải Dương merger, VinWonders open, and satellite-confirmed build-out (61.5 ha cleared since Jan 2025). Headline VND prices grind ~+8%/yr as the area matures — roughly Hanoi-condo-2025 pace — minus ~2%/yr VND depreciation gives ~+6%/yr in USD. That path takes ~$3,900/m² today to ~$4,900/m² by end-2029.",
+      "rationale_vi": "Chất xúc tác đã thành hiện thực: cầu Hoàng Gia (30→5 phút), Thủy Nguyên lên thành phố, sáp nhập Hải Dương, VinWonders mở cửa, và vệ tinh xác nhận tiến độ (61,5 ha san lấp từ 1/2025). Giá VND niêm yết tăng ~8%/năm khi khu vực hoàn thiện — tương đương nhịp căn hộ Hà Nội 2025 — trừ ~2%/năm VND mất giá còn ~+6%/năm tính bằng USD: từ ~3.900 USD/m² hiện tại lên ~4.900 USD/m² cuối 2029."
+     },
+     "bull": {
+      "annual_rate": 0.14,
+      "label": "Bull: converges toward Hanoi landed benchmark",
+      "path": [
+       {
+        "time": "2026-01-01",
+        "value": 3875.0
+       },
+       {
+        "time": "2026-04-02",
+        "value": 4003.59
+       },
+       {
+        "time": "2026-07-02",
+        "value": 4136.44
+       },
+       {
+        "time": "2026-10-01",
+        "value": 4273.7
+       },
+       {
+        "time": "2026-12-31",
+        "value": 4415.52
+       },
+       {
+        "time": "2027-04-01",
+        "value": 4562.04
+       },
+       {
+        "time": "2027-07-01",
+        "value": 4713.43
+       },
+       {
+        "time": "2027-09-30",
+        "value": 4869.84
+       },
+       {
+        "time": "2027-12-30",
+        "value": 5031.44
+       },
+       {
+        "time": "2028-03-30",
+        "value": 5198.4
+       },
+       {
+        "time": "2028-06-29",
+        "value": 5370.9
+       },
+       {
+        "time": "2028-09-28",
+        "value": 5549.12
+       },
+       {
+        "time": "2028-12-28",
+        "value": 5733.27
+       },
+       {
+        "time": "2029-03-29",
+        "value": 5923.52
+       },
+       {
+        "time": "2029-06-28",
+        "value": 6120.08
+       },
+       {
+        "time": "2029-09-27",
+        "value": 6323.17
+       },
+       {
+        "time": "2029-12-27",
+        "value": 6532.99
+       },
+       {
+        "time": "2029-12-31",
+        "value": 6542.37
+       }
+      ],
+      "label_vi": "Tích cực: tiệm cận mặt bằng thấp tầng Hà Nội",
+      "rationale": "If Thủy Nguyên truly becomes the administrative center of expanded Hải Phòng, Vũ Yên converges toward the Hanoi landed benchmark (~$7,100/m², CBRE Q4 2025). The new 2026 land-price table (~160 triệu/m² on central streets) resets the official floor beneath market prices; Lê Thánh Tông frontage across the river already asks 180-200 triệu/m². +14%/yr reaches ~$6,300/m² by end-2029 — still below today's Hanoi landed level.",
+      "rationale_vi": "Nếu Thủy Nguyên thực sự trở thành trung tâm hành chính của Hải Phòng mở rộng, Vũ Yên sẽ tiệm cận mặt bằng thấp tầng Hà Nội (~7.100 USD/m², CBRE Q4/2025). Bảng giá đất 2026 (~160 triệu/m² phố trung tâm) nâng mặt sàn chính thức; mặt đường Lê Thánh Tông bên kia sông đã rao 180-200 triệu/m². +14%/năm đạt ~6.300 USD/m² cuối 2029 — vẫn thấp hơn thấp tầng Hà Nội hiện nay."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vinhomes Royal Island (Vũ Yên)"
+   },
+   "vu_yen_shophouse": {
+    "anchor": {
+     "date": "2025-03-01",
+     "value": 8494.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.1,
+      "label": "Bear: retail niche repricing",
+      "path": [
+       {
+        "time": "2025-03-01",
+        "value": 8494.0
+       },
+       {
+        "time": "2025-05-31",
+        "value": 8273.93
+       },
+       {
+        "time": "2025-08-30",
+        "value": 8059.57
+       },
+       {
+        "time": "2025-11-29",
+        "value": 7850.76
+       },
+       {
+        "time": "2026-02-28",
+        "value": 7647.36
+       },
+       {
+        "time": "2026-05-30",
+        "value": 7449.23
+       },
+       {
+        "time": "2026-08-29",
+        "value": 7256.23
+       },
+       {
+        "time": "2026-11-28",
+        "value": 7068.23
+       },
+       {
+        "time": "2027-02-27",
+        "value": 6885.1
+       },
+       {
+        "time": "2027-05-29",
+        "value": 6706.72
+       },
+       {
+        "time": "2027-08-28",
+        "value": 6532.96
+       },
+       {
+        "time": "2027-11-27",
+        "value": 6363.7
+       },
+       {
+        "time": "2028-02-26",
+        "value": 6198.83
+       },
+       {
+        "time": "2028-05-27",
+        "value": 6038.23
+       },
+       {
+        "time": "2028-08-26",
+        "value": 5881.78
+       },
+       {
+        "time": "2028-11-25",
+        "value": 5729.4
+       },
+       {
+        "time": "2029-02-24",
+        "value": 5580.96
+       },
+       {
+        "time": "2029-05-26",
+        "value": 5436.36
+       },
+       {
+        "time": "2029-08-25",
+        "value": 5295.52
+       },
+       {
+        "time": "2029-11-24",
+        "value": 5158.32
+       },
+       {
+        "time": "2029-12-31",
+        "value": 5103.55
+       }
+      ],
+      "label_vi": "Xấu: shophouse định giá lại",
+      "rationale": "At 200-240 triệu/m² the riverside shophouses price in successful retail; if VinWonders foot traffic and leasing lag, this niche corrects hardest.",
+      "rationale_vi": "Ở mức 200-240 triệu/m², shophouse ven sông đã phản ánh kỳ vọng bán lẻ thành công; nếu lượng khách VinWonders và cho thuê chậm, phân khúc này điều chỉnh mạnh nhất."
+     },
+     "base": {
+      "annual_rate": 0.05,
+      "label": "Base: holds premium as island matures",
+      "path": [
+       {
+        "time": "2025-03-01",
+        "value": 8494.0
+       },
+       {
+        "time": "2025-05-31",
+        "value": 8597.88
+       },
+       {
+        "time": "2025-08-30",
+        "value": 8703.03
+       },
+       {
+        "time": "2025-11-29",
+        "value": 8809.47
+       },
+       {
+        "time": "2026-02-28",
+        "value": 8917.21
+       },
+       {
+        "time": "2026-05-30",
+        "value": 9026.27
+       },
+       {
+        "time": "2026-08-29",
+        "value": 9136.66
+       },
+       {
+        "time": "2026-11-28",
+        "value": 9248.4
+       },
+       {
+        "time": "2027-02-27",
+        "value": 9361.51
+       },
+       {
+        "time": "2027-05-29",
+        "value": 9476.0
+       },
+       {
+        "time": "2027-08-28",
+        "value": 9591.89
+       },
+       {
+        "time": "2027-11-27",
+        "value": 9709.2
+       },
+       {
+        "time": "2028-02-26",
+        "value": 9827.94
+       },
+       {
+        "time": "2028-05-27",
+        "value": 9948.14
+       },
+       {
+        "time": "2028-08-26",
+        "value": 10069.8
+       },
+       {
+        "time": "2028-11-25",
+        "value": 10192.96
+       },
+       {
+        "time": "2029-02-24",
+        "value": 10317.62
+       },
+       {
+        "time": "2029-05-26",
+        "value": 10443.8
+       },
+       {
+        "time": "2029-08-25",
+        "value": 10571.53
+       },
+       {
+        "time": "2029-11-24",
+        "value": 10700.82
+       },
+       {
+        "time": "2029-12-31",
+        "value": 10753.84
+       }
+      ],
+      "label_vi": "Cơ sở: giữ mức chênh khi đảo hoàn thiện",
+      "rationale": "Limited supply and completed infrastructure support the premium; growth tracks the island's residential base minus FX drag.",
+      "rationale_vi": "Nguồn cung giới hạn và hạ tầng hoàn thiện giữ mức chênh; tăng trưởng theo mặt bằng nhà ở của đảo, trừ tác động tỷ giá."
+     },
+     "bull": {
+      "annual_rate": 0.15,
+      "label": "Bull: retail flywheel works",
+      "path": [
+       {
+        "time": "2025-03-01",
+        "value": 8494.0
+       },
+       {
+        "time": "2025-05-31",
+        "value": 8794.98
+       },
+       {
+        "time": "2025-08-30",
+        "value": 9106.62
+       },
+       {
+        "time": "2025-11-29",
+        "value": 9429.31
+       },
+       {
+        "time": "2026-02-28",
+        "value": 9763.43
+       },
+       {
+        "time": "2026-05-30",
+        "value": 10109.39
+       },
+       {
+        "time": "2026-08-29",
+        "value": 10467.61
+       },
+       {
+        "time": "2026-11-28",
+        "value": 10838.52
+       },
+       {
+        "time": "2027-02-27",
+        "value": 11222.57
+       },
+       {
+        "time": "2027-05-29",
+        "value": 11620.24
+       },
+       {
+        "time": "2027-08-28",
+        "value": 12031.99
+       },
+       {
+        "time": "2027-11-27",
+        "value": 12458.34
+       },
+       {
+        "time": "2028-02-26",
+        "value": 12899.79
+       },
+       {
+        "time": "2028-05-27",
+        "value": 13356.88
+       },
+       {
+        "time": "2028-08-26",
+        "value": 13830.17
+       },
+       {
+        "time": "2028-11-25",
+        "value": 14320.24
+       },
+       {
+        "time": "2029-02-24",
+        "value": 14827.66
+       },
+       {
+        "time": "2029-05-26",
+        "value": 15353.07
+       },
+       {
+        "time": "2029-08-25",
+        "value": 15897.09
+       },
+       {
+        "time": "2029-11-24",
+        "value": 16460.4
+       },
+       {
+        "time": "2029-12-31",
+        "value": 16695.1
+       }
+      ],
+      "label_vi": "Tích cực: bánh đà bán lẻ vận hành",
+      "rationale": "If VinWonders + safari + new bridge deliver visitor volume, scarce riverfront retail re-rates like central Hải Phòng frontage (180-200 triệu asking).",
+      "rationale_vi": "Nếu VinWonders + safari + cầu mới kéo lượng khách lớn, shophouse ven sông khan hiếm sẽ tái định giá như mặt phố trung tâm Hải Phòng (rao 180-200 triệu)."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vũ Yên — shophouse ven sông"
+   },
+   "ocean_park_1": {
+    "anchor": {
+     "date": "2025-02-01",
+     "value": 2541.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: commodity resale stock",
+      "path": [
+       {
+        "time": "2025-02-01",
+        "value": 2541.0
+       },
+       {
+        "time": "2025-05-03",
+        "value": 2508.73
+       },
+       {
+        "time": "2025-08-02",
+        "value": 2476.88
+       },
+       {
+        "time": "2025-11-01",
+        "value": 2445.43
+       },
+       {
+        "time": "2026-01-31",
+        "value": 2414.37
+       },
+       {
+        "time": "2026-05-02",
+        "value": 2383.72
+       },
+       {
+        "time": "2026-08-01",
+        "value": 2353.45
+       },
+       {
+        "time": "2026-10-31",
+        "value": 2323.56
+       },
+       {
+        "time": "2027-01-30",
+        "value": 2294.06
+       },
+       {
+        "time": "2027-05-01",
+        "value": 2264.93
+       },
+       {
+        "time": "2027-07-31",
+        "value": 2236.17
+       },
+       {
+        "time": "2027-10-30",
+        "value": 2207.77
+       },
+       {
+        "time": "2028-01-29",
+        "value": 2179.74
+       },
+       {
+        "time": "2028-04-29",
+        "value": 2152.06
+       },
+       {
+        "time": "2028-07-29",
+        "value": 2124.73
+       },
+       {
+        "time": "2028-10-28",
+        "value": 2097.75
+       },
+       {
+        "time": "2029-01-27",
+        "value": 2071.11
+       },
+       {
+        "time": "2029-04-28",
+        "value": 2044.81
+       },
+       {
+        "time": "2029-07-28",
+        "value": 2018.85
+       },
+       {
+        "time": "2029-10-27",
+        "value": 1993.21
+       },
+       {
+        "time": "2029-12-31",
+        "value": 1975.1
+       }
+      ],
+      "label_vi": "Xấu: hàng bán lại đại trà",
+      "rationale": "Huge completed stock means resale competes on price; OP2/OP3 supply next door caps upside.",
+      "rationale_vi": "Quỹ căn hoàn thiện khổng lồ khiến bán lại cạnh tranh về giá; nguồn cung OP2/OP3 kế bên giới hạn dư địa."
+     },
+     "base": {
+      "annual_rate": 0.06,
+      "label": "Base: matures with metro-east Hanoi",
+      "path": [
+       {
+        "time": "2025-02-01",
+        "value": 2541.0
+       },
+       {
+        "time": "2025-05-03",
+        "value": 2578.16
+       },
+       {
+        "time": "2025-08-02",
+        "value": 2615.86
+       },
+       {
+        "time": "2025-11-01",
+        "value": 2654.11
+       },
+       {
+        "time": "2026-01-31",
+        "value": 2692.92
+       },
+       {
+        "time": "2026-05-02",
+        "value": 2732.3
+       },
+       {
+        "time": "2026-08-01",
+        "value": 2772.26
+       },
+       {
+        "time": "2026-10-31",
+        "value": 2812.8
+       },
+       {
+        "time": "2027-01-30",
+        "value": 2853.93
+       },
+       {
+        "time": "2027-05-01",
+        "value": 2895.66
+       },
+       {
+        "time": "2027-07-31",
+        "value": 2938.01
+       },
+       {
+        "time": "2027-10-30",
+        "value": 2980.97
+       },
+       {
+        "time": "2028-01-29",
+        "value": 3024.56
+       },
+       {
+        "time": "2028-04-29",
+        "value": 3068.79
+       },
+       {
+        "time": "2028-07-29",
+        "value": 3113.67
+       },
+       {
+        "time": "2028-10-28",
+        "value": 3159.2
+       },
+       {
+        "time": "2029-01-27",
+        "value": 3205.4
+       },
+       {
+        "time": "2029-04-28",
+        "value": 3252.27
+       },
+       {
+        "time": "2029-07-28",
+        "value": 3299.83
+       },
+       {
+        "time": "2029-10-27",
+        "value": 3348.08
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3382.98
+       }
+      ],
+      "label_vi": "Cơ sở: hoàn thiện cùng phía đông Hà Nội",
+      "rationale": "Occupancy and amenities keep filling in; tracks Hanoi averages at a discount.",
+      "rationale_vi": "Tỷ lệ lấp đầy và tiện ích tiếp tục hoàn thiện; đi theo trung bình Hà Nội với mức chiết khấu."
+     },
+     "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: east-bank re-rating",
+      "path": [
+       {
+        "time": "2025-02-01",
+        "value": 2541.0
+       },
+       {
+        "time": "2025-05-03",
+        "value": 2602.06
+       },
+       {
+        "time": "2025-08-02",
+        "value": 2664.59
+       },
+       {
+        "time": "2025-11-01",
+        "value": 2728.62
+       },
+       {
+        "time": "2026-01-31",
+        "value": 2794.19
+       },
+       {
+        "time": "2026-05-02",
+        "value": 2861.33
+       },
+       {
+        "time": "2026-08-01",
+        "value": 2930.09
+       },
+       {
+        "time": "2026-10-31",
+        "value": 3000.5
+       },
+       {
+        "time": "2027-01-30",
+        "value": 3072.6
+       },
+       {
+        "time": "2027-05-01",
+        "value": 3146.44
+       },
+       {
+        "time": "2027-07-31",
+        "value": 3222.05
+       },
+       {
+        "time": "2027-10-30",
+        "value": 3299.48
+       },
+       {
+        "time": "2028-01-29",
+        "value": 3378.76
+       },
+       {
+        "time": "2028-04-29",
+        "value": 3459.96
+       },
+       {
+        "time": "2028-07-29",
+        "value": 3543.1
+       },
+       {
+        "time": "2028-10-28",
+        "value": 3628.24
+       },
+       {
+        "time": "2029-01-27",
+        "value": 3715.43
+       },
+       {
+        "time": "2029-04-28",
+        "value": 3804.71
+       },
+       {
+        "time": "2029-07-28",
+        "value": 3896.14
+       },
+       {
+        "time": "2029-10-27",
+        "value": 3989.76
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4058.01
+       }
+      ],
+      "label_vi": "Tích cực: tái định giá bờ đông",
+      "rationale": "Ring-road/bridge completion could close the gap to core Hanoi pricing.",
+      "rationale_vi": "Hoàn thành vành đai/cầu có thể thu hẹp khoảng cách với giá khu lõi Hà Nội."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vinhomes Ocean Park 1 (Hà Nội)"
+   },
+   "ocean_park_2": {
+    "anchor": {
+     "date": "2026-06-01",
+     "value": 6540.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.1,
+      "label": "Bear: high base, asking-price air",
+      "path": [
+       {
+        "time": "2026-06-01",
+        "value": 6540.0
+       },
+       {
+        "time": "2026-08-31",
+        "value": 6370.56
+       },
+       {
+        "time": "2026-11-30",
+        "value": 6205.51
+       },
+       {
+        "time": "2027-03-01",
+        "value": 6044.73
+       },
+       {
+        "time": "2027-05-31",
+        "value": 5888.12
+       },
+       {
+        "time": "2027-08-30",
+        "value": 5735.57
+       },
+       {
+        "time": "2027-11-29",
+        "value": 5586.97
+       },
+       {
+        "time": "2028-02-28",
+        "value": 5442.22
+       },
+       {
+        "time": "2028-05-29",
+        "value": 5301.22
+       },
+       {
+        "time": "2028-08-28",
+        "value": 5163.88
+       },
+       {
+        "time": "2028-11-27",
+        "value": 5030.09
+       },
+       {
+        "time": "2029-02-26",
+        "value": 4899.77
+       },
+       {
+        "time": "2029-05-28",
+        "value": 4772.82
+       },
+       {
+        "time": "2029-08-27",
+        "value": 4649.16
+       },
+       {
+        "time": "2029-11-26",
+        "value": 4528.71
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4483.22
+       }
+      ],
+      "label_vi": "Xấu: nền giá cao, giá rao ảo",
+      "rationale": "171 triệu/m² asking for low-rise is already near Hanoi landed averages; asking-price series can deflate fast (CBRE landed -15% y/y).",
+      "rationale_vi": "Giá rao 171 triệu/m² thấp tầng đã gần trung bình thấp tầng Hà Nội; chuỗi giá rao có thể xì hơi nhanh (CBRE thấp tầng -15% theo năm)."
+     },
+     "base": {
+      "annual_rate": 0.04,
+      "label": "Base: slow grind at high base",
+      "path": [
+       {
+        "time": "2026-06-01",
+        "value": 6540.0
+       },
+       {
+        "time": "2026-08-31",
+        "value": 6604.22
+       },
+       {
+        "time": "2026-11-30",
+        "value": 6669.07
+       },
+       {
+        "time": "2027-03-01",
+        "value": 6734.56
+       },
+       {
+        "time": "2027-05-31",
+        "value": 6800.69
+       },
+       {
+        "time": "2027-08-30",
+        "value": 6867.47
+       },
+       {
+        "time": "2027-11-29",
+        "value": 6934.9
+       },
+       {
+        "time": "2028-02-28",
+        "value": 7003.0
+       },
+       {
+        "time": "2028-05-29",
+        "value": 7071.77
+       },
+       {
+        "time": "2028-08-28",
+        "value": 7141.21
+       },
+       {
+        "time": "2028-11-27",
+        "value": 7211.33
+       },
+       {
+        "time": "2029-02-26",
+        "value": 7282.14
+       },
+       {
+        "time": "2029-05-28",
+        "value": 7353.65
+       },
+       {
+        "time": "2029-08-27",
+        "value": 7425.86
+       },
+       {
+        "time": "2029-11-26",
+        "value": 7498.78
+       },
+       {
+        "time": "2029-12-31",
+        "value": 7527.01
+       }
+      ],
+      "label_vi": "Cơ sở: nhích chậm trên nền cao",
+      "rationale": "Delivered ecosystem sustains prices but the easy re-rating is behind.",
+      "rationale_vi": "Hệ sinh thái đã bàn giao giữ giá, nhưng giai đoạn tái định giá dễ đã qua."
+     },
+     "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: Hưng Yên upgrade story",
+      "path": [
+       {
+        "time": "2026-06-01",
+        "value": 6540.0
+       },
+       {
+        "time": "2026-08-31",
+        "value": 6697.16
+       },
+       {
+        "time": "2026-11-30",
+        "value": 6858.09
+       },
+       {
+        "time": "2027-03-01",
+        "value": 7022.89
+       },
+       {
+        "time": "2027-05-31",
+        "value": 7191.65
+       },
+       {
+        "time": "2027-08-30",
+        "value": 7364.47
+       },
+       {
+        "time": "2027-11-29",
+        "value": 7541.44
+       },
+       {
+        "time": "2028-02-28",
+        "value": 7722.66
+       },
+       {
+        "time": "2028-05-29",
+        "value": 7908.24
+       },
+       {
+        "time": "2028-08-28",
+        "value": 8098.28
+       },
+       {
+        "time": "2028-11-27",
+        "value": 8292.88
+       },
+       {
+        "time": "2029-02-26",
+        "value": 8492.16
+       },
+       {
+        "time": "2029-05-28",
+        "value": 8696.23
+       },
+       {
+        "time": "2029-08-27",
+        "value": 8905.2
+       },
+       {
+        "time": "2029-11-26",
+        "value": 9119.19
+       },
+       {
+        "time": "2029-12-31",
+        "value": 9202.86
+       }
+      ],
+      "label_vi": "Tích cực: câu chuyện nâng cấp Hưng Yên",
+      "rationale": "Administrative upgrades and expressway links could restart the premium.",
+      "rationale_vi": "Nâng cấp hành chính và cao tốc kết nối có thể khởi động lại mức chênh."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vinhomes Ocean Park 2 (Hưng Yên) — thấp tầng"
+   },
+   "grand_park": {
+    "anchor": {
+     "date": "2024-09-01",
+     "value": 3452.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.06,
+      "label": "Bear: Thủ Đức supply pipeline",
+      "path": [
+       {
+        "time": "2024-09-01",
+        "value": 3452.0
+       },
+       {
+        "time": "2024-12-01",
+        "value": 3399.19
+       },
+       {
+        "time": "2025-03-02",
+        "value": 3347.19
+       },
+       {
+        "time": "2025-06-01",
+        "value": 3295.99
+       },
+       {
+        "time": "2025-08-31",
+        "value": 3245.57
+       },
+       {
+        "time": "2025-11-30",
+        "value": 3195.92
+       },
+       {
+        "time": "2026-03-01",
+        "value": 3147.03
+       },
+       {
+        "time": "2026-05-31",
+        "value": 3098.89
+       },
+       {
+        "time": "2026-08-30",
+        "value": 3051.48
+       },
+       {
+        "time": "2026-11-29",
+        "value": 3004.8
+       },
+       {
+        "time": "2027-02-28",
+        "value": 2958.83
+       },
+       {
+        "time": "2027-05-30",
+        "value": 2913.57
+       },
+       {
+        "time": "2027-08-29",
+        "value": 2869.0
+       },
+       {
+        "time": "2027-11-28",
+        "value": 2825.11
+       },
+       {
+        "time": "2028-02-27",
+        "value": 2781.89
+       },
+       {
+        "time": "2028-05-28",
+        "value": 2739.33
+       },
+       {
+        "time": "2028-08-27",
+        "value": 2697.43
+       },
+       {
+        "time": "2028-11-26",
+        "value": 2656.16
+       },
+       {
+        "time": "2029-02-25",
+        "value": 2615.53
+       },
+       {
+        "time": "2029-05-27",
+        "value": 2575.52
+       },
+       {
+        "time": "2029-08-26",
+        "value": 2536.12
+       },
+       {
+        "time": "2029-11-25",
+        "value": 2497.32
+       },
+       {
+        "time": "2029-12-31",
+        "value": 2482.14
+       }
+      ],
+      "label_vi": "Xấu: nguồn cung Thủ Đức",
+      "rationale": "Continuous tower launches inside the township dilute resale pricing.",
+      "rationale_vi": "Các toà mở bán liên tục trong khu đô thị pha loãng giá bán lại."
+     },
+     "base": {
+      "annual_rate": 0.07,
+      "label": "Base: rides HCMC premiumization",
+      "path": [
+       {
+        "time": "2024-09-01",
+        "value": 3452.0
+       },
+       {
+        "time": "2024-12-01",
+        "value": 3510.68
+       },
+       {
+        "time": "2025-03-02",
+        "value": 3570.36
+       },
+       {
+        "time": "2025-06-01",
+        "value": 3631.06
+       },
+       {
+        "time": "2025-08-31",
+        "value": 3692.78
+       },
+       {
+        "time": "2025-11-30",
+        "value": 3755.56
+       },
+       {
+        "time": "2026-03-01",
+        "value": 3819.4
+       },
+       {
+        "time": "2026-05-31",
+        "value": 3884.33
+       },
+       {
+        "time": "2026-08-30",
+        "value": 3950.36
+       },
+       {
+        "time": "2026-11-29",
+        "value": 4017.52
+       },
+       {
+        "time": "2027-02-28",
+        "value": 4085.82
+       },
+       {
+        "time": "2027-05-30",
+        "value": 4155.27
+       },
+       {
+        "time": "2027-08-29",
+        "value": 4225.91
+       },
+       {
+        "time": "2027-11-28",
+        "value": 4297.75
+       },
+       {
+        "time": "2028-02-27",
+        "value": 4370.81
+       },
+       {
+        "time": "2028-05-28",
+        "value": 4445.11
+       },
+       {
+        "time": "2028-08-27",
+        "value": 4520.68
+       },
+       {
+        "time": "2028-11-26",
+        "value": 4597.53
+       },
+       {
+        "time": "2029-02-25",
+        "value": 4675.69
+       },
+       {
+        "time": "2029-05-27",
+        "value": 4755.17
+       },
+       {
+        "time": "2029-08-26",
+        "value": 4836.01
+       },
+       {
+        "time": "2029-11-25",
+        "value": 4918.22
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4951.12
+       }
+      ],
+      "label_vi": "Cơ sở: theo đà cao cấp hoá TP.HCM",
+      "rationale": "From Glory Heights $2,500 to Opus One $3,450 in 14 months — the township tracks the HCMC benchmark closely (r≈city).",
+      "rationale_vi": "Từ Glory Heights ~2.500 USD đến Opus One ~3.450 USD trong 14 tháng — khu đô thị bám sát chuẩn TP.HCM."
+     },
+     "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: metro line 1 extension effect",
+      "path": [
+       {
+        "time": "2024-09-01",
+        "value": 3452.0
+       },
+       {
+        "time": "2024-12-01",
+        "value": 3550.86
+       },
+       {
+        "time": "2025-03-02",
+        "value": 3652.55
+       },
+       {
+        "time": "2025-06-01",
+        "value": 3757.15
+       },
+       {
+        "time": "2025-08-31",
+        "value": 3864.74
+       },
+       {
+        "time": "2025-11-30",
+        "value": 3975.42
+       },
+       {
+        "time": "2026-03-01",
+        "value": 4089.26
+       },
+       {
+        "time": "2026-05-31",
+        "value": 4206.37
+       },
+       {
+        "time": "2026-08-30",
+        "value": 4326.83
+       },
+       {
+        "time": "2026-11-29",
+        "value": 4450.74
+       },
+       {
+        "time": "2027-02-28",
+        "value": 4578.2
+       },
+       {
+        "time": "2027-05-30",
+        "value": 4709.31
+       },
+       {
+        "time": "2027-08-29",
+        "value": 4844.17
+       },
+       {
+        "time": "2027-11-28",
+        "value": 4982.9
+       },
+       {
+        "time": "2028-02-27",
+        "value": 5125.6
+       },
+       {
+        "time": "2028-05-28",
+        "value": 5272.38
+       },
+       {
+        "time": "2028-08-27",
+        "value": 5423.37
+       },
+       {
+        "time": "2028-11-26",
+        "value": 5578.68
+       },
+       {
+        "time": "2029-02-25",
+        "value": 5738.44
+       },
+       {
+        "time": "2029-05-27",
+        "value": 5902.78
+       },
+       {
+        "time": "2029-08-26",
+        "value": 6071.82
+       },
+       {
+        "time": "2029-11-25",
+        "value": 6245.7
+       },
+       {
+        "time": "2029-12-31",
+        "value": 6315.86
+       }
+      ],
+      "label_vi": "Tích cực: hiệu ứng metro kéo dài",
+      "rationale": "Direct mass-transit connection re-rates the entire eastern corridor.",
+      "rationale_vi": "Kết nối metro trực tiếp tái định giá cả hành lang phía đông."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vinhomes Grand Park (TP.HCM)"
+   },
+   "golden_avenue": {
+    "anchor": {
+     "date": "2025-06-01",
+     "value": 2220.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.12,
+      "label": "Bear: border-trade sensitivity",
+      "path": [
+       {
+        "time": "2025-06-01",
+        "value": 2220.0
+       },
+       {
+        "time": "2025-08-31",
+        "value": 2150.41
+       },
+       {
+        "time": "2025-11-30",
+        "value": 2083.0
+       },
+       {
+        "time": "2026-03-01",
+        "value": 2017.7
+       },
+       {
+        "time": "2026-05-31",
+        "value": 1954.45
+       },
+       {
+        "time": "2026-08-30",
+        "value": 1893.19
+       },
+       {
+        "time": "2026-11-29",
+        "value": 1833.84
+       },
+       {
+        "time": "2027-02-28",
+        "value": 1776.36
+       },
+       {
+        "time": "2027-05-30",
+        "value": 1720.67
+       },
+       {
+        "time": "2027-08-29",
+        "value": 1666.73
+       },
+       {
+        "time": "2027-11-28",
+        "value": 1614.49
+       },
+       {
+        "time": "2028-02-27",
+        "value": 1563.88
+       },
+       {
+        "time": "2028-05-28",
+        "value": 1514.85
+       },
+       {
+        "time": "2028-08-27",
+        "value": 1467.37
+       },
+       {
+        "time": "2028-11-26",
+        "value": 1421.37
+       },
+       {
+        "time": "2029-02-25",
+        "value": 1376.81
+       },
+       {
+        "time": "2029-05-27",
+        "value": 1333.66
+       },
+       {
+        "time": "2029-08-26",
+        "value": 1291.85
+       },
+       {
+        "time": "2029-11-25",
+        "value": 1251.35
+       },
+       {
+        "time": "2029-12-31",
+        "value": 1235.69
+       }
+      ],
+      "label_vi": "Xấu: nhạy cảm thương mại biên giới",
+      "rationale": "Móng Cái demand rides China border trade and tourism; thin liquidity means fast drawdowns.",
+      "rationale_vi": "Cầu tại Móng Cái phụ thuộc thương mại biên giới và du lịch Trung Quốc; thanh khoản mỏng khiến giảm giá nhanh."
+     },
+     "base": {
+      "annual_rate": 0.03,
+      "label": "Base: niche market, slow growth",
+      "path": [
+       {
+        "time": "2025-06-01",
+        "value": 2220.0
+       },
+       {
+        "time": "2025-08-31",
+        "value": 2236.41
+       },
+       {
+        "time": "2025-11-30",
+        "value": 2252.94
+       },
+       {
+        "time": "2026-03-01",
+        "value": 2269.59
+       },
+       {
+        "time": "2026-05-31",
+        "value": 2286.37
+       },
+       {
+        "time": "2026-08-30",
+        "value": 2303.27
+       },
+       {
+        "time": "2026-11-29",
+        "value": 2320.29
+       },
+       {
+        "time": "2027-02-28",
+        "value": 2337.44
+       },
+       {
+        "time": "2027-05-30",
+        "value": 2354.72
+       },
+       {
+        "time": "2027-08-29",
+        "value": 2372.13
+       },
+       {
+        "time": "2027-11-28",
+        "value": 2389.66
+       },
+       {
+        "time": "2028-02-27",
+        "value": 2407.32
+       },
+       {
+        "time": "2028-05-28",
+        "value": 2425.12
+       },
+       {
+        "time": "2028-08-27",
+        "value": 2443.04
+       },
+       {
+        "time": "2028-11-26",
+        "value": 2461.1
+       },
+       {
+        "time": "2029-02-25",
+        "value": 2479.29
+       },
+       {
+        "time": "2029-05-27",
+        "value": 2497.62
+       },
+       {
+        "time": "2029-08-26",
+        "value": 2516.08
+       },
+       {
+        "time": "2029-11-25",
+        "value": 2534.68
+       },
+       {
+        "time": "2029-12-31",
+        "value": 2542.07
+       }
+      ],
+      "label_vi": "Cơ sở: thị trường ngách, tăng chậm",
+      "rationale": "At ~57.5 triệu/m² the project is priced for local demand; grows with border-economy normalization.",
+      "rationale_vi": "Ở ~57,5 triệu/m², dự án định giá theo cầu địa phương; tăng cùng bình thường hoá kinh tế biên mậu."
+     },
+     "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: border-economy boom",
+      "path": [
+       {
+        "time": "2025-06-01",
+        "value": 2220.0
+       },
+       {
+        "time": "2025-08-31",
+        "value": 2273.35
+       },
+       {
+        "time": "2025-11-30",
+        "value": 2327.98
+       },
+       {
+        "time": "2026-03-01",
+        "value": 2383.92
+       },
+       {
+        "time": "2026-05-31",
+        "value": 2441.2
+       },
+       {
+        "time": "2026-08-30",
+        "value": 2499.87
+       },
+       {
+        "time": "2026-11-29",
+        "value": 2559.94
+       },
+       {
+        "time": "2027-02-28",
+        "value": 2621.45
+       },
+       {
+        "time": "2027-05-30",
+        "value": 2684.45
+       },
+       {
+        "time": "2027-08-29",
+        "value": 2748.96
+       },
+       {
+        "time": "2027-11-28",
+        "value": 2815.01
+       },
+       {
+        "time": "2028-02-27",
+        "value": 2882.66
+       },
+       {
+        "time": "2028-05-28",
+        "value": 2951.93
+       },
+       {
+        "time": "2028-08-27",
+        "value": 3022.87
+       },
+       {
+        "time": "2028-11-26",
+        "value": 3095.51
+       },
+       {
+        "time": "2029-02-25",
+        "value": 3169.89
+       },
+       {
+        "time": "2029-05-27",
+        "value": 3246.06
+       },
+       {
+        "time": "2029-08-26",
+        "value": 3324.07
+       },
+       {
+        "time": "2029-11-25",
+        "value": 3403.95
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3436.07
+       }
+      ],
+      "label_vi": "Tích cực: bùng nổ kinh tế cửa khẩu",
+      "rationale": "A strong China-trade cycle plus casino/tourism catalysts would re-rate the border strip.",
+      "rationale_vi": "Chu kỳ thương mại Trung Quốc mạnh cộng chất xúc tác du lịch/casino sẽ tái định giá dải biên giới."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vinhomes Golden Avenue (Móng Cái)"
+   },
+   "hai_phong_minato": {
+    "anchor": {
+     "date": "2025-12-01",
+     "value": 2181.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: apartment supply wave",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 2181.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 2153.31
+       },
+       {
+        "time": "2026-06-01",
+        "value": 2125.96
+       },
+       {
+        "time": "2026-08-31",
+        "value": 2098.97
+       },
+       {
+        "time": "2026-11-30",
+        "value": 2072.31
+       },
+       {
+        "time": "2027-03-01",
+        "value": 2046.0
+       },
+       {
+        "time": "2027-05-31",
+        "value": 2020.02
+       },
+       {
+        "time": "2027-08-30",
+        "value": 1994.37
+       },
+       {
+        "time": "2027-11-29",
+        "value": 1969.04
+       },
+       {
+        "time": "2028-02-28",
+        "value": 1944.04
+       },
+       {
+        "time": "2028-05-29",
+        "value": 1919.35
+       },
+       {
+        "time": "2028-08-28",
+        "value": 1894.98
+       },
+       {
+        "time": "2028-11-27",
+        "value": 1870.92
+       },
+       {
+        "time": "2029-02-26",
+        "value": 1847.16
+       },
+       {
+        "time": "2029-05-28",
+        "value": 1823.71
+       },
+       {
+        "time": "2029-08-27",
+        "value": 1800.55
+       },
+       {
+        "time": "2029-11-26",
+        "value": 1777.69
+       },
+       {
+        "time": "2029-12-31",
+        "value": 1768.97
+       }
+      ],
+      "label_vi": "Xấu: sóng nguồn cung căn hộ",
+      "rationale": "New central apartment launches (incl. Vinhomes) could cap a mid-market project's pricing power.",
+      "rationale_vi": "Nguồn cung căn hộ trung tâm mới (kể cả Vinhomes) có thể kìm sức định giá của dự án tầm trung."
+     },
+     "base": {
+      "annual_rate": 0.07,
+      "label": "Base: tracks city apartments",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 2181.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 2218.08
+       },
+       {
+        "time": "2026-06-01",
+        "value": 2255.78
+       },
+       {
+        "time": "2026-08-31",
+        "value": 2294.13
+       },
+       {
+        "time": "2026-11-30",
+        "value": 2333.13
+       },
+       {
+        "time": "2027-03-01",
+        "value": 2372.79
+       },
+       {
+        "time": "2027-05-31",
+        "value": 2413.13
+       },
+       {
+        "time": "2027-08-30",
+        "value": 2454.15
+       },
+       {
+        "time": "2027-11-29",
+        "value": 2495.87
+       },
+       {
+        "time": "2028-02-28",
+        "value": 2538.3
+       },
+       {
+        "time": "2028-05-29",
+        "value": 2581.45
+       },
+       {
+        "time": "2028-08-28",
+        "value": 2625.33
+       },
+       {
+        "time": "2028-11-27",
+        "value": 2669.96
+       },
+       {
+        "time": "2029-02-26",
+        "value": 2715.35
+       },
+       {
+        "time": "2029-05-28",
+        "value": 2761.51
+       },
+       {
+        "time": "2029-08-27",
+        "value": 2808.46
+       },
+       {
+        "time": "2029-11-26",
+        "value": 2856.2
+       },
+       {
+        "time": "2029-12-31",
+        "value": 2874.78
+       }
+      ],
+      "label_vi": "Cơ sở: theo mặt bằng căn hộ thành phố",
+      "rationale": "Japanese-built quality at ~56.5 triệu/m² tracks the city apartment series (~61 triệu average).",
+      "rationale_vi": "Chất lượng chuẩn Nhật ở ~56,5 triệu/m² đi theo chuỗi căn hộ thành phố (trung bình ~61 triệu)."
+     },
+     "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: quality premium widens",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 2181.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 2243.46
+       },
+       {
+        "time": "2026-06-01",
+        "value": 2307.71
+       },
+       {
+        "time": "2026-08-31",
+        "value": 2373.79
+       },
+       {
+        "time": "2026-11-30",
+        "value": 2441.77
+       },
+       {
+        "time": "2027-03-01",
+        "value": 2511.7
+       },
+       {
+        "time": "2027-05-31",
+        "value": 2583.63
+       },
+       {
+        "time": "2027-08-30",
+        "value": 2657.62
+       },
+       {
+        "time": "2027-11-29",
+        "value": 2733.73
+       },
+       {
+        "time": "2028-02-28",
+        "value": 2812.01
+       },
+       {
+        "time": "2028-05-29",
+        "value": 2892.54
+       },
+       {
+        "time": "2028-08-28",
+        "value": 2975.38
+       },
+       {
+        "time": "2028-11-27",
+        "value": 3060.58
+       },
+       {
+        "time": "2029-02-26",
+        "value": 3148.23
+       },
+       {
+        "time": "2029-05-28",
+        "value": 3238.39
+       },
+       {
+        "time": "2029-08-27",
+        "value": 3331.13
+       },
+       {
+        "time": "2029-11-26",
+        "value": 3426.53
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3463.94
+       }
+      ],
+      "label_vi": "Tích cực: chênh lệch chất lượng nới rộng",
+      "rationale": "In a rising market, branded/quality stock outperforms the city average.",
+      "rationale_vi": "Trong thị trường đi lên, sản phẩm thương hiệu/chất lượng vượt trung bình thành phố."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "The Minato Residence (Hải Phòng)"
+   },
+   "hai_phong_vlasta": {
+    "anchor": {
+     "date": "2025-05-01",
+     "value": 3320.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.08,
+      "label": "Bear: competes with Vinhomes supply",
+      "path": [
+       {
+        "time": "2025-05-01",
+        "value": 3320.0
+       },
+       {
+        "time": "2025-07-31",
+        "value": 3251.74
+       },
+       {
+        "time": "2025-10-30",
+        "value": 3184.89
+       },
+       {
+        "time": "2026-01-29",
+        "value": 3119.41
+       },
+       {
+        "time": "2026-04-30",
+        "value": 3055.27
+       },
+       {
+        "time": "2026-07-30",
+        "value": 2992.46
+       },
+       {
+        "time": "2026-10-29",
+        "value": 2930.93
+       },
+       {
+        "time": "2027-01-28",
+        "value": 2870.67
+       },
+       {
+        "time": "2027-04-29",
+        "value": 2811.65
+       },
+       {
+        "time": "2027-07-29",
+        "value": 2753.85
+       },
+       {
+        "time": "2027-10-28",
+        "value": 2697.23
+       },
+       {
+        "time": "2028-01-27",
+        "value": 2641.77
+       },
+       {
+        "time": "2028-04-27",
+        "value": 2587.46
+       },
+       {
+        "time": "2028-07-27",
+        "value": 2534.26
+       },
+       {
+        "time": "2028-10-26",
+        "value": 2482.16
+       },
+       {
+        "time": "2029-01-25",
+        "value": 2431.12
+       },
+       {
+        "time": "2029-04-26",
+        "value": 2381.14
+       },
+       {
+        "time": "2029-07-26",
+        "value": 2332.19
+       },
+       {
+        "time": "2029-10-25",
+        "value": 2284.24
+       },
+       {
+        "time": "2029-12-31",
+        "value": 2249.56
+       }
+      ],
+      "label_vi": "Xấu: cạnh tranh nguồn cung Vinhomes",
+      "rationale": "Non-Vinhomes low-rise in Thủy Nguyên competes head-on with Royal Island phases and lacks the ecosystem premium.",
+      "rationale_vi": "Thấp tầng ngoài hệ Vinhomes tại Thủy Nguyên cạnh tranh trực tiếp với các phân khu Royal Island và thiếu chênh lệch hệ sinh thái."
+     },
+     "base": {
+      "annual_rate": 0.06,
+      "label": "Base: rides Thủy Nguyên upgrade",
+      "path": [
+       {
+        "time": "2025-05-01",
+        "value": 3320.0
+       },
+       {
+        "time": "2025-07-31",
+        "value": 3368.55
+       },
+       {
+        "time": "2025-10-30",
+        "value": 3417.81
+       },
+       {
+        "time": "2026-01-29",
+        "value": 3467.79
+       },
+       {
+        "time": "2026-04-30",
+        "value": 3518.5
+       },
+       {
+        "time": "2026-07-30",
+        "value": 3569.95
+       },
+       {
+        "time": "2026-10-29",
+        "value": 3622.15
+       },
+       {
+        "time": "2027-01-28",
+        "value": 3675.12
+       },
+       {
+        "time": "2027-04-29",
+        "value": 3728.86
+       },
+       {
+        "time": "2027-07-29",
+        "value": 3783.39
+       },
+       {
+        "time": "2027-10-28",
+        "value": 3838.72
+       },
+       {
+        "time": "2028-01-27",
+        "value": 3894.85
+       },
+       {
+        "time": "2028-04-27",
+        "value": 3951.81
+       },
+       {
+        "time": "2028-07-27",
+        "value": 4009.6
+       },
+       {
+        "time": "2028-10-26",
+        "value": 4068.23
+       },
+       {
+        "time": "2029-01-25",
+        "value": 4127.72
+       },
+       {
+        "time": "2029-04-26",
+        "value": 4188.08
+       },
+       {
+        "time": "2029-07-26",
+        "value": 4249.32
+       },
+       {
+        "time": "2029-10-25",
+        "value": 4311.46
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4357.79
+       }
+      ],
+      "label_vi": "Cơ sở: hưởng lợi Thủy Nguyên lên thành phố",
+      "rationale": "Same administrative-center catalysts apply; grows with the district at a discount to the island.",
+      "rationale_vi": "Cùng hưởng chất xúc tác trung tâm hành chính; tăng theo khu vực với mức chiết khấu so với đảo."
+     },
+     "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: spillover demand",
+      "path": [
+       {
+        "time": "2025-05-01",
+        "value": 3320.0
+       },
+       {
+        "time": "2025-07-31",
+        "value": 3415.08
+       },
+       {
+        "time": "2025-10-30",
+        "value": 3512.88
+       },
+       {
+        "time": "2026-01-29",
+        "value": 3613.48
+       },
+       {
+        "time": "2026-04-30",
+        "value": 3716.96
+       },
+       {
+        "time": "2026-07-30",
+        "value": 3823.4
+       },
+       {
+        "time": "2026-10-29",
+        "value": 3932.9
+       },
+       {
+        "time": "2027-01-28",
+        "value": 4045.52
+       },
+       {
+        "time": "2027-04-29",
+        "value": 4161.38
+       },
+       {
+        "time": "2027-07-29",
+        "value": 4280.55
+       },
+       {
+        "time": "2027-10-28",
+        "value": 4403.14
+       },
+       {
+        "time": "2028-01-27",
+        "value": 4529.23
+       },
+       {
+        "time": "2028-04-27",
+        "value": 4658.94
+       },
+       {
+        "time": "2028-07-27",
+        "value": 4792.36
+       },
+       {
+        "time": "2028-10-26",
+        "value": 4929.6
+       },
+       {
+        "time": "2029-01-25",
+        "value": 5070.77
+       },
+       {
+        "time": "2029-04-26",
+        "value": 5215.99
+       },
+       {
+        "time": "2029-07-26",
+        "value": 5365.36
+       },
+       {
+        "time": "2029-10-25",
+        "value": 5519.01
+       },
+       {
+        "time": "2029-12-31",
+        "value": 5634.94
+       }
+      ],
+      "label_vi": "Tích cực: cầu lan toả",
+      "rationale": "If Royal Island sells out phases at 100+ triệu, the ~86 triệu neighbour re-rates on relative value.",
+      "rationale_vi": "Nếu Royal Island bán hết các phân khu ở mức 100+ triệu, dự án lân cận ~86 triệu được tái định giá nhờ tương quan giá."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vlasta Thủy Nguyên (Hải Phòng)"
+   },
+   "hai_phong_apartments": {
+    "anchor": {
+     "date": "2025-09-01",
+     "value": 2355.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: affordability ceiling",
+      "path": [
+       {
+        "time": "2025-09-01",
+        "value": 2355.0
+       },
+       {
+        "time": "2025-12-01",
+        "value": 2325.1
+       },
+       {
+        "time": "2026-03-02",
+        "value": 2295.57
+       },
+       {
+        "time": "2026-06-01",
+        "value": 2266.42
+       },
+       {
+        "time": "2026-08-31",
+        "value": 2237.64
+       },
+       {
+        "time": "2026-11-30",
+        "value": 2209.23
+       },
+       {
+        "time": "2027-03-01",
+        "value": 2181.18
+       },
+       {
+        "time": "2027-05-31",
+        "value": 2153.48
+       },
+       {
+        "time": "2027-08-30",
+        "value": 2126.13
+       },
+       {
+        "time": "2027-11-29",
+        "value": 2099.14
+       },
+       {
+        "time": "2028-02-28",
+        "value": 2072.48
+       },
+       {
+        "time": "2028-05-29",
+        "value": 2046.16
+       },
+       {
+        "time": "2028-08-28",
+        "value": 2020.18
+       },
+       {
+        "time": "2028-11-27",
+        "value": 1994.53
+       },
+       {
+        "time": "2029-02-26",
+        "value": 1969.2
+       },
+       {
+        "time": "2029-05-28",
+        "value": 1944.2
+       },
+       {
+        "time": "2029-08-27",
+        "value": 1919.51
+       },
+       {
+        "time": "2029-11-26",
+        "value": 1895.14
+       },
+       {
+        "time": "2029-12-31",
+        "value": 1885.84
+       }
+      ],
+      "label_vi": "Xấu: trần khả năng chi trả",
+      "rationale": "Asking prices already +85% since Q1/2023 (33→61 triệu); wage growth can't sustain that pace, and 4.6% rental yield is thin.",
+      "rationale_vi": "Giá rao đã +85% từ Q1/2023 (33→61 triệu); thu nhập không theo kịp nhịp này, lợi suất cho thuê 4,6% là mỏng."
+     },
+     "base": {
+      "annual_rate": 0.08,
+      "label": "Base: urbanization + merger demand",
+      "path": [
+       {
+        "time": "2025-09-01",
+        "value": 2355.0
+       },
+       {
+        "time": "2025-12-01",
+        "value": 2400.59
+       },
+       {
+        "time": "2026-03-02",
+        "value": 2447.07
+       },
+       {
+        "time": "2026-06-01",
+        "value": 2494.44
+       },
+       {
+        "time": "2026-08-31",
+        "value": 2542.73
+       },
+       {
+        "time": "2026-11-30",
+        "value": 2591.96
+       },
+       {
+        "time": "2027-03-01",
+        "value": 2642.13
+       },
+       {
+        "time": "2027-05-31",
+        "value": 2693.28
+       },
+       {
+        "time": "2027-08-30",
+        "value": 2745.43
+       },
+       {
+        "time": "2027-11-29",
+        "value": 2798.58
+       },
+       {
+        "time": "2028-02-28",
+        "value": 2852.75
+       },
+       {
+        "time": "2028-05-29",
+        "value": 2907.98
+       },
+       {
+        "time": "2028-08-28",
+        "value": 2964.28
+       },
+       {
+        "time": "2028-11-27",
+        "value": 3021.67
+       },
+       {
+        "time": "2029-02-26",
+        "value": 3080.16
+       },
+       {
+        "time": "2029-05-28",
+        "value": 3139.79
+       },
+       {
+        "time": "2029-08-27",
+        "value": 3200.58
+       },
+       {
+        "time": "2029-11-26",
+        "value": 3262.54
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3286.69
+       }
+      ],
+      "label_vi": "Cơ sở: đô thị hoá + cầu từ sáp nhập",
+      "rationale": "Expanded Hải Phòng (#3 economy) keeps drawing residents; apartments track income growth plus scarcity in the new center.",
+      "rationale_vi": "Hải Phòng mở rộng (kinh tế thứ 3 cả nước) tiếp tục hút dân; căn hộ tăng theo thu nhập cộng khan hiếm ở trung tâm mới."
+     },
+     "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: catch-up to Hanoi",
+      "path": [
+       {
+        "time": "2025-09-01",
+        "value": 2355.0
+       },
+       {
+        "time": "2025-12-01",
+        "value": 2422.44
+       },
+       {
+        "time": "2026-03-02",
+        "value": 2491.81
+       },
+       {
+        "time": "2026-06-01",
+        "value": 2563.17
+       },
+       {
+        "time": "2026-08-31",
+        "value": 2636.58
+       },
+       {
+        "time": "2026-11-30",
+        "value": 2712.08
+       },
+       {
+        "time": "2027-03-01",
+        "value": 2789.75
+       },
+       {
+        "time": "2027-05-31",
+        "value": 2869.64
+       },
+       {
+        "time": "2027-08-30",
+        "value": 2951.82
+       },
+       {
+        "time": "2027-11-29",
+        "value": 3036.35
+       },
+       {
+        "time": "2028-02-28",
+        "value": 3123.31
+       },
+       {
+        "time": "2028-05-29",
+        "value": 3212.75
+       },
+       {
+        "time": "2028-08-28",
+        "value": 3304.76
+       },
+       {
+        "time": "2028-11-27",
+        "value": 3399.4
+       },
+       {
+        "time": "2029-02-26",
+        "value": 3496.75
+       },
+       {
+        "time": "2029-05-28",
+        "value": 3596.89
+       },
+       {
+        "time": "2029-08-27",
+        "value": 3699.89
+       },
+       {
+        "time": "2029-11-26",
+        "value": 3805.85
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3847.41
+       }
+      ],
+      "label_vi": "Tích cực: bắt kịp Hà Nội",
+      "rationale": "At ~$2,355/m² vs Hanoi's ~$3,012 primary, a port-city catch-up (as CBRE saw in Hanoi 2024: +36%/yr) is the upside case.",
+      "rationale_vi": "Ở ~2.355 USD/m² so với ~3.012 USD sơ cấp Hà Nội, kịch bản bắt kịp của thành phố cảng (như Hà Nội 2024: +36%/năm theo CBRE) là dư địa tăng."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Hải Phòng — căn hộ (giá rao trung bình)"
+   },
+   "hanoi_benchmark": {
+    "anchor": {
+     "date": "2025-12-01",
+     "value": 3012.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: suburban supply mix bites",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 3012.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 2973.75
+       },
+       {
+        "time": "2026-06-01",
+        "value": 2935.99
+       },
+       {
+        "time": "2026-08-31",
+        "value": 2898.71
+       },
+       {
+        "time": "2026-11-30",
+        "value": 2861.9
+       },
+       {
+        "time": "2027-03-01",
+        "value": 2825.56
+       },
+       {
+        "time": "2027-05-31",
+        "value": 2789.68
+       },
+       {
+        "time": "2027-08-30",
+        "value": 2754.26
+       },
+       {
+        "time": "2027-11-29",
+        "value": 2719.28
+       },
+       {
+        "time": "2028-02-28",
+        "value": 2684.75
+       },
+       {
+        "time": "2028-05-29",
+        "value": 2650.66
+       },
+       {
+        "time": "2028-08-28",
+        "value": 2617.0
+       },
+       {
+        "time": "2028-11-27",
+        "value": 2583.77
+       },
+       {
+        "time": "2029-02-26",
+        "value": 2550.96
+       },
+       {
+        "time": "2029-05-28",
+        "value": 2518.57
+       },
+       {
+        "time": "2029-08-27",
+        "value": 2486.59
+       },
+       {
+        "time": "2029-11-26",
+        "value": 2455.02
+       },
+       {
+        "time": "2029-12-31",
+        "value": 2442.98
+       }
+      ],
+      "label_vi": "Xấu: cơ cấu nguồn cung ngoại ô",
+      "rationale": "CBRE Q4/2025 already shows -14% q/q on suburban mix; a heavier affordable pipeline drags the average further.",
+      "rationale_vi": "CBRE Q4/2025 đã ghi nhận -14% theo quý do cơ cấu ngoại ô; nguồn cung vừa túi tiền lớn hơn sẽ kéo trung bình xuống tiếp."
+     },
+     "base": {
+      "annual_rate": 0.05,
+      "label": "Base: moderation after +36%",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 3012.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 3048.84
+       },
+       {
+        "time": "2026-06-01",
+        "value": 3086.12
+       },
+       {
+        "time": "2026-08-31",
+        "value": 3123.87
+       },
+       {
+        "time": "2026-11-30",
+        "value": 3162.07
+       },
+       {
+        "time": "2027-03-01",
+        "value": 3200.74
+       },
+       {
+        "time": "2027-05-31",
+        "value": 3239.89
+       },
+       {
+        "time": "2027-08-30",
+        "value": 3279.51
+       },
+       {
+        "time": "2027-11-29",
+        "value": 3319.62
+       },
+       {
+        "time": "2028-02-28",
+        "value": 3360.22
+       },
+       {
+        "time": "2028-05-29",
+        "value": 3401.32
+       },
+       {
+        "time": "2028-08-28",
+        "value": 3442.91
+       },
+       {
+        "time": "2028-11-27",
+        "value": 3485.02
+       },
+       {
+        "time": "2029-02-26",
+        "value": 3527.64
+       },
+       {
+        "time": "2029-05-28",
+        "value": 3570.79
+       },
+       {
+        "time": "2029-08-27",
+        "value": 3614.46
+       },
+       {
+        "time": "2029-11-26",
+        "value": 3658.66
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3675.81
+       }
+      ],
+      "label_vi": "Cơ sở: hạ nhiệt sau +36%",
+      "rationale": "After 2024's +36%, CBRE's own guidance is moderation; core-district launches at 90-100 triệu keep the average grinding up.",
+      "rationale_vi": "Sau +36% năm 2024, chính CBRE dự kiến hạ nhiệt; các dự án lõi 90-100 triệu vẫn kéo trung bình nhích lên."
+     },
+     "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: core scarcity persists",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 3012.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 3084.38
+       },
+       {
+        "time": "2026-06-01",
+        "value": 3158.5
+       },
+       {
+        "time": "2026-08-31",
+        "value": 3234.4
+       },
+       {
+        "time": "2026-11-30",
+        "value": 3312.12
+       },
+       {
+        "time": "2027-03-01",
+        "value": 3391.71
+       },
+       {
+        "time": "2027-05-31",
+        "value": 3473.21
+       },
+       {
+        "time": "2027-08-30",
+        "value": 3556.68
+       },
+       {
+        "time": "2027-11-29",
+        "value": 3642.14
+       },
+       {
+        "time": "2028-02-28",
+        "value": 3729.66
+       },
+       {
+        "time": "2028-05-29",
+        "value": 3819.29
+       },
+       {
+        "time": "2028-08-28",
+        "value": 3911.07
+       },
+       {
+        "time": "2028-11-27",
+        "value": 4005.05
+       },
+       {
+        "time": "2029-02-26",
+        "value": 4101.29
+       },
+       {
+        "time": "2029-05-28",
+        "value": 4199.85
+       },
+       {
+        "time": "2029-08-27",
+        "value": 4300.77
+       },
+       {
+        "time": "2029-11-26",
+        "value": 4404.12
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4444.53
+       }
+      ],
+      "label_vi": "Tích cực: khan hiếm khu lõi kéo dài",
+      "rationale": "If land costs (new pricing regime) keep feeding through, the primary average re-accelerates.",
+      "rationale_vi": "Nếu chi phí đất (cơ chế giá mới) tiếp tục thấm vào giá, trung bình sơ cấp tăng tốc trở lại."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Hà Nội — căn hộ sơ cấp (CBRE)"
+   },
+   "hcmc_benchmark": {
+    "anchor": {
+     "date": "2025-12-01",
+     "value": 3552.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: affordability + policy brake",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 3552.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 3506.9
+       },
+       {
+        "time": "2026-06-01",
+        "value": 3462.37
+       },
+       {
+        "time": "2026-08-31",
+        "value": 3418.4
+       },
+       {
+        "time": "2026-11-30",
+        "value": 3374.99
+       },
+       {
+        "time": "2027-03-01",
+        "value": 3332.14
+       },
+       {
+        "time": "2027-05-31",
+        "value": 3289.82
+       },
+       {
+        "time": "2027-08-30",
+        "value": 3248.05
+       },
+       {
+        "time": "2027-11-29",
+        "value": 3206.81
+       },
+       {
+        "time": "2028-02-28",
+        "value": 3166.09
+       },
+       {
+        "time": "2028-05-29",
+        "value": 3125.88
+       },
+       {
+        "time": "2028-08-28",
+        "value": 3086.19
+       },
+       {
+        "time": "2028-11-27",
+        "value": 3047.0
+       },
+       {
+        "time": "2029-02-26",
+        "value": 3008.31
+       },
+       {
+        "time": "2029-05-28",
+        "value": 2970.11
+       },
+       {
+        "time": "2029-08-27",
+        "value": 2932.39
+       },
+       {
+        "time": "2029-11-26",
+        "value": 2895.16
+       },
+       {
+        "time": "2029-12-31",
+        "value": 2880.96
+       }
+      ],
+      "label_vi": "Xấu: khả năng chi trả + phanh chính sách",
+      "rationale": "+21% y/y with secondary +26% invites cooling measures; fringe mega-supply (Cần Giờ) dilutes the average.",
+      "rationale_vi": "+21% theo năm và thứ cấp +26% dễ kích hoạt biện pháp hạ nhiệt; siêu nguồn cung vùng ven (Cần Giờ) pha loãng trung bình."
+     },
+     "base": {
+      "annual_rate": 0.08,
+      "label": "Base: momentum with metro build-out",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 3552.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 3620.76
+       },
+       {
+        "time": "2026-06-01",
+        "value": 3690.86
+       },
+       {
+        "time": "2026-08-31",
+        "value": 3762.31
+       },
+       {
+        "time": "2026-11-30",
+        "value": 3835.15
+       },
+       {
+        "time": "2027-03-01",
+        "value": 3909.4
+       },
+       {
+        "time": "2027-05-31",
+        "value": 3985.08
+       },
+       {
+        "time": "2027-08-30",
+        "value": 4062.23
+       },
+       {
+        "time": "2027-11-29",
+        "value": 4140.87
+       },
+       {
+        "time": "2028-02-28",
+        "value": 4221.04
+       },
+       {
+        "time": "2028-05-29",
+        "value": 4302.75
+       },
+       {
+        "time": "2028-08-28",
+        "value": 4386.05
+       },
+       {
+        "time": "2028-11-27",
+        "value": 4470.96
+       },
+       {
+        "time": "2029-02-26",
+        "value": 4557.52
+       },
+       {
+        "time": "2029-05-28",
+        "value": 4645.75
+       },
+       {
+        "time": "2029-08-27",
+        "value": 4735.69
+       },
+       {
+        "time": "2029-11-26",
+        "value": 4827.37
+       },
+       {
+        "time": "2029-12-31",
+        "value": 4863.1
+       }
+      ],
+      "label_vi": "Cơ sở: quán tính cùng metro",
+      "rationale": "Infrastructure delivery and chronic central scarcity sustain high-single-digit USD growth.",
+      "rationale_vi": "Hạ tầng hoàn thiện và khan hiếm trung tâm kinh niên duy trì tăng trưởng USD một chữ số cao."
+     },
+     "bull": {
+      "annual_rate": 0.14,
+      "label": "Bull: premiumization continues",
+      "path": [
+       {
+        "time": "2025-12-01",
+        "value": 3552.0
+       },
+       {
+        "time": "2026-03-02",
+        "value": 3669.87
+       },
+       {
+        "time": "2026-06-01",
+        "value": 3791.65
+       },
+       {
+        "time": "2026-08-31",
+        "value": 3917.47
+       },
+       {
+        "time": "2026-11-30",
+        "value": 4047.46
+       },
+       {
+        "time": "2027-03-01",
+        "value": 4181.77
+       },
+       {
+        "time": "2027-05-31",
+        "value": 4320.54
+       },
+       {
+        "time": "2027-08-30",
+        "value": 4463.91
+       },
+       {
+        "time": "2027-11-29",
+        "value": 4612.04
+       },
+       {
+        "time": "2028-02-28",
+        "value": 4765.09
+       },
+       {
+        "time": "2028-05-29",
+        "value": 4923.21
+       },
+       {
+        "time": "2028-08-28",
+        "value": 5086.58
+       },
+       {
+        "time": "2028-11-27",
+        "value": 5255.37
+       },
+       {
+        "time": "2029-02-26",
+        "value": 5429.76
+       },
+       {
+        "time": "2029-05-28",
+        "value": 5609.94
+       },
+       {
+        "time": "2029-08-27",
+        "value": 5796.1
+       },
+       {
+        "time": "2029-11-26",
+        "value": 5988.44
+       },
+       {
+        "time": "2029-12-31",
+        "value": 6064.1
+       }
+      ],
+      "label_vi": "Tích cực: cao cấp hoá tiếp diễn",
+      "rationale": "Luxury launches (Opus One at $3,300) keep resetting the mix upward.",
+      "rationale_vi": "Các dự án hạng sang (Opus One ~3.300 USD) tiếp tục kéo cơ cấu giá lên."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "TP.HCM — căn hộ sơ cấp (CBRE)"
+   },
+   "imperia": {
+    "anchor": {
+     "date": "2026-02-01",
+     "value": 7121.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: demand migrates to Vũ Yên",
+      "path": [
+       {
+        "time": "2026-02-01",
+        "value": 7121.0
+       },
+       {
+        "time": "2026-05-03",
+        "value": 7030.58
+       },
+       {
+        "time": "2026-08-02",
+        "value": 6941.3
+       },
+       {
+        "time": "2026-11-01",
+        "value": 6853.16
+       },
+       {
+        "time": "2027-01-31",
+        "value": 6766.14
+       },
+       {
+        "time": "2027-05-02",
+        "value": 6680.22
+       },
+       {
+        "time": "2027-08-01",
+        "value": 6595.39
+       },
+       {
+        "time": "2027-10-31",
+        "value": 6511.64
+       },
+       {
+        "time": "2028-01-30",
+        "value": 6428.96
+       },
+       {
+        "time": "2028-04-30",
+        "value": 6347.32
+       },
+       {
+        "time": "2028-07-30",
+        "value": 6266.72
+       },
+       {
+        "time": "2028-10-29",
+        "value": 6187.15
+       },
+       {
+        "time": "2029-01-28",
+        "value": 6108.58
+       },
+       {
+        "time": "2029-04-29",
+        "value": 6031.02
+       },
+       {
+        "time": "2029-07-29",
+        "value": 5954.43
+       },
+       {
+        "time": "2029-10-28",
+        "value": 5878.82
+       },
+       {
+        "time": "2029-12-31",
+        "value": 5826.22
+       }
+      ],
+      "label_vi": "Xấu: cầu dịch sang Vũ Yên",
+      "rationale": "Mature project already asking ~186 triệu/m²; new island supply with fresh amenities can siphon buyers, capping resale.",
+      "rationale_vi": "Dự án đã hoàn thiện, giá rao ~186 triệu/m²; nguồn cung mới trên đảo với tiện ích mới có thể hút người mua, kìm giá bán lại."
+     },
+     "base": {
+      "annual_rate": 0.05,
+      "label": "Base: steady mature-asset growth",
+      "path": [
+       {
+        "time": "2026-02-01",
+        "value": 7121.0
+       },
+       {
+        "time": "2026-05-03",
+        "value": 7208.09
+       },
+       {
+        "time": "2026-08-02",
+        "value": 7296.24
+       },
+       {
+        "time": "2026-11-01",
+        "value": 7385.48
+       },
+       {
+        "time": "2027-01-31",
+        "value": 7475.8
+       },
+       {
+        "time": "2027-05-02",
+        "value": 7567.23
+       },
+       {
+        "time": "2027-08-01",
+        "value": 7659.78
+       },
+       {
+        "time": "2027-10-31",
+        "value": 7753.46
+       },
+       {
+        "time": "2028-01-30",
+        "value": 7848.28
+       },
+       {
+        "time": "2028-04-30",
+        "value": 7944.27
+       },
+       {
+        "time": "2028-07-30",
+        "value": 8041.42
+       },
+       {
+        "time": "2028-10-29",
+        "value": 8139.77
+       },
+       {
+        "time": "2029-01-28",
+        "value": 8239.32
+       },
+       {
+        "time": "2029-04-29",
+        "value": 8340.09
+       },
+       {
+        "time": "2029-07-29",
+        "value": 8442.09
+       },
+       {
+        "time": "2029-10-28",
+        "value": 8545.33
+       },
+       {
+        "time": "2029-12-31",
+        "value": 8618.7
+       }
+      ],
+      "label_vi": "Cơ sở: tăng ổn định như tài sản hoàn thiện",
+      "rationale": "Established location in Hồng Bàng rides the same city re-rating (merger, land-price table) without launch risk.",
+      "rationale_vi": "Vị trí ổn định tại Hồng Bàng hưởng cùng đợt tái định giá thành phố (sáp nhập, bảng giá đất) mà không có rủi ro dự án mới."
+     },
+     "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: city-core scarcity",
+      "path": [
+       {
+        "time": "2026-02-01",
+        "value": 7121.0
+       },
+       {
+        "time": "2026-05-03",
+        "value": 7292.12
+       },
+       {
+        "time": "2026-08-02",
+        "value": 7467.35
+       },
+       {
+        "time": "2026-11-01",
+        "value": 7646.79
+       },
+       {
+        "time": "2027-01-31",
+        "value": 7830.55
+       },
+       {
+        "time": "2027-05-02",
+        "value": 8018.71
+       },
+       {
+        "time": "2027-08-01",
+        "value": 8211.41
+       },
+       {
+        "time": "2027-10-31",
+        "value": 8408.73
+       },
+       {
+        "time": "2028-01-30",
+        "value": 8610.79
+       },
+       {
+        "time": "2028-04-30",
+        "value": 8817.71
+       },
+       {
+        "time": "2028-07-30",
+        "value": 9029.6
+       },
+       {
+        "time": "2028-10-29",
+        "value": 9246.58
+       },
+       {
+        "time": "2029-01-28",
+        "value": 9468.78
+       },
+       {
+        "time": "2029-04-29",
+        "value": 9696.32
+       },
+       {
+        "time": "2029-07-29",
+        "value": 9929.32
+       },
+       {
+        "time": "2029-10-28",
+        "value": 10167.93
+       },
+       {
+        "time": "2029-12-31",
+        "value": 10339.16
+       }
+      ],
+      "label_vi": "Tích cực: khan hiếm lõi đô thị",
+      "rationale": "Completed landed stock near the old core is scarce; if Hải Phòng re-rates broadly, finished product outperforms promises.",
+      "rationale_vi": "Quỹ nhà thấp tầng hoàn thiện gần lõi cũ khan hiếm; nếu Hải Phòng tái định giá trên diện rộng, sản phẩm đã bàn giao vượt trội so với dự án trên giấy."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vinhomes Imperia (Hồng Bàng, Hải Phòng)"
+   }
+  },
+  "disclaimer": "Educational/research use only. Not investment advice, not a recommendation to buy or sell any security, and not a statement about whether now is a good or bad time to invest. Data may be synthetic or delayed. Verify independently and consult a licensed professional before making decisions."
+ },
  "asof": "2026-07-13"
 }

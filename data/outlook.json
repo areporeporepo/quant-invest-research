@@ -55,5 +55,258 @@
       "rationale": "If Thủy Nguyên truly becomes the administrative center of expanded Hải Phòng, Vũ Yên converges toward the Hanoi landed benchmark (~$7,100/m², CBRE Q4 2025). The new 2026 land-price table (~160 triệu/m² on central streets) resets the official floor beneath market prices; Lê Thánh Tông frontage across the river already asks 180-200 triệu/m². +14%/yr reaches ~$6,300/m² by end-2029 — still below today's Hanoi landed level.",
       "rationale_vi": "Nếu Thủy Nguyên thực sự trở thành trung tâm hành chính của Hải Phòng mở rộng, Vũ Yên sẽ tiệm cận mặt bằng thấp tầng Hà Nội (~7.100 USD/m², CBRE Q4/2025). Bảng giá đất 2026 (~160 triệu/m² phố trung tâm) nâng mặt sàn chính thức; mặt đường Lê Thánh Tông bên kia sông đã rao 180-200 triệu/m². +14%/năm đạt ~6.300 USD/m² cuối 2029 — vẫn thấp hơn thấp tầng Hà Nội hiện nay."
     }
+  },
+  "psm:vu_yen_shophouse": {
+    "bear": {
+      "annual_rate": -0.1,
+      "label": "Bear: retail niche repricing",
+      "label_vi": "Xấu: shophouse định giá lại",
+      "rationale": "At 200-240 triệu/m² the riverside shophouses price in successful retail; if VinWonders foot traffic and leasing lag, this niche corrects hardest.",
+      "rationale_vi": "Ở mức 200-240 triệu/m², shophouse ven sông đã phản ánh kỳ vọng bán lẻ thành công; nếu lượng khách VinWonders và cho thuê chậm, phân khúc này điều chỉnh mạnh nhất."
+    },
+    "base": {
+      "annual_rate": 0.05,
+      "label": "Base: holds premium as island matures",
+      "label_vi": "Cơ sở: giữ mức chênh khi đảo hoàn thiện",
+      "rationale": "Limited supply and completed infrastructure support the premium; growth tracks the island's residential base minus FX drag.",
+      "rationale_vi": "Nguồn cung giới hạn và hạ tầng hoàn thiện giữ mức chênh; tăng trưởng theo mặt bằng nhà ở của đảo, trừ tác động tỷ giá."
+    },
+    "bull": {
+      "annual_rate": 0.15,
+      "label": "Bull: retail flywheel works",
+      "label_vi": "Tích cực: bánh đà bán lẻ vận hành",
+      "rationale": "If VinWonders + safari + new bridge deliver visitor volume, scarce riverfront retail re-rates like central Hải Phòng frontage (180-200 triệu asking).",
+      "rationale_vi": "Nếu VinWonders + safari + cầu mới kéo lượng khách lớn, shophouse ven sông khan hiếm sẽ tái định giá như mặt phố trung tâm Hải Phòng (rao 180-200 triệu)."
+    }
+  },
+  "psm:imperia": {
+    "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: demand migrates to Vũ Yên",
+      "label_vi": "Xấu: cầu dịch sang Vũ Yên",
+      "rationale": "Mature project already asking ~186 triệu/m²; new island supply with fresh amenities can siphon buyers, capping resale.",
+      "rationale_vi": "Dự án đã hoàn thiện, giá rao ~186 triệu/m²; nguồn cung mới trên đảo với tiện ích mới có thể hút người mua, kìm giá bán lại."
+    },
+    "base": {
+      "annual_rate": 0.05,
+      "label": "Base: steady mature-asset growth",
+      "label_vi": "Cơ sở: tăng ổn định như tài sản hoàn thiện",
+      "rationale": "Established location in Hồng Bàng rides the same city re-rating (merger, land-price table) without launch risk.",
+      "rationale_vi": "Vị trí ổn định tại Hồng Bàng hưởng cùng đợt tái định giá thành phố (sáp nhập, bảng giá đất) mà không có rủi ro dự án mới."
+    },
+    "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: city-core scarcity",
+      "label_vi": "Tích cực: khan hiếm lõi đô thị",
+      "rationale": "Completed landed stock near the old core is scarce; if Hải Phòng re-rates broadly, finished product outperforms promises.",
+      "rationale_vi": "Quỹ nhà thấp tầng hoàn thiện gần lõi cũ khan hiếm; nếu Hải Phòng tái định giá trên diện rộng, sản phẩm đã bàn giao vượt trội so với dự án trên giấy."
+    }
+  },
+  "psm:hai_phong_apartments": {
+    "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: affordability ceiling",
+      "label_vi": "Xấu: trần khả năng chi trả",
+      "rationale": "Asking prices already +85% since Q1/2023 (33→61 triệu); wage growth can't sustain that pace, and 4.6% rental yield is thin.",
+      "rationale_vi": "Giá rao đã +85% từ Q1/2023 (33→61 triệu); thu nhập không theo kịp nhịp này, lợi suất cho thuê 4,6% là mỏng."
+    },
+    "base": {
+      "annual_rate": 0.08,
+      "label": "Base: urbanization + merger demand",
+      "label_vi": "Cơ sở: đô thị hoá + cầu từ sáp nhập",
+      "rationale": "Expanded Hải Phòng (#3 economy) keeps drawing residents; apartments track income growth plus scarcity in the new center.",
+      "rationale_vi": "Hải Phòng mở rộng (kinh tế thứ 3 cả nước) tiếp tục hút dân; căn hộ tăng theo thu nhập cộng khan hiếm ở trung tâm mới."
+    },
+    "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: catch-up to Hanoi",
+      "label_vi": "Tích cực: bắt kịp Hà Nội",
+      "rationale": "At ~$2,355/m² vs Hanoi's ~$3,012 primary, a port-city catch-up (as CBRE saw in Hanoi 2024: +36%/yr) is the upside case.",
+      "rationale_vi": "Ở ~2.355 USD/m² so với ~3.012 USD sơ cấp Hà Nội, kịch bản bắt kịp của thành phố cảng (như Hà Nội 2024: +36%/năm theo CBRE) là dư địa tăng."
+    }
+  },
+  "psm:hai_phong_vlasta": {
+    "bear": {
+      "annual_rate": -0.08,
+      "label": "Bear: competes with Vinhomes supply",
+      "label_vi": "Xấu: cạnh tranh nguồn cung Vinhomes",
+      "rationale": "Non-Vinhomes low-rise in Thủy Nguyên competes head-on with Royal Island phases and lacks the ecosystem premium.",
+      "rationale_vi": "Thấp tầng ngoài hệ Vinhomes tại Thủy Nguyên cạnh tranh trực tiếp với các phân khu Royal Island và thiếu chênh lệch hệ sinh thái."
+    },
+    "base": {
+      "annual_rate": 0.06,
+      "label": "Base: rides Thủy Nguyên upgrade",
+      "label_vi": "Cơ sở: hưởng lợi Thủy Nguyên lên thành phố",
+      "rationale": "Same administrative-center catalysts apply; grows with the district at a discount to the island.",
+      "rationale_vi": "Cùng hưởng chất xúc tác trung tâm hành chính; tăng theo khu vực với mức chiết khấu so với đảo."
+    },
+    "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: spillover demand",
+      "label_vi": "Tích cực: cầu lan toả",
+      "rationale": "If Royal Island sells out phases at 100+ triệu, the ~86 triệu neighbour re-rates on relative value.",
+      "rationale_vi": "Nếu Royal Island bán hết các phân khu ở mức 100+ triệu, dự án lân cận ~86 triệu được tái định giá nhờ tương quan giá."
+    }
+  },
+  "psm:hai_phong_minato": {
+    "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: apartment supply wave",
+      "label_vi": "Xấu: sóng nguồn cung căn hộ",
+      "rationale": "New central apartment launches (incl. Vinhomes) could cap a mid-market project's pricing power.",
+      "rationale_vi": "Nguồn cung căn hộ trung tâm mới (kể cả Vinhomes) có thể kìm sức định giá của dự án tầm trung."
+    },
+    "base": {
+      "annual_rate": 0.07,
+      "label": "Base: tracks city apartments",
+      "label_vi": "Cơ sở: theo mặt bằng căn hộ thành phố",
+      "rationale": "Japanese-built quality at ~56.5 triệu/m² tracks the city apartment series (~61 triệu average).",
+      "rationale_vi": "Chất lượng chuẩn Nhật ở ~56,5 triệu/m² đi theo chuỗi căn hộ thành phố (trung bình ~61 triệu)."
+    },
+    "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: quality premium widens",
+      "label_vi": "Tích cực: chênh lệch chất lượng nới rộng",
+      "rationale": "In a rising market, branded/quality stock outperforms the city average.",
+      "rationale_vi": "Trong thị trường đi lên, sản phẩm thương hiệu/chất lượng vượt trung bình thành phố."
+    }
+  },
+  "psm:hanoi_benchmark": {
+    "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: suburban supply mix bites",
+      "label_vi": "Xấu: cơ cấu nguồn cung ngoại ô",
+      "rationale": "CBRE Q4/2025 already shows -14% q/q on suburban mix; a heavier affordable pipeline drags the average further.",
+      "rationale_vi": "CBRE Q4/2025 đã ghi nhận -14% theo quý do cơ cấu ngoại ô; nguồn cung vừa túi tiền lớn hơn sẽ kéo trung bình xuống tiếp."
+    },
+    "base": {
+      "annual_rate": 0.05,
+      "label": "Base: moderation after +36%",
+      "label_vi": "Cơ sở: hạ nhiệt sau +36%",
+      "rationale": "After 2024's +36%, CBRE's own guidance is moderation; core-district launches at 90-100 triệu keep the average grinding up.",
+      "rationale_vi": "Sau +36% năm 2024, chính CBRE dự kiến hạ nhiệt; các dự án lõi 90-100 triệu vẫn kéo trung bình nhích lên."
+    },
+    "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: core scarcity persists",
+      "label_vi": "Tích cực: khan hiếm khu lõi kéo dài",
+      "rationale": "If land costs (new pricing regime) keep feeding through, the primary average re-accelerates.",
+      "rationale_vi": "Nếu chi phí đất (cơ chế giá mới) tiếp tục thấm vào giá, trung bình sơ cấp tăng tốc trở lại."
+    }
+  },
+  "psm:hcmc_benchmark": {
+    "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: affordability + policy brake",
+      "label_vi": "Xấu: khả năng chi trả + phanh chính sách",
+      "rationale": "+21% y/y with secondary +26% invites cooling measures; fringe mega-supply (Cần Giờ) dilutes the average.",
+      "rationale_vi": "+21% theo năm và thứ cấp +26% dễ kích hoạt biện pháp hạ nhiệt; siêu nguồn cung vùng ven (Cần Giờ) pha loãng trung bình."
+    },
+    "base": {
+      "annual_rate": 0.08,
+      "label": "Base: momentum with metro build-out",
+      "label_vi": "Cơ sở: quán tính cùng metro",
+      "rationale": "Infrastructure delivery and chronic central scarcity sustain high-single-digit USD growth.",
+      "rationale_vi": "Hạ tầng hoàn thiện và khan hiếm trung tâm kinh niên duy trì tăng trưởng USD một chữ số cao."
+    },
+    "bull": {
+      "annual_rate": 0.14,
+      "label": "Bull: premiumization continues",
+      "label_vi": "Tích cực: cao cấp hoá tiếp diễn",
+      "rationale": "Luxury launches (Opus One at $3,300) keep resetting the mix upward.",
+      "rationale_vi": "Các dự án hạng sang (Opus One ~3.300 USD) tiếp tục kéo cơ cấu giá lên."
+    }
+  },
+  "psm:ocean_park_1": {
+    "bear": {
+      "annual_rate": -0.05,
+      "label": "Bear: commodity resale stock",
+      "label_vi": "Xấu: hàng bán lại đại trà",
+      "rationale": "Huge completed stock means resale competes on price; OP2/OP3 supply next door caps upside.",
+      "rationale_vi": "Quỹ căn hoàn thiện khổng lồ khiến bán lại cạnh tranh về giá; nguồn cung OP2/OP3 kế bên giới hạn dư địa."
+    },
+    "base": {
+      "annual_rate": 0.06,
+      "label": "Base: matures with metro-east Hanoi",
+      "label_vi": "Cơ sở: hoàn thiện cùng phía đông Hà Nội",
+      "rationale": "Occupancy and amenities keep filling in; tracks Hanoi averages at a discount.",
+      "rationale_vi": "Tỷ lệ lấp đầy và tiện ích tiếp tục hoàn thiện; đi theo trung bình Hà Nội với mức chiết khấu."
+    },
+    "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: east-bank re-rating",
+      "label_vi": "Tích cực: tái định giá bờ đông",
+      "rationale": "Ring-road/bridge completion could close the gap to core Hanoi pricing.",
+      "rationale_vi": "Hoàn thành vành đai/cầu có thể thu hẹp khoảng cách với giá khu lõi Hà Nội."
+    }
+  },
+  "psm:ocean_park_2": {
+    "bear": {
+      "annual_rate": -0.1,
+      "label": "Bear: high base, asking-price air",
+      "label_vi": "Xấu: nền giá cao, giá rao ảo",
+      "rationale": "171 triệu/m² asking for low-rise is already near Hanoi landed averages; asking-price series can deflate fast (CBRE landed -15% y/y).",
+      "rationale_vi": "Giá rao 171 triệu/m² thấp tầng đã gần trung bình thấp tầng Hà Nội; chuỗi giá rao có thể xì hơi nhanh (CBRE thấp tầng -15% theo năm)."
+    },
+    "base": {
+      "annual_rate": 0.04,
+      "label": "Base: slow grind at high base",
+      "label_vi": "Cơ sở: nhích chậm trên nền cao",
+      "rationale": "Delivered ecosystem sustains prices but the easy re-rating is behind.",
+      "rationale_vi": "Hệ sinh thái đã bàn giao giữ giá, nhưng giai đoạn tái định giá dễ đã qua."
+    },
+    "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: Hưng Yên upgrade story",
+      "label_vi": "Tích cực: câu chuyện nâng cấp Hưng Yên",
+      "rationale": "Administrative upgrades and expressway links could restart the premium.",
+      "rationale_vi": "Nâng cấp hành chính và cao tốc kết nối có thể khởi động lại mức chênh."
+    }
+  },
+  "psm:grand_park": {
+    "bear": {
+      "annual_rate": -0.06,
+      "label": "Bear: Thủ Đức supply pipeline",
+      "label_vi": "Xấu: nguồn cung Thủ Đức",
+      "rationale": "Continuous tower launches inside the township dilute resale pricing.",
+      "rationale_vi": "Các toà mở bán liên tục trong khu đô thị pha loãng giá bán lại."
+    },
+    "base": {
+      "annual_rate": 0.07,
+      "label": "Base: rides HCMC premiumization",
+      "label_vi": "Cơ sở: theo đà cao cấp hoá TP.HCM",
+      "rationale": "From Glory Heights $2,500 to Opus One $3,450 in 14 months — the township tracks the HCMC benchmark closely (r≈city).",
+      "rationale_vi": "Từ Glory Heights ~2.500 USD đến Opus One ~3.450 USD trong 14 tháng — khu đô thị bám sát chuẩn TP.HCM."
+    },
+    "bull": {
+      "annual_rate": 0.12,
+      "label": "Bull: metro line 1 extension effect",
+      "label_vi": "Tích cực: hiệu ứng metro kéo dài",
+      "rationale": "Direct mass-transit connection re-rates the entire eastern corridor.",
+      "rationale_vi": "Kết nối metro trực tiếp tái định giá cả hành lang phía đông."
+    }
+  },
+  "psm:golden_avenue": {
+    "bear": {
+      "annual_rate": -0.12,
+      "label": "Bear: border-trade sensitivity",
+      "label_vi": "Xấu: nhạy cảm thương mại biên giới",
+      "rationale": "Móng Cái demand rides China border trade and tourism; thin liquidity means fast drawdowns.",
+      "rationale_vi": "Cầu tại Móng Cái phụ thuộc thương mại biên giới và du lịch Trung Quốc; thanh khoản mỏng khiến giảm giá nhanh."
+    },
+    "base": {
+      "annual_rate": 0.03,
+      "label": "Base: niche market, slow growth",
+      "label_vi": "Cơ sở: thị trường ngách, tăng chậm",
+      "rationale": "At ~57.5 triệu/m² the project is priced for local demand; grows with border-economy normalization.",
+      "rationale_vi": "Ở ~57,5 triệu/m², dự án định giá theo cầu địa phương; tăng cùng bình thường hoá kinh tế biên mậu."
+    },
+    "bull": {
+      "annual_rate": 0.1,
+      "label": "Bull: border-economy boom",
+      "label_vi": "Tích cực: bùng nổ kinh tế cửa khẩu",
+      "rationale": "A strong China-trade cycle plus casino/tourism catalysts would re-rate the border strip.",
+      "rationale_vi": "Chu kỳ thương mại Trung Quốc mạnh cộng chất xúc tác du lịch/casino sẽ tái định giá dải biên giới."
+    }
   }
 }
