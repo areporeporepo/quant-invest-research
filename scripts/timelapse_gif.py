@@ -1,7 +1,7 @@
 """PRIVATE research time-lapse GIF of the Cát Bà central-bay reclamation.
 
-Builds monthly frames of the bay (Planet 3 m tiles when PL_API_KEY is set
-and a clear scene exists; Sentinel-2 visual crop as fallback), labels each
+Builds monthly frames of the bay (Planet 3 m tiles only — daily-revisit
+archive, PL_API_KEY required), labels each
 frame with its date and source, and assembles an animated GIF.
 
 OUTPUT IS PRIVATE: written outside the repo (path argument), never committed
@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from app.config import settings  # noqa: E402
 from app.satellite import (PLANET_SEARCH_URL, PLANET_TILE_URL, SITES,  # noqa: E402
-                           _lonlat_to_tile, fetch_stac_crop)
+                           _lonlat_to_tile)
 
 ZOOM, GRID = 15, 3
 FRAME = 512
@@ -87,17 +87,6 @@ def planet_frame(site, ym: str):
         return None, None
 
 
-def sentinel_frame(site_key: str, ym: str):
-    from PIL import Image
-
-    r = fetch_stac_crop(site_key, f"{ym}-01", f"{ym}-28", max_cloud=15.0,
-                        half_deg=0.02)
-    if not r.fetched:
-        return None, None
-    return (Image.open(io.BytesIO(r.image_bytes)).convert("RGB"),
-            f"{r.scene_datetime[:10]} · Sentinel-2 · © ESA Copernicus")
-
-
 def label(img, text: str):
     from PIL import ImageDraw, ImageFont
 
@@ -121,15 +110,15 @@ def main() -> None:
     site = SITES[site_key]
 
     frames = []
-    # Pre-project baseline frame first.
-    img, tag = sentinel_frame(site_key, "2023-01")
+    # Pre-project baseline frame first (Planet archive reaches back years).
+    img, tag = planet_frame(site, "2023-01")
+    if img is None:
+        img, tag = planet_frame(site, "2023-02")
     if img is not None:
         frames.append(label(img, f"{tag} · TRƯỚC DỰ ÁN"))
         print(f"baseline: {tag}", flush=True)
     for ym in month_iter(start, end):
         img, tag = planet_frame(site, ym)
-        if img is None:
-            img, tag = sentinel_frame(site_key, ym)
         if img is None:
             print(f"{ym}: no clear scene", flush=True)
             continue

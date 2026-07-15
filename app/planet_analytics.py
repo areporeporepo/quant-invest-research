@@ -2,9 +2,8 @@
 
 Uses the Planet Orders API with an AOI clip so only a small 4-band
 (B,G,R,NIR) surface-reflectance GeoTIFF is delivered per scene — enough to
-compute NDVI/NDWI metrics at 3 m without downloading full strips. This is
-the primary source for reclamation/construction reasoning; the keyless
-Sentinel-2 path remains as silent fallback and for pre-PlanetScope history.
+compute NDVI/NDWI metrics at 3 m without downloading full strips. Planet
+is the sole satellite source for all reclamation/construction reasoning.
 
 Needs PL_API_KEY. Orders take one to several minutes to process — callers
 should batch: submit all orders first, then poll.

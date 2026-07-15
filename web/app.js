@@ -28,21 +28,12 @@ const I18N = {
     source: 'Nguồn', per_year: '%/năm',
     outlook_title: (l) => `Triển vọng ${l} → 2029 (kịch bản có lập luận)`,
     tab_sat: 'Vệ tinh',
-    sat_legend_built: 'Đất trống/đã xây trên Vũ Yên (ha, trục trái)',
-    sat_legend_vhm: 'Giá VHM (nghìn VND, trục phải, log)',
-    sat_status: (n) => `Tiến độ xây dựng từ vệ tinh · ${n} quý`,
-    sat_note: 'Mỗi điểm = ảnh Sentinel-2 ít mây nhất trong quý (chạm để xem mã cảnh). ' +
-      'Diện tích đất trống/đã xây tăng = san lấp và xây dựng. Nhiễu do mây và ' +
-      'thủy triều — đọc xu hướng, đừng đọc từng điểm.',
-    sat_vuyen: 'Vũ Yên · xây dựng', sat_catba: 'Cát Bà · lấn biển',
-    sat_halong: 'Hạ Long Xanh · GIF',
-    gif_caption_catba: 'Time-lapse lấn biển vịnh trung tâm Cát Bà (hằng tháng, Planet 3m + Sentinel-2).',
-    gif_caption_halong: 'Time-lapse Vinhomes Hạ Long Xanh, Quảng Yên (hằng tháng, Planet 3m + Sentinel-2).',
-    rec_legend: 'Lấn biển vịnh trung tâm Cát Bà (ha cộng dồn so với 1/2023, trục trái)',
-    rec_status: (n) => `Lấn biển Cát Bà từ vệ tinh · ${n} tháng`,
-    rec_note: 'Mỗi điểm = ảnh Sentinel-2 tốt nhất trong tháng so với mặt nạ nước nền ' +
-      'tháng 1/2023 (NDWI). Thủy triều làm từng điểm dao động — xu hướng mới là tín hiệu. ' +
-      'Chạm điểm để xem mã cảnh.',
+    sat_vuyen: 'Vũ Yên', sat_catba: 'Cát Bà', sat_halong: 'Hạ Long Xanh',
+    gif_caption_vuyen: 'Time-lapse Vinhomes Royal Island, Vũ Yên (hằng tháng, Planet 3 m, vệ tinh chụp hằng ngày).',
+    gif_caption_catba: 'Time-lapse lấn biển vịnh trung tâm Cát Bà (hằng tháng, Planet 3 m).',
+    gif_caption_halong: 'Time-lapse Vinhomes Hạ Long Xanh, Quảng Yên (hằng tháng, Planet 3 m).',
+    pm_title: 'Số đo Planet 3 m (tỷ lệ % trên vùng ảnh phủ — so sánh %, không so sánh ha tuyệt đối)',
+    pm_none: 'Chưa có số đo Planet cho khu vực này — routine hằng ngày sẽ bổ sung.',
     outlook_all: 'Triển vọng 2029 — tất cả dự án (USD/m², giả định)',
     outlook_hint: 'Chạm một dự án để xem lập luận và vẽ vùng kịch bản lên biểu đồ.',
     col_project: 'Dự án', col_bear: 'Xấu', col_base: 'Cơ sở', col_bull: 'Tích cực',
@@ -74,21 +65,12 @@ const I18N = {
     source: 'Source', per_year: '%/yr',
     outlook_title: (l) => `${l} outlook → 2029 (reasoned scenarios)`,
     tab_sat: 'Satellite',
-    sat_legend_built: 'Bare/built land on Vũ Yên (ha, left axis)',
-    sat_legend_vhm: 'VHM price (thousand VND, right axis, log)',
-    sat_status: (n) => `Construction progress from orbit · ${n} quarters`,
-    sat_note: 'Each point = the least-cloudy Sentinel-2 scene that quarter (tap for ' +
-      'scene ID). Rising bare/built area = clearing and construction. Cloud and ' +
-      'tide noise — read the trend, not single points.',
-    sat_vuyen: 'Vũ Yên · construction', sat_catba: 'Cát Bà · reclamation',
-    sat_halong: 'Hạ Long Xanh · GIF',
-    gif_caption_catba: 'Cát Bà central-bay reclamation time-lapse (monthly, Planet 3m + Sentinel-2).',
-    gif_caption_halong: 'Vinhomes Hạ Long Xanh (Quảng Yên) time-lapse (monthly, Planet 3m + Sentinel-2).',
-    rec_legend: 'Cát Bà central-bay reclamation (cumulative ha vs 1/2023, left axis)',
-    rec_status: (n) => `Cát Bà sea reclamation from orbit · ${n} months`,
-    rec_note: 'Each point = the month\'s best Sentinel-2 scene vs a fixed Jan-2023 ' +
-      'baseline water mask (NDWI). Tide makes single points wobble — the trend is ' +
-      'the signal. Tap a point for its scene ID.',
+    sat_vuyen: 'Vũ Yên', sat_catba: 'Cát Bà', sat_halong: 'Hạ Long Xanh',
+    gif_caption_vuyen: 'Vinhomes Royal Island (Vũ Yên) time-lapse (monthly, Planet 3 m, daily-revisit constellation).',
+    gif_caption_catba: 'Cát Bà central-bay reclamation time-lapse (monthly, Planet 3 m).',
+    gif_caption_halong: 'Vinhomes Hạ Long Xanh (Quảng Yên) time-lapse (monthly, Planet 3 m).',
+    pm_title: 'Planet 3 m metrics (% of covered area — compare shares, not absolute ha)',
+    pm_none: 'No Planet metrics for this site yet — the daily routine will add them.',
     outlook_all: '2029 outlook — all projects (USD/m², assumptions)',
     outlook_hint: 'Tap a project to see its reasoning and draw its cone on the chart.',
     col_project: 'Project', col_bear: 'Bear', col_base: 'Base', col_bull: 'Bull',
@@ -450,117 +432,59 @@ function renderOutlookCard(cone) {
 /* ---------------- Satellite view ---------------- */
 
 let satSite = 'vu_yen';
+let planetMetricsCache = null;
+
+const SAT_SITES = {
+  vu_yen: { gif: 'vuyen_royal_island.gif', cap: 'gif_caption_vuyen', metricsKey: null },
+  cat_ba: { gif: 'catba_lanbien.gif', cap: 'gif_caption_catba', metricsKey: 'sun_cat_ba' },
+  ha_long: { gif: 'halong_xanh.gif', cap: 'gif_caption_halong', metricsKey: 'ha_long_xanh' },
+};
 
 function renderSatChips() {
-  $('chips').innerHTML =
-    `<button class="${satSite === 'vu_yen' ? 'on' : ''}" data-s="vu_yen">${t('sat_vuyen')}</button>` +
-    `<button class="${satSite === 'cat_ba' ? 'on' : ''}" data-s="cat_ba">${t('sat_catba')}</button>` +
-    `<button class="${satSite === 'ha_long' ? 'on' : ''}" data-s="ha_long">${t('sat_halong')}</button>`;
+  $('chips').innerHTML = Object.keys(SAT_SITES).map((k) =>
+    `<button class="${satSite === k ? 'on' : ''}" data-s="${k}">${t('sat_' + k.replace('_', ''))}</button>`
+  ).join('');
   [...$('chips').children].forEach((b) => {
-    b.onclick = () => { satSite = b.dataset.s; renderSatChips(); showSat().catch(fail); };
+    b.onclick = () => { satSite = b.dataset.s; showSat().catch(fail); };
   });
 }
 
 function gifPanel(file, captionKey) {
   $('gifbox').innerHTML =
     `<img src="media/${file}" alt="" style="width:100%;border-radius:10px;` +
-    `border:1px solid var(--border)" loading="lazy">` +
+    `border:1px solid var(--border)" loading="lazy" ` +
+    `onerror="this.style.display='none'">` +
     `<p style="color:var(--muted);font-size:12px;margin:6px 2px">${t(captionKey)}</p>`;
 }
 
-async function showSatHaLong() {
-  clearSeries();
-  $('outlook').innerHTML = '';
-  legend([]);
-  $('evlist').innerHTML = '';
-  setStatus('Hạ Long Xanh');
-  setDetail(t('gif_caption_halong'));
-  gifPanel('halong_xanh.gif', 'gif_caption_halong');
-}
-
-async function showSatCatBa() {
-  clearSeries();
-  $('outlook').innerHTML = '';
-  gifPanel('catba_lanbien.gif', 'gif_caption_catba');
-  setStatus(t('loading'));
-  const [rec, events] = await Promise.all([
-    getJSON('/api/reclamation'), loadEvents(),
-  ]);
-  // Hazy scenes corrupt the water mask — chart clean scenes only.
-  const pts = (rec.points || []).filter((p) => p.ok && p.quality !== 'hazy');
-  if (!pts.length) { setStatus(t('error')); setDetail(rec.reason || ''); return; }
-  const line = chart.addSeries(LightweightCharts.LineSeries, {
-    color: '#e3b341', lineWidth: 3, priceScaleId: 'left',
-    lastValueVisible: true, priceLineVisible: false, pointMarkersVisible: true,
-  });
-  chart.applyOptions({ leftPriceScale: { visible: true, borderColor: '#21262d',
-    mode: LightweightCharts.PriceScaleMode.Normal } });
-  line.setData(pts.map((p) => ({ time: p.date, value: p.reclaimed_ha })));
-  series.push(line);
-  const catBaEvents = events.filter((e) => e.relevance === 'cat_ba');
-  applyMarkers(line, markersFromEvents(catBaEvents, pts[0].date));
-  chart.timeScale().fitContent();
-  legend([{ color: '#e3b341', label: t('rec_legend') }]);
-  renderEventList(catBaEvents);
-  setStatus(t('rec_status', pts.length));
-  setDetail(t('rec_note'));
-  chart.subscribeClick((param) => {
-    if (!param.time || view !== 'sat' || satSite !== 'cat_ba') return;
-    const hit = pts.find((p) => p.date === param.time);
-    if (hit) setDetail(`<b>${hit.date}</b> — ${hit.reclaimed_ha} ha ` +
-      `(cloud ${hit.cloud}%)<br>Scene: ${hit.scene_id}`);
-  });
+function pmRow(tag, m) {
+  if (!m || m.error) return '';
+  return `<div class="vals">${tag} ${m.acquired}: nước ${m.water_pct_of_covered}% · ` +
+    `đất trống/xây ${m.bare_built_pct_of_covered}% · cây xanh ${m.veg_pct_of_covered}% ` +
+    `(phủ ${m.window_ha} ha) — ${m.scene_id}</div>`;
 }
 
 async function showSat() {
   renderSatChips();
-  $('gifbox').innerHTML = '';
-  if (satSite === 'cat_ba') return showSatCatBa();
-  if (satSite === 'ha_long') return showSatHaLong();
   clearSeries();
   $('outlook').innerHTML = '';
-  setStatus(t('loading'));
-  const [con, data, events] = await Promise.all([
-    getJSON('/api/construction'),
-    getJSON('/api/candles?ticker=VHM'),
-    loadEvents(),
-  ]);
-  const pts = (con.points || []).filter((p) => p.ok);
-  if (!pts.length) { setStatus(t('error')); setDetail(con.reason || ''); return; }
-
-  const built = chart.addSeries(LightweightCharts.LineSeries, {
-    color: '#e3b341', lineWidth: 3, priceScaleId: 'left',
-    lastValueVisible: true, priceLineVisible: false, pointMarkersVisible: true,
-  });
-  chart.applyOptions({ leftPriceScale: { visible: true, borderColor: '#21262d',
-    mode: LightweightCharts.PriceScaleMode.Normal } });
-  built.setData(pts.map((p) => ({ time: p.date, value: p.bare_built_ha })));
-  series.push(built);
-
-  const vhm = chart.addSeries(LightweightCharts.LineSeries, {
-    color: '#2f81f7', lineWidth: 2, priceScaleId: 'right',
-    lastValueVisible: true, priceLineVisible: false,
-  });
-  vhm.setData(data.candles.map((c) => ({ time: c.time, value: c.close })));
-  series.push(vhm);
-
-  const vuYenEvents = events.filter((e) => e.relevance === 'vu_yen');
-  applyMarkers(built, markersFromEvents(vuYenEvents, pts[0].date));
-  chart.timeScale().fitContent();
-  legend([
-    { color: '#e3b341', label: t('sat_legend_built') },
-    { color: '#2f81f7', label: t('sat_legend_vhm') },
-  ]);
-  renderEventList(vuYenEvents);
-  setStatus(t('sat_status', pts.length));
-  setDetail(t('sat_note'));
-
-  chart.subscribeClick((param) => {
-    if (!param.time || view !== 'sat') return;
-    const hit = pts.find((p) => p.date === param.time);
-    if (hit) setDetail(`<b>${hit.date}</b> — ${hit.bare_built_ha} ha bare/built, ` +
-      `${hit.veg_ha} ha veg (cloud ${hit.cloud}%)<br>Scene: ${hit.scene_id}`);
-  });
+  legend([]);
+  const cfg = SAT_SITES[satSite];
+  setStatus(t('sat_' + satSite.replace('_', '')));
+  gifPanel(cfg.gif, cfg.cap);
+  let html = '';
+  if (cfg.metricsKey) {
+    try {
+      if (!planetMetricsCache) planetMetricsCache = await getJSON('/api/planet_metrics');
+      const m = planetMetricsCache[cfg.metricsKey];
+      if (m) html = `<b>${t('pm_title')}</b><br>` + pmRow('nền', m.baseline) + pmRow('nay', m.now);
+    } catch (_) {}
+  }
+  setDetail(html || t('pm_none'));
+  const evs = (await loadEvents()).filter((e) =>
+    e.relevance === (satSite === 'vu_yen' ? 'vu_yen'
+      : satSite === 'cat_ba' ? 'cat_ba' : 'ha_long_xanh'));
+  renderEventList(evs);
 }
 
 /* ---------------- Tabs & ticker chips ---------------- */
@@ -584,7 +508,10 @@ function setView(v) {
   $('tab-market').classList.toggle('active', v === 'market');
   $('tab-psm').classList.toggle('active', v === 'psm');
   $('tab-sat').classList.toggle('active', v === 'sat');
-  if (v !== 'sat') { chart.applyOptions({ leftPriceScale: { visible: false } }); $('gifbox').innerHTML = ''; }
+  const satMode = v === 'sat';
+  $('chart').style.display = satMode ? 'none' : '';
+  $('legend').style.display = satMode ? 'none' : '';
+  if (!satMode) { chart.applyOptions({ leftPriceScale: { visible: false } }); $('gifbox').innerHTML = ''; }
   renderChips();
   (v === 'market' ? showMarket() : v === 'sat' ? showSat() : showPsm()).catch(fail);
 }

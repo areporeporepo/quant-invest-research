@@ -13,7 +13,7 @@ Writes edit data/*.json — the same files this web app renders.
 
 ## REST (read-only)
 /api/candles?ticker=VHM · /api/events · /api/psm · /api/outlook?series=vhm
-/snapshot · /signals · /group · /satellite/change · OpenAPI at /docs
+/snapshot · /signals · /group · /satellite/image (Planet) · /api/planet_metrics · OpenAPI at /docs
 
 All data descriptive/historical. Not investment advice. HOSE prices in
 thousands of VND. Every curated point carries a public source.

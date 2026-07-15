@@ -43,17 +43,9 @@ def snapshot() -> dict:
         "/api/outlook?series=psm:vu_yen_royal_island")
     data["events"] = get("/api/events")["events"]
     try:
-        data["satellite"] = get("/satellite/portfolio")
+        data["planet_metrics"] = get("/api/planet_metrics")
     except Exception:
-        data["satellite"] = None
-    try:
-        data["construction"] = get("/api/construction")
-    except Exception:
-        data["construction"] = None
-    try:
-        data["reclamation"] = get("/api/reclamation")
-    except Exception:
-        data["reclamation"] = None
+        data["planet_metrics"] = None
     data["asof"] = data["candles"]["VHM"][-1]["time"]
     return data
 
@@ -103,8 +95,7 @@ LIVE_GETJSON = """async function getJSON(url) {
     }
     return out;
   }
-  if (url.startsWith('/api/construction')) return DATA.construction || { points: [] };
-  if (url.startsWith('/api/reclamation')) return DATA.reclamation || { points: [] };
+  if (url.startsWith('/api/planet_metrics')) return DATA.planet_metrics || {};
   if (url.startsWith('/api/psm_outlooks')) return DATA.psm_outlooks;
   if (url.startsWith('/api/psm')) return DATA.psm;
   if (url.startsWith('/api/events')) return { events: DATA.events };
@@ -268,14 +259,8 @@ historical points converted at yearly-average FX.</p>
 {''.join(proj_outlooks)}
 <p>Caveat: low-rise headline prices bundle vouchers, discounts and 0%-interest
 support — effective prices sit below headline.</p>
-<h2>Satellite land-cover change per site (Sentinel-2 NDVI, season-matched windows; scene IDs included for reproducibility)</h2>
-<p>IMPORTANT: figures are GROSS vegetation-loss/gain over a ~4,100 ha window centred
-on each site — they include farmland rotation and water-level change around the
-project, not just construction. Treat as an activity screen, not measured
-build-out.</p>
-{satellite_html(data)}
-<h2>Cát Bà central-bay reclamation — monthly series (cumulative ha vs Jan-2023 baseline; tide noise on single points)</h2>
-{reclamation_html(data)}
+<h2>Planet 3 m land-cover metrics (shares of covered area; PSScene strips partially cover AOIs — compare shares, not hectares)</h2>
+{planet_html(data)}
 <h2>Time-lapse animations (in-repo, monthly frames, attribution on frames)</h2>
 <p><a href="media/catba_lanbien.gif">media/catba_lanbien.gif</a> — Cát Bà central-bay reclamation ·
 <a href="media/halong_xanh.gif">media/halong_xanh.gif</a> — Vinhomes Hạ Long Xanh (Quảng Yên).</p>
@@ -284,35 +269,19 @@ build-out.</p>
 </section>"""
 
 
-def reclamation_html(data: dict) -> str:
-    rec = data.get("reclamation") or {}
-    pts = [p for p in rec.get("points", []) if p.get("ok")
-           and p.get("quality") != "hazy"]
-    if not pts:
-        return "<p>No cached reclamation series.</p>"
-    row = " · ".join(f"{p['month']}: {p['reclaimed_ha']} ha" for p in pts)
-    return (f"<p>Baseline scene {rec.get('baseline', {}).get('scene_id')} "
-            f"({rec.get('baseline', {}).get('date')}). {row}</p>")
-
-
-def satellite_html(data: dict) -> str:
-    sat = data.get("satellite") or {}
-    sites = sat.get("sites") or {}
-    if not sites:
-        return "<p>No cached satellite findings.</p>"
-    w = sat.get("windows", {})
+def planet_html(data: dict) -> str:
+    pm = data.get("planet_metrics") or {}
     rows = []
-    for k, v in sites.items():
-        if v.get("ok"):
-            rec = (f"RECLAIMED {v['reclaimed_ha']} ha water→land, "
-                   if v.get("reclaimed_ha") else "")
-            rows.append(f"<li>{v['name']}: {rec}NDVI loss {v['cleared_ha']} ha, "
-                        f"NDVI gain {v['revegetated_ha']} ha "
-                        f"(scenes {v['scene_a']['id']} → {v['scene_b']['id']})</li>")
-        else:
-            rows.append(f"<li>{v['name']}: no result — {v.get('reason','')[:120]}</li>")
-    return (f"<p>Windows: {w.get('a')} vs {w.get('b')}.</p><ul>"
-            + "".join(rows) + "</ul>")
+    for site, tags in pm.items():
+        if site.startswith("_") or not isinstance(tags, dict):
+            continue
+        for tag, m in tags.items():
+            if isinstance(m, dict) and "water_pct_of_covered" in m:
+                rows.append(f"<li>{site} {tag} ({m['acquired']}, scene {m['scene_id']}): "
+                            f"water {m['water_pct_of_covered']}%, bare/built "
+                            f"{m['bare_built_pct_of_covered']}%, vegetation "
+                            f"{m['veg_pct_of_covered']}% of {m['window_ha']} ha covered</li>")
+    return "<ul>" + "".join(rows) + "</ul>" if rows else "<p>No Planet metrics cached.</p>"
 
 
 if __name__ == "__main__":

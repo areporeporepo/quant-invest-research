@@ -9,7 +9,7 @@ progress, land clearing, and development pressure on UNESCO/biosphere areas.
 
 Anchor cases:
 - **Vũ Yên Island (Vinhomes Royal Island, Hải Phòng)** — delivery of a
-  877 ha island mega-project, tracked quarterly from Sentinel-2
+  877 ha island mega-project, tracked from orbit at 3 m (PlanetScope)
 - **Cát Bà (Sun Group Xanh Island & the archipelago)** — development inside
   the Hạ Long–Cát Bà UNESCO World Heritage setting, where the sustainability
   question is literal and visible from space
@@ -38,7 +38,7 @@ reason for yourself. That's what this backend is.
 |-------|--------------|--------|
 | **Market data** | REAL daily closes for HOSE/HNX tickers (default: `VHM`), **no API key needed** | DNSE public chart API; Alpha Vantage / Finnhub optional |
 | **Quant indicators** | Total return, annualized volatility, Sharpe ratio, max drawdown, SMA/EMA, RSI, trend label | Computed locally, pure Python |
-| **Alt-data (satellite)** | REAL Sentinel-2 imagery of the Vũ Yên construction footprint — 10 m crops via keyless COG reads, with scene ID / timestamp / cloud cover for verifiability | Earth Search STAC + AWS Open Data (**no key**); Sentinel Hub optional |
+| **Alt-data (satellite)** | PlanetScope 3 m daily-revisit imagery and analytics: time-lapses, land-cover metrics (Orders API, clipped analytic bands), scene IDs for verifiability | Planet (PL_API_KEY) — sole satellite source since 7/2026 |
 
 ## Quick start
 
@@ -47,14 +47,13 @@ cd quant-invest-research
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-# Serves REAL data out of the box — no API keys required:
-#   prices:    DNSE public chart API (HOSE/HNX)
-#   satellite: public Sentinel-2 STAC catalogue on AWS
+# Prices are keyless (DNSE public chart API, HOSE/HNX + Yahoo for US).
+# Satellite features need PL_API_KEY (Planet — the sole satellite source).
 uvicorn app.main:app --reload
 # open http://127.0.0.1:8000/docs
 ```
 
-Optional providers (Alpha Vantage / Finnhub / Sentinel Hub) take keys via env:
+Optional market providers (Alpha Vantage / Finnhub) take keys via env:
 
 ```bash
 cp .env.example .env      # then edit .env — never commit it
@@ -67,7 +66,7 @@ clearly labelled `is_real_data: false`).
 
 - `GET /snapshot?ticker=VHM` — full quant snapshot from real HOSE data
 - `GET /satellite/sites` — verifiable coordinates of tracked sites
-- `GET /satellite/image?site=vinhomes_vu_yen&date_from=2026-04-01&date_to=2026-07-01` — real Sentinel-2 true-colour JPEG, cropped to the site at 10 m resolution (`crop=false` for the whole tile). Response headers `X-Scene-Id` / `X-Scene-Datetime` / `X-Cloud-Cover` identify the exact public scene so anyone can verify it.
+- `GET /satellite/image?site=vinhomes_vu_yen` — PlanetScope 3 m imagery of a tracked site (PL_API_KEY required); `X-Scene-Id` / `X-Scene-Datetime` / `X-Cloud-Cover` headers identify the exact scene. `GET /api/planet_metrics` — 3 m land-cover shares per site.
 - `GET /health`, `GET /` — service info
 
 ## About the API keys you offered
@@ -77,7 +76,7 @@ reads them from environment variables (`.env`, which is git-ignored). You keep
 control of your own credentials. Free tiers are enough to start:
 
 - **Market data:** [Alpha Vantage](https://www.alphavantage.co/support/#api-key) or [Finnhub](https://finnhub.io/register)
-- **Satellite:** [Sentinel Hub](https://www.sentinel-hub.com/) (Sentinel-2, free tier)
+- **Satellite:** [Planet](https://www.planet.com/markets/education-and-research/) (free Education & Research program for students)
 
 > Note on Vietnamese equities: the default `dnse` provider covers HOSE/HNX
 > with no key. Global vendors (Alpha Vantage/Finnhub) have thin Vietnam
@@ -154,7 +153,7 @@ quant-invest-research/
 │   ├── data_providers.py  # market data: stub | alphavantage | finnhub
 │   ├── indicators.py      # pure quant math (tested)
 │   ├── analysis.py        # assemble a snapshot
-│   ├── satellite.py       # Sentinel Hub alt-data + verifiable coordinates
+│   ├── satellite.py       # Planet imagery + verifiable site coordinates
 │   └── main.py            # FastAPI app
 ├── tests/test_indicators.py
 ├── requirements.txt

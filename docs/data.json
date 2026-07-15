@@ -19166,6 +19166,14 @@
   ],
   "NVDA": [
    {
+    "time": "2024-11-05",
+    "open": 137.45,
+    "high": 140.37,
+    "low": 137.33,
+    "close": 139.91,
+    "volume": 160537400.0
+   },
+   {
     "time": "2024-11-06",
     "open": 142.96,
     "high": 146.49,
@@ -22516,17 +22524,17 @@
     "low": 203.0,
     "close": 203.53,
     "volume": 121411000.0
-   },
-   {
-    "time": "2026-07-14",
-    "open": 208.2,
-    "high": 212.54,
-    "low": 203.8,
-    "close": 211.8,
-    "volume": 124363999.0
    }
   ],
   "SPY": [
+   {
+    "time": "2024-11-05",
+    "open": 570.74,
+    "high": 576.74,
+    "low": 570.52,
+    "close": 576.7,
+    "volume": 39478300.0
+   },
    {
     "time": "2024-11-06",
     "open": 589.2,
@@ -25878,14 +25886,6 @@
     "low": 748.0,
     "close": 749.17,
     "volume": 44013600.0
-   },
-   {
-    "time": "2026-07-14",
-    "open": 750.91,
-    "high": 753.3,
-    "low": 748.66,
-    "close": 751.83,
-    "volume": 35135286.0
    }
   ]
  },
@@ -27152,8 +27152,8 @@
   },
   "NVDA": {
    "anchor": {
-    "date": "2026-07-14",
-    "value": 211.8
+    "date": "2026-07-13",
+    "value": 203.53
    },
    "scenarios": {
     "bear": {
@@ -27161,64 +27161,64 @@
      "label": "Bear: correction / tightening",
      "path": [
       {
-       "time": "2026-07-14",
-       "value": 211.8
+       "time": "2026-07-13",
+       "value": 203.53
       },
       {
-       "time": "2026-10-13",
-       "value": 206.31
+       "time": "2026-10-12",
+       "value": 198.26
       },
       {
-       "time": "2027-01-12",
-       "value": 200.97
+       "time": "2027-01-11",
+       "value": 193.12
       },
       {
-       "time": "2027-04-13",
-       "value": 195.76
+       "time": "2027-04-12",
+       "value": 188.12
       },
       {
-       "time": "2027-07-13",
-       "value": 190.69
+       "time": "2027-07-12",
+       "value": 183.24
       },
       {
-       "time": "2027-10-12",
-       "value": 185.75
+       "time": "2027-10-11",
+       "value": 178.5
       },
       {
-       "time": "2028-01-11",
-       "value": 180.94
+       "time": "2028-01-10",
+       "value": 173.87
       },
       {
-       "time": "2028-04-11",
-       "value": 176.25
+       "time": "2028-04-10",
+       "value": 169.37
       },
       {
-       "time": "2028-07-11",
-       "value": 171.68
+       "time": "2028-07-10",
+       "value": 164.98
       },
       {
-       "time": "2028-10-10",
-       "value": 167.23
+       "time": "2028-10-09",
+       "value": 160.7
       },
       {
-       "time": "2029-01-09",
-       "value": 162.9
+       "time": "2029-01-08",
+       "value": 156.54
       },
       {
-       "time": "2029-04-10",
-       "value": 158.68
+       "time": "2029-04-09",
+       "value": 152.48
       },
       {
-       "time": "2029-07-10",
-       "value": 154.57
+       "time": "2029-07-09",
+       "value": 148.53
       },
       {
-       "time": "2029-10-09",
-       "value": 150.56
+       "time": "2029-10-08",
+       "value": 144.69
       },
       {
        "time": "2029-12-31",
-       "value": 147.0
+       "value": 141.22
       }
      ],
      "label_vi": "Xấu: điều chỉnh / thắt chặt"
@@ -27228,64 +27228,64 @@
      "label": "Base: trend growth",
      "path": [
       {
-       "time": "2026-07-14",
-       "value": 211.8
+       "time": "2026-07-13",
+       "value": 203.53
       },
       {
-       "time": "2026-10-13",
-       "value": 215.9
+       "time": "2026-10-12",
+       "value": 207.47
       },
       {
-       "time": "2027-01-12",
-       "value": 220.08
+       "time": "2027-01-11",
+       "value": 211.49
       },
       {
-       "time": "2027-04-13",
-       "value": 224.34
+       "time": "2027-04-12",
+       "value": 215.58
       },
       {
-       "time": "2027-07-13",
-       "value": 228.68
+       "time": "2027-07-12",
+       "value": 219.75
       },
       {
-       "time": "2027-10-12",
-       "value": 233.11
+       "time": "2027-10-11",
+       "value": 224.01
       },
       {
-       "time": "2028-01-11",
-       "value": 237.62
+       "time": "2028-01-10",
+       "value": 228.35
       },
       {
-       "time": "2028-04-11",
-       "value": 242.22
+       "time": "2028-04-10",
+       "value": 232.77
       },
       {
-       "time": "2028-07-11",
-       "value": 246.91
+       "time": "2028-07-10",
+       "value": 237.27
       },
       {
-       "time": "2028-10-10",
-       "value": 251.69
+       "time": "2028-10-09",
+       "value": 241.87
       },
       {
-       "time": "2029-01-09",
-       "value": 256.57
+       "time": "2029-01-08",
+       "value": 246.55
       },
       {
-       "time": "2029-04-10",
-       "value": 261.53
+       "time": "2029-04-09",
+       "value": 251.32
       },
       {
-       "time": "2029-07-10",
-       "value": 266.6
+       "time": "2029-07-09",
+       "value": 256.19
       },
       {
-       "time": "2029-10-09",
-       "value": 271.76
+       "time": "2029-10-08",
+       "value": 261.15
       },
       {
        "time": "2029-12-31",
-       "value": 276.55
+       "value": 265.81
       }
      ],
      "label_vi": "Cơ sở: tăng theo xu hướng"
@@ -27295,64 +27295,64 @@
      "label": "Bull: continued re-rating",
      "path": [
       {
-       "time": "2026-07-14",
-       "value": 211.8
+       "time": "2026-07-13",
+       "value": 203.53
       },
       {
-       "time": "2026-10-13",
-       "value": 221.64
+       "time": "2026-10-12",
+       "value": 212.99
       },
       {
-       "time": "2027-01-12",
-       "value": 231.94
+       "time": "2027-01-11",
+       "value": 222.89
       },
       {
-       "time": "2027-04-13",
-       "value": 242.72
+       "time": "2027-04-12",
+       "value": 233.24
       },
       {
-       "time": "2027-07-13",
-       "value": 254.0
+       "time": "2027-07-12",
+       "value": 244.08
       },
       {
-       "time": "2027-10-12",
-       "value": 265.81
+       "time": "2027-10-11",
+       "value": 255.43
       },
       {
-       "time": "2028-01-11",
-       "value": 278.16
+       "time": "2028-01-10",
+       "value": 267.3
       },
       {
-       "time": "2028-04-11",
-       "value": 291.08
+       "time": "2028-04-10",
+       "value": 279.72
       },
       {
-       "time": "2028-07-11",
-       "value": 304.61
+       "time": "2028-07-10",
+       "value": 292.72
       },
       {
-       "time": "2028-10-10",
-       "value": 318.77
+       "time": "2028-10-09",
+       "value": 306.32
       },
       {
-       "time": "2029-01-09",
-       "value": 333.58
+       "time": "2029-01-08",
+       "value": 320.56
       },
       {
-       "time": "2029-04-10",
-       "value": 349.08
+       "time": "2029-04-09",
+       "value": 335.45
       },
       {
-       "time": "2029-07-10",
-       "value": 365.31
+       "time": "2029-07-09",
+       "value": 351.04
       },
       {
-       "time": "2029-10-09",
-       "value": 382.28
+       "time": "2029-10-08",
+       "value": 367.36
       },
       {
        "time": "2029-12-31",
-       "value": 398.45
+       "value": 383.09
       }
      ],
      "label_vi": "Tích cực: tiếp tục tái định giá"
@@ -27362,8 +27362,8 @@
   },
   "SPY": {
    "anchor": {
-    "date": "2026-07-14",
-    "value": 751.83
+    "date": "2026-07-13",
+    "value": 749.17
    },
    "scenarios": {
     "bear": {
@@ -27371,64 +27371,64 @@
      "label": "Bear: correction / tightening",
      "path": [
       {
-       "time": "2026-07-14",
-       "value": 751.83
+       "time": "2026-07-13",
+       "value": 749.17
       },
       {
-       "time": "2026-10-13",
-       "value": 732.35
+       "time": "2026-10-12",
+       "value": 729.76
       },
       {
-       "time": "2027-01-12",
-       "value": 713.38
+       "time": "2027-01-11",
+       "value": 710.85
       },
       {
-       "time": "2027-04-13",
-       "value": 694.89
+       "time": "2027-04-12",
+       "value": 692.44
       },
       {
-       "time": "2027-07-13",
-       "value": 676.89
+       "time": "2027-07-12",
+       "value": 674.5
       },
       {
-       "time": "2027-10-12",
-       "value": 659.35
+       "time": "2027-10-11",
+       "value": 657.02
       },
       {
-       "time": "2028-01-11",
-       "value": 642.27
+       "time": "2028-01-10",
+       "value": 640.0
       },
       {
-       "time": "2028-04-11",
-       "value": 625.63
+       "time": "2028-04-10",
+       "value": 623.42
       },
       {
-       "time": "2028-07-11",
-       "value": 609.42
+       "time": "2028-07-10",
+       "value": 607.27
       },
       {
-       "time": "2028-10-10",
-       "value": 593.63
+       "time": "2028-10-09",
+       "value": 591.53
       },
       {
-       "time": "2029-01-09",
-       "value": 578.25
+       "time": "2029-01-08",
+       "value": 576.21
       },
       {
-       "time": "2029-04-10",
-       "value": 563.27
+       "time": "2029-04-09",
+       "value": 561.28
       },
       {
-       "time": "2029-07-10",
-       "value": 548.68
+       "time": "2029-07-09",
+       "value": 546.74
       },
       {
-       "time": "2029-10-09",
-       "value": 534.46
+       "time": "2029-10-08",
+       "value": 532.57
       },
       {
        "time": "2029-12-31",
-       "value": 521.82
+       "value": 519.82
       }
      ],
      "label_vi": "Xấu: điều chỉnh / thắt chặt"
@@ -27438,64 +27438,64 @@
      "label": "Base: trend growth",
      "path": [
       {
-       "time": "2026-07-14",
-       "value": 751.83
+       "time": "2026-07-13",
+       "value": 749.17
       },
       {
-       "time": "2026-10-13",
-       "value": 766.38
+       "time": "2026-10-12",
+       "value": 763.67
       },
       {
-       "time": "2027-01-12",
-       "value": 781.22
+       "time": "2027-01-11",
+       "value": 778.46
       },
       {
-       "time": "2027-04-13",
-       "value": 796.35
+       "time": "2027-04-12",
+       "value": 793.53
       },
       {
-       "time": "2027-07-13",
-       "value": 811.76
+       "time": "2027-07-12",
+       "value": 808.89
       },
       {
-       "time": "2027-10-12",
-       "value": 827.48
+       "time": "2027-10-11",
+       "value": 824.55
       },
       {
-       "time": "2028-01-11",
-       "value": 843.5
+       "time": "2028-01-10",
+       "value": 840.51
       },
       {
-       "time": "2028-04-11",
-       "value": 859.83
+       "time": "2028-04-10",
+       "value": 856.78
       },
       {
-       "time": "2028-07-11",
-       "value": 876.47
+       "time": "2028-07-10",
+       "value": 873.37
       },
       {
-       "time": "2028-10-10",
-       "value": 893.44
+       "time": "2028-10-09",
+       "value": 890.28
       },
       {
-       "time": "2029-01-09",
-       "value": 910.74
+       "time": "2029-01-08",
+       "value": 907.51
       },
       {
-       "time": "2029-04-10",
-       "value": 928.37
+       "time": "2029-04-09",
+       "value": 925.08
       },
       {
-       "time": "2029-07-10",
-       "value": 946.34
+       "time": "2029-07-09",
+       "value": 942.99
       },
       {
-       "time": "2029-10-09",
-       "value": 964.66
+       "time": "2029-10-08",
+       "value": 961.25
       },
       {
        "time": "2029-12-31",
-       "value": 981.68
+       "value": 978.41
       }
      ],
      "label_vi": "Cơ sở: tăng theo xu hướng"
@@ -27505,64 +27505,64 @@
      "label": "Bull: continued re-rating",
      "path": [
       {
-       "time": "2026-07-14",
-       "value": 751.83
+       "time": "2026-07-13",
+       "value": 749.17
       },
       {
-       "time": "2026-10-13",
-       "value": 786.77
+       "time": "2026-10-12",
+       "value": 783.99
       },
       {
-       "time": "2027-01-12",
-       "value": 823.33
+       "time": "2027-01-11",
+       "value": 820.42
       },
       {
-       "time": "2027-04-13",
-       "value": 861.59
+       "time": "2027-04-12",
+       "value": 858.55
       },
       {
-       "time": "2027-07-13",
-       "value": 901.63
+       "time": "2027-07-12",
+       "value": 898.44
       },
       {
-       "time": "2027-10-12",
-       "value": 943.53
+       "time": "2027-10-11",
+       "value": 940.2
       },
       {
-       "time": "2028-01-11",
-       "value": 987.38
+       "time": "2028-01-10",
+       "value": 983.89
       },
       {
-       "time": "2028-04-11",
-       "value": 1033.27
+       "time": "2028-04-10",
+       "value": 1029.61
       },
       {
-       "time": "2028-07-11",
-       "value": 1081.28
+       "time": "2028-07-10",
+       "value": 1077.46
       },
       {
-       "time": "2028-10-10",
-       "value": 1131.53
+       "time": "2028-10-09",
+       "value": 1127.53
       },
       {
-       "time": "2029-01-09",
-       "value": 1184.12
+       "time": "2029-01-08",
+       "value": 1179.93
       },
       {
-       "time": "2029-04-10",
-       "value": 1239.15
+       "time": "2029-04-09",
+       "value": 1234.76
       },
       {
-       "time": "2029-07-10",
-       "value": 1296.73
+       "time": "2029-07-09",
+       "value": 1292.14
       },
       {
-       "time": "2029-10-09",
-       "value": 1356.99
+       "time": "2029-10-08",
+       "value": 1352.19
       },
       {
        "time": "2029-12-31",
-       "value": 1414.4
+       "value": 1410.1
       }
      ],
      "label_vi": "Tích cực: tiếp tục tái định giá"
@@ -28571,30 +28571,6 @@
    "relevance": "ha_long_xanh",
    "source": "CafeF 6/5/2026",
    "url": "https://cafef.vn/toan-canh-khu-duoc-mo-ban-dau-tien-tai-du-an-18-ty-usd-cua-vinhomes-rong-gap-9-lan-khu-pho-co-ha-noi-co-ga-cuoi-cua-tuyen-duong-sat-5-ty-usd-ban-het-80-gio-hang-trong-36-tieng-188260506155732819.chn"
-  },
-  {
-   "date": "2026-05-26",
-   "title": "Satellite: 61.5 ha newly cleared on Vũ Yên since Jan 2025",
-   "short": "61.5 ha cleared",
-   "title_vi": "Vệ tinh: 61,5 ha mới san lấp trên Vũ Yên từ 1/2025",
-   "short_vi": "61,5 ha san lấp",
-   "detail": "Own analysis: NDVI change between Sentinel-2 scenes S2B_48QXJ_20250104 and S2A_48QXJ_20260526 shows 61.5 ha cleared along new road corridors; finished canal district greening up.",
-   "detail_vi": "Phân tích riêng: so sánh NDVI giữa hai ảnh Sentinel-2 (S2B_48QXJ_20250104 và S2A_48QXJ_20260526) cho thấy 61,5 ha bị san lấp dọc các trục đường mới; khu kênh đào đã hoàn thiện và phủ xanh.",
-   "relevance": "vu_yen",
-   "source": "this repo, /satellite/change endpoint (reproducible)",
-   "url": ""
-  },
-  {
-   "date": "2026-05-26",
-   "title": "Satellite: 66.9 ha of water became land at Cát Bà central bay since 2023",
-   "title_vi": "Vệ tinh: 66,9 ha mặt nước thành đất tại vịnh trung tâm Cát Bà từ 2023",
-   "detail": "Own analysis (NDWI water masks, scenes S2A_48QYH_20230130 vs S2A_48QYH_20260526, both cloud-free): 66.9 ha gross water-to-land, 42.4 ha the other way (tidal noise), net ~24.5 ha — consistent with the reported ~50 ha reclamation footprint. Reproducible via /satellite/change.",
-   "detail_vi": "Phân tích riêng (mặt nạ nước NDWI, cảnh S2A_48QYH_20230130 và S2A_48QYH_20260526, đều không mây): 66,9 ha mặt nước thành đất, chiều ngược lại 42,4 ha (nhiễu triều), ròng ~24,5 ha — nhất quán với diện tích san lấp ~50 ha được công bố. Tái lập được qua /satellite/change.",
-   "short": "Sea fill 66.9 ha",
-   "short_vi": "66,9 ha san lấp biển",
-   "relevance": "cat_ba",
-   "source": "this repo, /satellite/change (reproducible)",
-   "url": ""
   }
  ],
  "units": {
@@ -32599,626 +32575,60 @@
   },
   "disclaimer": "Educational/research use only. Not investment advice, not a recommendation to buy or sell any security, and not a statement about whether now is a good or bad time to invest. Data may be synthetic or delayed. Verify independently and consult a licensed professional before making decisions."
  },
- "satellite": {
-  "windows": {
-   "a": [
-    "2025-04-01",
-    "2025-06-30"
-   ],
-   "b": [
-    "2026-04-01",
-    "2026-06-30"
-   ]
+ "planet_metrics": {
+  "ha_long_xanh": {
+   "baseline": {
+    "scene_id": "20240430_024246_61_24c8",
+    "acquired": "2024-04-30",
+    "cloud": 0,
+    "veg_ha": 52.0,
+    "water_ha": 341.1,
+    "bare_built_ha": 468.3,
+    "window_ha": 1038.7,
+    "water_pct_of_covered": 32.8,
+    "veg_pct_of_covered": 5.0,
+    "bare_built_pct_of_covered": 45.1
+   },
+   "now": {
+    "scene_id": "20260526_035733_37_251e",
+    "acquired": "2026-05-26",
+    "cloud": 1.0,
+    "veg_ha": 161.2,
+    "water_ha": 133.7,
+    "bare_built_ha": 121.7,
+    "window_ha": 468.7,
+    "water_pct_of_covered": 28.5,
+    "veg_pct_of_covered": 34.4,
+    "bare_built_pct_of_covered": 26.0
+   }
   },
-  "sites": {
-   "vinhomes_vu_yen": {
-    "name": "Vinhomes Royal Island (Vu Yen Island), Hai Phong, Vietnam",
-    "ok": true,
-    "cleared_ha": 61.5,
-    "revegetated_ha": 222.1,
-    "reclaimed_ha": 0.0,
-    "flooded_ha": 0.0,
-    "veg_area_a_ha": 838.5,
-    "veg_area_b_ha": 1167.5,
-    "area_total_ha": 4140.1,
-    "scene_a": {
-     "id": "S2B_48QXJ_20250104_0_L2A",
-     "datetime": "2025-01-04",
-     "cloud": 1.77
-    },
-    "scene_b": {
-     "id": "S2A_48QXJ_20260526_0_L2A",
-     "datetime": "2026-05-26",
-     "cloud": 6.1
-    },
-    "caveats": [
-     "CROSS-SEASON fallback (Jan 2025 vs May 2026): no cloud-free Apr-Jun 2025 scene; seasonal change inflates both figures. Reclamation not computed for this fallback."
-    ]
+  "sun_cat_ba": {
+   "baseline": {
+    "scene_id": "20240810_025031_98_24bb",
+    "acquired": "2024-08-10",
+    "cloud": 0,
+    "veg_ha": 24.6,
+    "water_ha": 296.9,
+    "bare_built_ha": 7.3,
+    "window_ha": 333.1,
+    "water_pct_of_covered": 89.1,
+    "veg_pct_of_covered": 7.4,
+    "bare_built_pct_of_covered": 2.2
    },
-   "vinhomes_imperia": {
-    "name": "Vinhomes Imperia (Hồng Bàng, Hải Phòng)",
-    "ok": true,
-    "cleared_ha": 0.8,
-    "revegetated_ha": 103.5,
-    "reclaimed_ha": 0.5,
-    "flooded_ha": 31.0,
-    "veg_area_a_ha": 21.4,
-    "veg_area_b_ha": 124.1,
-    "area_total_ha": 4140.1,
-    "scene_a": {
-     "id": "S2C_48QXJ_20250502_0_L2A",
-     "datetime": "2025-05-02T03:42:34.423000Z",
-     "cloud": 31.843019
-    },
-    "scene_b": {
-     "id": "S2B_48QXJ_20260412_0_L2A",
-     "datetime": "2026-04-12T03:42:10.928000Z",
-     "cloud": 5.266451
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
-     "scene A has 31.8% cloud — treat changed-area figures with extra caution"
-    ]
-   },
-   "the_minato": {
-    "name": "The Minato Residence (Lê Chân, Hải Phòng)",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 40.0% cloud in [2025-04-01, 2025-06-30]"
-   },
-   "vlasta_thuy_nguyen": {
-    "name": "Vlasta Thủy Nguyên (Hải Phòng)",
-    "ok": true,
-    "cleared_ha": 75.1,
-    "revegetated_ha": 1.0,
-    "reclaimed_ha": 18.9,
-    "flooded_ha": 2.3,
-    "veg_area_a_ha": 168.8,
-    "veg_area_b_ha": 70.4,
-    "area_total_ha": 4140.1,
-    "scene_a": {
-     "id": "S2C_48QXJ_20250512_0_L2A",
-     "datetime": "2025-05-12T03:42:30.848000Z",
-     "cloud": 35.352814
-    },
-    "scene_b": {
-     "id": "S2B_48QXJ_20260412_0_L2A",
-     "datetime": "2026-04-12T03:42:10.928000Z",
-     "cloud": 5.266451
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
-     "scene A has 35.4% cloud — treat changed-area figures with extra caution"
-    ]
-   },
-   "ocean_park_1": {
-    "name": "Vinhomes Ocean Park 1 (Gia Lâm, Hà Nội)",
-    "ok": true,
-    "cleared_ha": 687.2,
-    "revegetated_ha": 0.2,
-    "reclaimed_ha": 597.3,
-    "flooded_ha": 22.2,
-    "veg_area_a_ha": 920.1,
-    "veg_area_b_ha": 0.5,
-    "area_total_ha": 4141.6,
-    "scene_a": {
-     "id": "S2C_48QWJ_20250502_0_L2A",
-     "datetime": "2025-05-02T03:42:38.103000Z",
-     "cloud": 12.772515
-    },
-    "scene_b": {
-     "id": "S2B_48QWJ_20260412_0_L2A",
-     "datetime": "2026-04-12T03:42:14.613000Z",
-     "cloud": 3.535111
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
-     "scene A has 12.8% cloud — treat changed-area figures with extra caution"
-    ]
-   },
-   "ocean_park_2": {
-    "name": "Vinhomes Ocean Park 2 (Văn Giang, Hưng Yên)",
-    "ok": true,
-    "cleared_ha": 726.6,
-    "revegetated_ha": 0.0,
-    "reclaimed_ha": 684.7,
-    "flooded_ha": 16.8,
-    "veg_area_a_ha": 842.3,
-    "veg_area_b_ha": 1.0,
-    "area_total_ha": 4141.6,
-    "scene_a": {
-     "id": "S2C_48QWJ_20250502_0_L2A",
-     "datetime": "2025-05-02T03:42:38.103000Z",
-     "cloud": 12.772515
-    },
-    "scene_b": {
-     "id": "S2B_48QWJ_20260412_0_L2A",
-     "datetime": "2026-04-12T03:42:14.613000Z",
-     "cloud": 3.535111
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
-     "scene A has 12.8% cloud — treat changed-area figures with extra caution"
-    ]
-   },
-   "grand_park": {
-    "name": "Vinhomes Grand Park (Thủ Đức, TP.HCM)",
-    "ok": true,
-    "cleared_ha": 300.7,
-    "revegetated_ha": 180.1,
-    "reclaimed_ha": 58.0,
-    "flooded_ha": 211.5,
-    "veg_area_a_ha": 821.3,
-    "veg_area_b_ha": 675.6,
-    "area_total_ha": 1410.5,
-    "scene_a": {
-     "id": "S2B_48PXS_20250630_0_L2A",
-     "datetime": "2025-06-30T03:25:19.305000Z",
-     "cloud": 5.039868
-    },
-    "scene_b": {
-     "id": "S2C_48PYS_20260501_0_L2A",
-     "datetime": "2026-05-01T03:25:14.730000Z",
-     "cloud": 1.85502
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison."
-    ]
-   },
-   "golden_avenue": {
-    "name": "Vinhomes Golden Avenue (Móng Cái, Quảng Ninh)",
-    "ok": true,
-    "cleared_ha": 66.8,
-    "revegetated_ha": 548.2,
-    "reclaimed_ha": 115.4,
-    "flooded_ha": 38.6,
-    "veg_area_a_ha": 712.1,
-    "veg_area_b_ha": 1596.4,
-    "area_total_ha": 4122.9,
-    "scene_a": {
-     "id": "S2B_48QZJ_20250424_0_L2A",
-     "datetime": "2025-04-24T03:32:12.236000Z",
-     "cloud": 29.645997
-    },
-    "scene_b": {
-     "id": "S2B_48QZJ_20260409_0_L2A",
-     "datetime": "2026-04-09T03:32:10.098000Z",
-     "cloud": 2.164638
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
-     "scene A has 29.6% cloud — treat changed-area figures with extra caution"
-    ]
-   },
-   "green_paradise": {
-    "name": "Vinhomes Green Paradise (Cần Giờ, TP.HCM)",
-    "ok": true,
-    "cleared_ha": 28.5,
-    "revegetated_ha": 1.3,
-    "reclaimed_ha": 22.1,
-    "flooded_ha": 30.2,
-    "veg_area_a_ha": 3114.9,
-    "veg_area_b_ha": 3021.9,
-    "area_total_ha": 4121.6,
-    "scene_a": {
-     "id": "S2B_48PXS_20250630_0_L2A",
-     "datetime": "2025-06-30T03:25:19.305000Z",
-     "cloud": 5.039868
-    },
-    "scene_b": {
-     "id": "S2C_48PYS_20260501_0_L2A",
-     "datetime": "2026-05-01T03:25:14.730000Z",
-     "cloud": 1.85502
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison."
-    ]
-   },
-   "sun_cat_ba": {
-    "name": "Sun Group Xanh Island (Vịnh trung tâm, Cát Bà)",
-    "ok": true,
-    "cleared_ha": 19.2,
-    "revegetated_ha": 16.7,
-    "reclaimed_ha": 66.9,
-    "flooded_ha": 42.4,
-    "veg_area_a_ha": null,
-    "veg_area_b_ha": null,
-    "area_total_ha": 4139.5,
-    "scene_a": {
-     "id": "S2A_48QYH_20230130_0_L2A",
-     "datetime": "2023-01-30",
-     "cloud": 0.0
-    },
-    "scene_b": {
-     "id": "S2A_48QYH_20260526_0_L2A",
-     "datetime": "2026-05-26",
-     "cloud": 0.0
-    },
-    "caveats": [
-     "FULL-ARC window (Jan 2023, pre-project, vs May 2026) — the meaningful comparison for a reclamation that began late 2024. Gross 66.9 ha water→land vs 42.4 ha reverse (tidal noise); net ~24.5 ha, consistent with the reported ~50 ha fill footprint partially revegetated/landscaped. The season-matched 2025-2026 window was discarded: sun glint corrupted the June 2025 water mask."
-    ]
-   },
-   "cat_ba_town": {
-    "name": "Cát Bà town & harbour",
-    "ok": true,
-    "cleared_ha": 0.1,
-    "revegetated_ha": 1002.0,
-    "reclaimed_ha": 16.6,
-    "flooded_ha": 1213.3,
-    "veg_area_a_ha": 214.2,
-    "veg_area_b_ha": 1425.5,
-    "area_total_ha": 4146.2,
-    "scene_a": {
-     "id": "S2C_48QYH_20250608_0_L2A",
-     "datetime": "2025-06-08T03:32:49.535000Z",
-     "cloud": 17.350128
-    },
-    "scene_b": {
-     "id": "S2A_48QYH_20260526_0_L2A",
-     "datetime": "2026-05-26T03:32:45.550000Z",
-     "cloud": 0.003461
-    },
-    "caveats": [
-     "NDVI change conflates construction with seasonal vegetation change, water-level shifts and residual cloud/haze — screen, don't conclude.",
-     "reclaimed_ha (water→land via NDWI) includes tidal-flat noise; large engineered fills stand out, small values may be tide.",
-     "Scenes are the least-cloudy in each window, not fixed anniversary dates; growing-season mismatch can bias the comparison.",
-     "scene A has 17.4% cloud — treat changed-area figures with extra caution"
-    ]
+   "now": {
+    "scene_id": "20260712_041831_80_24dc",
+    "acquired": "2026-07-12",
+    "cloud": 0,
+    "veg_ha": 91.3,
+    "water_ha": 8.1,
+    "bare_built_ha": 418.0,
+    "window_ha": 533.7,
+    "water_pct_of_covered": 1.5,
+    "veg_pct_of_covered": 17.1,
+    "bare_built_pct_of_covered": 78.3
    }
-  }
- },
- "construction": {
-  "site": "vinhomes_vu_yen",
-  "site_name": "Vinhomes Royal Island (Vu Yen Island), Hai Phong, Vietnam",
-  "method": "Per-quarter least-cloudy Sentinel-2 scene; NDVI/NDWI land-cover shares over a ~4,100 ha window. bare_built_ha rising = clearing + construction. Cloud contamination and tide levels add noise — read the trend, not single points.",
-  "points": [
-   {
-    "quarter": "2023-01",
-    "ok": true,
-    "date": "2023-01-25",
-    "scene_id": "S2B_48QXJ_20230125_0_L2A",
-    "cloud": 0.0,
-    "veg_ha": 1224.1,
-    "bare_built_ha": 1001.6,
-    "water_ha": 1618.7,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2023-04",
-    "ok": true,
-    "date": "2023-05-30",
-    "scene_id": "S2A_48QXJ_20230530_0_L2A",
-    "cloud": 7.5,
-    "veg_ha": 1128.7,
-    "bare_built_ha": 1257.4,
-    "water_ha": 1458.9,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2023-07",
-    "ok": true,
-    "date": "2023-09-07",
-    "scene_id": "S2A_48QXJ_20230907_0_L2A",
-    "cloud": 15.6,
-    "veg_ha": 1089.7,
-    "bare_built_ha": 1247.3,
-    "water_ha": 1560.8,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2023-10",
-    "ok": true,
-    "date": "2023-11-21",
-    "scene_id": "S2B_48QXJ_20231121_0_L2A",
-    "cloud": 5.0,
-    "veg_ha": 1292.9,
-    "bare_built_ha": 1148.2,
-    "water_ha": 1428.0,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2024-01",
-    "ok": true,
-    "date": "2024-03-05",
-    "scene_id": "S2A_48QXJ_20240305_0_L2A",
-    "cloud": 10.9,
-    "veg_ha": 1080.9,
-    "bare_built_ha": 1425.5,
-    "water_ha": 1284.3,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2024-04",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2024-04-01, 2024-06-30]"
-   },
-   {
-    "quarter": "2024-07",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2024-07-01, 2024-09-30]"
-   },
-   {
-    "quarter": "2024-10",
-    "ok": true,
-    "date": "2024-10-31",
-    "scene_id": "S2A_48QXJ_20241031_0_L2A",
-    "cloud": 0.0,
-    "veg_ha": 1257.0,
-    "bare_built_ha": 1205.6,
-    "water_ha": 1399.0,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2025-01",
-    "ok": true,
-    "date": "2025-01-04",
-    "scene_id": "S2B_48QXJ_20250104_0_L2A",
-    "cloud": 1.8,
-    "veg_ha": 838.5,
-    "bare_built_ha": 1414.8,
-    "water_ha": 1595.6,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2025-04",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2025-04-01, 2025-06-30]"
-   },
-   {
-    "quarter": "2025-07",
-    "ok": true,
-    "date": "2025-09-16",
-    "scene_id": "S2C_48QXJ_20250916_0_L2A",
-    "cloud": 16.8,
-    "veg_ha": 1292.6,
-    "bare_built_ha": 1050.5,
-    "water_ha": 1587.3,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2025-10",
-    "ok": true,
-    "date": "2025-11-15",
-    "scene_id": "S2C_48QXJ_20251115_0_L2A",
-    "cloud": 1.8,
-    "veg_ha": 1233.6,
-    "bare_built_ha": 1195.5,
-    "water_ha": 1444.2,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2026-01",
-    "ok": true,
-    "date": "2026-01-09",
-    "scene_id": "S2B_48QXJ_20260109_0_L2A",
-    "cloud": 0.4,
-    "veg_ha": 1160.6,
-    "bare_built_ha": 1271.7,
-    "water_ha": 1416.9,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2026-04",
-    "ok": true,
-    "date": "2026-05-26",
-    "scene_id": "S2A_48QXJ_20260526_0_L2A",
-    "cloud": 6.1,
-    "veg_ha": 1167.5,
-    "bare_built_ha": 1226.4,
-    "water_ha": 1475.4,
-    "window_ha": 4140.1
-   },
-   {
-    "quarter": "2026-07",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 30.0% cloud in [2026-07-01, 2026-07-13]"
-   }
-  ]
- },
- "reclamation": {
-  "site": "sun_cat_ba",
-  "site_name": "Sun Group Xanh Island (Vịnh trung tâm, Cát Bà)",
-  "baseline": {
-   "scene_id": "S2A_48QYH_20230130_0_L2A",
-   "date": "2023-01-30"
   },
-  "method": "Monthly best Sentinel-2 scene vs fixed Jan-2023 baseline water mask (NDWI) over a ~3.3 km window on Cát Bà's central bay. reclaimed_ha = baseline water that is now land. Tide level makes individual points wobble; the trend is the signal. Points with scene cloud >7% are flagged 'hazy' and excluded from the chart: haze/glint corrupts the water mask and produced obvious spikes (e.g. 360-500 ha) inconsistent with clean-scene neighbours.",
-  "points": [
-   {
-    "month": "2024-07",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2024-07-01, 2024-07-28]"
-   },
-   {
-    "month": "2024-08",
-    "ok": true,
-    "date": "2024-08-07",
-    "scene_id": "S2B_48QYH_20240807_0_L2A",
-    "cloud": 16.5,
-    "reclaimed_ha": 89.4,
-    "quality": "hazy"
-   },
-   {
-    "month": "2024-09",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2024-09-01, 2024-09-28]"
-   },
-   {
-    "month": "2024-10",
-    "ok": true,
-    "date": "2024-10-11",
-    "scene_id": "S2A_48QYJ_20241011_0_L2A",
-    "cloud": 0.1,
-    "reclaimed_ha": 21.1,
-    "quality": "clean"
-   },
-   {
-    "month": "2024-11",
-    "ok": true,
-    "date": "2024-11-15",
-    "scene_id": "S2B_48QYJ_20241115_0_L2A",
-    "cloud": 6.8,
-    "reclaimed_ha": 101.1,
-    "quality": "clean"
-   },
-   {
-    "month": "2024-12",
-    "ok": true,
-    "date": "2024-12-20",
-    "scene_id": "S2A_48QYJ_20241220_0_L2A",
-    "cloud": 0.0,
-    "reclaimed_ha": 40.7,
-    "quality": "clean"
-   },
-   {
-    "month": "2025-01",
-    "ok": true,
-    "date": "2025-01-04",
-    "scene_id": "S2B_48QYJ_20250104_0_L2A",
-    "cloud": 0.1,
-    "reclaimed_ha": 41.5,
-    "quality": "clean"
-   },
-   {
-    "month": "2025-02",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-02-01, 2025-02-28]"
-   },
-   {
-    "month": "2025-03",
-    "ok": true,
-    "date": "2025-03-25",
-    "scene_id": "S2B_48QYJ_20250325_0_L2A",
-    "cloud": 6.5,
-    "reclaimed_ha": 138.9,
-    "quality": "clean"
-   },
-   {
-    "month": "2025-04",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-04-01, 2025-04-28]"
-   },
-   {
-    "month": "2025-05",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-05-01, 2025-05-28]"
-   },
-   {
-    "month": "2025-06",
-    "ok": true,
-    "date": "2025-06-08",
-    "scene_id": "S2C_48QYH_20250608_0_L2A",
-    "cloud": 17.4,
-    "reclaimed_ha": 360.2,
-    "quality": "hazy"
-   },
-   {
-    "month": "2025-07",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-07-01, 2025-07-28]"
-   },
-   {
-    "month": "2025-08",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-08-01, 2025-08-28]"
-   },
-   {
-    "month": "2025-09",
-    "ok": true,
-    "date": "2025-09-06",
-    "scene_id": "S2C_48QYH_20250906_0_L2A",
-    "cloud": 17.0,
-    "reclaimed_ha": 493.4,
-    "quality": "hazy"
-   },
-   {
-    "month": "2025-10",
-    "ok": true,
-    "date": "2025-10-11",
-    "scene_id": "S2B_48QYJ_20251011_1_L2A",
-    "cloud": 13.6,
-    "reclaimed_ha": 46.2,
-    "quality": "hazy"
-   },
-   {
-    "month": "2025-11",
-    "ok": true,
-    "date": "2025-11-15",
-    "scene_id": "S2C_48QYJ_20251115_0_L2A",
-    "cloud": 1.3,
-    "reclaimed_ha": 47.9,
-    "quality": "clean"
-   },
-   {
-    "month": "2025-12",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-12-01, 2025-12-28]"
-   },
-   {
-    "month": "2026-01",
-    "ok": true,
-    "date": "2026-01-14",
-    "scene_id": "S2C_48QYJ_20260114_0_L2A",
-    "cloud": 0.0,
-    "reclaimed_ha": 53.2,
-    "quality": "clean"
-   },
-   {
-    "month": "2026-02",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2026-02-01, 2026-02-28]"
-   },
-   {
-    "month": "2026-03",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2026-03-01, 2026-03-28]"
-   },
-   {
-    "month": "2026-04",
-    "ok": true,
-    "date": "2026-04-09",
-    "scene_id": "S2B_48QYH_20260409_0_L2A",
-    "cloud": 10.9,
-    "reclaimed_ha": 501.8,
-    "quality": "hazy"
-   },
-   {
-    "month": "2026-05",
-    "ok": true,
-    "date": "2026-05-26",
-    "scene_id": "S2A_48QYH_20260526_0_L2A",
-    "cloud": 0.0,
-    "reclaimed_ha": 53.1,
-    "quality": "clean"
-   },
-   {
-    "month": "2026-06",
-    "ok": true,
-    "date": "2026-06-03",
-    "scene_id": "S2C_48QYH_20260603_0_L2A",
-    "cloud": 20.0,
-    "reclaimed_ha": 160.5,
-    "quality": "hazy"
-   },
-   {
-    "month": "2026-07",
-    "ok": false,
-    "reason": "no Sentinel-2 scenes < 20.0% cloud in [2026-07-01, 2026-07-28]"
-   }
-  ]
+  "_method": "PlanetScope 3 m clipped analytic bands (Orders API), NDVI/NDWI shares. IMPORTANT: PSScene strips only partially cover the fixed AOI and the covered footprint differs per scene — compare *_pct_of_covered shares, NOT absolute hectares, across dates. Rigorous per-pixel deltas require footprint intersection (planned for the daily routine)."
  },
  "asof": "2026-07-14"
 }

@@ -443,30 +443,6 @@
       "relevance": "ha_long_xanh",
       "source": "CafeF 6/5/2026",
       "url": "https://cafef.vn/toan-canh-khu-duoc-mo-ban-dau-tien-tai-du-an-18-ty-usd-cua-vinhomes-rong-gap-9-lan-khu-pho-co-ha-noi-co-ga-cuoi-cua-tuyen-duong-sat-5-ty-usd-ban-het-80-gio-hang-trong-36-tieng-188260506155732819.chn"
-    },
-    {
-      "date": "2026-05-26",
-      "title": "Satellite: 61.5 ha newly cleared on Vũ Yên since Jan 2025",
-      "short": "61.5 ha cleared",
-      "title_vi": "Vệ tinh: 61,5 ha mới san lấp trên Vũ Yên từ 1/2025",
-      "short_vi": "61,5 ha san lấp",
-      "detail": "Own analysis: NDVI change between Sentinel-2 scenes S2B_48QXJ_20250104 and S2A_48QXJ_20260526 shows 61.5 ha cleared along new road corridors; finished canal district greening up.",
-      "detail_vi": "Phân tích riêng: so sánh NDVI giữa hai ảnh Sentinel-2 (S2B_48QXJ_20250104 và S2A_48QXJ_20260526) cho thấy 61,5 ha bị san lấp dọc các trục đường mới; khu kênh đào đã hoàn thiện và phủ xanh.",
-      "relevance": "vu_yen",
-      "source": "this repo, /satellite/change endpoint (reproducible)",
-      "url": ""
-    },
-    {
-      "date": "2026-05-26",
-      "title": "Satellite: 66.9 ha of water became land at Cát Bà central bay since 2023",
-      "title_vi": "Vệ tinh: 66,9 ha mặt nước thành đất tại vịnh trung tâm Cát Bà từ 2023",
-      "detail": "Own analysis (NDWI water masks, scenes S2A_48QYH_20230130 vs S2A_48QYH_20260526, both cloud-free): 66.9 ha gross water-to-land, 42.4 ha the other way (tidal noise), net ~24.5 ha — consistent with the reported ~50 ha reclamation footprint. Reproducible via /satellite/change.",
-      "detail_vi": "Phân tích riêng (mặt nạ nước NDWI, cảnh S2A_48QYH_20230130 và S2A_48QYH_20260526, đều không mây): 66,9 ha mặt nước thành đất, chiều ngược lại 42,4 ha (nhiễu triều), ròng ~24,5 ha — nhất quán với diện tích san lấp ~50 ha được công bố. Tái lập được qua /satellite/change.",
-      "short": "Sea fill 66.9 ha",
-      "short_vi": "66,9 ha san lấp biển",
-      "relevance": "cat_ba",
-      "source": "this repo, /satellite/change (reproducible)",
-      "url": ""
     }
   ]
 }
