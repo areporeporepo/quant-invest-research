@@ -1,0 +1,55 @@
+{
+  "ha_long_xanh": {
+    "baseline": {
+      "scene_id": "20240430_024246_61_24c8",
+      "acquired": "2024-04-30",
+      "cloud": 0,
+      "veg_ha": 52.0,
+      "water_ha": 341.1,
+      "bare_built_ha": 468.3,
+      "window_ha": 1038.7,
+      "water_pct_of_covered": 32.8,
+      "veg_pct_of_covered": 5.0,
+      "bare_built_pct_of_covered": 45.1
+    },
+    "now": {
+      "scene_id": "20260526_035733_37_251e",
+      "acquired": "2026-05-26",
+      "cloud": 1.0,
+      "veg_ha": 161.2,
+      "water_ha": 133.7,
+      "bare_built_ha": 121.7,
+      "window_ha": 468.7,
+      "water_pct_of_covered": 28.5,
+      "veg_pct_of_covered": 34.4,
+      "bare_built_pct_of_covered": 26.0
+    }
+  },
+  "sun_cat_ba": {
+    "baseline": {
+      "scene_id": "20240810_025031_98_24bb",
+      "acquired": "2024-08-10",
+      "cloud": 0,
+      "veg_ha": 24.6,
+      "water_ha": 296.9,
+      "bare_built_ha": 7.3,
+      "window_ha": 333.1,
+      "water_pct_of_covered": 89.1,
+      "veg_pct_of_covered": 7.4,
+      "bare_built_pct_of_covered": 2.2
+    },
+    "now": {
+      "scene_id": "20260712_041831_80_24dc",
+      "acquired": "2026-07-12",
+      "cloud": 0,
+      "veg_ha": 91.3,
+      "water_ha": 8.1,
+      "bare_built_ha": 418.0,
+      "window_ha": 533.7,
+      "water_pct_of_covered": 1.5,
+      "veg_pct_of_covered": 17.1,
+      "bare_built_pct_of_covered": 78.3
+    }
+  },
+  "_method": "PlanetScope 3 m clipped analytic bands (Orders API), NDVI/NDWI shares. IMPORTANT: PSScene strips only partially cover the fixed AOI and the covered footprint differs per scene \u2014 compare *_pct_of_covered shares, NOT absolute hectares, across dates. Rigorous per-pixel deltas require footprint intersection (planned for the daily routine)."
+}

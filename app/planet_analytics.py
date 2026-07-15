@@ -107,7 +107,7 @@ def wait_order(order_url: str, timeout_s: int = 900) -> list[str]:
         o = r.json()
         state = o.get("state")
         if state == "success":
-            return [f["location"] for f in
+            return [(f.get("name", ""), f["location"]) for f in
                     o.get("_links", {}).get("results", [])
                     if f.get("location")]
         if state in ("failed", "cancelled"):
@@ -117,22 +117,21 @@ def wait_order(order_url: str, timeout_s: int = 900) -> list[str]:
         time.sleep(15)
 
 
-def _load_sr_bands(file_urls: list[str]):
-    """Download the clipped AnalyticMS tif from order results; return
-    (blue, green, red, nir) float arrays."""
+def _load_sr_bands(files: list[tuple[str, str]]):
+    """Download the clipped AnalyticMS tif from order results ((name, url)
+    pairs — Planet download URLs are opaque, filenames live in `name`);
+    return (blue, green, red, nir) float arrays."""
     import numpy as np
     import rasterio
     import requests
 
-    tif_url = next((u for u in file_urls if "AnalyticMS" in u and
-                    u.split("?")[0].endswith(".tif") and "udm" not in u.lower()),
-                   None)
+    tif_url = next((u for n, u in files if "AnalyticMS" in n and
+                    n.endswith(".tif") and "udm" not in n.lower()), None)
     if tif_url is None:
-        # Some deliveries zip everything.
-        zip_url = next((u for u in file_urls if ".zip" in u.split("?")[0]), None)
+        zip_url = next((u for n, u in files if n.endswith(".zip")), None)
         if zip_url is None:
             raise PlanetError(f"no AnalyticMS tif in order results: "
-                              f"{[u.split('?')[0][-60:] for u in file_urls]}")
+                              f"{[n for n, _ in files]}")
         raw = requests.get(zip_url, auth=_auth(), timeout=300).content
         zf = zipfile.ZipFile(io.BytesIO(raw))
         name = next(n for n in zf.namelist()
