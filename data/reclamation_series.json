@@ -1,0 +1,192 @@
+{
+  "site": "sun_cat_ba",
+  "site_name": "Sun Group Xanh Island (Vịnh trung tâm, Cát Bà)",
+  "baseline": {
+    "scene_id": "S2A_48QYH_20230130_0_L2A",
+    "date": "2023-01-30"
+  },
+  "method": "Monthly best Sentinel-2 scene vs fixed Jan-2023 baseline water mask (NDWI) over a ~3.3 km window on Cát Bà's central bay. reclaimed_ha = baseline water that is now land. Tide level makes individual points wobble; the trend is the signal. Points with scene cloud >7% are flagged 'hazy' and excluded from the chart: haze/glint corrupts the water mask and produced obvious spikes (e.g. 360-500 ha) inconsistent with clean-scene neighbours.",
+  "points": [
+    {
+      "month": "2024-07",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2024-07-01, 2024-07-28]"
+    },
+    {
+      "month": "2024-08",
+      "ok": true,
+      "date": "2024-08-07",
+      "scene_id": "S2B_48QYH_20240807_0_L2A",
+      "cloud": 16.5,
+      "reclaimed_ha": 89.4,
+      "quality": "hazy"
+    },
+    {
+      "month": "2024-09",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2024-09-01, 2024-09-28]"
+    },
+    {
+      "month": "2024-10",
+      "ok": true,
+      "date": "2024-10-11",
+      "scene_id": "S2A_48QYJ_20241011_0_L2A",
+      "cloud": 0.1,
+      "reclaimed_ha": 21.1,
+      "quality": "clean"
+    },
+    {
+      "month": "2024-11",
+      "ok": true,
+      "date": "2024-11-15",
+      "scene_id": "S2B_48QYJ_20241115_0_L2A",
+      "cloud": 6.8,
+      "reclaimed_ha": 101.1,
+      "quality": "clean"
+    },
+    {
+      "month": "2024-12",
+      "ok": true,
+      "date": "2024-12-20",
+      "scene_id": "S2A_48QYJ_20241220_0_L2A",
+      "cloud": 0.0,
+      "reclaimed_ha": 40.7,
+      "quality": "clean"
+    },
+    {
+      "month": "2025-01",
+      "ok": true,
+      "date": "2025-01-04",
+      "scene_id": "S2B_48QYJ_20250104_0_L2A",
+      "cloud": 0.1,
+      "reclaimed_ha": 41.5,
+      "quality": "clean"
+    },
+    {
+      "month": "2025-02",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-02-01, 2025-02-28]"
+    },
+    {
+      "month": "2025-03",
+      "ok": true,
+      "date": "2025-03-25",
+      "scene_id": "S2B_48QYJ_20250325_0_L2A",
+      "cloud": 6.5,
+      "reclaimed_ha": 138.9,
+      "quality": "clean"
+    },
+    {
+      "month": "2025-04",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-04-01, 2025-04-28]"
+    },
+    {
+      "month": "2025-05",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-05-01, 2025-05-28]"
+    },
+    {
+      "month": "2025-06",
+      "ok": true,
+      "date": "2025-06-08",
+      "scene_id": "S2C_48QYH_20250608_0_L2A",
+      "cloud": 17.4,
+      "reclaimed_ha": 360.2,
+      "quality": "hazy"
+    },
+    {
+      "month": "2025-07",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-07-01, 2025-07-28]"
+    },
+    {
+      "month": "2025-08",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-08-01, 2025-08-28]"
+    },
+    {
+      "month": "2025-09",
+      "ok": true,
+      "date": "2025-09-06",
+      "scene_id": "S2C_48QYH_20250906_0_L2A",
+      "cloud": 17.0,
+      "reclaimed_ha": 493.4,
+      "quality": "hazy"
+    },
+    {
+      "month": "2025-10",
+      "ok": true,
+      "date": "2025-10-11",
+      "scene_id": "S2B_48QYJ_20251011_1_L2A",
+      "cloud": 13.6,
+      "reclaimed_ha": 46.2,
+      "quality": "hazy"
+    },
+    {
+      "month": "2025-11",
+      "ok": true,
+      "date": "2025-11-15",
+      "scene_id": "S2C_48QYJ_20251115_0_L2A",
+      "cloud": 1.3,
+      "reclaimed_ha": 47.9,
+      "quality": "clean"
+    },
+    {
+      "month": "2025-12",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2025-12-01, 2025-12-28]"
+    },
+    {
+      "month": "2026-01",
+      "ok": true,
+      "date": "2026-01-14",
+      "scene_id": "S2C_48QYJ_20260114_0_L2A",
+      "cloud": 0.0,
+      "reclaimed_ha": 53.2,
+      "quality": "clean"
+    },
+    {
+      "month": "2026-02",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2026-02-01, 2026-02-28]"
+    },
+    {
+      "month": "2026-03",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2026-03-01, 2026-03-28]"
+    },
+    {
+      "month": "2026-04",
+      "ok": true,
+      "date": "2026-04-09",
+      "scene_id": "S2B_48QYH_20260409_0_L2A",
+      "cloud": 10.9,
+      "reclaimed_ha": 501.8,
+      "quality": "hazy"
+    },
+    {
+      "month": "2026-05",
+      "ok": true,
+      "date": "2026-05-26",
+      "scene_id": "S2A_48QYH_20260526_0_L2A",
+      "cloud": 0.0,
+      "reclaimed_ha": 53.1,
+      "quality": "clean"
+    },
+    {
+      "month": "2026-06",
+      "ok": true,
+      "date": "2026-06-03",
+      "scene_id": "S2C_48QYH_20260603_0_L2A",
+      "cloud": 20.0,
+      "reclaimed_ha": 160.5,
+      "quality": "hazy"
+    },
+    {
+      "month": "2026-07",
+      "ok": false,
+      "reason": "no Sentinel-2 scenes < 20.0% cloud in [2026-07-01, 2026-07-28]"
+    }
+  ]
+}

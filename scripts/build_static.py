@@ -50,6 +50,10 @@ def snapshot() -> dict:
         data["construction"] = get("/api/construction")
     except Exception:
         data["construction"] = None
+    try:
+        data["reclamation"] = get("/api/reclamation")
+    except Exception:
+        data["reclamation"] = None
     data["asof"] = data["candles"]["VHM"][-1]["time"]
     return data
 
@@ -100,6 +104,7 @@ LIVE_GETJSON = """async function getJSON(url) {
     return out;
   }
   if (url.startsWith('/api/construction')) return DATA.construction || { points: [] };
+  if (url.startsWith('/api/reclamation')) return DATA.reclamation || { points: [] };
   if (url.startsWith('/api/psm_outlooks')) return DATA.psm_outlooks;
   if (url.startsWith('/api/psm')) return DATA.psm;
   if (url.startsWith('/api/events')) return { events: DATA.events };
@@ -269,9 +274,22 @@ on each site — they include farmland rotation and water-level change around th
 project, not just construction. Treat as an activity screen, not measured
 build-out.</p>
 {satellite_html(data)}
+<h2>Cát Bà central-bay reclamation — monthly series (cumulative ha vs Jan-2023 baseline; tide noise on single points)</h2>
+{reclamation_html(data)}
 <h2>Events (newest first)</h2>
 <ul>{events}</ul>
 </section>"""
+
+
+def reclamation_html(data: dict) -> str:
+    rec = data.get("reclamation") or {}
+    pts = [p for p in rec.get("points", []) if p.get("ok")
+           and p.get("quality") != "hazy"]
+    if not pts:
+        return "<p>No cached reclamation series.</p>"
+    row = " · ".join(f"{p['month']}: {p['reclaimed_ha']} ha" for p in pts)
+    return (f"<p>Baseline scene {rec.get('baseline', {}).get('scene_id')} "
+            f"({rec.get('baseline', {}).get('date')}). {row}</p>")
 
 
 def satellite_html(data: dict) -> str:

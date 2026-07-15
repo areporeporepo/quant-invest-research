@@ -5,7 +5,7 @@ Việt Nam): USD per m² vs comparable projects, VHM/Vingroup HOSE stock
 prices, dated events, and reasoned 2027-2029 outlook scenarios.
 
 - ./data.json — full structured dataset (candles, USD/m² points with
-  sources, events, outlook scenarios with rationale). Snapshot: 2026-07-13.
+  sources, events, outlook scenarios with rationale). Snapshot: 2026-07-14.
 - ./index.html — the chart app; contains a <section id="machine-summary">
   with the same key numbers as static HTML.
 - Source repo (live API + satellite change detection + MCP server):

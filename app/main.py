@@ -237,6 +237,17 @@ def api_construction():
     return JSONResponse(json.loads(path.read_text()))
 
 
+@app.get("/api/reclamation")
+def api_reclamation():
+    """Monthly sea-reclamation curve for Cát Bà's central bay (cached by
+    scripts/reclamation_series.py)."""
+    path = DATA_DIR / "reclamation_series.json"
+    if not path.exists():
+        return JSONResponse({"ok": False, "reason": "no cached series — run "
+                             "scripts/reclamation_series.py"})
+    return JSONResponse(json.loads(path.read_text()))
+
+
 @app.get("/satellite/portfolio")
 def satellite_portfolio():
     """Cached construction-activity findings for ALL tracked sites

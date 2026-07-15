@@ -33,6 +33,12 @@ const I18N = {
     sat_note: 'Mỗi điểm = ảnh Sentinel-2 ít mây nhất trong quý (chạm để xem mã cảnh). ' +
       'Diện tích đất trống/đã xây tăng = san lấp và xây dựng. Nhiễu do mây và ' +
       'thủy triều — đọc xu hướng, đừng đọc từng điểm.',
+    sat_vuyen: 'Vũ Yên · xây dựng', sat_catba: 'Cát Bà · lấn biển',
+    rec_legend: 'Lấn biển vịnh trung tâm Cát Bà (ha cộng dồn so với 1/2023, trục trái)',
+    rec_status: (n) => `Lấn biển Cát Bà từ vệ tinh · ${n} tháng`,
+    rec_note: 'Mỗi điểm = ảnh Sentinel-2 tốt nhất trong tháng so với mặt nạ nước nền ' +
+      'tháng 1/2023 (NDWI). Thủy triều làm từng điểm dao động — xu hướng mới là tín hiệu. ' +
+      'Chạm điểm để xem mã cảnh.',
     outlook_all: 'Triển vọng 2029 — tất cả dự án (USD/m², giả định)',
     outlook_hint: 'Chạm một dự án để xem lập luận và vẽ vùng kịch bản lên biểu đồ.',
     col_project: 'Dự án', col_bear: 'Xấu', col_base: 'Cơ sở', col_bull: 'Tích cực',
@@ -69,6 +75,12 @@ const I18N = {
     sat_note: 'Each point = the least-cloudy Sentinel-2 scene that quarter (tap for ' +
       'scene ID). Rising bare/built area = clearing and construction. Cloud and ' +
       'tide noise — read the trend, not single points.',
+    sat_vuyen: 'Vũ Yên · construction', sat_catba: 'Cát Bà · reclamation',
+    rec_legend: 'Cát Bà central-bay reclamation (cumulative ha vs 1/2023, left axis)',
+    rec_status: (n) => `Cát Bà sea reclamation from orbit · ${n} months`,
+    rec_note: 'Each point = the month\'s best Sentinel-2 scene vs a fixed Jan-2023 ' +
+      'baseline water mask (NDWI). Tide makes single points wobble — the trend is ' +
+      'the signal. Tap a point for its scene ID.',
     outlook_all: '2029 outlook — all projects (USD/m², assumptions)',
     outlook_hint: 'Tap a project to see its reasoning and draw its cone on the chart.',
     col_project: 'Project', col_bear: 'Bear', col_base: 'Base', col_bull: 'Bull',
@@ -412,7 +424,53 @@ function renderOutlookCard(cone) {
 
 /* ---------------- Satellite view ---------------- */
 
+let satSite = 'vu_yen';
+
+function renderSatChips() {
+  $('chips').innerHTML =
+    `<button class="${satSite === 'vu_yen' ? 'on' : ''}" data-s="vu_yen">${t('sat_vuyen')}</button>` +
+    `<button class="${satSite === 'cat_ba' ? 'on' : ''}" data-s="cat_ba">${t('sat_catba')}</button>`;
+  [...$('chips').children].forEach((b) => {
+    b.onclick = () => { satSite = b.dataset.s; renderSatChips(); showSat().catch(fail); };
+  });
+}
+
+async function showSatCatBa() {
+  clearSeries();
+  $('outlook').innerHTML = '';
+  setStatus(t('loading'));
+  const [rec, events] = await Promise.all([
+    getJSON('/api/reclamation'), loadEvents(),
+  ]);
+  // Hazy scenes corrupt the water mask — chart clean scenes only.
+  const pts = (rec.points || []).filter((p) => p.ok && p.quality !== 'hazy');
+  if (!pts.length) { setStatus(t('error')); setDetail(rec.reason || ''); return; }
+  const line = chart.addSeries(LightweightCharts.LineSeries, {
+    color: '#e3b341', lineWidth: 3, priceScaleId: 'left',
+    lastValueVisible: true, priceLineVisible: false, pointMarkersVisible: true,
+  });
+  chart.applyOptions({ leftPriceScale: { visible: true, borderColor: '#21262d',
+    mode: LightweightCharts.PriceScaleMode.Normal } });
+  line.setData(pts.map((p) => ({ time: p.date, value: p.reclaimed_ha })));
+  series.push(line);
+  const catBaEvents = events.filter((e) => e.relevance === 'cat_ba');
+  applyMarkers(line, markersFromEvents(catBaEvents, pts[0].date));
+  chart.timeScale().fitContent();
+  legend([{ color: '#e3b341', label: t('rec_legend') }]);
+  renderEventList(catBaEvents);
+  setStatus(t('rec_status', pts.length));
+  setDetail(t('rec_note'));
+  chart.subscribeClick((param) => {
+    if (!param.time || view !== 'sat' || satSite !== 'cat_ba') return;
+    const hit = pts.find((p) => p.date === param.time);
+    if (hit) setDetail(`<b>${hit.date}</b> — ${hit.reclaimed_ha} ha ` +
+      `(cloud ${hit.cloud}%)<br>Scene: ${hit.scene_id}`);
+  });
+}
+
 async function showSat() {
+  renderSatChips();
+  if (satSite === 'cat_ba') return showSatCatBa();
   clearSeries();
   $('outlook').innerHTML = '';
   setStatus(t('loading'));
