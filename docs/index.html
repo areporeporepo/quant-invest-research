@@ -192,6 +192,7 @@ const I18N = {
     seed_psm: 'data/psm.json đang trống — thêm dữ liệu để hiển thị biểu đồ này.',
     psm_status: (n) => `USD trên m² · ${n} điểm có nguồn dẫn`,
     cone_psm: 'vùng kịch bản → 2029 (giả định, không phải dự báo)',
+    cone_all: 'nét đứt = kịch bản cơ sở từng dự án → 2029; xấu/tích cực cho dự án đang chọn',
     source: 'Nguồn', per_year: '%/năm',
     outlook_title: (l) => `Triển vọng ${l} → 2029 (kịch bản có lập luận)`,
     tab_sat: 'Vệ tinh',
@@ -234,6 +235,7 @@ const I18N = {
     seed_psm: 'data/psm.json is empty — seed it to light up this chart.',
     psm_status: (n) => `USD per m² · ${n} sourced points`,
     cone_psm: 'scenario cone → 2029 (assumptions, not forecasts)',
+    cone_all: 'dashed = each project\'s base scenario → 2029; bear/bull for the selected one',
     source: 'Source', per_year: '%/yr',
     outlook_title: (l) => `${l} outlook → 2029 (reasoned scenarios)`,
     tab_sat: 'Satellite',
@@ -434,8 +436,9 @@ function markersFromEvents(events, minTime, withText = true) {
     }));
 }
 
-function drawCone(cone, priceScaleId) {
+function drawCone(cone, priceScaleId, only) {
   for (const [name, sc] of Object.entries(cone.scenarios)) {
+    if (only && !only.includes(name)) continue;
     const line = chart.addSeries(LightweightCharts.LineSeries, {
       color: CONE_STYLE[name]?.color || '#8b949e',
       lineWidth: name === 'base' ? 2 : 1,
@@ -521,6 +524,10 @@ async function showPsm() {
     $('evlist').innerHTML = '';
     return;
   }
+  if (!outlooksCache) {
+    try { outlooksCache = await getJSON('/api/psm_outlooks'); } catch (_) {}
+  }
+  const allCones = (outlooksCache && outlooksCache.cones) || {};
   const legendItems = [];
   const allPoints = [];
   keys.forEach((k, i) => {
@@ -533,20 +540,32 @@ async function showPsm() {
     });
     line.setData(proj.points.map((p) => ({ time: p.time, value: p.value })));
     series.push(line);
+    // Every line gets its own dashed base-case extension to 2029.
+    const cone = allCones[k];
+    if (cone && cone.scenarios && cone.scenarios.base) {
+      const ext = chart.addSeries(LightweightCharts.LineSeries, {
+        color, lineWidth: 1, lineStyle: LightweightCharts.LineStyle.Dashed,
+        priceScaleId: 'right', lastValueVisible: false,
+        priceLineVisible: false, crosshairMarkerVisible: false,
+      });
+      ext.setData([{ time: cone.anchor.date, value: cone.anchor.value },
+                   ...cone.scenarios.base.path.map((p) => ({ time: p.time, value: p.value }))]);
+      series.push(ext);
+    }
     legendItems.push({ color, label: proj.label });
     proj.points.forEach((p) => allPoints.push({ ...p, project: proj.label }));
   });
 
   // Scenario cone anchored on Vũ Yên's latest curated point, if present.
   try {
-    if (!outlooksCache) outlooksCache = await getJSON('/api/psm_outlooks');
-    const cones = outlooksCache.cones || {};
-    if (!cones[outlookKey]) outlookKey = keys.find((k) => cones[k]) || outlookKey;
-    const cone = cones[outlookKey];
+    if (!allCones[outlookKey]) outlookKey = keys.find((k) => allCones[k]) || outlookKey;
+    const cone = allCones[outlookKey];
     if (cone) {
-      drawCone(cone, 'right');
+      // Base extension already drawn per line; add bear/bull spread for
+      // the selected project only.
+      drawCone(cone, 'right', ['bear', 'bull']);
       legendItems.push({ color: '#8b949e',
-        label: `${t('cone_psm')} — ${cone.label || outlookKey}` });
+        label: `${t('cone_all')} — ${cone.label || outlookKey}` });
       renderOutlookCard(cone);
     }
   } catch (_) { $('outlook').innerHTML = ''; }
