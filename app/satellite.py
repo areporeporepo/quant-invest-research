@@ -155,9 +155,8 @@ def fetch_planet_crop(site_key: str, date_from: str, date_to: str,
     if not settings.planet_api_key:
         return SatelliteResult(
             site=site, fetched=False, source="planet",
-            reason="PL_API_KEY is not set. Add it to the environment (from "
-            "your password manager) to enable 3 m PlanetScope imagery; the "
-            "3 m PlanetScope imagery — the sole satellite source.")
+            reason="PL_API_KEY is not set. Add it to the environment to "
+            "enable 3 m PlanetScope imagery — the sole satellite source.")
     try:
         import io
 
