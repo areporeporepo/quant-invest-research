@@ -290,6 +290,18 @@
       "kind": "primary",
       "source": "Sun Group agent price sheet sungroupcatba.vn (first low-rise tranche, 105 units, 7.5x18 m plots)",
       "url": "https://sungroupcatba.vn/gia-ban-biet-thu-shophouse-can-ho-du-an-sun-group-cat-ba-hien-nay-la-bao-nhieu.html"
+    },
+    {
+      "project": "ha_long_xanh",
+      "label": "Vinhomes Global Gate Hạ Long (Hạ Long Xanh)",
+      "date": "2026-05",
+      "price": 125.0,
+      "range": "70-180 (đất, đợt 1 Vịnh Thiên Đường); bảng giá đại lý liền kề 70-120",
+      "currency": "VND_million_per_m2",
+      "segment": "low-rise",
+      "kind": "primary",
+      "source": "CafeF 6/5/2026: đợt 1 bán ~80% trong 36 giờ, ~5.000 booking/24h, giá đất 70-180 triệu/m2; agent sheets (TGD Land/Karahomes) 70-120 triệu/m2 tuỳ phân khu",
+      "url": "https://cafef.vn/toan-canh-khu-duoc-mo-ban-dau-tien-tai-du-an-18-ty-usd-cua-vinhomes-rong-gap-9-lan-khu-pho-co-ha-noi-co-ga-cuoi-cua-tuyen-duong-sat-5-ty-usd-ban-het-80-gio-hang-trong-36-tieng-188260506155732819.chn"
     }
   ],
   "notes": [
@@ -301,6 +313,7 @@
     "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices.",
     "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series.",
     "Sun Cát Bà (Xanh Island): all price figures are sales-agent price sheets (marketing asking levels); press coverage of the sold-out 2025 launches published no prices. Resale exists only as a coarse 7-10 tỷ/unit listing bracket (T7/2026, areas unavailable) — no secondary per-m2 series yet.",
-    "'Vin Cát Bà' does not exist: Vingroup/Vinpearl has NO priced real-estate project on Cát Bà island. Nearest Vingroup assets: VinFast factory (Cát Hải) and Vinhomes mainland Hải Phòng projects."
+    "'Vin Cát Bà' does not exist: Vingroup/Vinpearl has NO priced real-estate project on Cát Bà island. Nearest Vingroup assets: VinFast factory (Cát Hải) and Vinhomes mainland Hải Phòng projects.",
+    "Hạ Long Xanh/Global Gate: no pricing existed before May 2026 (only clearance); the 70-180 triệu/m2 figure is CafeF-reported first-tranche land pricing; subdivision agent sheets are unofficial. Vinhomes official price page still 'đang cập nhật' as of 7/2026."
   ]
 }

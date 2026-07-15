@@ -112,7 +112,7 @@ SITES: dict[str, Site] = {
     "ha_long_xanh": Site(
         key="ha_long_xanh",
         name="Vinhomes Hạ Long Xanh (Quảng Yên, Quảng Ninh)",
-        lat=20.9450, lon=106.8600,
+        lat=20.9100, lon=106.9000,
         note="~4,110 ha approved coastal mega-project along the Hạ Long–"
         "Hải Phòng expressway; wetland conversion and reclamation visible "
         "from orbit (approx. centroid, verify against plans)."),

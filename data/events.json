@@ -25,6 +25,42 @@
       "url": "https://haiphong.gov.vn/Chuyen-de/Huong-toi-ky-niem-65-nam-Ngay-giai-phong-Hai-Phong/Khai-truong-tuyen-cap-treo-Cat-Hai--Phu-Long-Diem-nhan-du-lich-cua-dao-ngoc-Cat-Ba-47171.html"
     },
     {
+      "date": "2021-04-01",
+      "title": "PM approves Hạ Long Xanh (Decision 529/QĐ-TTg)",
+      "title_vi": "Thủ tướng phê duyệt chủ trương Hạ Long Xanh (QĐ 529/QĐ-TTg)",
+      "detail": "4,109.64 ha across Quảng Yên + Hạ Long; Vingroup–Vinhomes consortium; original investment 232,369 tỷ VND (~$10B).",
+      "detail_vi": "4.109,64 ha tại Quảng Yên + Hạ Long; liên danh Vingroup–Vinhomes; tổng vốn ban đầu 232.369 tỷ (~10 tỷ USD).",
+      "short": "HLX approved",
+      "short_vi": "Phê duyệt HLX",
+      "relevance": "ha_long_xanh",
+      "source": "Báo Đầu tư",
+      "url": "https://baodautu.vn/quang-ninh-mo-rong-khong-gian-phat-trien-voi-du-an-do-thi-phuc-hop-ha-long-xanh-d464100.html"
+    },
+    {
+      "date": "2021-10-24",
+      "title": "Ceremonial groundbreaking",
+      "title_vi": "Động thổ Hạ Long Xanh",
+      "detail": "Vingroup broke ground on the ~$10B project; ~10-year implementation planned.",
+      "detail_vi": "Vingroup động thổ dự án ~10 tỷ USD; kế hoạch triển khai ~10 năm.",
+      "short": "HLX groundbreak",
+      "short_vi": "Động thổ HLX",
+      "relevance": "ha_long_xanh",
+      "source": "VnExpress (hồi cứu 10/2025)",
+      "url": "https://vnexpress.net/vingroup-nang-von-dau-tu-du-an-ha-long-xanh-len-gan-18-ty-usd-4953190.html"
+    },
+    {
+      "date": "2023-02-23",
+      "title": "Fill-material crunch: ~100 million m3 needed",
+      "title_vi": "Khát vật liệu san lấp: cần ~100 triệu m³",
+      "detail": "Hạ Long city needed 174M m3 of fill to 2025 vs 14M licensed; HLX alone ~100M m3; Quảng Ninh piloted coal-mine tailings as fill.",
+      "detail_vi": "TP Hạ Long cần 174 triệu m³ san nền tới 2025 so với 14 triệu được cấp phép; riêng HLX ~100 triệu m³; Quảng Ninh thí điểm dùng xỉ thải mỏ than làm vật liệu.",
+      "short": "Fill crunch",
+      "short_vi": "Khát vật liệu",
+      "relevance": "ha_long_xanh",
+      "source": "VnEconomy",
+      "url": "https://vneconomy.vn/techconnect/ha-long-dao-dau-ra-160-trieu-m3-vat-lieu-san-nen-cho-cac-du-an.htm"
+    },
+    {
       "date": "2023-06-19",
       "title": "SBV's 4th policy-rate cut of 2023 takes effect",
       "short": "SBV rate cut",
@@ -83,6 +119,18 @@
       "relevance": "vu_yen",
       "source": "Vingroup press release; Dân Trí (15/3/2024)",
       "url": "https://vingroup.net/tin-tuc-su-kien/bai-viet/3032/vinhomes-ra-mat-vinhomes-royal-island-thanh-pho-dao-hoang-gia-dang-cap-bac-nhat-chau-luc"
+    },
+    {
+      "date": "2024-06-02",
+      "title": "HLX expressway interchange ~95% complete",
+      "title_vi": "Nút giao Hạ Long Xanh trên cao tốc ~95%",
+      "detail": "Km6+700 interchange (~1,000 tỷ, started 12/2020) nearly done, forming the project's main expressway access with Đầm Nhà Mạc interchange.",
+      "detail_vi": "Nút giao Km6+700 (~1.000 tỷ, khởi công 12/2020) gần hoàn thành, cùng nút giao Đầm Nhà Mạc tạo trục tiếp cận cao tốc chính của dự án.",
+      "short": "Interchange 95%",
+      "short_vi": "Nút giao HLX",
+      "relevance": "ha_long_xanh",
+      "source": "CafeF 2/6/2024",
+      "url": "https://cafef.vn/toan-canh-nut-giao-1500-ty-nam-tren-cao-toc-dat-nhat-viet-nam-ngay-gan-sieu-du-an-10-ty-usd-cua-vinhomes-188240602093705402.chn"
     },
     {
       "date": "2024-07-31",
@@ -253,6 +301,18 @@
       "url": ""
     },
     {
+      "date": "2025-05-19",
+      "title": "Clearance: 1,948/3,186 ha handed over; aquaculture compensation gaps",
+      "title_vi": "GPMB: bàn giao 1.948/3.186 ha; vướng đền bù thủy sản",
+      "detail": "Much of the site is aquaculture ponds on state land; farmers demanded compensation for equipment with 'no specific regulations' available.",
+      "detail_vi": "Phần lớn mặt bằng là đầm nuôi trồng thủy sản trên đất nhà nước; các hộ đòi đền bù thiết bị, lồng lưới nhưng 'chưa có quy định cụ thể'.",
+      "short": "Clearance gaps",
+      "short_vi": "GPMB thủy sản",
+      "relevance": "ha_long_xanh",
+      "source": "Người Đưa Tin 19/5/2025",
+      "url": "https://www.nguoiduatin.vn/quang-ninh-thong-tin-moi-tien-do-sieu-du-an-ha-long-xanh-204250519175429089.htm"
+    },
+    {
       "date": "2025-07-01",
       "title": "VinWonders Vũ Yên opens",
       "short": "VinWonders",
@@ -313,6 +373,30 @@
       "url": "https://whc.unesco.org/en/sessions/47COM"
     },
     {
+      "date": "2025-10-17",
+      "title": "Vingroup doubles investment to ~$18B",
+      "title_vi": "Vingroup nâng vốn lên ~18 tỷ USD",
+      "detail": "Board approved raising total investment from 232,369 to 456,639 tỷ VND — Vingroup's largest project, surpassing Cần Giờ; >55,000 units, ~244,000 residents.",
+      "detail_vi": "HĐQT duyệt nâng tổng vốn từ 232.369 lên 456.639 tỷ — dự án lớn nhất Vingroup, vượt Cần Giờ; >55.000 sản phẩm, ~244.000 dân.",
+      "short": "$18B upsize",
+      "short_vi": "Vốn ~18 tỷ USD",
+      "relevance": "ha_long_xanh",
+      "source": "VnExpress 19/10/2025",
+      "url": "https://vnexpress.net/vingroup-nang-von-dau-tu-du-an-ha-long-xanh-len-gan-18-ty-usd-4953190.html"
+    },
+    {
+      "date": "2025-12-19",
+      "title": "Official construction launch",
+      "title_vi": "Khởi công chính thức Hạ Long Xanh",
+      "detail": "Consortium officially started construction (Hà An component alone ~287,220 tỷ); first items to operate from 2028.",
+      "detail_vi": "Liên danh chính thức khởi công (riêng hợp phần Hà An ~287.220 tỷ); hạng mục đầu tiên vận hành từ 2028.",
+      "short": "Construction start",
+      "short_vi": "Khởi công HLX",
+      "relevance": "ha_long_xanh",
+      "source": "Báo Đầu tư",
+      "url": "https://baodautu.vn/quang-ninh-mo-rong-khong-gian-phat-trien-voi-du-an-do-thi-phuc-hop-ha-long-xanh-d464100.html"
+    },
+    {
       "date": "2026-01-01",
       "title": "New Hải Phòng land-price table takes effect",
       "short": "Land prices",
@@ -335,6 +419,30 @@
       "relevance": "cat_ba",
       "source": "doanhnghiepkinhtexanh.vn",
       "url": "https://doanhnghiepkinhtexanh.vn/tap-trung-phat-trien-du-lich-cat-ba-xanh-ben-vung-a46767.html"
+    },
+    {
+      "date": "2026-04-25",
+      "title": "Commercial launch as 'Vinhomes Global Gate Hạ Long'",
+      "title_vi": "Ra mắt thương hiệu 'Vinhomes Global Gate Hạ Long'",
+      "detail": "Marketed at >6,200 ha, >82,000 products, ~380,000 residents, 'ESG++' branding (claimed 2,500 ha greenery/water/mangroves, 800-ha lake); HSR terminal to Hanoi (23 min, expected 2028) inside the project.",
+      "detail_vi": "Truyền thông ở quy mô >6.200 ha, >82.000 sản phẩm, ~380.000 dân, định vị 'ESG++' (tuyên bố 2.500 ha cây xanh/mặt nước/rừng ngập mặn, hồ 800 ha); ga đường sắt nhanh về Hà Nội (23 phút, dự kiến 2028) nằm trong dự án.",
+      "short": "Global Gate brand",
+      "short_vi": "Global Gate ra mắt",
+      "relevance": "ha_long_xanh",
+      "source": "Dân trí 25/4/2026",
+      "url": "https://dantri.com.vn/bat-dong-san/quang-ninh-xuat-hien-sieu-du-an-hon-6200ha-nam-ven-vinh-ha-long-20260425103026936.htm"
+    },
+    {
+      "date": "2026-05-06",
+      "title": "First sales: ~80% of tranche 1 sold in 36 hours",
+      "title_vi": "Mở bán đợt 1: ~80% giỏ hàng hết trong 36 giờ",
+      "detail": "Vịnh Bình Minh 1 & Thiên Đường Nhiệt Đới 1 (Vịnh Thiên Đường zone, ~9x Hanoi Old Quarter); ~5,000 bookings in 24h; land prices 70-180 triệu/m2.",
+      "detail_vi": "Vịnh Bình Minh 1 & Thiên Đường Nhiệt Đới 1 (phân khu Vịnh Thiên Đường, ~9 lần phố cổ Hà Nội); ~5.000 booking trong 24 giờ; giá đất 70-180 triệu/m².",
+      "short": "Tranche 1 sale",
+      "short_vi": "Đợt 1: 80%/36h",
+      "relevance": "ha_long_xanh",
+      "source": "CafeF 6/5/2026",
+      "url": "https://cafef.vn/toan-canh-khu-duoc-mo-ban-dau-tien-tai-du-an-18-ty-usd-cua-vinhomes-rong-gap-9-lan-khu-pho-co-ha-noi-co-ga-cuoi-cua-tuyen-duong-sat-5-ty-usd-ban-het-80-gio-hang-trong-36-tieng-188260506155732819.chn"
     },
     {
       "date": "2026-05-26",

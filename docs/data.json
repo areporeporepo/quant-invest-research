@@ -28094,6 +28094,19 @@
       "url": "https://sungroupcatba.vn/gia-ban-biet-thu-shophouse-can-ho-du-an-sun-group-cat-ba-hien-nay-la-bao-nhieu.html"
      }
     ]
+   },
+   "ha_long_xanh": {
+    "label": "Vinhomes Global Gate Hạ Long (Hạ Long Xanh)",
+    "points": [
+     {
+      "time": "2026-05-01",
+      "value": 4770.0,
+      "segment": "low-rise",
+      "kind": "primary",
+      "source": "CafeF 6/5/2026: đợt 1 bán ~80% trong 36 giờ, ~5.000 booking/24h, giá đất 70-180 triệu/m2; agent sheets (TGD Land/Karahomes) 70-120 triệu/m2 tuỳ phân khu",
+      "url": "https://cafef.vn/toan-canh-khu-duoc-mo-ban-dau-tien-tai-du-an-18-ty-usd-cua-vinhomes-rong-gap-9-lan-khu-pho-co-ha-noi-co-ga-cuoi-cua-tuyen-duong-sat-5-ty-usd-ban-het-80-gio-hang-trong-36-tieng-188260506155732819.chn"
+     }
+    ]
    }
   },
   "fx": {
@@ -28109,7 +28122,8 @@
    "Historical VND points are converted at approximate yearly-average FX (see fx_by_year in app/psm.py), not today's rate, to avoid overstating early-year USD prices.",
    "Vinhomes Imperia: single asking-price statistic with a very wide range (122-251 triệu/m2) — mature city-side project, resale market; not a primary-launch series.",
    "Sun Cát Bà (Xanh Island): all price figures are sales-agent price sheets (marketing asking levels); press coverage of the sold-out 2025 launches published no prices. Resale exists only as a coarse 7-10 tỷ/unit listing bracket (T7/2026, areas unavailable) — no secondary per-m2 series yet.",
-   "'Vin Cát Bà' does not exist: Vingroup/Vinpearl has NO priced real-estate project on Cát Bà island. Nearest Vingroup assets: VinFast factory (Cát Hải) and Vinhomes mainland Hải Phòng projects."
+   "'Vin Cát Bà' does not exist: Vingroup/Vinpearl has NO priced real-estate project on Cát Bà island. Nearest Vingroup assets: VinFast factory (Cát Hải) and Vinhomes mainland Hải Phòng projects.",
+   "Hạ Long Xanh/Global Gate: no pricing existed before May 2026 (only clearance); the 70-180 triệu/m2 figure is CafeF-reported first-tranche land pricing; subdivision agent sheets are unofficial. Vinhomes official price page still 'đang cập nhật' as of 7/2026."
   ],
   "disclaimer": "Curated, source-attributed price points — coverage is sparse and segments (apartment vs low-rise) are not directly comparable. Verify each point via its source before relying on it."
  },
@@ -28137,6 +28151,42 @@
    "relevance": "cat_ba",
    "source": "Hải Phòng portal; SGGP",
    "url": "https://haiphong.gov.vn/Chuyen-de/Huong-toi-ky-niem-65-nam-Ngay-giai-phong-Hai-Phong/Khai-truong-tuyen-cap-treo-Cat-Hai--Phu-Long-Diem-nhan-du-lich-cua-dao-ngoc-Cat-Ba-47171.html"
+  },
+  {
+   "date": "2021-04-01",
+   "title": "PM approves Hạ Long Xanh (Decision 529/QĐ-TTg)",
+   "title_vi": "Thủ tướng phê duyệt chủ trương Hạ Long Xanh (QĐ 529/QĐ-TTg)",
+   "detail": "4,109.64 ha across Quảng Yên + Hạ Long; Vingroup–Vinhomes consortium; original investment 232,369 tỷ VND (~$10B).",
+   "detail_vi": "4.109,64 ha tại Quảng Yên + Hạ Long; liên danh Vingroup–Vinhomes; tổng vốn ban đầu 232.369 tỷ (~10 tỷ USD).",
+   "short": "HLX approved",
+   "short_vi": "Phê duyệt HLX",
+   "relevance": "ha_long_xanh",
+   "source": "Báo Đầu tư",
+   "url": "https://baodautu.vn/quang-ninh-mo-rong-khong-gian-phat-trien-voi-du-an-do-thi-phuc-hop-ha-long-xanh-d464100.html"
+  },
+  {
+   "date": "2021-10-24",
+   "title": "Ceremonial groundbreaking",
+   "title_vi": "Động thổ Hạ Long Xanh",
+   "detail": "Vingroup broke ground on the ~$10B project; ~10-year implementation planned.",
+   "detail_vi": "Vingroup động thổ dự án ~10 tỷ USD; kế hoạch triển khai ~10 năm.",
+   "short": "HLX groundbreak",
+   "short_vi": "Động thổ HLX",
+   "relevance": "ha_long_xanh",
+   "source": "VnExpress (hồi cứu 10/2025)",
+   "url": "https://vnexpress.net/vingroup-nang-von-dau-tu-du-an-ha-long-xanh-len-gan-18-ty-usd-4953190.html"
+  },
+  {
+   "date": "2023-02-23",
+   "title": "Fill-material crunch: ~100 million m3 needed",
+   "title_vi": "Khát vật liệu san lấp: cần ~100 triệu m³",
+   "detail": "Hạ Long city needed 174M m3 of fill to 2025 vs 14M licensed; HLX alone ~100M m3; Quảng Ninh piloted coal-mine tailings as fill.",
+   "detail_vi": "TP Hạ Long cần 174 triệu m³ san nền tới 2025 so với 14 triệu được cấp phép; riêng HLX ~100 triệu m³; Quảng Ninh thí điểm dùng xỉ thải mỏ than làm vật liệu.",
+   "short": "Fill crunch",
+   "short_vi": "Khát vật liệu",
+   "relevance": "ha_long_xanh",
+   "source": "VnEconomy",
+   "url": "https://vneconomy.vn/techconnect/ha-long-dao-dau-ra-160-trieu-m3-vat-lieu-san-nen-cho-cac-du-an.htm"
   },
   {
    "date": "2023-06-19",
@@ -28197,6 +28247,18 @@
    "relevance": "vu_yen",
    "source": "Vingroup press release; Dân Trí (15/3/2024)",
    "url": "https://vingroup.net/tin-tuc-su-kien/bai-viet/3032/vinhomes-ra-mat-vinhomes-royal-island-thanh-pho-dao-hoang-gia-dang-cap-bac-nhat-chau-luc"
+  },
+  {
+   "date": "2024-06-02",
+   "title": "HLX expressway interchange ~95% complete",
+   "title_vi": "Nút giao Hạ Long Xanh trên cao tốc ~95%",
+   "detail": "Km6+700 interchange (~1,000 tỷ, started 12/2020) nearly done, forming the project's main expressway access with Đầm Nhà Mạc interchange.",
+   "detail_vi": "Nút giao Km6+700 (~1.000 tỷ, khởi công 12/2020) gần hoàn thành, cùng nút giao Đầm Nhà Mạc tạo trục tiếp cận cao tốc chính của dự án.",
+   "short": "Interchange 95%",
+   "short_vi": "Nút giao HLX",
+   "relevance": "ha_long_xanh",
+   "source": "CafeF 2/6/2024",
+   "url": "https://cafef.vn/toan-canh-nut-giao-1500-ty-nam-tren-cao-toc-dat-nhat-viet-nam-ngay-gan-sieu-du-an-10-ty-usd-cua-vinhomes-188240602093705402.chn"
   },
   {
    "date": "2024-07-31",
@@ -28367,6 +28429,18 @@
    "url": ""
   },
   {
+   "date": "2025-05-19",
+   "title": "Clearance: 1,948/3,186 ha handed over; aquaculture compensation gaps",
+   "title_vi": "GPMB: bàn giao 1.948/3.186 ha; vướng đền bù thủy sản",
+   "detail": "Much of the site is aquaculture ponds on state land; farmers demanded compensation for equipment with 'no specific regulations' available.",
+   "detail_vi": "Phần lớn mặt bằng là đầm nuôi trồng thủy sản trên đất nhà nước; các hộ đòi đền bù thiết bị, lồng lưới nhưng 'chưa có quy định cụ thể'.",
+   "short": "Clearance gaps",
+   "short_vi": "GPMB thủy sản",
+   "relevance": "ha_long_xanh",
+   "source": "Người Đưa Tin 19/5/2025",
+   "url": "https://www.nguoiduatin.vn/quang-ninh-thong-tin-moi-tien-do-sieu-du-an-ha-long-xanh-204250519175429089.htm"
+  },
+  {
    "date": "2025-07-01",
    "title": "VinWonders Vũ Yên opens",
    "short": "VinWonders",
@@ -28427,6 +28501,30 @@
    "url": "https://whc.unesco.org/en/sessions/47COM"
   },
   {
+   "date": "2025-10-17",
+   "title": "Vingroup doubles investment to ~$18B",
+   "title_vi": "Vingroup nâng vốn lên ~18 tỷ USD",
+   "detail": "Board approved raising total investment from 232,369 to 456,639 tỷ VND — Vingroup's largest project, surpassing Cần Giờ; >55,000 units, ~244,000 residents.",
+   "detail_vi": "HĐQT duyệt nâng tổng vốn từ 232.369 lên 456.639 tỷ — dự án lớn nhất Vingroup, vượt Cần Giờ; >55.000 sản phẩm, ~244.000 dân.",
+   "short": "$18B upsize",
+   "short_vi": "Vốn ~18 tỷ USD",
+   "relevance": "ha_long_xanh",
+   "source": "VnExpress 19/10/2025",
+   "url": "https://vnexpress.net/vingroup-nang-von-dau-tu-du-an-ha-long-xanh-len-gan-18-ty-usd-4953190.html"
+  },
+  {
+   "date": "2025-12-19",
+   "title": "Official construction launch",
+   "title_vi": "Khởi công chính thức Hạ Long Xanh",
+   "detail": "Consortium officially started construction (Hà An component alone ~287,220 tỷ); first items to operate from 2028.",
+   "detail_vi": "Liên danh chính thức khởi công (riêng hợp phần Hà An ~287.220 tỷ); hạng mục đầu tiên vận hành từ 2028.",
+   "short": "Construction start",
+   "short_vi": "Khởi công HLX",
+   "relevance": "ha_long_xanh",
+   "source": "Báo Đầu tư",
+   "url": "https://baodautu.vn/quang-ninh-mo-rong-khong-gian-phat-trien-voi-du-an-do-thi-phuc-hop-ha-long-xanh-d464100.html"
+  },
+  {
    "date": "2026-01-01",
    "title": "New Hải Phòng land-price table takes effect",
    "short": "Land prices",
@@ -28449,6 +28547,30 @@
    "relevance": "cat_ba",
    "source": "doanhnghiepkinhtexanh.vn",
    "url": "https://doanhnghiepkinhtexanh.vn/tap-trung-phat-trien-du-lich-cat-ba-xanh-ben-vung-a46767.html"
+  },
+  {
+   "date": "2026-04-25",
+   "title": "Commercial launch as 'Vinhomes Global Gate Hạ Long'",
+   "title_vi": "Ra mắt thương hiệu 'Vinhomes Global Gate Hạ Long'",
+   "detail": "Marketed at >6,200 ha, >82,000 products, ~380,000 residents, 'ESG++' branding (claimed 2,500 ha greenery/water/mangroves, 800-ha lake); HSR terminal to Hanoi (23 min, expected 2028) inside the project.",
+   "detail_vi": "Truyền thông ở quy mô >6.200 ha, >82.000 sản phẩm, ~380.000 dân, định vị 'ESG++' (tuyên bố 2.500 ha cây xanh/mặt nước/rừng ngập mặn, hồ 800 ha); ga đường sắt nhanh về Hà Nội (23 phút, dự kiến 2028) nằm trong dự án.",
+   "short": "Global Gate brand",
+   "short_vi": "Global Gate ra mắt",
+   "relevance": "ha_long_xanh",
+   "source": "Dân trí 25/4/2026",
+   "url": "https://dantri.com.vn/bat-dong-san/quang-ninh-xuat-hien-sieu-du-an-hon-6200ha-nam-ven-vinh-ha-long-20260425103026936.htm"
+  },
+  {
+   "date": "2026-05-06",
+   "title": "First sales: ~80% of tranche 1 sold in 36 hours",
+   "title_vi": "Mở bán đợt 1: ~80% giỏ hàng hết trong 36 giờ",
+   "detail": "Vịnh Bình Minh 1 & Thiên Đường Nhiệt Đới 1 (Vịnh Thiên Đường zone, ~9x Hanoi Old Quarter); ~5,000 bookings in 24h; land prices 70-180 triệu/m2.",
+   "detail_vi": "Vịnh Bình Minh 1 & Thiên Đường Nhiệt Đới 1 (phân khu Vịnh Thiên Đường, ~9 lần phố cổ Hà Nội); ~5.000 booking trong 24 giờ; giá đất 70-180 triệu/m².",
+   "short": "Tranche 1 sale",
+   "short_vi": "Đợt 1: 80%/36h",
+   "relevance": "ha_long_xanh",
+   "source": "CafeF 6/5/2026",
+   "url": "https://cafef.vn/toan-canh-khu-duoc-mo-ban-dau-tien-tai-du-an-18-ty-usd-cua-vinhomes-rong-gap-9-lan-khu-pho-co-ha-noi-co-ga-cuoi-cua-tuyen-duong-sat-5-ty-usd-ban-het-80-gio-hang-trong-36-tieng-188260506155732819.chn"
   },
   {
    "date": "2026-05-26",
@@ -32244,6 +32366,235 @@
     },
     "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
     "label": "Sun Xanh Island (Cát Bà) — shophouse/thấp tầng"
+   },
+   "ha_long_xanh": {
+    "anchor": {
+     "date": "2026-05-01",
+     "value": 4770.0
+    },
+    "scenarios": {
+     "bear": {
+      "annual_rate": -0.1,
+      "label": "Bear: supply avalanche + execution risk",
+      "path": [
+       {
+        "time": "2026-05-01",
+        "value": 4770.0
+       },
+       {
+        "time": "2026-07-31",
+        "value": 4646.42
+       },
+       {
+        "time": "2026-10-30",
+        "value": 4526.04
+       },
+       {
+        "time": "2027-01-29",
+        "value": 4408.77
+       },
+       {
+        "time": "2027-04-30",
+        "value": 4294.55
+       },
+       {
+        "time": "2027-07-30",
+        "value": 4183.28
+       },
+       {
+        "time": "2027-10-29",
+        "value": 4074.9
+       },
+       {
+        "time": "2028-01-28",
+        "value": 3969.33
+       },
+       {
+        "time": "2028-04-28",
+        "value": 3866.49
+       },
+       {
+        "time": "2028-07-28",
+        "value": 3766.31
+       },
+       {
+        "time": "2028-10-27",
+        "value": 3668.73
+       },
+       {
+        "time": "2029-01-26",
+        "value": 3573.68
+       },
+       {
+        "time": "2029-04-27",
+        "value": 3481.09
+       },
+       {
+        "time": "2029-07-27",
+        "value": 3390.9
+       },
+       {
+        "time": "2029-10-26",
+        "value": 3303.05
+       },
+       {
+        "time": "2029-12-31",
+        "value": 3240.76
+       }
+      ],
+      "label_vi": "Xấu: nguồn cung khổng lồ + rủi ro thực thi",
+      "rationale": "82,000+ units is a decade of supply; fill needs ~100M m3 (coal-tailing sourcing unproven at scale); aquaculture-compensation friction and UNESCO's scrutiny of Ha Long coastal projects are live risks; day-one 80%/36h sales often include heavy agent bookings that can unwind.",
+      "rationale_vi": "82.000+ sản phẩm là nguồn cung cho cả thập kỷ; cần ~100 triệu m³ vật liệu san lấp (nguồn xỉ than chưa được chứng minh ở quy mô lớn); vướng mắc đền bù thủy sản và sự giám sát của UNESCO với các dự án ven vịnh là rủi ro hiện hữu; bán 80%/36 giờ ngày đầu thường gồm nhiều booking đại lý có thể hoàn cọc."
+     },
+     "base": {
+      "annual_rate": 0.08,
+      "label": "Base: HSR + Vingroup's largest bet delivers",
+      "path": [
+       {
+        "time": "2026-05-01",
+        "value": 4770.0
+       },
+       {
+        "time": "2026-07-31",
+        "value": 4862.34
+       },
+       {
+        "time": "2026-10-30",
+        "value": 4956.48
+       },
+       {
+        "time": "2027-01-29",
+        "value": 5052.43
+       },
+       {
+        "time": "2027-04-30",
+        "value": 5150.24
+       },
+       {
+        "time": "2027-07-30",
+        "value": 5249.95
+       },
+       {
+        "time": "2027-10-29",
+        "value": 5351.59
+       },
+       {
+        "time": "2028-01-28",
+        "value": 5455.19
+       },
+       {
+        "time": "2028-04-28",
+        "value": 5560.8
+       },
+       {
+        "time": "2028-07-28",
+        "value": 5668.45
+       },
+       {
+        "time": "2028-10-27",
+        "value": 5778.19
+       },
+       {
+        "time": "2029-01-26",
+        "value": 5890.05
+       },
+       {
+        "time": "2029-04-27",
+        "value": 6004.08
+       },
+       {
+        "time": "2029-07-27",
+        "value": 6120.32
+       },
+       {
+        "time": "2029-10-26",
+        "value": 6238.8
+       },
+       {
+        "time": "2029-12-31",
+        "value": 6326.17
+       }
+      ],
+      "label_vi": "Cơ sở: đường sắt nhanh + dự án lớn nhất Vingroup",
+      "rationale": "The 23-minute Hanoi HSR link (2028) is a genuine repricing catalyst; Vingroup doubling commitment to ~$18B signals priority; first-launch pricing (70-180) sits well below Ha Long city core, leaving room as infrastructure lands.",
+      "rationale_vi": "Tuyến đường sắt nhanh 23 phút về Hà Nội (2028) là chất xúc tác tái định giá thực sự; Vingroup tăng gấp đôi cam kết lên ~18 tỷ USD cho thấy mức ưu tiên; giá đợt đầu (70-180) thấp hơn nhiều lõi Hạ Long, còn dư địa khi hạ tầng hoàn thành."
+     },
+     "bull": {
+      "annual_rate": 0.16,
+      "label": "Bull: the new Hanoi seaside suburb",
+      "path": [
+       {
+        "time": "2026-05-01",
+        "value": 4770.0
+       },
+       {
+        "time": "2026-07-31",
+        "value": 4949.69
+       },
+       {
+        "time": "2026-10-30",
+        "value": 5136.14
+       },
+       {
+        "time": "2027-01-29",
+        "value": 5329.62
+       },
+       {
+        "time": "2027-04-30",
+        "value": 5530.39
+       },
+       {
+        "time": "2027-07-30",
+        "value": 5738.72
+       },
+       {
+        "time": "2027-10-29",
+        "value": 5954.9
+       },
+       {
+        "time": "2028-01-28",
+        "value": 6179.22
+       },
+       {
+        "time": "2028-04-28",
+        "value": 6411.99
+       },
+       {
+        "time": "2028-07-28",
+        "value": 6653.54
+       },
+       {
+        "time": "2028-10-27",
+        "value": 6904.18
+       },
+       {
+        "time": "2029-01-26",
+        "value": 7164.26
+       },
+       {
+        "time": "2029-04-27",
+        "value": 7434.14
+       },
+       {
+        "time": "2029-07-27",
+        "value": 7714.18
+       },
+       {
+        "time": "2029-10-26",
+        "value": 8004.78
+       },
+       {
+        "time": "2029-12-31",
+        "value": 8222.36
+       }
+      ],
+      "label_vi": "Tích cực: 'ngoại ô ven biển' mới của Hà Nội",
+      "rationale": "If the HSR opens on time, Global Gate becomes commutable Hanoi seaside — the Ocean Park playbook at 10x scale next to a World Heritage bay; early land at 70-180 re-rates toward Hanoi landed benchmarks.",
+      "rationale_vi": "Nếu đường sắt nhanh vận hành đúng hẹn, Global Gate thành 'ngoại ô ven biển' đi làm Hà Nội — kịch bản Ocean Park ở quy mô gấp 10, cạnh vịnh di sản; đất đợt đầu 70-180 tái định giá về mặt bằng thấp tầng Hà Nội."
+     }
+    },
+    "disclaimer": "Scenario cones are illustrative compounding paths from stated assumptions — not forecasts, not advice. Edit the assumptions in data/outlook.json.",
+    "label": "Vinhomes Global Gate Hạ Long (Hạ Long Xanh)"
    }
   },
   "disclaimer": "Educational/research use only. Not investment advice, not a recommendation to buy or sell any security, and not a statement about whether now is a good or bad time to invest. Data may be synthetic or delayed. Verify independently and consult a licensed professional before making decisions."

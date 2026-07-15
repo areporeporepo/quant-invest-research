@@ -354,5 +354,28 @@
       "rationale": "Only ~2,742 units will ever front this bay (heritage setting caps future supply better than any zoning); if the Net-Zero positioning holds and visitors hit 5M+, scarce sea-front stock in a UNESCO landscape re-rates like Hạ Long's best.",
       "rationale_vi": "Chỉ ~2.742 sản phẩm hướng vịnh này (bối cảnh di sản chặn nguồn cung tương lai tốt hơn mọi quy hoạch); nếu định vị Net Zero đứng vững và khách vượt 5 triệu, quỹ hàng mặt vịnh khan hiếm trong lòng di sản UNESCO sẽ tái định giá như hàng đẹp nhất Hạ Long."
     }
+  },
+  "psm:ha_long_xanh": {
+    "bear": {
+      "annual_rate": -0.1,
+      "label": "Bear: supply avalanche + execution risk",
+      "label_vi": "Xấu: nguồn cung khổng lồ + rủi ro thực thi",
+      "rationale": "82,000+ units is a decade of supply; fill needs ~100M m3 (coal-tailing sourcing unproven at scale); aquaculture-compensation friction and UNESCO's scrutiny of Ha Long coastal projects are live risks; day-one 80%/36h sales often include heavy agent bookings that can unwind.",
+      "rationale_vi": "82.000+ sản phẩm là nguồn cung cho cả thập kỷ; cần ~100 triệu m³ vật liệu san lấp (nguồn xỉ than chưa được chứng minh ở quy mô lớn); vướng mắc đền bù thủy sản và sự giám sát của UNESCO với các dự án ven vịnh là rủi ro hiện hữu; bán 80%/36 giờ ngày đầu thường gồm nhiều booking đại lý có thể hoàn cọc."
+    },
+    "base": {
+      "annual_rate": 0.08,
+      "label": "Base: HSR + Vingroup's largest bet delivers",
+      "label_vi": "Cơ sở: đường sắt nhanh + dự án lớn nhất Vingroup",
+      "rationale": "The 23-minute Hanoi HSR link (2028) is a genuine repricing catalyst; Vingroup doubling commitment to ~$18B signals priority; first-launch pricing (70-180) sits well below Ha Long city core, leaving room as infrastructure lands.",
+      "rationale_vi": "Tuyến đường sắt nhanh 23 phút về Hà Nội (2028) là chất xúc tác tái định giá thực sự; Vingroup tăng gấp đôi cam kết lên ~18 tỷ USD cho thấy mức ưu tiên; giá đợt đầu (70-180) thấp hơn nhiều lõi Hạ Long, còn dư địa khi hạ tầng hoàn thành."
+    },
+    "bull": {
+      "annual_rate": 0.16,
+      "label": "Bull: the new Hanoi seaside suburb",
+      "label_vi": "Tích cực: 'ngoại ô ven biển' mới của Hà Nội",
+      "rationale": "If the HSR opens on time, Global Gate becomes commutable Hanoi seaside — the Ocean Park playbook at 10x scale next to a World Heritage bay; early land at 70-180 re-rates toward Hanoi landed benchmarks.",
+      "rationale_vi": "Nếu đường sắt nhanh vận hành đúng hẹn, Global Gate thành 'ngoại ô ven biển' đi làm Hà Nội — kịch bản Ocean Park ở quy mô gấp 10, cạnh vịnh di sản; đất đợt đầu 70-180 tái định giá về mặt bằng thấp tầng Hà Nội."
+    }
   }
 }
