@@ -113,6 +113,7 @@
   <div class="chips" id="chips"></div>
   <div id="chart"></div>
   <div class="legend" id="legend"></div>
+  <div id="gifbox" style="margin:6px 12px"></div>
   <div id="outlook"></div>
   <div id="detail">Tap a marker or an event to see details and its source.</div>
   <div id="events">
@@ -149,6 +150,9 @@ build-out.</p>
 <p>Windows: ['2025-04-01', '2025-06-30'] vs ['2026-04-01', '2026-06-30'].</p><ul><li>Vinhomes Royal Island (Vu Yen Island), Hai Phong, Vietnam: NDVI loss 61.5 ha, NDVI gain 222.1 ha (scenes S2B_48QXJ_20250104_0_L2A → S2A_48QXJ_20260526_0_L2A)</li><li>Vinhomes Imperia (Hồng Bàng, Hải Phòng): RECLAIMED 0.5 ha water→land, NDVI loss 0.8 ha, NDVI gain 103.5 ha (scenes S2C_48QXJ_20250502_0_L2A → S2B_48QXJ_20260412_0_L2A)</li><li>The Minato Residence (Lê Chân, Hải Phòng): no result — no Sentinel-2 scenes < 40.0% cloud in [2025-04-01, 2025-06-30]</li><li>Vlasta Thủy Nguyên (Hải Phòng): RECLAIMED 18.9 ha water→land, NDVI loss 75.1 ha, NDVI gain 1.0 ha (scenes S2C_48QXJ_20250512_0_L2A → S2B_48QXJ_20260412_0_L2A)</li><li>Vinhomes Ocean Park 1 (Gia Lâm, Hà Nội): RECLAIMED 597.3 ha water→land, NDVI loss 687.2 ha, NDVI gain 0.2 ha (scenes S2C_48QWJ_20250502_0_L2A → S2B_48QWJ_20260412_0_L2A)</li><li>Vinhomes Ocean Park 2 (Văn Giang, Hưng Yên): RECLAIMED 684.7 ha water→land, NDVI loss 726.6 ha, NDVI gain 0.0 ha (scenes S2C_48QWJ_20250502_0_L2A → S2B_48QWJ_20260412_0_L2A)</li><li>Vinhomes Grand Park (Thủ Đức, TP.HCM): RECLAIMED 58.0 ha water→land, NDVI loss 300.7 ha, NDVI gain 180.1 ha (scenes S2B_48PXS_20250630_0_L2A → S2C_48PYS_20260501_0_L2A)</li><li>Vinhomes Golden Avenue (Móng Cái, Quảng Ninh): RECLAIMED 115.4 ha water→land, NDVI loss 66.8 ha, NDVI gain 548.2 ha (scenes S2B_48QZJ_20250424_0_L2A → S2B_48QZJ_20260409_0_L2A)</li><li>Vinhomes Green Paradise (Cần Giờ, TP.HCM): RECLAIMED 22.1 ha water→land, NDVI loss 28.5 ha, NDVI gain 1.3 ha (scenes S2B_48PXS_20250630_0_L2A → S2C_48PYS_20260501_0_L2A)</li><li>Sun Group Xanh Island (Vịnh trung tâm, Cát Bà): RECLAIMED 66.9 ha water→land, NDVI loss 19.2 ha, NDVI gain 16.7 ha (scenes S2A_48QYH_20230130_0_L2A → S2A_48QYH_20260526_0_L2A)</li><li>Cát Bà town & harbour: RECLAIMED 16.6 ha water→land, NDVI loss 0.1 ha, NDVI gain 1002.0 ha (scenes S2C_48QYH_20250608_0_L2A → S2A_48QYH_20260526_0_L2A)</li></ul>
 <h2>Cát Bà central-bay reclamation — monthly series (cumulative ha vs Jan-2023 baseline; tide noise on single points)</h2>
 <p>Baseline scene S2A_48QYH_20230130_0_L2A (2023-01-30). 2024-10: 21.1 ha · 2024-11: 101.1 ha · 2024-12: 40.7 ha · 2025-01: 41.5 ha · 2025-03: 138.9 ha · 2025-11: 47.9 ha · 2026-01: 53.2 ha · 2026-05: 53.1 ha</p>
+<h2>Time-lapse animations (in-repo, monthly frames, attribution on frames)</h2>
+<p><a href="media/catba_lanbien.gif">media/catba_lanbien.gif</a> — Cát Bà central-bay reclamation ·
+<a href="media/halong_xanh.gif">media/halong_xanh.gif</a> — Vinhomes Hạ Long Xanh (Quảng Yên).</p>
 <h2>Events (newest first)</h2>
 <ul><li>2026-05-26 — Satellite: 61.5 ha newly cleared on Vũ Yên since Jan 2025: Own analysis: NDVI change between Sentinel-2 scenes S2B_48QXJ_20250104 and S2A_48QXJ_20260526 shows 61.5 ha cleared along new road corridors; finished canal district greening up. (source: this repo, /satellite/change endpoint (reproducible))</li><li>2026-05-26 — Satellite: 66.9 ha of water became land at Cát Bà central bay since 2023: Own analysis (NDWI water masks, scenes S2A_48QYH_20230130 vs S2A_48QYH_20260526, both cloud-free): 66.9 ha gross water-to-land, 42.4 ha the other way (tidal noise), net ~24.5 ha — consistent with the reported ~50 ha reclamation footprint. Reproducible via /satellite/change. (source: this repo, /satellite/change (reproducible))</li><li>2026-03-15 — Cát Hải resolution: comprehensive green transition for Cát Bà: Resolution 03/NQ-DU (mid-March 2026, day approximate): green transition across 6 areas with green tourism as pillar; ~5M visitors targeted for 2026. (source: doanhnghiepkinhtexanh.vn)</li><li>2026-01-01 — New Hải Phòng land-price table takes effect: Under the 2024 Land Law's market-based pricing, the new table (from Jan 1, 2026) put many central streets at ~160 triệu/m2 — widely cited as support for Vũ Yên-area repricing. (source: An Ninh Thủ Đô (6/1/2026))</li><li>2025-07-16 — 47th WHC session keeps Hạ Long–Cát Bà under scrutiny: Decision 47 COM 7B.16: monitoring mission completed, waste progress noted, concern maintained over coastal development pressure on the site's Outstanding Universal Value. (source: UNESCO 47COM)</li><li>2025-07-15 — Hoàng Gia bridge opens to traffic: The ~2.2 km, 4-lane bridge opened, cutting central Hải Phòng → Vũ Yên from ~30 to ~5 minutes; built in ~22 months. (source: Tuổi Trẻ; Vingroup; CafeF (3/6/2026))</li><li>2025-07-07 — Mekong Eye: project threatens Cát Bà langurs: Reclamation proceeding despite heritage fears; Cát Bà langur population under 100; recalls IUCN's original objection to the inscription-with-development path. (source: Mekong Eye 7/7/2025)</li><li>2025-07-02 — Hải Dương merged into Hải Phòng: Provincial merger effective July 1, 2025 created an expanded Hải Phòng (3,194.7 km2, ~4.66M people, #3 economy) — a re-rating catalyst for Hải Phòng property. (Charted 07-02 to avoid overlapping VinWonders marker.) (source: Việt Nam News)</li><li>2025-07-01 — VinWonders Vũ Yên opens: Nearly 20 ha amusement/wildlife park (part of ~480 ha entertainment complex) opened inside Vinhomes Royal Island; safari phase to follow. (source: VnExpress)</li><li>2025-05-13 — Vinpearl (VPL) lists on HOSE: Vingroup's hospitality arm returns to the stock exchange. (source: HOSE)</li><li>2025-04-19 — Vingroup breaks ground on Green Paradise (Cần Giờ): Groundbreaking of the 2,870 ha, ~USD 10bn coastal mega-project in HCMC — a major VIC/VHM pipeline event. (source: Vinhomes; Báo Cà Mau)</li><li>2025-04-18 — Free EV public transport starts on Cát Bà: Trial from 18/4, expanded to 20 vehicles per type and 150 trips/day from 16/5/2025 — flagship of the zero-emission-island positioning. (source: Cổng TP Hải Phòng)</li><li>2025-04-06 — Xanh Sky launch: 95% of phase 1 sold on day one: The Xanh 1 tower launch; handover targeted 2026. Financing 0% interest on up to 70% for 30 months; studios from 2.15 bn VND per agent sheets. (source: VnExpress 8/4/2025)</li><li>2025-03-15 — Hoàng Gia bridge span closure: The VND 2,300+ bn Vingroup-funded bridge across the Cấm River linking central Hải Phòng to Vũ Yên reached structural closure. (source: Báo Đầu Tư)</li><li>2025-02-21 — Sun Group sales kick-off for Xanh Island: ~2,000 sales agents; marketed as Vietnam's first Net-Zero island destination — 60% green/public space, EV buses/buggies, charging network; park and beach to open summer 2025. (source: VnExpress 26/2/2025)</li><li>2025-01-01 — Thủy Nguyên officially becomes a city: Thủy Nguyên (containing most of Vũ Yên island) was upgraded from district to city under Hải Phòng — the new administrative center. (source: Mekong ASEAN (11/3/2025))</li><li>2024-12-07 — Public controversy over Cát Bà bay reclamation: VOA/RFA report social-media shock at images of the bay being filled one year after UNESCO listing; experts warned of reduced tidal prism, turbidity, habitat fragmentation. (source: VOA Tiếng Việt 7/12/2024)</li><li>2024-11-21 — Buyback ends: ~247M shares (67% of plan): VHM bought back 246.98M shares (~5.7% of outstanding) in one month — the largest buyback in Vietnamese market history. (source: The Investor)</li><li>2024-10-23 — Vinhomes starts Vietnam's largest-ever share buyback: VHM began repurchasing up to 370 million shares (8.5% of outstanding), citing market price below intrinsic value. (source: The Investor / VIR)</li><li>2024-09-25 — The Opus One (Vinhomes Grand Park) first open sale: Vinhomes-Samty JV launched the luxury Opus One towers in Thủ Đức, HCMC at ~USD 3,300/m2 — a marker of HCMC premiumization. (source: vinhome.land)</li><li>2024-08-16 — Sun Group breaks ground on Xanh Island (Cát Bà central bay): ~46-50 ha at the town's central bay, ~12,495 bn VND; 2,742 units (877 low-rise + 3 towers), 2 marinas, 6 five-star hotels. Bay reclamation proceeded late 2024 - early 2025. (source: Giáo dục VN; Dân Việt)</li><li>2024-08-01 — 2024 Land Law, Housing Law and RE Business Law take effect: Vietnam brought the 2024 Land Law (plus 2023 Housing and RE Business Laws) into force five months early: market-based land pricing, annual land rent, max 5% off-plan deposits. (source: Vietnam Briefing)</li><li>2024-07-31 — World Heritage Committee requests reactive monitoring mission: 46th session (New Delhi) expressed concern over coastal tourism/urban expansion without a carrying-capacity study and SEA; requested a joint WHC/IUCN mission in 2025. (source: UNESCO WHC SOC 4500)</li><li>2024-03-15 — Vinhomes launches Royal Island on Vũ Yên Island: Official launch of the 877 ha, 11-subdivision, ~VND 44tn 'Royal Island City'; first subdivisions Miyabi, Tài Lộc, Golf Land on market from late March 2024. (source: Vingroup press release; Dân Trí (15/3/2024))</li><li>2023-09-16 — UNESCO inscribes Hạ Long Bay–Cát Bà as World Natural Heritage: 45th WHC session approved extending Hạ Long WHS to Cát Bà — Vietnam's first inter-provincial world heritage site. IUCN had advised AGAINST it, citing port/tourism pressure and weak buffer zoning. Biosphere reserve since 2004. (source: Bộ VHTTDL; Nhân Dân)</li><li>2023-08-15 — VinFast lists on NASDAQ: VinFast (Vingroup's EV arm) debuts on NASDAQ via SPAC merger. (source: widely reported)</li><li>2023-08-12 — Vinhomes Golden Avenue (Móng Cái) opens sales: First official open-sale event for the New York subdivision of Vinhomes' border-city project in Móng Cái, Quảng Ninh. (source: vinhomesmongcai.com.vn; VietnamNet)</li><li>2023-06-19 — SBV's 4th policy-rate cut of 2023 takes effect: State Bank of Vietnam cut refinancing rate to 4.5% and discount rate to 3.0% (cumulative -150bps Mar-Jun 2023), easing mortgage costs and reviving property. (source: Báo Chính Phủ / Bloomberg)</li><li>2020-06-06 — Sun Group opens Cát Hải–Phù Long cable car: 3,955 m sea-crossing line (2,207 bn VND), world's tallest cable-car pylon (214.8 m); first piece of the Cát Bà tourism ecosystem, positioned as the green alternative to ferries. Regular service resumed from 17/4/2024. (source: Hải Phòng portal; SGGP)</li><li>2017-09-02 — Tân Vũ–Lạch Huyện bridge opens (VN's longest sea bridge, 5.44 km): ODA-funded 11,849 bn VND bridge links Hải Phòng mainland to Cát Hải, cutting access to the Cát Bà gateway under 30 minutes — precondition for Sun Group's build-out and the VinFast plant. (source: Thanh Niên / VietnamNet)</li></ul>
 </section>
@@ -203,6 +207,9 @@ const I18N = {
       'Diện tích đất trống/đã xây tăng = san lấp và xây dựng. Nhiễu do mây và ' +
       'thủy triều — đọc xu hướng, đừng đọc từng điểm.',
     sat_vuyen: 'Vũ Yên · xây dựng', sat_catba: 'Cát Bà · lấn biển',
+    sat_halong: 'Hạ Long Xanh · GIF',
+    gif_caption_catba: 'Time-lapse lấn biển vịnh trung tâm Cát Bà (hằng tháng, Planet 3m + Sentinel-2).',
+    gif_caption_halong: 'Time-lapse Vinhomes Hạ Long Xanh, Quảng Yên (hằng tháng, Planet 3m + Sentinel-2).',
     rec_legend: 'Lấn biển vịnh trung tâm Cát Bà (ha cộng dồn so với 1/2023, trục trái)',
     rec_status: (n) => `Lấn biển Cát Bà từ vệ tinh · ${n} tháng`,
     rec_note: 'Mỗi điểm = ảnh Sentinel-2 tốt nhất trong tháng so với mặt nạ nước nền ' +
@@ -246,6 +253,9 @@ const I18N = {
       'scene ID). Rising bare/built area = clearing and construction. Cloud and ' +
       'tide noise — read the trend, not single points.',
     sat_vuyen: 'Vũ Yên · construction', sat_catba: 'Cát Bà · reclamation',
+    sat_halong: 'Hạ Long Xanh · GIF',
+    gif_caption_catba: 'Cát Bà central-bay reclamation time-lapse (monthly, Planet 3m + Sentinel-2).',
+    gif_caption_halong: 'Vinhomes Hạ Long Xanh (Quảng Yên) time-lapse (monthly, Planet 3m + Sentinel-2).',
     rec_legend: 'Cát Bà central-bay reclamation (cumulative ha vs 1/2023, left axis)',
     rec_status: (n) => `Cát Bà sea reclamation from orbit · ${n} months`,
     rec_note: 'Each point = the month\'s best Sentinel-2 scene vs a fixed Jan-2023 ' +
@@ -665,15 +675,34 @@ let satSite = 'vu_yen';
 function renderSatChips() {
   $('chips').innerHTML =
     `<button class="${satSite === 'vu_yen' ? 'on' : ''}" data-s="vu_yen">${t('sat_vuyen')}</button>` +
-    `<button class="${satSite === 'cat_ba' ? 'on' : ''}" data-s="cat_ba">${t('sat_catba')}</button>`;
+    `<button class="${satSite === 'cat_ba' ? 'on' : ''}" data-s="cat_ba">${t('sat_catba')}</button>` +
+    `<button class="${satSite === 'ha_long' ? 'on' : ''}" data-s="ha_long">${t('sat_halong')}</button>`;
   [...$('chips').children].forEach((b) => {
     b.onclick = () => { satSite = b.dataset.s; renderSatChips(); showSat().catch(fail); };
   });
 }
 
+function gifPanel(file, captionKey) {
+  $('gifbox').innerHTML =
+    `<img src="media/${file}" alt="" style="width:100%;border-radius:10px;` +
+    `border:1px solid var(--border)" loading="lazy">` +
+    `<p style="color:var(--muted);font-size:12px;margin:6px 2px">${t(captionKey)}</p>`;
+}
+
+async function showSatHaLong() {
+  clearSeries();
+  $('outlook').innerHTML = '';
+  legend([]);
+  $('evlist').innerHTML = '';
+  setStatus('Hạ Long Xanh');
+  setDetail(t('gif_caption_halong'));
+  gifPanel('halong_xanh.gif', 'gif_caption_halong');
+}
+
 async function showSatCatBa() {
   clearSeries();
   $('outlook').innerHTML = '';
+  gifPanel('catba_lanbien.gif', 'gif_caption_catba');
   setStatus(t('loading'));
   const [rec, events] = await Promise.all([
     getJSON('/api/reclamation'), loadEvents(),
@@ -706,7 +735,9 @@ async function showSatCatBa() {
 
 async function showSat() {
   renderSatChips();
+  $('gifbox').innerHTML = '';
   if (satSite === 'cat_ba') return showSatCatBa();
+  if (satSite === 'ha_long') return showSatHaLong();
   clearSeries();
   $('outlook').innerHTML = '';
   setStatus(t('loading'));
@@ -774,7 +805,7 @@ function setView(v) {
   $('tab-market').classList.toggle('active', v === 'market');
   $('tab-psm').classList.toggle('active', v === 'psm');
   $('tab-sat').classList.toggle('active', v === 'sat');
-  if (v !== 'sat') chart.applyOptions({ leftPriceScale: { visible: false } });
+  if (v !== 'sat') { chart.applyOptions({ leftPriceScale: { visible: false } }); $('gifbox').innerHTML = ''; }
   renderChips();
   (v === 'market' ? showMarket() : v === 'sat' ? showSat() : showPsm()).catch(fail);
 }

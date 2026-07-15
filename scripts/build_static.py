@@ -276,6 +276,9 @@ build-out.</p>
 {satellite_html(data)}
 <h2>Cát Bà central-bay reclamation — monthly series (cumulative ha vs Jan-2023 baseline; tide noise on single points)</h2>
 {reclamation_html(data)}
+<h2>Time-lapse animations (in-repo, monthly frames, attribution on frames)</h2>
+<p><a href="media/catba_lanbien.gif">media/catba_lanbien.gif</a> — Cát Bà central-bay reclamation ·
+<a href="media/halong_xanh.gif">media/halong_xanh.gif</a> — Vinhomes Hạ Long Xanh (Quảng Yên).</p>
 <h2>Events (newest first)</h2>
 <ul>{events}</ul>
 </section>"""

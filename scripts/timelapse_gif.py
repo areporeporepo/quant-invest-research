@@ -22,7 +22,6 @@ from app.config import settings  # noqa: E402
 from app.satellite import (PLANET_SEARCH_URL, PLANET_TILE_URL, SITES,  # noqa: E402
                            _lonlat_to_tile, fetch_stac_crop)
 
-SITE_KEY = "sun_cat_ba"
 ZOOM, GRID = 15, 3
 FRAME = 512
 
@@ -60,35 +59,43 @@ def planet_frame(site, ym: str):
                 {"type": "PermissionFilter", "config": ["assets:download"]},
             ]}})
         resp.raise_for_status()
-        feats = resp.json().get("features", [])
-        if not feats:
-            return None, None
-        best = min(feats, key=lambda f: f["properties"].get("cloud_cover", 1.0))
+        feats = sorted(resp.json().get("features", []),
+                       key=lambda f: f["properties"].get("cloud_cover", 1.0))
         cx, cy = _lonlat_to_tile(site.lon, site.lat, ZOOM)
         off = GRID // 2
-        canvas = Image.new("RGB", (GRID * 256, GRID * 256))
-        for dy in range(GRID):
-            for dx in range(GRID):
-                url = PLANET_TILE_URL.format(item=best["id"], z=ZOOM,
-                                             x=cx - off + dx, y=cy - off + dy)
-                tr = requests.get(url, auth=auth, timeout=30)
-                tr.raise_for_status()
-                canvas.paste(Image.open(io.BytesIO(tr.content)),
-                             (dx * 256, dy * 256))
-        return canvas, f"{best['properties'].get('acquired', '')[:10]} · Planet 3m"
+        # Narrow PSScene strips may not cover our tile window and render
+        # black — try up to 4 candidate scenes and brightness-check each.
+        from PIL import ImageStat
+        for cand in feats[:4]:
+            canvas = Image.new("RGB", (GRID * 256, GRID * 256))
+            try:
+                for dy in range(GRID):
+                    for dx in range(GRID):
+                        url = PLANET_TILE_URL.format(item=cand["id"], z=ZOOM,
+                                                     x=cx - off + dx, y=cy - off + dy)
+                        tr = requests.get(url, auth=auth, timeout=30)
+                        tr.raise_for_status()
+                        canvas.paste(Image.open(io.BytesIO(tr.content)),
+                                     (dx * 256, dy * 256))
+            except Exception:
+                continue
+            if ImageStat.Stat(canvas.convert("L")).mean[0] >= 35:
+                return canvas, (f"{cand['properties'].get('acquired', '')[:10]}"
+                                " · Planet 3m · © Planet Labs PBC")
+        return None, None
     except Exception:
         return None, None
 
 
-def sentinel_frame(ym: str):
+def sentinel_frame(site_key: str, ym: str):
     from PIL import Image
 
-    r = fetch_stac_crop(SITE_KEY, f"{ym}-01", f"{ym}-28", max_cloud=15.0,
+    r = fetch_stac_crop(site_key, f"{ym}-01", f"{ym}-28", max_cloud=15.0,
                         half_deg=0.02)
     if not r.fetched:
         return None, None
     return (Image.open(io.BytesIO(r.image_bytes)).convert("RGB"),
-            f"{r.scene_datetime[:10]} · Sentinel-2 10m")
+            f"{r.scene_datetime[:10]} · Sentinel-2 · © ESA Copernicus")
 
 
 def label(img, text: str):
@@ -107,23 +114,28 @@ def label(img, text: str):
 
 
 def main() -> None:
-    out = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("/tmp/catba.gif")
-    start = sys.argv[2] if len(sys.argv) > 2 else "2024-06"
-    end = sys.argv[3] if len(sys.argv) > 3 else "2026-07"
-    site = SITES[SITE_KEY]
+    out = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("/tmp/timelapse.gif")
+    site_key = sys.argv[2] if len(sys.argv) > 2 else "sun_cat_ba"
+    start = sys.argv[3] if len(sys.argv) > 3 else "2024-06"
+    end = sys.argv[4] if len(sys.argv) > 4 else "2026-07"
+    site = SITES[site_key]
 
     frames = []
     # Pre-project baseline frame first.
-    img, tag = sentinel_frame("2023-01")
+    img, tag = sentinel_frame(site_key, "2023-01")
     if img is not None:
         frames.append(label(img, f"{tag} · TRƯỚC DỰ ÁN"))
         print(f"baseline: {tag}", flush=True)
     for ym in month_iter(start, end):
         img, tag = planet_frame(site, ym)
         if img is None:
-            img, tag = sentinel_frame(ym)
+            img, tag = sentinel_frame(site_key, ym)
         if img is None:
             print(f"{ym}: no clear scene", flush=True)
+            continue
+        from PIL import ImageStat
+        if ImageStat.Stat(img.convert("L")).mean[0] < 35:
+            print(f"{ym}: dropped dark frame ({tag})", flush=True)
             continue
         frames.append(label(img, tag))
         print(f"{ym}: {tag}", flush=True)
