@@ -1,0 +1,24 @@
+{
+  "_doc": "Verified change centers: where each project is ACTUALLY changing, computed by scripts/find_change_center.py (wide-frame differencing, cloud-masked) and confirmed visually on rendered frames. Time-lapses and analytics aim here, not at site centroids.",
+  "sun_cat_ba": {
+    "lat": 20.7185,
+    "lon": 107.048,
+    "zoom": 16,
+    "verified": "2026-07-15",
+    "how": "visual (reclamation crescent)"
+  },
+  "vinhomes_vu_yen": {
+    "lat": 20.87,
+    "lon": 106.742,
+    "zoom": 15,
+    "verified": "2026-07-15",
+    "how": "visual (villa/golf/canal build-out, NW island)"
+  },
+  "ha_long_xanh": {
+    "lat": 20.91,
+    "lon": 106.9,
+    "zoom": 15,
+    "verified": "2026-07-15",
+    "how": "wide-diff + visual (pond drainage, Hoang Tan)"
+  }
+}
