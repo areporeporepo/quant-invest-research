@@ -27,7 +27,7 @@ from app.satellite import (PLANET_SEARCH_URL, PLANET_TILE_URL, SITES,  # noqa: E
                            _lonlat_to_tile)
 
 ZOOM, GRID = 15, 3
-FRAME = 512
+FRAME = 768  # native 3x3 tile resolution — no downscaling, max quality
 
 
 def month_iter(start: str, end: str):
@@ -142,11 +142,11 @@ def label(img, text: str):
     draw = ImageDraw.Draw(img)
     try:
         font = ImageFont.truetype(
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 26)
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 34)
     except Exception:
         font = ImageFont.load_default()
-    draw.rectangle([0, FRAME - 44, FRAME, FRAME], fill=(13, 17, 23))
-    draw.text((12, FRAME - 38), text, fill=(230, 237, 243), font=font)
+    draw.rectangle([0, FRAME - 54, FRAME, FRAME], fill=(13, 17, 23))
+    draw.text((14, FRAME - 48), text, fill=(230, 237, 243), font=font)
     return img
 
 

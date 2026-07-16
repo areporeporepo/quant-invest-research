@@ -445,6 +445,11 @@ const SAT_SITES = {
   vlasta_thuy_nguyen: { label: 'Vlasta', ev: null, metricsKey: null },
   vinhomes_imperia:   { label: 'Imperia', ev: null, metricsKey: null },
   the_minato:         { label: 'Minato', ev: null, metricsKey: null },
+  meta_hyperion:      { label: '🌍 Meta Hyperion', ev: null, metricsKey: null },
+  stargate_abilene:   { label: '🌍 Stargate TX', ev: null, metricsKey: null },
+  palm_jebel_ali:     { label: '🌍 Palm Jebel Ali', ev: null, metricsKey: null },
+  amazon_rainier:     { label: '🌍 AWS Rainier', ev: null, metricsKey: null },
+  funan_techo:        { label: '🌍 Kênh Funan', ev: null, metricsKey: null },
 };
 
 function renderSatChips() {

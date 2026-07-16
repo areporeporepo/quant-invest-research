@@ -101,6 +101,36 @@ SITES: dict[str, Site] = {
         note="~4,110 ha approved coastal mega-project along the Hạ Long–"
         "Hải Phòng expressway; wetland conversion and reclamation visible "
         "from orbit (approx. centroid, verify against plans)."),
+    # --- World mega-projects (satellite tracking only, not the VN research) ---
+    "meta_hyperion": Site(
+        key="meta_hyperion",
+        name="Meta Hyperion AI campus (Richland Parish, Louisiana)",
+        lat=32.4771, lon=-91.6323,
+        note=">$50B / 5 GW — largest AI campus in the Western Hemisphere, "
+        "rising from flat farmland (coords: Wikipedia site point)."),
+    "stargate_abilene": Site(
+        key="stargate_abilene",
+        name="OpenAI Stargate I (Abilene, Texas)",
+        lat=32.5029, lon=-99.7834,
+        note="Flagship Stargate site, ~8 buildings / 1.2 GW (OSM polygon)."),
+    "palm_jebel_ali": Site(
+        key="palm_jebel_ali",
+        name="Palm Jebel Ali (Dubai)",
+        lat=25.0050, lon=55.0130,
+        note="13.4 km2 palm archipelago restarting after 15 dormant years; "
+        "544 villas contracted 4/2026."),
+    "amazon_rainier": Site(
+        key="amazon_rainier",
+        name="AWS Project Rainier (New Carlisle, Indiana)",
+        lat=41.6675, lon=-86.4736,
+        note="2.2 GW Anthropic training campus — where Claude is trained; "
+        "buildings 17-18 under construction (OSM-mapped)."),
+    "funan_techo": Site(
+        key="funan_techo",
+        name="Funan Techo Canal head (Kandal, Cambodia)",
+        lat=11.4419, lon=105.1894,
+        note="$1.7B, 180 km canal rerouting Mekong trade; Section II broke "
+        "ground 4/2026 (OSM-mapped canal head)."),
 }
 
 
