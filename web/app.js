@@ -29,9 +29,8 @@ const I18N = {
     outlook_title: (l) => `Triển vọng ${l} → 2029 (kịch bản có lập luận)`,
     tab_sat: 'Vệ tinh',
     sat_vuyen: 'Vũ Yên', sat_catba: 'Cát Bà', sat_halong: 'Hạ Long Xanh',
-    gif_caption_vuyen: 'Time-lapse Vinhomes Royal Island, Vũ Yên (hằng tháng, Planet 3 m, vệ tinh chụp hằng ngày).',
-    gif_caption_catba: 'Time-lapse lấn biển vịnh trung tâm Cát Bà (hằng tháng, Planet 3 m).',
-    gif_caption_halong: 'Time-lapse Vinhomes Hạ Long Xanh, Quảng Yên (hằng tháng, Planet 3 m).',
+    gif_caption_daily: (n) => `Time-lapse ${n} — mỗi khung = một ngày quang mây, Planet 3 m, phóng vào khu vực đang thay đổi.`,
+    gif_pending: 'GIF cho khu vực này đang được dựng — quay lại sau ít phút.',
     pm_title: 'Số đo Planet 3 m (tỷ lệ % trên vùng ảnh phủ — so sánh %, không so sánh ha tuyệt đối)',
     pm_none: 'Chưa có số đo Planet cho khu vực này — routine hằng ngày sẽ bổ sung.',
     outlook_all: 'Triển vọng 2029 — tất cả dự án (USD/m², giả định)',
@@ -66,9 +65,8 @@ const I18N = {
     outlook_title: (l) => `${l} outlook → 2029 (reasoned scenarios)`,
     tab_sat: 'Satellite',
     sat_vuyen: 'Vũ Yên', sat_catba: 'Cát Bà', sat_halong: 'Hạ Long Xanh',
-    gif_caption_vuyen: 'Vinhomes Royal Island (Vũ Yên) time-lapse (monthly, Planet 3 m, daily-revisit constellation).',
-    gif_caption_catba: 'Cát Bà central-bay reclamation time-lapse (monthly, Planet 3 m).',
-    gif_caption_halong: 'Vinhomes Hạ Long Xanh (Quảng Yên) time-lapse (monthly, Planet 3 m).',
+    gif_caption_daily: (n) => `${n} time-lapse — one frame per clear day, Planet 3 m, zoomed on the changing area.`,
+    gif_pending: 'This site\'s GIF is still rendering — check back shortly.',
     pm_title: 'Planet 3 m metrics (% of covered area — compare shares, not absolute ha)',
     pm_none: 'No Planet metrics for this site yet — the daily routine will add them.',
     outlook_all: '2029 outlook — all projects (USD/m², assumptions)',
@@ -431,30 +429,39 @@ function renderOutlookCard(cone) {
 
 /* ---------------- Satellite view ---------------- */
 
-let satSite = 'vu_yen';
+let satSite = 'vinhomes_vu_yen';
 let planetMetricsCache = null;
 
+// Every tracked project gets a Planet daily time-lapse (docs/media/<key>.gif).
 const SAT_SITES = {
-  vu_yen: { gif: 'vuyen_royal_island.gif', cap: 'gif_caption_vuyen', metricsKey: null },
-  cat_ba: { gif: 'catba_lanbien.gif', cap: 'gif_caption_catba', metricsKey: 'sun_cat_ba' },
-  ha_long: { gif: 'halong_xanh.gif', cap: 'gif_caption_halong', metricsKey: 'ha_long_xanh' },
+  vinhomes_vu_yen:    { label: 'Vũ Yên', ev: 'vu_yen', metricsKey: null },
+  sun_cat_ba:         { label: 'Cát Bà', ev: 'cat_ba', gif: 'catba_lanbien.gif', metricsKey: 'sun_cat_ba' },
+  ha_long_xanh:       { label: 'Hạ Long Xanh', ev: 'ha_long_xanh', metricsKey: 'ha_long_xanh' },
+  green_paradise:     { label: 'Cần Giờ', ev: null, metricsKey: null },
+  ocean_park_1:       { label: 'Ocean Park 1', ev: null, metricsKey: null },
+  ocean_park_2:       { label: 'Ocean Park 2', ev: null, metricsKey: null },
+  grand_park:         { label: 'Grand Park', ev: null, metricsKey: null },
+  golden_avenue:      { label: 'Móng Cái', ev: null, metricsKey: null },
+  vlasta_thuy_nguyen: { label: 'Vlasta', ev: null, metricsKey: null },
+  vinhomes_imperia:   { label: 'Imperia', ev: null, metricsKey: null },
+  the_minato:         { label: 'Minato', ev: null, metricsKey: null },
 };
 
 function renderSatChips() {
-  $('chips').innerHTML = Object.keys(SAT_SITES).map((k) =>
-    `<button class="${satSite === k ? 'on' : ''}" data-s="${k}">${t('sat_' + k.replace('_', ''))}</button>`
+  $('chips').innerHTML = Object.entries(SAT_SITES).map(([k, c]) =>
+    `<button class="${satSite === k ? 'on' : ''}" data-s="${k}">${c.label}</button>`
   ).join('');
   [...$('chips').children].forEach((b) => {
     b.onclick = () => { satSite = b.dataset.s; showSat().catch(fail); };
   });
 }
 
-function gifPanel(file, captionKey) {
+function gifPanel(file, cfg) {
   $('gifbox').innerHTML =
     `<img src="media/${file}" alt="" style="width:100%;border-radius:10px;` +
     `border:1px solid var(--border)" loading="lazy" ` +
-    `onerror="this.style.display='none'">` +
-    `<p style="color:var(--muted);font-size:12px;margin:6px 2px">${t(captionKey)}</p>`;
+    `onerror="this.style.display='none';this.nextElementSibling.textContent=t('gif_pending')">` +
+    `<p style="color:var(--muted);font-size:12px;margin:6px 2px">${t('gif_caption_daily', cfg.label)}</p>`;
 }
 
 function pmRow(tag, m) {
@@ -470,8 +477,8 @@ async function showSat() {
   $('outlook').innerHTML = '';
   legend([]);
   const cfg = SAT_SITES[satSite];
-  setStatus(t('sat_' + satSite.replace('_', '')));
-  gifPanel(cfg.gif, cfg.cap);
+  setStatus(cfg.label);
+  gifPanel(cfg.gif || (satSite + '.gif'), cfg);
   let html = '';
   if (cfg.metricsKey) {
     try {
@@ -481,9 +488,8 @@ async function showSat() {
     } catch (_) {}
   }
   setDetail(html || t('pm_none'));
-  const evs = (await loadEvents()).filter((e) =>
-    e.relevance === (satSite === 'vu_yen' ? 'vu_yen'
-      : satSite === 'cat_ba' ? 'cat_ba' : 'ha_long_xanh'));
+  const evs = cfg.ev
+    ? (await loadEvents()).filter((e) => e.relevance === cfg.ev) : [];
   renderEventList(evs);
 }
 

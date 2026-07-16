@@ -7,7 +7,11 @@ frame with its date and source, and assembles an animated GIF.
 OUTPUT IS PRIVATE: written outside the repo (path argument), never committed
 — Planet imagery is licensed for internal research use, not redistribution.
 
-Run: python scripts/timelapse_gif.py /path/out.gif [start_ym] [end_ym]
+Run (monthly): python scripts/timelapse_gif.py out.gif SITE START_YM END_YM
+Run (daily):   python scripts/timelapse_gif.py out.gif SITE START END --daily \
+                   [--zoom 16] [--lat L --lon L] [--max-frames 220]
+Daily mode makes one frame per clear day (bulk archive search), zoomed on
+the actively changing area via --lat/--lon/--zoom.
 """
 
 from __future__ import annotations
@@ -36,50 +40,81 @@ def month_iter(start: str, end: str):
             y, m = y + 1, 1
 
 
-def planet_frame(site, ym: str):
-    """Best Planet scene of the month as a stitched tile image, or None."""
+def search_scenes(lat: float, lon: float, gte: str, lte: str,
+                  max_cloud: float = 0.1):
+    """Bulk paginated PSScene search over a small AOI, oldest first."""
     import requests
-    from PIL import Image
 
+    auth = (settings.planet_api_key, "")
+    half = 0.012
+    geometry = {"type": "Polygon", "coordinates": [[
+        [lon - half, lat - half], [lon + half, lat - half],
+        [lon + half, lat + half], [lon - half, lat + half],
+        [lon - half, lat - half]]]}
+    feats, url, body = [], PLANET_SEARCH_URL, {
+        "item_types": ["PSScene"], "filter": {"type": "AndFilter", "config": [
+            {"type": "GeometryFilter", "field_name": "geometry", "config": geometry},
+            {"type": "DateRangeFilter", "field_name": "acquired",
+             "config": {"gte": f"{gte}T00:00:00Z", "lte": f"{lte}T23:59:59Z"}},
+            {"type": "RangeFilter", "field_name": "cloud_cover",
+             "config": {"lte": max_cloud}},
+            {"type": "PermissionFilter", "config": ["assets:download"]},
+        ]}}
+    import time as _t
+    r = requests.post(url, auth=auth, timeout=60, json=body)
+    r.raise_for_status()
+    page = r.json()
+    while True:
+        feats += page.get("features", [])
+        nxt = page.get("_links", {}).get("_next")
+        if not nxt or len(feats) > 5000:
+            break
+        _t.sleep(0.3)
+        pr = requests.get(nxt, auth=auth, timeout=60)
+        pr.raise_for_status()
+        page = pr.json()
+    feats.sort(key=lambda f: f["properties"].get("acquired", ""))
+    return feats
+
+
+def stitch_tiles(item_id: str, lat: float, lon: float,
+                 zoom: int, grid: int):
+    """Stitch a grid of XYZ tiles for one scene; None if dark/uncovered."""
+    import requests
+    from PIL import Image, ImageStat
+
+    auth = (settings.planet_api_key, "")
+    cx, cy = _lonlat_to_tile(lon, lat, zoom)
+    off = grid // 2
+    canvas = Image.new("RGB", (grid * 256, grid * 256))
+    try:
+        for dy in range(grid):
+            for dx in range(grid):
+                url = PLANET_TILE_URL.format(item=item_id, z=zoom,
+                                             x=cx - off + dx, y=cy - off + dy)
+                tr = requests.get(url, auth=auth, timeout=30)
+                tr.raise_for_status()
+                canvas.paste(Image.open(io.BytesIO(tr.content)),
+                             (dx * 256, dy * 256))
+    except Exception:
+        return None
+    if ImageStat.Stat(canvas.convert("L")).mean[0] < 35:
+        return None
+    return canvas
+
+
+def planet_frame(site, ym: str, lat=None, lon=None, zoom=None, grid=None):
+    """Best Planet scene of the month as a stitched tile image, or None."""
     if not settings.planet_api_key:
         return None, None
-    auth = (settings.planet_api_key, "")
-    half = 0.02
-    geometry = {"type": "Polygon", "coordinates": [[
-        [site.lon - half, site.lat - half], [site.lon + half, site.lat - half],
-        [site.lon + half, site.lat + half], [site.lon - half, site.lat + half],
-        [site.lon - half, site.lat - half]]]}
+    lat, lon = lat or site.lat, lon or site.lon
+    zoom, grid = zoom or ZOOM, grid or GRID
     try:
-        resp = requests.post(PLANET_SEARCH_URL, auth=auth, timeout=30, json={
-            "item_types": ["PSScene"], "filter": {"type": "AndFilter", "config": [
-                {"type": "GeometryFilter", "field_name": "geometry", "config": geometry},
-                {"type": "DateRangeFilter", "field_name": "acquired",
-                 "config": {"gte": f"{ym}-01T00:00:00Z", "lte": f"{ym}-28T23:59:59Z"}},
-                {"type": "RangeFilter", "field_name": "cloud_cover", "config": {"lte": 0.1}},
-                {"type": "PermissionFilter", "config": ["assets:download"]},
-            ]}})
-        resp.raise_for_status()
-        feats = sorted(resp.json().get("features", []),
-                       key=lambda f: f["properties"].get("cloud_cover", 1.0))
-        cx, cy = _lonlat_to_tile(site.lon, site.lat, ZOOM)
-        off = GRID // 2
-        # Narrow PSScene strips may not cover our tile window and render
-        # black — try up to 4 candidate scenes and brightness-check each.
-        from PIL import ImageStat
+        feats = search_scenes(lat, lon, f"{ym}-01", f"{ym}-28")
+        feats.sort(key=lambda f: f["properties"].get("cloud_cover", 1.0))
         for cand in feats[:4]:
-            canvas = Image.new("RGB", (GRID * 256, GRID * 256))
-            try:
-                for dy in range(GRID):
-                    for dx in range(GRID):
-                        url = PLANET_TILE_URL.format(item=cand["id"], z=ZOOM,
-                                                     x=cx - off + dx, y=cy - off + dy)
-                        tr = requests.get(url, auth=auth, timeout=30)
-                        tr.raise_for_status()
-                        canvas.paste(Image.open(io.BytesIO(tr.content)),
-                                     (dx * 256, dy * 256))
-            except Exception:
-                continue
-            if ImageStat.Stat(canvas.convert("L")).mean[0] >= 35:
+            canvas = stitch_tiles(cand["id"], lat, lon, zoom, grid)
+            if canvas is not None:
                 return canvas, (f"{cand['properties'].get('acquired', '')[:10]}"
                                 " · Planet 3m · © Planet Labs PBC")
         return None, None
@@ -102,13 +137,61 @@ def label(img, text: str):
     return img
 
 
-def main() -> None:
-    out = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("/tmp/timelapse.gif")
-    site_key = sys.argv[2] if len(sys.argv) > 2 else "sun_cat_ba"
-    start = sys.argv[3] if len(sys.argv) > 3 else "2024-06"
-    end = sys.argv[4] if len(sys.argv) > 4 else "2026-07"
-    site = SITES[site_key]
+def daily_frames(site, args):
+    """One frame per clear day: bulk-search the archive, dedupe to the
+    least-cloudy scene per day, stitch, and evenly sample to max_frames."""
+    lat, lon = args.lat or site.lat, args.lon or site.lon
+    feats = search_scenes(lat, lon, args.start, args.end)
+    by_day = {}
+    for f in feats:
+        day = f["properties"].get("acquired", "")[:10]
+        cc = f["properties"].get("cloud_cover", 1.0)
+        if day and (day not in by_day or cc < by_day[day][1]):
+            by_day[day] = (f["id"], cc)
+    days = sorted(by_day)
+    print(f"{len(feats)} scenes -> {len(days)} clear days", flush=True)
+    frames = []
+    for day in days:
+        canvas = stitch_tiles(by_day[day][0], lat, lon, args.zoom, args.grid)
+        if canvas is None:
+            continue
+        frames.append(label(canvas, f"{day} · Planet 3m · © Planet Labs PBC"))
+        print(f"{day}: ok ({len(frames)})", flush=True)
+    if len(frames) > args.max_frames:
+        step = len(frames) / args.max_frames
+        frames = [frames[int(i * step)] for i in range(args.max_frames)]
+        print(f"sampled down to {len(frames)} frames", flush=True)
+    return frames
 
+
+def main() -> None:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("out"); ap.add_argument("site", nargs="?", default="sun_cat_ba")
+    ap.add_argument("start", nargs="?", default="2024-06")
+    ap.add_argument("end", nargs="?", default="2026-07")
+    ap.add_argument("--daily", action="store_true")
+    ap.add_argument("--zoom", type=int, default=None)
+    ap.add_argument("--grid", type=int, default=3)
+    ap.add_argument("--lat", type=float, default=None)
+    ap.add_argument("--lon", type=float, default=None)
+    ap.add_argument("--max-frames", type=int, default=220)
+    args = ap.parse_args()
+    out = Path(args.out)
+    site = SITES[args.site]
+    args.zoom = args.zoom or (16 if args.daily else ZOOM)
+
+    if args.daily:
+        frames = daily_frames(site, args)
+        if len(frames) < 3:
+            print("not enough frames"); return
+        durations = [1500] + [130] * (len(frames) - 2) + [2400]
+        frames[0].save(out, save_all=True, append_images=frames[1:],
+                       duration=durations, loop=0, optimize=True)
+        print(f"GIF: {out} ({out.stat().st_size // 1024} KB, {len(frames)} frames)")
+        return
+
+    site_key, start, end = args.site, args.start, args.end
     frames = []
     # Pre-project baseline frame first (Planet archive reaches back years).
     img, tag = planet_frame(site, "2023-01")
