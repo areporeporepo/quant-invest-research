@@ -77,6 +77,19 @@ def search_scenes(lat: float, lon: float, gte: str, lte: str,
     return feats
 
 
+def frame_ok(img) -> bool:
+    """Reject dark (uncovered strip) and hazy (washed-out) frames.
+    Haze calibration: clear land saturation ~55, haze ~15-22."""
+    import numpy as np
+    from PIL import Image
+
+    L = np.asarray(img.convert("L"))
+    if L.mean() < 35:
+        return False
+    sat = np.asarray(img.convert("HSV"))[:, :, 1]
+    return float(sat.mean()) >= 35
+
+
 def stitch_tiles(item_id: str, lat: float, lon: float,
                  zoom: int, grid: int):
     """Stitch a grid of XYZ tiles for one scene; None if dark/uncovered."""
@@ -98,7 +111,7 @@ def stitch_tiles(item_id: str, lat: float, lon: float,
                              (dx * 256, dy * 256))
     except Exception:
         return None
-    if ImageStat.Stat(canvas.convert("L")).mean[0] < 35:
+    if not frame_ok(canvas):
         return None
     return canvas
 
@@ -205,9 +218,8 @@ def main() -> None:
         if img is None:
             print(f"{ym}: no clear scene", flush=True)
             continue
-        from PIL import ImageStat
-        if ImageStat.Stat(img.convert("L")).mean[0] < 35:
-            print(f"{ym}: dropped dark frame ({tag})", flush=True)
+        if not frame_ok(img):
+            print(f"{ym}: dropped dark/hazy frame ({tag})", flush=True)
             continue
         frames.append(label(img, tag))
         print(f"{ym}: {tag}", flush=True)
