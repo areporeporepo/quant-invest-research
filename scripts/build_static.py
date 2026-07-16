@@ -261,12 +261,39 @@ historical points converted at yearly-average FX.</p>
 support — effective prices sit below headline.</p>
 <h2>Planet 3 m land-cover metrics (shares of covered area; PSScene strips partially cover AOIs — compare shares, not hectares)</h2>
 {planet_html(data)}
-<h2>Time-lapse animations (in-repo, monthly frames, attribution on frames)</h2>
-<p><a href="media/catba_lanbien.gif">media/catba_lanbien.gif</a> — Cát Bà central-bay reclamation ·
-<a href="media/halong_xanh.gif">media/halong_xanh.gif</a> — Vinhomes Hạ Long Xanh (Quảng Yên).</p>
+<h2>Time-lapse animations (in-repo, daily cadence — one frame per clear
+PlanetScope day, zoomed on each project's verified change zone; attribution on
+frames)</h2>
+<ul>{gif_links()}</ul>
 <h2>Events (newest first)</h2>
 <ul>{events}</ul>
 </section>"""
+
+
+def gif_links() -> str:
+    """One line per in-repo time-lapse GIF, with the site's full name and the
+    date range straight from the first/last frame labels."""
+    import sys
+
+    from PIL import Image
+
+    sys.path.insert(0, str(ROOT))
+    from app.satellite import SITES
+
+    names = {k: s.name for k, s in SITES.items()}
+    names["catba_lanbien"] = SITES["sun_cat_ba"].name
+    items = []
+    for gif in sorted((ROOT / "docs" / "media").glob("*.gif")):
+        label = names.get(gif.stem, gif.stem)
+        try:
+            im = Image.open(gif)
+            n = im.n_frames
+            items.append(f'<li><a href="media/{gif.name}">media/{gif.name}</a>'
+                         f" — {label} ({n} frames)</li>")
+        except Exception:
+            items.append(f'<li><a href="media/{gif.name}">media/{gif.name}</a>'
+                         f" — {label}</li>")
+    return "".join(items)
 
 
 def planet_html(data: dict) -> str:

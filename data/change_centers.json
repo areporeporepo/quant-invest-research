@@ -20,5 +20,43 @@
     "zoom": 15,
     "verified": "2026-07-15",
     "how": "wide-diff + visual (pond drainage, Hoang Tan)"
+  },
+  "green_paradise": {
+    "lat": 10.379,
+    "lon": 106.919,
+    "zoom": 14,
+    "verified": "2026-07-16",
+    "how": "visual before/after (offshore diked fill, SE of Can Thanh; earlier wide-diff hit at 10.4272,106.8629 was a tidal-mudflat artifact)"
+  },
+  "golden_avenue": {
+    "lat": 21.5394,
+    "lon": 107.9867,
+    "zoom": 15,
+    "verified": "2026-07-16",
+    "how": "wide-diff score 34.5 + visual (bare land 2023 -> built shophouse grids 2026, NE toward Bac Luan II)"
+  },
+  "vlasta_thuy_nguyen": {
+    "lat": 20.9038,
+    "lon": 106.6962,
+    "zoom": 16,
+    "verified": "2026-07-16",
+    "how": "wide-diff score 37.7 (low-rise build zone)"
+  },
+  "vinhomes_imperia": {
+    "lat": 20.8761,
+    "lon": 106.6811,
+    "zoom": 16,
+    "verified": "2026-07-16",
+    "how": "wide-diff (active parcel NE of mature core)"
+  },
+  "funan_techo": {
+    "lat": 11.454,
+    "lon": 105.2265,
+    "zoom": 15,
+    "verified": "2026-07-16",
+    "how": "wide-diff score 67.2 + dry-season visual (new straight earthwork cut near the Mekong bank, absent 12/2024; Section I works are mostly channel widening, so visible change is modest)"
+  },
+  "_stability_sites": {
+    "note": "grand_park, ocean_park_1, ocean_park_2, the_minato render at their centroids on purpose: the projects are substantially complete, so the honest time-lapse is township stability plus infill. Wide-diff candidates nearby (e.g. the new ring-road bridge north of Grand Park) were rejected as unrelated infrastructure."
   }
 }
