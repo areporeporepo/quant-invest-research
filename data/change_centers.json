@@ -54,7 +54,7 @@
     "lon": 106.701,
     "zoom": 15,
     "verified": "2026-07-16",
-    "how": "wide-diff score 80.6 at 20.7742,106.6938, then re-centered on the graded core visually (farmland 11/2024 -> road grid + central-park circle 5/2026)"
+    "how": "wide-diff score 80.6 at 20.7742,106.6938, then re-centered on the graded core visually (farmland 11/2024 -> road grid + central-park circle 5/2026). Address cross-checked 17/7/2026: OSM reverse-geocode of this point returns 'KDT Vinhomes Golden City, Xa Kien Minh' (Kien Minh = Dong Phuong + Dai Dong + Minh Tan merged 1/7/2025, NQ 1669/NQ-UBTVQH15), and OSM's own Golden City entry (20.7774,106.7130, Hoa Nghia side) falls inside this frame"
   },
   "funan_techo": {
     "lat": 11.454,
