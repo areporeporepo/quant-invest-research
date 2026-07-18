@@ -437,6 +437,7 @@ const SAT_SITES = {
   vinhomes_vu_yen:    { label: 'Vũ Yên', ev: 'vu_yen', metricsKey: null },
   sun_cat_ba:         { label: 'Cát Bà', ev: 'cat_ba', gif: 'catba_lanbien.gif', metricsKey: 'sun_cat_ba' },
   ha_long_xanh:       { label: 'Hạ Long Xanh', ev: 'ha_long_xanh', metricsKey: 'ha_long_xanh' },
+  vinhomes_duong_kinh:{ label: 'Dương Kinh', ev: 'duong_kinh', metricsKey: null },
   green_paradise:     { label: 'Cần Giờ', ev: null, metricsKey: null },
   ocean_park_1:       { label: 'Ocean Park 1', ev: null, metricsKey: null },
   ocean_park_2:       { label: 'Ocean Park 2', ev: null, metricsKey: null },

@@ -94,6 +94,15 @@ SITES: dict[str, Site] = {
         lat=20.7273, lon=107.0483,
         note="Existing town — baseline for development-pressure comparison "
         "on the biosphere island."),
+    "vinhomes_duong_kinh": Site(
+        key="vinhomes_duong_kinh",
+        name="Vinhomes Golden City (Dương Kinh–Kiến Thụy, Hải Phòng)",
+        lat=20.7820, lon=106.7010,
+        note="~240 ha township across Hòa Nghĩa (Dương Kinh) and Đông "
+        "Phương/Đại Đồng (Kiến Thụy); total investment >23,200 bn VND. "
+        "Groundbreaking 11/5/2025 — clearing, grading and the central-park "
+        "circle visible from orbit within months (centroid of the graded "
+        "core, verified by wide-frame differencing)."),
     "ha_long_xanh": Site(
         key="ha_long_xanh",
         name="Vinhomes Hạ Long Xanh (Quảng Yên, Quảng Ninh)",

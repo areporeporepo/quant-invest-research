@@ -49,6 +49,13 @@
     "verified": "2026-07-16",
     "how": "wide-diff (active parcel NE of mature core)"
   },
+  "vinhomes_duong_kinh": {
+    "lat": 20.782,
+    "lon": 106.701,
+    "zoom": 15,
+    "verified": "2026-07-16",
+    "how": "wide-diff score 80.6 at 20.7742,106.6938, then re-centered on the graded core visually (farmland 11/2024 -> road grid + central-park circle 5/2026)"
+  },
   "funan_techo": {
     "lat": 11.454,
     "lon": 105.2265,
